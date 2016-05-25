@@ -1,0 +1,99 @@
+//Code: Complex MOP team, but edited
+
+Actor PossessedMonster : PlayerPawn
+{
+	-PICKUP
+	+NOSKIN
+	+NOTARGET
+	-FRIENDLY
+	+DontHurtSpecies
+	Species "PossessedByMOP"
+	Player.SoundClass "Possessed"
+	DamageFactor "Monster", 0
+	DamageFactor "MonsterIce", 0
+	DamageFactor "MonsterFire", 0
+	DamageFactor "Slime", 0	
+	
+	//Damages new to ROP
+	DamageFactor "MonsterMelee", 0
+	DamageFactor "PainElementalProjectile", 0
+	DamageFactor "MasterCubeRockets", 0
+	DamageFactor "CyberRocket", 0
+	DamageFactor "VileFireAura", 0
+	DamageFactor "BarrelExplosion", 0
+	States
+	{
+	Death:
+		TNT1 A 1
+		Loop
+	}
+}
+
+// takes no damage from puppetmasters
+Actor NewBossBrain : BossBrain replaces BossBrain
+{
+	DamageFactor "Monster", 0
+	DamageFactor "MonsterIce", 0
+	DamageFactor "MonsterFire", 0
+	DamageFactor "Slime", 0
+	
+	DamageFactor "MonsterMelee", 0
+	DamageFactor "PainElementalProjectile", 0
+	DamageFactor "MasterCubeRockets", 0
+	DamageFactor "CyberRocket", 0
+    DamageFactor "VileFireAura", 0
+	DamageFactor "BarrelExplosion", 0
+}
+
+Actor PossessedWeapon : Weapon
+{
+	+UNDROPPABLE
+	States
+	{
+	Ready:
+		TNT1 A 1 A_WeaponReady
+		Loop
+	Select:
+		TNT1 A 0 A_Raise
+		Loop
+	Deselect:
+		TNT1 A 1 A_Lower
+		Loop
+	Fire:
+		TNT1 A 0
+		Goto Ready
+	Spawn:
+		TNT1 A -1
+		Stop
+	}
+}
+
+Actor Attack1 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack2 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack3 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack4 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack5 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack6 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack7 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack8 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack9 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack10 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack11 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack12 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack13 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack14 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack15 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack16 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack17 : Inventory { Inventory.MaxAmount 1 }
+Actor Attack18 : Inventory { Inventory.MaxAmount 1 }
+
+
+Actor PossessedSuicide : Inventory
+{
+	Inventory.MaxAmount 2
+}
+
+Actor IsPossessed : Inventory
+{
+	Inventory.MaxAmount 1
+}

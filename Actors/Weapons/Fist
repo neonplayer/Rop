@@ -1,0 +1,22 @@
+Actor NewFist : Fist replaces Fist
+{
+  Decal BulletChip
+  Weapon.PreferredSkin "FistMarine"
+  Weapon.SlotNumber 1
+  States
+  {
+  Fire:
+    PUNG B 4
+    TNT1 A 0 A_JumpIfInventory("PowerStrength", 1, "Berserked")
+  Normal:
+    PUNG C 4 A_CustomPunch(2 * random(1, 10), TRUE, 0, "PlayerBulletPuff")
+    Goto FireEnd
+  Berserked:
+    PUNG C 4 A_CustomPunch(20 * random(1, 10), TRUE, 0, "PlayerBulletPuff")
+  FireEnd:
+    PUNG D 5
+    PUNG C 4
+    PUNG B 5 A_ReFire
+    Goto Ready
+  }
+}

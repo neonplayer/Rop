@@ -1,0 +1,127 @@
+#define MONSTER_ACTORNAME 0
+#define MONSTER_DIFFICULTY 1
+#define MONSTER_SCRIPT 2
+#define MONSTER_EVADESPEED 3
+#define MONSTER_FLAGS 4
+#define MONSTER_NAME 5
+#define MONSTER_SPRITE 6
+#define NUM_MONSTER_PROPERTIES 7
+
+#define MONSTF_FLYING 1
+#define MONSTF_BOSS 2
+
+int NumMonsterTypes = 0;
+#define MAX_MONSTER_TYPES 100
+int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES] =
+{
+
+	{ "Zombieman2",			0.055, 0, 0, 0, "Zombieman", "POSSA1" },
+	
+	{ "Shotgunguy2",		0.075, 0, 0, 0, "Shotgun Zombie", "SPOSA1" },
+	{ "EliteShotgunguy",	0.1, 0, 0, 0, "Elite Shotgun Zombie", "ESPSA1" },
+	
+	{ "Chaingunguy2",		0.09, 0, 0, 0, "Zombie Commando", "CPOSA1" },
+	
+	{ "Imp2",		        0.03, 0, 0, 0, "Imp", "TROOA1" },
+	{ "DarkImp",		    0.065, 0, 0, 0, "Dark Imp", "DRKVA1" },
+	
+	{ "Pinky",		        0.045, 0, 0, 0, "Demon", "SARGA1" },
+	{ "Spectre2",		    0.0475, 0, 0, 0, "Spectre", "SPTRA1" },
+	{ "LostSoul2",		    0.1, 0, 0, MONSTF_FLYING, "Lost Soul", "SKULA1" },
+	{ "Cacodemon2",		    0.25, 0, 0, MONSTF_FLYING, "Cacodemon", "HEADA1" },
+	{ "PainElemental2",		0.25, 0, 0, MONSTF_FLYING, "Pain Elemental", "PAINA1" },
+	{ "HellKnight2",		0.25, 0, 0, 0, "Hell Knight", "BOS2A1C1" },
+	{ "BaronofHell2",		0.35, 0, 0, 0, "Baron of Hell", "BOSSA1" },
+	{ "Revenant2",		    0.3, 0, 0, 0, "Revenant", "SKELA1D1" },
+	{ "Mancubus",		    0.3, 0, 0, 0, "Mancubus", "FATTA1" },
+	{ "Arachnotron2",		0.325, 0, 0, 0, "Arachnotron", "BSPIA1D1" },
+	{ "Archvile2",		    0.75, 0, 0, 0, "Arch-Vile", "VILEA1D1" },
+	{ "Spidermastermind2",	6.5, 0, 0, MONSTF_BOSS, "Spider Mastermind", "SPIDA1D1" },
+	{ "Cyberdemon2",		7.25, 0, 0, MONSTF_BOSS, "Cyberdemon", "CYBRA1" },
+    { "WolfensteinSS2",		0.075, 0, 0, 0, "Wolfenstein SS", "SSWVA1" },
+	
+	{ "NewExplosiveBarrel",	0.01, 0, 0, 0, "Explosive Barrel", "BAR1A0" },
+	
+	{ "MONSTERTYPES" }
+};
+
+function void CountMonsterTypes(void)
+{
+	while (StrCmp(MonsterTypes[NumMonsterTypes][0], "MONSTERTYPES"))
+		NumMonsterTypes++;
+}
+script mop_count_monstertypes_sv OPEN
+{
+	CountMonsterTypes();
+}
+script mop_count_monstertypes_cl OPEN CLIENTSIDE
+{
+	CountMonsterTypes();
+}
+
+// List of items that monsters can carry.
+#define NUM_MONSTER_ITEMS 7
+int MonsterItems[NUM_MONSTER_ITEMS] =
+{
+	"SSGZombieToken",
+	"QSGZombieToken",
+	"DukeToken",
+	"FamineMeleeToken",
+	"FamineDeathToken",
+	"SentientToken",
+	"CardinalToken"
+};
+
+script mop_phaseimp (void)
+{
+	//printbold(s:"start");
+
+	if (CheckInventory("PhaseImp_Phased"))
+		terminate;
+		
+	//printbold(s:"phase");
+
+	GiveInventory("PhaseImp_Phased", 1);
+	GiveInventory("PhaseImp_Phase", 1);
+	
+	for (int i = 0; i < 175; i++)
+	{
+		if (GetPlayerInput(-1, INPUT_BUTTONS) & BT_ATTACK)
+			break;
+			
+		Delay(1);
+	}
+	
+	//printbold(s:"unphase");
+	
+	GiveInventory("PhaseImp_Unphase", 1);
+	
+	Delay(175);
+	
+	//printbold(s:"cooldown");
+	
+	TakeInventory("PhaseImp_Phased", 1);
+}
+
+script mop_stopvile (void)
+{
+	SetActorVelocity(0, 0, 0, GetActorVelZ(0), false, true);
+}
+
+function int IdentifyMonsterType(int tid)
+{
+	for (int i = 0; i < NumMonsterTypes; i++)
+		if (ThingCountName(MonsterTypes[i][MONSTER_ACTORNAME], tid))
+			return i;
+			
+	return -1;
+}
+
+function int IdentifyPossessedMonsterType(int player)
+{
+	for (int i = 0; i < NumMonsterTypes; i++)
+		if (ThingCountName(StrParam(s:"Possessed", s:MonsterTypes[i][MONSTER_ACTORNAME]), 1000 + player))
+			return i;
+
+	return -1;
+}

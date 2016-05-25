@@ -1,0 +1,75 @@
+//Zombies
+
+PXZMDTH1		PXZMDTH1
+PXZMDTH2		PXZMDTH2
+PXZMDTH3		PXZMDTH3
+
+PXZMSIT1		PXZMSIT1
+PXZMSIT2		PXZMSIT2
+PXZMSIT3		PXZMSIT3
+
+PsxZombie/Pain  PXZMPAIN
+PsxZombie/Act   PXZMSACT
+
+$Random PsxZombie/Sight { PXZMSIT1 PXZMSIT2 PXZMSIT3 }
+$Random PsxZombie/Death { PXZMDTH1 PXZMDTH2 PXZMDTH3 }
+
+ExplosiveGuy/Fire	ESPOSFIR
+
+//Dark Imp
+
+PXMPSIT1		PXMPSIT1
+PXMPSIT2		PXMPSIT2
+
+PXMPDTH1		PXMPDTH1
+PXMPDTH2		PXMPDTH2
+
+PsxImp/Act      PXMPACT
+
+$Random PsxImp/Sight { PXMPSIT1 PXMPSIT2 }
+$Random PsxImp/Death { PXMPDTH1 PXMPDTH2 }
+
+//Fiend / Ethereal Fiend
+
+PsxPinky/Sight		PXPNKSIT
+PsxPinky/Death		PXPNKDTH
+PsxPinky/Attack		PXPNKATK
+PsxPinky/ACT		PXPNKACT
+
+//Shield
+
+ForceBarrier/On		DSFRCON
+ForceBarrier/Off	DSFRCOFF
+ForceBarrier/Loop	DSFRCLOP
+
+DSZAPHT1	DSZAPHT1
+DSZAPHT2	DSZAPHT2
+DSZAPHT3	DSZAPHT3
+
+
+$random ForceBarrier/Hit	{ DSZAPHT1 DSZAPHT2 DSZAPHT3 }
+$limit ForceBarrier/Hit	0
+
+//Sound definitions from Complex MOP
+
+game/canexit Signal
+
+$playersound	Possessed	male	*taunt		NOSOUND
+
+$random pm_taunt { pmaster/taunt1 pmaster/taunt2 pmaster/taunt3 }
+
+pmaster/taunt1 Msnd1
+pmaster/taunt2 Msnd4
+pmaster/taunt3 Msnd5
+
+$playersound    PuppetMaster male *pain100 Msnd3  
+$playersounddup PuppetMaster male *pain75 *pain100
+$playersounddup PuppetMaster male *pain50 *pain100
+$playersounddup PuppetMaster male *pain25 *pain100
+$playersound    PuppetMaster male *death Msnd3
+$playersound    PuppetMaster male *xdeath Msnd3
+$playersound    PuppetMaster male *usefail Msnd2
+$playersounddup PuppetMaster male *grunt *pain100
+$playersounddup PuppetMaster male *land *pain100
+$playersound    PuppetMaster male *jump Msnd2
+$playeralias    PuppetMaster male *taunt pm_taunt  

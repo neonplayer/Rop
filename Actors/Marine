@@ -1,0 +1,41 @@
+Actor MarinePlayer : DoomPlayer
+{
+  Player.StartItem "NewPistol"
+  Player.StartItem "NewFist"
+  Player.StartItem "Clip", 50
+  
+  Player.StartItem "PistolClip", 12
+  Player.StartItem "ShotgunClip", 8
+  Player.StartItem "ChaingunClip", 40
+  Player.StartItem "SSGClip", 2
+  Player.StartItem "PlasmaClip", 50
+  Player.StartItem "RocketClip", 5
+  
+  Player.StartItem "IsMarine", 1
+  
+  damagefactor "bfgsplash", 0
+  DamageFactor "MarinePuff", 0
+  
+  Player.WeaponSlot 1, NewFist, NewChainsaw
+  Player.WeaponSlot 2, NewPistol
+  Player.WeaponSlot 3, NewShotgun, NewSSG
+  Player.WeaponSlot 4, NewChaingun
+  Player.WeaponSlot 5, NewRocketLauncher
+  Player.WeaponSlot 6, NewPlasmaRifle
+  Player.WeaponSlot 7, NewBFG9000
+  Player.WeaponSlot 8, ShieldGenerator
+}
+
+Actor IsMarine : Inventory { Inventory.MaxAmount 1 }
+
+ACTOR ShadowEffect : PowerInvisibility
+{
+  Powerup.Duration 0x7FFFFFFD
+  Powerup.Strength 50
+  Powerup.Mode "Cumulative"
+}
+
+ACTOR InvulEffect : PowerInvulnerable
+{
+  Powerup.Duration 0x7FFFFFFD
+}

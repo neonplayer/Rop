@@ -1,0 +1,32 @@
+ROP r3:
+
+<Put changes here>
+
+ROP r2b:
+
+- Fixed elite sargeants not spawning.
+- Fixed chaingunners shooting at random shit.
+- Fixed arachnotron's altfire being the same as his primary.
+- Made possessed imp's fireball twice as fast.
+- Fixed hud's ammo not displaying 3 digit numbers.
+
+ROP r2:
+
+- Fixed marines being able to teamkill each other. (well, except for rocket launcher because idk how to fix that.)
+- Made puppet's shotgunner more accurate.
+- Made puppet's shotgunner altfire recoil more. (from -8.5 to -13.5)
+- shield gun gives more ammo upon pickup.
+- Fixed teamkill messages.
+- Made marine's shotgun more accurate and fire faster.
+- Added weapon sprites to zombiemen, shotgunners and arachnotrons.
+- Added Zombie elite sargeant. (rare shotgunner).
+- Added Dark Imp (rare imp).
+
+ROP r1a:
+
+- Fixed hud not showing if mop_pistolstart is 0.
+- Fixed pistol and shotgun playing their firing noise twice.
+
+ROP r1:
+
+- Test release, to see if my shitty code works. (spoiler: it doesn't.)

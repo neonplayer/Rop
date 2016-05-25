@@ -1,0 +1,35 @@
+statusbar fullscreen, fullscreenoffsets, 0.75
+{
+  InInventory IsMarine //Puppet hud is in the acs
+  {
+    DrawNumber 3, HudFont_Doom, Red, Health, InterPolate(50), 80, -20;
+    InInventory PowerStrength
+    {
+    DrawImage "PSTRA0", 25, -4, CenterBottom;
+    }
+    InInventory Not  PowerStrength
+    {
+    DrawImage "MEDIA0", 25, -4, CenterBottom;
+    }
+	
+	DrawNumber 3, HudFont_Doom, Green, Armor, InterPolate(50), WhenNotZero, 300, -20;
+	DrawImage ArmorIcon, 245, -4, CenterBottom;
+	
+	DrawNumber 3, HudFont_Doom, Yellow, Ammo2, InterPolate(50), 198, -20;
+	DrawNumber 3, HudFont_Doom, Yellow, Ammo1, InterPolate(50), 148, -20;
+	
+	DrawNumber 3, IndexFont, White, Ammo Clip, 300, -68;
+	DrawNumber 3, IndexFont, White, Ammo Shell, 300, -58;
+	DrawNumber 3, IndexFont, White, Ammo RocketAmmo, 300, -48;
+	DrawNumber 3, IndexFont, White, Ammo Cell, 300, -38;
+	DrawNumber 3, IndexFont, White, Ammo ShieldAmmo, 300, -28;
+	
+	DrawSwitchableImage KeySlot 2, "TNT1A0", "STKEYS0", 89, -30;
+	DrawSwitchableImage KeySlot 3, "TNT1A0", "STKEYS1", 89, -20;
+	DrawSwitchableImage KeySlot 1, "TNT1A0", "STKEYS2", 89, -10;
+	DrawSwitchableImage KeySlot 5, "TNT1A0", "STKEYS3", 99, -30;
+	DrawSwitchableImage KeySlot 6, "TNT1A0", "STKEYS4", 99, -20;
+	DrawSwitchableImage KeySlot 4, "TNT1A0", "STKEYS5", 99, -10;
+  }
+}
+

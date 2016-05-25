@@ -1,0 +1,58 @@
+Actor ShotguyRandomizer : RandomSpawner replaces Shotgunguy
+{
+  DropItem "Shotgunguy2", 256, 88
+  DropItem "EliteShotgunguy", 256, 12
+}
+
+Actor Imprandomizer : RandomSpawner replaces DoomImp
+{
+  DropItem "Imp2", 256, 80
+  DropItem "DarkImp", 256, 20
+}
+
+#Include Actors/Scripts
+
+#Include Actors/Enemies/Vanilla
+
+//List of enemies, which will be added in v2.
+
+//#Include Actors/Enemies/ZombieCyborg
+#Include Actors/Enemies/EliteShotZombie
+//#Include Actors/Enemies/RocketZombie
+#Include Actors/Enemies/DarkImp
+//#Include Actors/Enemies/Fiend
+//#Include Actors/Enemies/EtherealFiend
+//#Include Actors/Enemies/tERROR
+//#Include Actors/Enemies/Erroremental
+//#Include Actors/Enemies/Beholder
+//#Include Actors/Enemies/HellCrusader
+//#Include Actors/Enemies/Bishop
+//#Include Actors/Enemies/NewRevenant //Haven't thought of anything yet.
+//#Include Actors/Enemies/Torment
+//#Include Actors/Enemies/Aracknight
+//#Include Actors/Enemies/ShadowOfTheDamned
+//#Include Actors/Enemies/Cardinal
+//#Include Actors/Enemies/Overmind
+
+#Include Actors/Enemies/PossessedBase
+#Include Actors/Enemies/Possessed
+
+//I might add more enemies in the future, but for now these guys will do.
+
+#Include Actors/Weapons/Fist
+#Include Actors/Weapons/Chainsaw
+#Include Actors/Weapons/Pistol
+#Include Actors/Weapons/Shotgun
+#Include Actors/Weapons/SSG
+#Include Actors/Weapons/Chaingun
+#Include Actors/Weapons/RocketLauncher
+#Include Actors/Weapons/PlasmaRifle
+#Include Actors/Weapons/BFG9k
+
+//#Include Actors/Items
+#Include Actors/Weapons/ShieldGen
+
+
+#Include Actors/Marine
+#Include Actors/PuppetMaster
+#Include Actors/BulletPuffs

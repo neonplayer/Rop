@@ -1,0 +1,76 @@
+Actor NewShotgun : Shotgun replaces Shotgun
+{
+  Weapon.SlotNumber 3
+  Weapon.AmmoType "ShotgunClip"
+  Weapon.AmmoType2 "Shell"  
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive2 8
+  Weapon.AmmoGive 0
+  +WEAPON.AMMO_OPTIONAL
+  +WEAPON.NOALERT
+  Weapon.PreferredSkin "ShotgunMarine"
+  Decal BulletChip
+  Scale 0.85
+  States
+  {
+  Deselect:
+    SHTG A 1 A_Lower
+	SHTG A 0 A_Lower
+    Loop
+  Select:
+    SHTG A 1 A_Raise
+	SHTG A 0 A_Lower
+    Loop
+  Fire:
+    PISG A 0 A_JumpIfNoAmmo("AltFire")
+    SHTG A 3 OffSet(0, 32)
+	SHTG A 0 A_AlertMonsters
+    SHTG A 0 A_FireBullets (3.5, 3.5, 7, 5, "PlayerBulletPuff")
+    SHTG A 7 A_GunFlash
+    SHTG BC 5
+    SHTG D 4
+    SHTG CB 5
+    SHTG A 3
+    SHTG A 7 A_ReFire
+    Goto Ready
+  AltFire:
+    TNT1 A 0 A_JumpIfInventory("ShotgunClip",8,2)
+    TNT1 A 0 A_JumpIfInventory("Shell",1,2)
+	TNT1 A 0
+	Goto Ready
+	TNT1 A 0 A_JumpIfInventory("Shell", 1, 1)
+	Goto Ready
+	SHTG BC 5
+	TNT1 A 0 A_JumpIfInventory("ShotgunClip",8,"StopReloading")
+	SHTG D 1 OffSet(0, 36) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
+	SHTG D 1 OffSet(0, 44) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
+	SHTG D 1 OffSet(0, 50) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
+	SHTG D 1 OffSet(0, 60) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
+	SHTG A 0 A_LoadShotgun2
+	SHTG A 0 A_JumpIfInventory("Shell", 1, 1)
+	Goto StopReloading
+	SHTG A 0 A_TakeInventory("Shell", 1)
+	SHTG A 0 A_GiveInventory("ShotgunClip", 1)
+	TNT1 A 0 A_JumpIfInventory("ShotgunClip",8,"StopReloading")
+	SHTG D 1 OffSet(0, 60) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
+	SHTG D 1 OffSet(0, 50) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
+	SHTG D 1 OffSet(0, 44) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
+	SHTG D 1 OffSet(0, 36) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
+	SHTG D 5 OffSet(0, 32) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
+	Goto AltFire+7
+  StopReloading:
+	SHTG CB 5 OffSet(0, 32)
+	SHTG A 3
+	Goto Ready
+  }
+}
+
+ACTOR ShotgunClip : Ammo
+{
+  Inventory.Amount 0
+  Inventory.MaxAmount 8
+  Ammo.BackpackAmount 0
+  Ammo.BackpackMaxAmount 8
+  Inventory.Icon "SBOXA0"
+  +IGNORESKILL
+}

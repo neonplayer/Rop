@@ -1,0 +1,565 @@
+//Projectiles
+
+object MonsterBulletPuff
+{
+    frame PUFFA { light BPUFF1 }
+    frame PUFFB { light BPUFF2 }
+}
+
+object NewImpBall
+{
+    frame BAL1A { light IMPBALL    }
+    frame BAL1B { light IMPBALL    }
+
+    frame BAL1C { light IMPBALL_X1 }
+    frame BAL1D { light IMPBALL_X2 }
+    frame BAL1E { light IMPBALL_X3 }
+}
+
+object PossessedImpBall
+{
+    frame BAL1A { light IMPBALL    }
+    frame BAL1B { light IMPBALL    }
+
+    frame BAL1C { light IMPBALL_X1 }
+    frame BAL1D { light IMPBALL_X2 }
+    frame BAL1E { light IMPBALL_X3 }
+}
+
+object CacodemonWeaverBall2
+{
+    frame BAL2A { light CACOBALL }
+    frame BAL2B { light CACOBALL }
+
+    frame BAL2C { light CACOBALL_X1 }
+    frame BAL2D { light CACOBALL_X2 }
+    frame BAL2E { light CACOBALL_X3 }
+}
+
+object CacodemonWeaverBall1
+{
+    frame BAL2A { light CACOBALL }
+    frame BAL2B { light CACOBALL }
+
+    frame BAL2C { light CACOBALL_X1 }
+    frame BAL2D { light CACOBALL_X2 }
+    frame BAL2E { light CACOBALL_X3 }
+}
+
+object LostSoulProjectile
+{
+    frame SKULA { light LOSTSOUL    }
+    frame SKULB { light LOSTSOUL    }
+    frame SKULC { light LOSTSOUL    }
+    frame SKULD { light LOSTSOUL    }
+    frame SKULE { light LOSTSOUL    }
+    frame SKULF { light LOSTSOUL    }
+    frame SKULG { light LOSTSOUL    }
+
+    frame SKULH { light LOSTSOUL_X1 }
+    frame SKULI { light LOSTSOUL_X2 }
+    frame SKULJ { light LOSTSOUL_X3 }
+    frame SKULK { light LOSTSOUL_X4 }
+}
+
+object NewBaronBall
+{
+    frame BAL7A { light BARONBALL    }
+    frame BAL7B { light BARONBALL    }
+
+    frame BAL7C { light BARONBALL_X1 }
+    frame BAL7D { light BARONBALL_X2 }
+    frame BAL7E { light BARONBALL_X3 }
+}
+
+pointlight BARONBALL2
+{
+    color 0.0 1.0 0.0
+    size 48
+}
+
+flickerlight BARONBALL_X21
+{
+    color 0.0 0.7 0.0
+    size 60
+    secondarySize 88
+    chance 0.25
+}
+
+flickerlight BARONBALL_X22
+{
+    color 0.0 0.4 0.0
+    size 72
+    secondarySize 104
+    chance 0.25
+}
+
+flickerlight BARONBALL_X23
+{
+    color 0.0 0.2 0.0
+    size 84
+    secondarySize 120
+    chance 0.25
+}
+
+
+object NewBaronBall2
+{
+    frame BAL7A { light BARONBALL2    }
+    frame BAL7B { light BARONBALL2    }
+
+    frame BAL7C { light BARONBALL_X21 }
+    frame BAL7D { light BARONBALL_X22 }
+    frame BAL7E { light BARONBALL_X23 }
+}
+
+object NewFatShot
+{
+    frame MANFA { light IMPBALL   }
+    frame MANFB { light IMPBALL   }
+
+    frame MISLB { light ROCKET_X1 }
+    frame MISLC { light ROCKET_X2 }
+    frame MISLD { light ROCKET_X3 }
+}
+
+object NewArachPlasma
+{
+    frame APBXA { light ARACHPLAS_X1 }
+    frame APBXB { light ARACHPLAS_X2 }
+    frame APBXC { light ARACHPLAS_X2 }
+    frame APBXD { light ARACHPLAS_X3 }
+    frame APBXE { light ARACHPLAS_X4 }
+}
+
+object ArachTrail
+{
+    frame APBXA { light ARACHPLAS_X1 }
+}
+
+object NewRevenantRocket
+{
+    frame FATBA { light TRACER    }
+    frame FATBB { light TRACER    }
+
+    frame FBXPA { light TRACER_X1 }
+    frame FBXPB { light TRACER_X2 }
+    frame FBXPC { light TRACER_X3 }
+}
+
+object VileFireAura
+{
+    frame FIREA { light ARCHFIRE1 }
+    frame FIREB { light ARCHFIRE2 }
+    frame FIREC { light ARCHFIRE3 }
+    frame FIRED { light ARCHFIRE4 }
+    frame FIREE { light ARCHFIRE5 }
+    frame FIREF { light ARCHFIRE6 }
+    frame FIREG { light ARCHFIRE7 }
+    frame FIREH { light ARCHFIRE8 }
+}
+
+flickerlight MINIFIRE1
+{
+    color 1.0 1.0 0.0
+    size 6
+    secondarySize 8
+    chance 0.3
+    offset 0 2 0
+}
+
+flickerlight MINIFIRE2
+{
+    color 1.0 1.0 0.0
+    size 10
+    secondarySize 12
+    chance 0.3
+    offset 0 6 0
+}
+
+flickerlight MINIFIRE3
+{
+    color 1.0 1.0 0.0
+    size 16
+    secondarySize 18
+    chance 0.3
+    offset 0 8 0
+}
+
+flickerlight MINIFIRE4
+{
+    color 0.8 0.8 0.0
+    size 16
+    secondarySize 18
+    chance 0.3
+    offset 0 10 0
+}
+
+flickerlight MINIFIRE5
+{
+    color 0.8 0.8 0.0
+    size 16
+    secondarySize 18
+    chance 0.3
+    offset 0 12 0
+}
+
+flickerlight MINIFIRE6
+{
+    color 0.6 0.6 0.0
+    size 12
+    secondarySize 14
+    chance 0.3
+    offset 0 16 0
+}
+
+flickerlight MINIFIRE7
+{
+    color 0.4 0.4 0.0
+    size 8
+    secondarySize 10
+    chance 0.3
+    offset 0 18 0
+}
+
+flickerlight MINIFIRE8
+{
+    color 0.2 0.2 0.0
+    size 4
+    secondarySize 7
+    chance 0.3
+    offset 0 20 0
+}
+
+object VileFireEffect
+{
+    frame FIREA { light MINIFIRE1 }
+    frame FIREB { light MINIFIRE2 }
+    frame FIREC { light MINIFIRE3 }
+    frame FIRED { light MINIFIRE4 }
+    frame FIREE { light MINIFIRE5 }
+    frame FIREF { light MINIFIRE6 }
+    frame FIREG { light MINIFIRE7 }
+    frame FIREH { light MINIFIRE8 }
+}
+
+object CybRocket
+{
+    frame MISLA { light ROCKET    }
+
+    frame MISLB { light ROCKET_X1 }
+    frame MISLC { light ROCKET_X2 }
+    frame MISLD { light ROCKET_X3 }
+}
+
+object MindCube
+{
+	frame MISLB { light ROCKET_X1 }
+    frame MISLC { light ROCKET_X2 }
+    frame MISLD { light ROCKET_X3 }
+}
+
+Pointlight VoidBallNormal
+{
+Color 0.5 0.2 0.8
+Size 48
+}
+
+Pointlight VoidBallNormal2
+{
+Color 0.4 0.2 0.8
+Size 64
+}
+
+Pointlight VoidBallNormal3
+{
+Color 0.2 0.2 0.8
+Size 56
+}
+
+Pointlight VoidBallNormal4
+{
+Color 0.0 0.0 0.5
+Size 32
+}
+
+
+Object DarkImpBall
+{
+Frame DKB1A { Light VoidBallNormal }
+Frame DKB1B { Light VoidBallNormal }
+Frame DKB1C { Light VoidBallNormal2 }
+Frame DKB1D { Light VoidBallNormal3 }
+Frame DKB1E { Light VoidBallNormal4 }
+}
+
+Pointlight VoidBallStrong
+{
+Color 0.8 0.2 0.8
+Size 48
+}
+
+Pointlight VoidBallStrong2
+{
+Color 0.6 0.1 0.6
+Size 64
+}
+
+Pointlight VoidBallStrong3
+{
+Color 0.5 0.0 0.2
+Size 56
+}
+
+Pointlight VoidBallStrong4
+{
+Color 0.3 0.0 0.0
+Size 32
+}
+
+Object DarkImpBall2
+{
+Frame DKB2A { Light VoidBallStrong }
+Frame DKB2B { Light VoidBallStrong }
+Frame DKB2C { Light VoidBallStrong2 }
+Frame DKB2D { Light VoidBallStrong3 }
+Frame DKB2E { Light VoidBallStrong4 }
+}
+
+Flickerlight2 VoidDarkImpFire1
+{
+Color 0.5 0.2 0.8
+Size 48
+SecondarySize 56
+Interval 0.8
+Offset 0 28 0
+}
+
+Flickerlight2 VoidDarkImpFire2
+{
+Color 0.8 0.2 0.8
+Size 56
+SecondarySize 64
+Interval 0.8
+Offset 0 28 0
+}
+
+Object DarkImp
+{
+Frame DRKVE { Light VoidDarkImpFire1 }
+Frame DRKVF { Light VoidDarkImpFire1 }
+Frame DRKVG { Light VoidDarkImpFire1 }
+Frame DRKVI { Light VoidDarkImpFire2 }
+Frame DRKVJ { Light VoidDarkImpFire2 }
+Frame DRKVK { Light VoidDarkImpFire2 }
+}
+
+//Enemies
+
+object NewExplosiveBarrel
+{
+    frame BAR1A { light BARREL    }
+    frame BAR1B { light BARREL    }
+    frame BEXPC { light ROCKET_X1 }
+    frame BEXPD { light ROCKET_X2 }
+    frame BEXPE { light ROCKET_X3 }
+}
+
+object PossessedNewExplosiveBarrel
+{
+    frame BAR1A { light BARREL    }
+    frame BAR1B { light BARREL    }
+    frame BEXPC { light ROCKET_X1 }
+    frame BEXPD { light ROCKET_X2 }
+    frame BEXPE { light ROCKET_X3 }
+}
+
+object ZombieMan2
+{
+    frame POSSF { light ZOMBIEATK }
+}
+
+object PossessedZombieMan2
+{
+    frame POSSF { light ZOMBIEATK }
+}
+
+object ShotgunGuy2
+{
+    frame SPOSF { light ZOMBIEATK }
+}
+
+object PossessedShotgunGuy2
+{
+    frame SPOSF { light ZOMBIEATK }
+}
+
+object ChaingunGuy2
+{
+    frame CPOSE { light ZOMBIEATK }
+    frame CPOSF { light ZOMBIEATK }
+}
+
+object PossessedChaingunGuy2
+{
+    frame CPOSE { light ZOMBIEATK }
+    frame CPOSF { light ZOMBIEATK }
+}
+
+object LostSoul2
+{
+    frame SKULA { light LOSTSOUL    }
+    frame SKULB { light LOSTSOUL    }
+    frame SKULC { light LOSTSOUL    }
+    frame SKULD { light LOSTSOUL    }
+    frame SKULE { light LOSTSOUL    }
+    frame SKULF { light LOSTSOUL    }
+    frame SKULG { light LOSTSOUL    }
+
+    frame SKULH { light LOSTSOUL_X1 }
+    frame SKULI { light LOSTSOUL_X2 }
+    frame SKULJ { light LOSTSOUL_X3 }
+    frame SKULK { light LOSTSOUL_X4 }
+}
+
+object PossessedLostSoul2
+{
+    frame SKULA { light LOSTSOUL    }
+    frame SKULB { light LOSTSOUL    }
+    frame SKULC { light LOSTSOUL    }
+    frame SKULD { light LOSTSOUL    }
+    frame SKULE { light LOSTSOUL    }
+    frame SKULF { light LOSTSOUL    }
+    frame SKULG { light LOSTSOUL    }
+
+    frame SKULH { light LOSTSOUL_X1 }
+    frame SKULI { light LOSTSOUL_X2 }
+    frame SKULJ { light LOSTSOUL_X3 }
+    frame SKULK { light LOSTSOUL_X4 }
+}
+
+object PossessedArchvile2
+{
+    frame VILEH { light ARCHATK1 }
+    frame VILEI { light ARCHATK2 }
+    frame VILEJ { light ARCHATK3 }
+    frame VILEK { light ARCHATK4 }
+    frame VILEL { light ARCHATK4 }
+    frame VILEM { light ARCHATK4 }
+    frame VILEN { light ARCHATK5 }
+    frame VILEO { light ARCHATK6 }
+    frame VILEP { light ARCHATK7 }
+
+    frame VILE[ { light ARCHRES }
+    frame VILE\ { light ARCHRES }
+    frame VILE] { light ARCHRES }
+}
+
+Flickerlight2 VoidDarkImpFire1
+{
+Color 0.5 0.2 0.8
+Size 48
+SecondarySize 56
+Interval 0.8
+Offset 0 28 0
+}
+
+Flickerlight2 VoidDarkImpFire2
+{
+Color 0.8 0.2 0.8
+Size 56
+SecondarySize 64
+Interval 0.8
+Offset 0 28 0
+}
+
+Object DarkImp
+{
+Frame DRKVE { Light VoidDarkImpFire1 }
+Frame DRKVF { Light VoidDarkImpFire1 }
+Frame DRKVG { Light VoidDarkImpFire1 }
+Frame DRKVI { Light VoidDarkImpFire2 }
+Frame DRKVJ { Light VoidDarkImpFire2 }
+Frame DRKVK { Light VoidDarkImpFire2 }
+}
+
+Object PossessedDarkImp
+{
+Frame DRKVE { Light VoidDarkImpFire1 }
+Frame DRKVF { Light VoidDarkImpFire1 }
+Frame DRKVG { Light VoidDarkImpFire1 }
+Frame DRKVI { Light VoidDarkImpFire2 }
+Frame DRKVJ { Light VoidDarkImpFire2 }
+Frame DRKVK { Light VoidDarkImpFire2 }
+}
+
+//Marine
+
+object MarinePlayer
+{
+    frame PLAYF { light ZOMBIEATK }
+}
+
+PointLight ShieldAmmo_X1
+{
+Color 0.0 1.0 0.0
+Size 20
+}
+
+PointLight ShieldAmmo_X2
+{
+Color 0.0 1.0 0.0
+Size 12
+}
+
+PointLight ShieldAmmo_X3
+{
+Color 0.0 1.0 0.0
+Size 8
+}
+
+Object ShieldAmmo
+{
+Frame SLDCA { Light KsawAmmo_X3 }
+Frame SLDCB { Light KsawAmmo_X2 }
+Frame SLDCC { Light KsawAmmo_X1 }
+Frame SLDCD { Light KsawAmmo_X2 }
+}
+
+//Marine projectiles
+
+object MarineRocket2
+{
+    frame MISLA { light ROCKET    }
+
+    frame MISLB { light ROCKET_X1 }
+    frame MISLC { light ROCKET_X2 }
+    frame MISLD { light ROCKET_X3 }
+}
+
+object NewBFGBall
+{
+    frame BFS1A { light BFGBALL }
+    frame BFS1B { light BFGBALL }
+
+    frame BFE1A { light BFGBALL_X1 }
+    frame BFE1B { light BFGBALL_X2 }
+    frame BFE1C { light BFGBALL_X3 }
+    frame BFE1D { light BFGBALL_X1 }
+    frame BFE1E { light BFGBALL_X4 }
+    frame BFE1F { light BFGBALL_X5 }
+}
+
+object NewPlasmaBall
+{
+    frame PLSEA { light PLASMA_X1 }
+    frame PLSEB { light PLASMA_X2 }
+    frame PLSEC { light PLASMA_X2 }
+    frame PLSED { light PLASMA_X3 }
+    frame PLSEE { light PLASMA_X4 }
+}
+
+object NewPlasmaTrail
+{
+    frame PLSEA { light PLASMA_X1 }
+}

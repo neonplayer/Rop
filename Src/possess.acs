@@ -1,0 +1,324 @@
+int LastDeathPosition[MAX_PLAYERS][4];
+
+int MonsterItemsTemp[NUM_MONSTER_ITEMS];
+
+script mop_possess (void)
+{
+	int player = 1000 + PlayerNumber();
+	
+	// Select the monster we are pointing at.
+	SetActivatorToTarget(0);
+	if (PlayerNumber() != -1)
+		terminate; // Cannot possess a player.
+		
+	// Temporarily change the monster's tid.
+	Thing_ChangeTid(0, TEMPTID);
+
+	// Store monster properties.
+	int type = IdentifyMonsterType(TEMPTID);
+	int x = GetActorX(TEMPTID);
+	int y = GetActorY(TEMPTID);
+	int z = GetActorZ(TEMPTID);
+	int angle = GetActorAngle(TEMPTID);
+	int health = GetActorProperty(TEMPTID, APROP_HEALTH);
+	int spawnhealth = GetActorProperty(TEMPTID, APROP_SPAWNHEALTH);
+	int vx = GetActorVelX(TEMPTID);
+	int vy = GetActorVelY(TEMPTID);
+	int vz = GetActorVelZ(TEMPTID);
+	
+	// Dead and unknown actors can't be possessed.
+	if (health <= 0 || type == -1)
+	{
+		Thing_ChangeTid(TEMPTID, 0);
+		terminate;
+	}
+	
+	int flags = MonsterTypes[type][MONSTER_FLAGS];
+	
+	int frags = MopFrags[player-1000];
+	int required = GetCVar("mop_possfrags_bosses");
+	if (flags & MONSTF_BOSS)
+	{
+		if (required < 0)
+		{
+			SetActivator(player);
+			print(s:"\cgBoss controlling is disabled.");
+			Thing_ChangeTid(TEMPTID, 0);
+			terminate;
+		}
+		else if ((required > 0) && (frags < required))
+		{
+			SetActivator(player);
+			print(s:"\cgYou need at least ", d:required, s:" frags to use this monster.");
+			Thing_ChangeTid(TEMPTID, 0);
+			terminate;
+		}
+	}
+	
+	// Save monster items.
+	for (int i = 0; i < NUM_MONSTER_ITEMS; i++)
+		MonsterItemsTemp[i] = CheckActorInventory(TEMPTID, MonsterItems[i]);
+	
+	// Remove the monster and move puppetmaster to the exact position of the monster.
+	SetActivator(player);
+	Thing_Remove(TEMPTID);
+	SetActorPosition(0, x, y, z, false);
+	SetActorAngle(0, angle);
+
+	// Morph!
+	MorphActor(0, StrParam(s:"Possessed", s:MonsterTypes[type][MONSTER_ACTORNAME]), "", INT_MAX, 0, "NoFlash", "NoFlash");
+	PossessedCount++;
+	
+	// Save monster type
+	LastPossessedMonster[PlayerNumber()][LASTMONSTER_TYPE] = type;
+	
+	// Morphing loses player tid.
+	Thing_ChangeTid(0, 1000 + PlayerNumber());
+	
+	// Give flag.
+	GiveInventory("IsPossessed", 1);
+	
+	// Select first attack.
+	GiveInventory("Attack1", 1);
+	
+	// Give back items.
+	for (i = 0; i < NUM_MONSTER_ITEMS; i++)
+		GiveInventory(MonsterItems[i], MonsterItemsTemp[i]);
+
+	// Set properties.
+	SetPlayerProperty(0, true, PROP_NOTARGET);
+	SetPlayerProperty(0, MonsterTypes[type][MONSTER_FLAGS] & MONSTF_FLYING, PROP_FLY);
+	SetActorProperty(0, APROP_HEALTH, health * DamageFactor / 1.0 + POSSESSED_ADDITIONAL_HP);
+	SetActorVelocity(0, vx, vy, vz, false, true);
+
+	// Show HUD.
+	ACS_ExecuteAlways(mop_possessed_hud, 0, PlayerNumber(), DamageFactor, spawnhealth << 16 | type);
+		
+	// Run attack switching script.
+	int attacklist = FindMonsterAttackList(MonsterTypes[type][MONSTER_ACTORNAME]);
+	if (attacklist != -1)
+		ACS_ExecuteAlways(mop_attackswitching, 0, attacklist);
+	
+	// Lock weapons to prevent firing instantly after possessing.
+	SetPlayerProperty(0, true, PROP_TOTALLYFROZEN);
+	
+	// Wait until the monster dies or puppetmaster leaves.
+	// And record the hp difference in case the monster died.
+	int hp1 = GetActorProperty(0, APROP_HEALTH);
+	int hp2 = GetActorProperty(0, APROP_HEALTH);
+	int weapontimeout = 7;
+	while (hp2 > POSSESSED_ADDITIONAL_HP && !(GetPlayerInput(-1, INPUT_BUTTONS) & (BT_CROUCH | BT_SPEED)))
+	{	
+		if (CheckInventory("PossessedSuicide") == 1)
+		{
+			SetActorState(0, "Suicide");
+			GiveInventory("PossessedSuicide", 1);
+		}
+		
+		// Unlock weapons after some time to prevent
+		// firing instantly after possessing.
+		weapontimeout--;
+		if (weapontimeout == 0)
+			SetPlayerProperty(0, false, PROP_TOTALLYFROZEN);
+	
+		Delay(1);
+		
+		hp1 = hp2;
+		hp2 = GetActorProperty(0, APROP_HEALTH);
+		
+		// Store last monster properties every tick
+		LastPossessedMonster[PlayerNumber()][LASTMONSTER_HEALTH] = hp2 - POSSESSED_ADDITIONAL_HP; // real hp
+		LastPossessedMonster[PlayerNumber()][LASTMONSTER_X] = GetActorX(0);
+		LastPossessedMonster[PlayerNumber()][LASTMONSTER_Y] = GetActorY(0);
+		LastPossessedMonster[PlayerNumber()][LASTMONSTER_Z] = GetActorZ(0);
+		LastPossessedMonster[PlayerNumber()][LASTMONSTER_ANGLE] = GetActorAngle(0);
+	}
+	
+	// We are not in monster
+	LastPossessedMonster[PlayerNumber()][LASTMONSTER_TYPE] = -1;
+	
+	// Unlock puppetmaster if he died before being unlocked.
+	SetPlayerProperty(0, false, PROP_TOTALLYFROZEN);
+	
+	// Record last death's point to respawn there.
+	LastDeathPosition[PlayerNumber()][0] = GetActorX(0);
+	LastDeathPosition[PlayerNumber()][1] = GetActorY(0);
+	LastDeathPosition[PlayerNumber()][2] = GetActorZ(0);
+	LastDeathPosition[PlayerNumber()][3] = GetActorAngle(0);
+	
+	// The position of the monster.
+	x = GetActorX(0);
+	y = GetActorY(0);
+	z = GetActorZ(0);
+	vx = GetActorVelX(0);
+	vy = GetActorVelY(0);
+	vz = GetActorVelZ(0);
+	angle = GetActorAngle(0);
+	
+	// Was it suicide?
+	int suicide = CheckInventory("PossessedSuicide");
+	
+	// Unmorph.
+	UnmorphActor(0, true);
+	PossessedCount--;
+	SetActorProperty(0, APROP_HEALTH, 1);
+	SetPlayerProperty(0, true, PROP_FLY);
+	SetPlayerProperty(0, false, PROP_FROZEN); // In case of unpossess while being frozen.
+	
+	// Take away flag.
+	TakeInventory("IsPossessed", 1);
+	
+	// Don't spawn body if suicided.
+	if (suicide)
+	{
+		TakeInventory("PossessedSuicide", 2);
+		terminate;
+	}
+	
+	// Spawn the replacement actor.
+	SpawnForced(MonsterTypes[type][MONSTER_ACTORNAME], x, y, z, TEMPTID, angle>>8);
+	SetActorVelocity(TEMPTID, vx, vy, vz, false, true);
+	
+	// Give back items and take them away from puppetmaster just in case.
+	for (i = 0; i < NUM_MONSTER_ITEMS; i++)
+	{
+		GiveActorInventory(TEMPTID, MonsterItems[i], CheckInventory(MonsterItems[i]));
+		TakeInventory(MonsterItems[i], CheckInventory(MonsterItems[i]));
+	}
+	
+	// Transfer health.
+	SetActorProperty(TEMPTID, APROP_HEALTH, FixedDiv((hp1 - POSSESSED_ADDITIONAL_HP) * 1.0, DamageFactor) / 1.0);
+	Thing_Damage(TEMPTID, hp1 - hp2, 0);
+	
+	// Save monster health
+	int lasthp = GetActorProperty(TEMPTID, APROP_HEALTH);
+	
+	Thing_ChangeTid(TEMPTID, 0);
+	
+	if (lasthp <= 0)
+	{
+		ACS_ExecuteAlways(mop_log_kill, 0, 0, PlayerNumber(), 1);
+		ACS_ExecuteAlways(mop_marines_giveextralives, 0, type);
+	}
+}
+
+script mop_monsterinfo (void)
+{
+	int prev_type = -1;
+	int prev_hp = -1;
+	
+	while (PlayerClasses[PlayerNumber()] == PLAYER_MOP)
+	{
+		if (CheckInventory("IsPossessed"))
+		{
+			if (prev_type != -1)
+			{
+				HudMessage(s:""; HUDMSG_PLAIN, HID_MONSTERINFO, 0, 0, 0, 0, 0);
+				prev_type = -1;
+				prev_hp = -1;
+			}
+			
+			Delay(1);
+			continue;
+		}
+		
+		int player = PlayerNumber();
+		SetActivatorToTarget(0);
+		if (PlayerNumber() != -1 || PlayerNumber() == player)
+		{
+			SetActivator(1000 + player);
+			if (prev_type != -1)
+			{
+				HudMessage(s:""; HUDMSG_PLAIN, HID_MONSTERINFO, 0, 0, 0, 0, 0);
+				prev_type = -1;
+				prev_hp = -1;
+			}
+		
+			Delay(1);
+			continue;
+		}
+		
+		Thing_ChangeTid(0, TEMPTID - 1);
+		int type = IdentifyMonsterType(TEMPTID - 1);
+		Thing_ChangeTid(TEMPTID - 1, 0);
+		
+		int hp = GetActorProperty(0, APROP_HEALTH);
+		
+		SetActivator(1000 + player);
+		if (prev_hp != hp && prev_type != type)
+		{
+			SetHUDSize(640,480,0);
+			SetFont("SMALLFONT");
+			HUDMessage(
+				s:MonsterTypes[type][MONSTER_NAME],
+				s:"\n\n",
+				d:hp,
+				s:" hp";
+				HUDMSG_PLAIN, HID_MONSTERINFO, CR_RED, 640.0/2 + 0.4, (480.0/2)+100.0, 0
+			);
+			
+			prev_type = type;
+			prev_hp = hp;
+		}
+		
+		Delay(1);
+	}
+}
+
+// Puppeter custom hud drawing.
+script mop_possessed_hud(int player, int df, int spawnhp_type) CLIENTSIDE
+{
+	if (ConsolePlayerNumber() != player)
+		terminate;
+		
+	int spawnhp = spawnhp_type >> 16;
+	int type = spawnhp_type & 0x0000ffff;
+
+	while (GetActorProperty(0, APROP_HEALTH) > POSSESSED_ADDITIONAL_HP)
+	{
+		// Ripped from MOP-X.
+		SetHUDSize(400,300,0);
+		SetFont("SMALLFONT");
+		HUDMessage(
+			i:FixedDiv((GetActorProperty(0,APROP_HEALTH) - POSSESSED_ADDITIONAL_HP) * 1.0, df) / 1.0,
+			s:"/",
+			i:spawnhp;
+			HUDMSG_PLAIN, 0, CR_RED, 50.0, 280.0, 0.03
+		);
+		// End of MOP-X code.
+		SetHUDSize(400,300,0);
+		SetFont(MonsterTypes[type][MONSTER_SPRITE]);
+		HUDMessage(s:"A"; HUDMSG_PLAIN, 0, CR_UNTRANSLATED, 60.0, 275.0, 0.03);
+		
+		Delay(1);
+	}
+}
+
+// Move the puppetmaster to the place of his last death.
+script mop_respawn_puppetmaster RESPAWN
+{
+	if (!ThingCountName("PuppetMaster", 1000 + PlayerNumber()))
+		terminate;
+		
+	int x = LastDeathPosition[PlayerNumber()][0];
+	int y = LastDeathPosition[PlayerNumber()][1];
+	int z = LastDeathPosition[PlayerNumber()][2];
+
+	SetActorPosition(0, x, y, z, false);
+	SetActorAngle(0, LastDeathPosition[PlayerNumber()][3]);
+	
+	// don't forget to set default inventory
+	ClearInventory();
+	
+	for (int i = 0; i < NumMonsterTypes; i++)
+	{
+		str name = MonsterTypes[i][MONSTER_ACTORNAME];
+		str weaponname = StrParam(s:name, s:"Weapon");
+		TakeInventory(weaponname, 1);
+	}
+	
+	GiveInventory("mastergun", 1);
+	GiveInventory("IsPuppetmaster", 1);
+	
+	SetWeapon("mastergun");
+}

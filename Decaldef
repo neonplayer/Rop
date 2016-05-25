@@ -1,0 +1,19 @@
+Decal NewArachscorch
+{
+  Pic APBXB0
+  add 1.0
+  X-SCale 0.35
+  Y-SCale 0.35
+  animator GoAway
+  lowerdecal PlasmaScorchLower1
+}
+
+Decal NewPlasmascorch
+{
+  Pic PLSEB0
+  add 1.0
+  X-SCale 0.35
+  Y-SCale 0.35
+  animator GoAway
+  lowerdecal PlasmaScorchLower2
+}

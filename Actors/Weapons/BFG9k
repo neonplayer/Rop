@@ -1,0 +1,75 @@
+Actor NewBFG9000 : BFG9000 replaces BFG9000
+{
+  Weapon.SlotNumber 7
+  Weapon.PreferredSkin "BFGMarine"
+  Scale 0.9
+  States
+  {
+  Fire:
+    BFGG AAAAAAA 5 A_FireCustomMissile("BFGHeatingUp", Random(8, -8), 0, 0, 0, 0, Random(8, -8))
+	BFGG AAAAAAA 3 A_FireCustomMissile("BFGHeatingUp", Random(8, -8), 0, 0, 0, 0, Random(8, -8))
+	BFGG AAAAAAA 2 A_FireCustomMissile("BFGHeatingUp", Random(8, -8), 0, 0, 0, 0, Random(8, -8)) //2 seconds of charging
+    BFGG A 20 A_BFGSound
+    BFGG B 10 A_GunFlash
+    BFGG B 10 A_FireCustomMissile("NewBFGBall", 0, 1)
+    BFGG B 20 A_ReFire
+    Goto Ready
+  }
+}
+
+Actor BFGHeatingUp
+{
+  +NoInteraction
+  +ClientSideOnly
+  Scale 0.13
+  Alpha 0.35
+  RenderStyle Translucent
+  Speed 5
+  States
+  {
+  Spawn:
+    TFOG ABCDEFG 3 Bright
+	Stop
+  }
+}
+
+Actor NewBfgBall : BfgBall
+{
+  Decal BFGLightning
+  +MThruSpecies
+  +ThruGhost
+  States
+  {
+  Spawn:
+    BFS1 A 0 Bright A_SpawnItemEx("BFGTrail", Random(16, -16), Random(16, -16), Random(16, -16))
+    BFS1 A 1 Bright A_SpawnItemEx("BFGTrail", Random(16, -16), Random(16, -16), Random(16, -16))
+	BFS1 A 0 Bright A_SpawnItemEx("BFGTrail", Random(16, -16), Random(16, -16), Random(16, -16))
+    BFS1 A 1 Bright A_SpawnItemEx("BFGTrail", Random(16, -16), Random(16, -16), Random(16, -16))
+	BFS1 A 0 Bright A_SpawnItemEx("BFGTrail", Random(16, -16), Random(16, -16), Random(16, -16))
+    BFS1 A 1 Bright A_SpawnItemEx("BFGTrail", Random(16, -16), Random(16, -16), Random(16, -16))
+	BFS1 A 0 Bright A_SpawnItemEx("BFGTrail", Random(16, -16), Random(16, -16), Random(16, -16))
+    BFS1 A 1 Bright A_SpawnItemEx("BFGTrail", Random(16, -16), Random(16, -16), Random(16, -16))
+	BFS1 B 0 Bright A_SpawnItemEx("BFGTrail", Random(16, -16), Random(16, -16), Random(16, -16))
+    BFS1 B 1 Bright A_SpawnItemEx("BFGTrail", Random(16, -16), Random(16, -16), Random(16, -16))
+	BFS1 B 0 Bright A_SpawnItemEx("BFGTrail", Random(16, -16), Random(16, -16), Random(16, -16))
+    BFS1 B 1 Bright A_SpawnItemEx("BFGTrail", Random(16, -16), Random(16, -16), Random(16, -16))
+	BFS1 B 0 Bright A_SpawnItemEx("BFGTrail", Random(16, -16), Random(16, -16), Random(16, -16))
+    BFS1 B 1 Bright A_SpawnItemEx("BFGTrail", Random(16, -16), Random(16, -16), Random(16, -16))
+	BFS1 B 0 Bright A_SpawnItemEx("BFGTrail", Random(16, -16), Random(16, -16), Random(16, -16))
+    BFS1 B 1 Bright A_SpawnItemEx("BFGTrail", Random(16, -16), Random(16, -16), Random(16, -16))
+    Loop
+  }
+}
+
+Actor BFGTrail : BfgHeatingUp
+{
+  RenderStyle Translucent
+  Scale 0.35
+  Alpha 0.46
+  States
+  {
+  Spawn:
+    TFOG ABCDEFG 4 Bright
+	Stop
+  }
+}

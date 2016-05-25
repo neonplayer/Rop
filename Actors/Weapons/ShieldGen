@@ -1,0 +1,255 @@
+//Code : CaptainToenail
+//Sprites : Captain Toenail, Id Software, Apogee, Xaser, Vader
+//Ammo Sprite: Eriance, Mechadon, Neon
+//Sounds : Quake 2, Half-life
+
+Actor ShieldGenerator : DoomWeapon
+{
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive 10
+  Weapon.SlotNumber 8
+  Weapon.AmmoType "ShieldAmmo"
+  Inventory.PickupMessage "You got the shield generator!"
+  Weapon.PreferredSkin "ShieldMarine"
+  States
+  {
+  Ready:
+    SHLD A 1 A_WeaponReady
+    Loop
+  Fire:
+    SHLD A 28 A_PlayWeaponSound ("ForceBarrier/On")
+	SHLD BC 2
+  Hold:
+    SHLD C 1 bright A_SpawnItemEx ("ShieldSpawner", 0, 96, 0, 0, 0, 0, -270, 32)
+    SHLD C 0 bright A_PlaySoundEx ("ForceBarrier/Loop", "SoundSlot5", 1)
+    SHLD CCCCCCC 1 bright A_SpawnItemEx ("ShieldSpawner", 0, 96, 0, 0, 0, 0, -270, 32)
+    SHLD C 0 bright A_FireCustomMissile ("AmmoCounter")
+    SHLD C 0 A_Refire
+    SHLD C 0 A_StopSoundEx ("SoundSlot5")
+    SHLD C 28 A_PlayWeaponSound ("ForceBarrier/Off")
+	SHLD BA 2
+    goto Ready
+  Deselect:
+    SHLD A 1 A_Lower
+    SHLD A 0 A_StopSoundEx ("SoundSlot5")
+    Loop
+  Select:
+    SHLD A 1 A_Raise
+    Loop
+  Spawn:
+    SHLD D -1
+    stop
+  }
+}
+
+Actor ShieldAmmo : ammo
+{
+  Radius 4
+  Height 16
+  Inventory.PickupMessage "You picked up a cell for your anti-spam device!"
+  Inventory.Icon "SLDCA0"
+  Inventory.Amount 5
+  Inventory.MaxAmount 25
+  Ammo.BackpackAmount 3
+  Ammo.BackpackMaxAmount 50
+  States
+  {
+  Spawn:
+    SLDC E 35
+	SLDC ADBCBDA 4 Bright
+	Loop
+  }
+}
+  
+
+actor AmmoCounter //for using ammo
+{
+  +NOINTERACTION
+  +CLIENTSIDEONLY
+  States
+  {
+  Spawn:
+    TNT1 A 1
+    stop
+  }
+}
+
+actor ShieldPart
+{
+  Radius 8
+  Height 8
+  Scale 0.5
+  RenderStyle None
+  Alpha 0.25
+  Bloodtype "ShieldHit"
+  +SHOOTABLE
+  +NOGRAVITY
+  +NOTELEPORT
+  +NODAMAGE
+  +DONTRIP
+  +NOBLOODDECALS
+  +FLOORCLIP
+  +GHOST
+  States
+  {
+  Spawn:
+    HEXA A 2 bright
+    stop
+  Death:
+    TNT1 A 2
+    stop
+  }
+}
+
+actor ShieldPartVisual
+{
+  Radius 8
+  Height 8
+  Scale 0.5
+  RenderStyle Add	//Fuzzy looks great in software mode
+  Alpha 0.25
+  +NOINTERACTION
+  +CLIENTSIDEONLY
+  +FLOORCLIP
+  States
+  {
+  Spawn:
+    HEXA A 2 bright
+    stop
+  Death:
+    TNT1 A 2
+    stop
+  }
+}
+
+actor ShieldSpawner
+{
+  Radius 1
+  Height 1
+  +NOGRAVITY
+  +NOINTERACTION
+  States
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 1
+    TNT1 A 0 A_SpawnItemEx ("ShieldSpawner4up", 0, 0, 0, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldSpawner5up", 24, 0, 0, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldSpawner5up", -24, 0, 0, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldSpawner4up", 48, 0, 0, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldSpawner4up", -48, 0, 0, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldSpawner3up", 72, 0, 0, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldSpawner3up", -72, 0, 0, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldSpawner2up", 96, 0, 0, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldSpawner2up", -96, 0, 0, 0, 0, 0, 0, 32)
+    stop
+  }
+}
+
+actor ShieldSpawner5up
+{
+  Radius 1
+  Height 1
+  +NOGRAVITY
+  +NOINTERACTION
+  States
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 1
+    TNT1 A 0 A_SpawnItemEx ("ShieldPart", 0, 0, 0, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPart", 0, 0, 16, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPart", 0, 0, 32, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPart", 0, 0, 48, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPart", 0, 0, 64, 0, 0, 0, 0, 32)
+    //TNT1 A 0 A_SpawnItemEx ("ShieldPartVisual", 0, 0, 0, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPartVisual", 0, 0, 16, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPartVisual", 0, 0, 32, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPartVisual", 0, 0, 48, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPartVisual", 0, 0, 64, 0, 0, 0, 0, 32)
+    stop
+  }
+}
+
+actor ShieldSpawner4up
+{
+  Radius 1
+  Height 1
+  +NOGRAVITY
+  +NOINTERACTION
+  States
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 1
+    TNT1 A 0 A_SpawnItemEx ("ShieldPart", 0, 0, 8, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPart", 0, 0, 24, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPart", 0, 0, 40, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPart", 0, 0, 56, 0, 0, 0, 0, 32)
+    //TNT1 A 0 A_SpawnItemEx ("ShieldPartVisual", 0, 0, 8, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPartVisual", 0, 0, 24, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPartVisual", 0, 0, 40, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPartVisual", 0, 0, 56, 0, 0, 0, 0, 32)
+    stop
+  }
+}
+
+actor ShieldSpawner3up
+{
+  Radius 1
+  Height 1
+  +NOGRAVITY
+  +NOINTERACTION
+  States
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 1
+    TNT1 A 0 A_SpawnItemEx ("ShieldPart", 0, 0, 16, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPart", 0, 0, 32, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPart", 0, 0, 48, 0, 0, 0, 0, 32)
+    //TNT1 A 0 A_SpawnItemEx ("ShieldPartVisual", 0, 0, 16, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPartVisual", 0, 0, 32, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPartVisual", 0, 0, 48, 0, 0, 0, 0, 32)
+    stop
+  }
+}
+
+
+actor ShieldSpawner2up
+{
+  Radius 1
+  Height 1
+  +NOGRAVITY
+  +NOINTERACTION
+  States
+  {
+  Spawn:
+    TNT1 A 0
+    TNT1 A 1
+    TNT1 A 0 A_SpawnItemEx ("ShieldPart", 0, 0, 24, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPart", 0, 0, 40, 0, 0, 0, 0, 32)
+    //TNT1 A 0 A_SpawnItemEx ("ShieldPartVisual", 0, 0, 24, 0, 0, 0, 0, 32)
+    TNT1 A 0 A_SpawnItemEx ("ShieldPartVisual", 0, 0, 40, 0, 0, 0, 0, 32)
+    stop
+  }
+}
+
+actor ShieldHit
+{
+  Radius 1
+  Height 1
+  Scale 0.5
+  Renderstyle Add
+  +NOGRAVITY
+  +NOINTERACTION
+  States
+  {
+  Spawn:
+    FHIT A 0 bright
+    FHIT A 1 bright A_Stop
+    FHIT A 0 bright A_PlaySound ("ForceBarrier/Hit")
+    FHIT BCDEFGH 1 bright
+    stop
+  }
+}

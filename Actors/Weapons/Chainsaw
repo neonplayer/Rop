@@ -1,0 +1,13 @@
+Actor NewChainsaw : Chainsaw replaces Chainsaw
+{
+  Decal BulletChip
+  Weapon.PreferredSkin "ChainsawMarine"
+  Weapon.SlotNumber 1
+  States
+  {
+  Fire:
+    SAWG AB 4 A_Saw("weapons/sawfull", "weapons/sawhit", 2, "PlayerBulletPuff")
+    SAWG B 0 A_ReFire
+    Goto Ready
+  }
+}

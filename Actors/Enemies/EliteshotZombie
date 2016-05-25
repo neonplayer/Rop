@@ -1,0 +1,51 @@
+Actor EliteShotgunguy : Shotgunguy2
+{
+  Health 50
+  Speed 9
+  PainChance 100
+  Scale 1.05
+  SeeSound "PsxZombie/sight"
+  PainSound "PsxZombie/pain"
+  DeathSound "PsxZombie/death"
+  ActiveSound "PsxZombie/active"
+  AttackSound "ExplosiveGuy/Fire"
+  DropItem "Shotgun", 256, 8
+  Obituary "An elite shotgunner filled %o's face with lead."
+  States
+  {
+  Spawn:
+    ESPS AB 10 A_Look
+    Loop
+  See:
+    ESPS AABBCCDD 3 A_Chase
+    Loop
+  Missile:
+    ESPS E 10 A_FaceTarget
+    ESPS F 10 Bright A_CustomBulletAttack(6.5, 6.5, Random(11, 13), 4, "MonsterBulletPuff", 0, CBAF_NoRandom)
+    ESPS E 35 A_ChangeFlag(NoPain, 1)
+	ESPS E 0 A_ChangeFlag(NoPain, 0)
+    Goto See
+  Pain:
+    ESPS G 3
+    ESPS G 3 A_Pain
+    Goto See
+  Death:
+    ESPS H 5
+    ESPS I 5 A_Scream
+    ESPS J 5 A_NoBlocking
+    ESPS K 5
+    ESPS L -1
+    Stop
+  XDeath:
+    SPOS M 5
+    SPOS N 5 A_XScream
+    SPOS O 5 A_NoBlocking
+    SPOS PQRST 5
+    SPOS U -1
+    Stop
+  Raise:
+    ESPS L 5
+    ESPS KJIH 5
+    Goto See
+  }
+}

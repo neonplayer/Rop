@@ -1,0 +1,80 @@
+#library "mop"
+#include "zcommon.acs"
+#include "math.acs"
+
+int BoomEdition = false;
+
+#define mop_possess 800
+#define mop_enter 801
+#define mop_respawn 802
+#define mop_possessed_hud 803
+#define mop_respawn_puppetmaster 804
+#define mop_evade 805
+#define mop_autoconfig 806
+#define mop_phaseimp 807
+#define mop_attackswitching 808
+#define mop_stopvile 809
+#define mop_checkteambalance 810
+#define mop_checkteleportmissile 811
+// FREE SLOT 812
+// FREE SLOT 813
+// FREE SLOT 814
+// FREE SLOT 815
+// FREE SLOT 816
+#define mop_wincondition 817
+#define mop_marinewin 818
+#define mop_demonwin 819
+#define mop_init 820
+#define mop_marinedeath 821
+#define mop_status 822
+#define mop_disconnect 823
+#define mop_death_log 824
+#define mop_monsterinfo 825
+#define mop_log_join 826
+#define mop_log_kill 827
+#define mop_findmarines 828
+#define mop_ally_hud 829
+// FREE SLOT 830
+// FREE SLOT 831
+// FREE SLOT 832
+// FREE SLOT 833
+// FREE SLOT 834
+#define mop_count_monstertypes_sv 835
+#define mop_respawn_protection 836
+#define mop_update_fragcounter 837
+#define mop_prevent_respawns 838
+#define mop_status_clientsideicons 839
+#define mop_init_clientside 840
+#define mop_puppetmaster_disconnect 841
+#define mop_player_clientsidedisconnect 842
+#define mop_marines_giveextralives 843
+#define mop_marines_nobfgtimer 844
+#define mop_marines_isbfgavailable 845
+// FREE SLOT 846
+#define mop_count_monstertypes_cl 847
+
+#define MAX_PLAYERS 64
+#define INT_MAX 2147483647
+#define TEMPTID 8080
+#define FIRE_TIDS 8090
+
+#define HID_MONSTERINFO 1
+#define HID_GAMESTATUS1 2
+#define HID_RESPAWNPROTECTION 3
+#define HID_MOPFRAGS 4
+#define HID_MOPFRAGS_ICON 5
+#define HID_GAMESTATUS_ICON1 6
+#define HID_GAMESTATUS_ICON2 7
+#define HID_GAMESTATUS_ICON3 8
+#define HID_GAMESTATUS_ICON4 9
+#define HID_GAMESTATUS2 10
+#define HID_EXTRALIVEPOINTS 11
+#define HID_NOBFG 12
+
+#define POSSESSED_ADDITIONAL_HP 10000
+
+#include "monsters.acs"
+#include "game.acs"
+#include "attacks.acs"
+#include "evade.acs"
+#include "possess.acs"
