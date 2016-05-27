@@ -1,5 +1,26 @@
-function void InitMonsters(void)
+function void InitMOP(void)
 {
+	AddWeapon("NewFist");
+	AddWeapon("NewPistol");
+	AddWeapon("NewChainsaw");
+	AddWeapon("NewShotgun");
+	AddWeapon("NewSuperShotgun");
+	AddWeapon("NewChaingun");
+	AddWeapon("NewRocketLauncher");
+	AddWeapon("NewPlasmaRifle");
+	AddWeapon("NewBFG9000");
+	AddWeapon("ShieldGenerator");
+	
+	AddStartItem("NewPistol", 1);
+	AddStartItem("Clip", 50);
+	AddStartItem("NewFist", 1);
+	AddStartItem("PistolClip", 12);
+	AddStartItem("ShotgunClip", 8);
+	AddStartItem("ChaingunClip", 40);
+	AddStartItem("SSGClip", 2);
+	AddStartItem("PlasmaClip", 50);
+	AddStartItem("RocketClip", 5);
+	
 	AddMonster(0.02,  "POSSA1",   "Zombieman2", "Zombieman");
 	
 	AddMonster(0.04,  "SPOSA1",   "Shotgunguy2", "Shotgun Zombie");

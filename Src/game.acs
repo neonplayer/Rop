@@ -79,26 +79,12 @@ script mop_enter ENTER
 		{		
 			ClearInventory();
 			
-			TakeInventory("NewFist", 1);
-			TakeInventory("NewPistol", 1);
-			TakeInventory("NewChainsaw", 1);
-			TakeInventory("NewShotgun", 1);
-			TakeInventory("NewSuperShotgun", 1);
-			TakeInventory("NewChaingun", 1);
-			TakeInventory("NewRocketLauncher", 1);
-			TakeInventory("NewPlasmaRifle", 1);
-			TakeInventory("NewBFG9000", 1);
-			TakeInventory("ShieldGenerator", 1);
-			
-			GiveInventory("NewPistol", 1);
-			GiveInventory("Clip", 30);
-			GiveInventory("NewFist", 1);
-			GiveInventory("PistolClip", 12);
-			GiveInventory("ShotgunClip", 8);
-			GiveInventory("ChaingunClip", 40);
-			GiveInventory("SSGClip", 2);
-			GiveInventory("PlasmaClip", 50);
-			GiveInventory("RocketClip", 5);
+			for (int i = 0; i < NumMarineWeapons; i++)
+				TakeInventory(MarineWeapons[i], 0x7fffffff);
+				
+			for (i = 0; i < NumStartItems; i++)
+				GiveInventory(StartItems[i][STARTITEM_ACTORNAME], StartItems[i][STARTITEM_AMOUNT]);
+				
 			GiveInventory("IsMarine", 1);
 			
 			SetActorProperty(0, APROP_HEALTH, 100);

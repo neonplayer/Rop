@@ -1,18 +1,7 @@
 Actor MarinePlayer : DoomPlayer
-{
-  Player.StartItem "NewPistol"
-  Player.StartItem "NewFist"
-  Player.StartItem "Clip", 50
-  
-  Player.StartItem "PistolClip", 12
-  Player.StartItem "ShotgunClip", 8
-  Player.StartItem "ChaingunClip", 40
-  Player.StartItem "SSGClip", 2
-  Player.StartItem "PlasmaClip", 50
-  Player.StartItem "RocketClip", 5
-  
-  Player.StartItem "IsMarine", 1
-  
+{  
+  // For startitems see actorlist.acs
+
   damagefactor "bfgsplash", 0
   DamageFactor "MarinePuff", 0
   
