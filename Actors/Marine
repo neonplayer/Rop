@@ -5,6 +5,8 @@ Actor MarinePlayer : DoomPlayer
   damagefactor "bfgsplash", 0
   DamageFactor "MarinePuff", 0
   
+  Player.StartItem "IsMarine"
+  
   Species "Player"
   +THRUSPECIES
   +GHOST // Allows shooting bullets through players and shields.

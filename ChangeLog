@@ -1,4 +1,4 @@
-ROP r3:
+ROP r2c: //The korshun acs magic update
 
 - Made marines able to go thorugh each other without allowing mops to do so.
 - Fixed shotgun reload when fire is held down.
