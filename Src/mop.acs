@@ -14,7 +14,7 @@ int BoomEdition = false;
 // FREE SLOT 807
 // FREE SLOT 808
 // FREE SLOT 809
-#define mop_checkteambalance 810
+// FREE SLOT 810
 #define mop_checkteleportmissile 811
 // FREE SLOT 812
 // FREE SLOT 813

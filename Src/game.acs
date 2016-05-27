@@ -51,22 +51,6 @@ script mop_log_join(int player, int team, int manyplayers) clientside
 		Log(s:"There are so many puppetmasters, join marine team, please!");
 }
 
-script mop_checkteambalance(void)
-{
-	// WIP
-	/*
-	int manyplayers = GetCVar("mop_manyplayers")+1;
-
-	if (manyplayers < 2)
-		terminate;
-
-	bool toomanymarines = (TeamCount(PLAYER_MARINE) - TeamCount(PLAYER_MOP) == manyplayers);
-	bool toomanymops = (TeamCount(PLAYER_MOP) - TeamCount(PLAYER_MARINE) == manyplayers);
-	
-	if (GetCVar("mop_forceteamjoin")==true && (toomanymarines || toomanymops))
-		ConsoleCommand(StrParam(s:"kickfromgame_idx ", d:PlayerNumber(), s:" \"Join another team.\""));
-	*/
-}
 
 function void InitPuppetmasterInventory(void)
 {
@@ -138,7 +122,6 @@ script mop_enter ENTER
 	}
 	
 	ACS_ExecuteAlways(mop_log_join, 0, PlayerNumber(), PlayerClasses[PlayerNumber()], GetCVar("mop_manyplayers")+1);
-	ACS_ExecuteAlways(mop_checkteambalance, 0);
 	LaunchPlayerScripts();
 	UpdatePlayerCount();
 	
