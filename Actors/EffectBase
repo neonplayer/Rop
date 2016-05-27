@@ -21,7 +21,7 @@ Actor Effect
 	States
 	{
 	 Spawn:
-		NULL A 0
+		NULL A 2
 		Stop
 	 Unseen:
 		NULL A 0
