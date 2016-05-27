@@ -10,7 +10,6 @@ Actor NewChaingun : Chaingun replaces Chaingun
   Weapon.AmmoGive 0
   +WEAPON.AMMO_OPTIONAL
   +WEAPON.NOALERT
-  +THRUGHOST // Shoot through players and shields.
   Scale 0.85
   States
   {
