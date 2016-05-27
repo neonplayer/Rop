@@ -11,7 +11,6 @@ int Lives = 999;
 
 int MopFrags[MAX_PLAYERS];
 int ExtraLivePoints = 0.0;
-int MarinesNoBfgTimer[MAX_PLAYERS];
 
 // for saving monster from disconnects
 #define NUM_LASTMONSTER_PROPERTIES 6
@@ -336,12 +335,6 @@ script mop_init OPEN
 	{
 		ConsoleCommand("set mop_livescalingpercentage 100");
 		ConsoleCommand("archivecvar mop_livescalingpercentage");
-	}
-	
-	if(!GetCvar("mop_marinesnobfgtime"))
-	{
-		ConsoleCommand("set mop_marinesnobfgtime 60");
-		ConsoleCommand("archivecvar mop_marinesnobfgtime");
 	}
 	
 	if (!GetCVar("mop_maxlives"))
@@ -897,58 +890,6 @@ script mop_marines_giveextralives (int type)
 	}
 }
 
-script mop_marines_nobfgtimer death
-{
-	int player = PlayerNumber();
-	SetActivatorToTarget(0);
-	int killer = PlayerNumber();
-	if(PlayerClasses[player] == PLAYER_MOP || PlayerClasses[killer] == PLAYER_MARINE)
-		terminate;
-	
-	int time = GetCvar("mop_marinesnobfgtime");
-	if (time <= 0)
-	{
-		MarinesNoBfgTimer[player] = 0;
-		terminate;
-	}
-
-	if (MarinesNoBfgTimer[player] > 0)
-		terminate;
-
-	MarinesNoBfgTimer[player] = time;
-	
-	while(MarinesNoBfgTimer[player] > 0)
-	{
-		if (GetCvar("mop_marinesnobfgtime") <= 0)
-		{
-			MarinesNoBfgTimer[player] = 0;
-			terminate;
-		}
-	
-		MarinesNoBfgTimer[player]--;
-		delay(35);
-	}
-}
-
-script mop_marines_isbfgavailable (void)
-{
-	int time = MarinesNoBfgTimer[PlayerNumber()];
-	bool value;
-	
-	if (time > 0)
-		value = true;
-	else
-		value = false;
-	
-	if (value)
-	{
-		SetFont("Smallfont");
-		SetHUDSize(640,480,0);
-		hudmessage(s:"You cannot use BFG now, you must wait for ", d:time, s:" seconds.";HUDMSG_FADEOUT, HID_NOBFG, CR_GREEN, 640.0/2, 480.0/2, 3.5);
-	}
-
-	SetResultValue(value);
-}
 
 script mop_checkteleportmissile (void)
 {

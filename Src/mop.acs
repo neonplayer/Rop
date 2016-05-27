@@ -48,8 +48,8 @@ int BoomEdition = false;
 #define mop_puppetmaster_disconnect 841
 #define mop_player_clientsidedisconnect 842
 #define mop_marines_giveextralives 843
-#define mop_marines_nobfgtimer 844
-#define mop_marines_isbfgavailable 845
+// FREE SLOT 844
+// FREE SLOT 845
 // FREE SLOT 846
 #define mop_count_monstertypes_cl 847
 
@@ -69,7 +69,6 @@ int BoomEdition = false;
 #define HID_GAMESTATUS_ICON4 9
 #define HID_GAMESTATUS2 10
 #define HID_EXTRALIVEPOINTS 11
-#define HID_NOBFG 12
 
 #define POSSESSED_ADDITIONAL_HP 10000
 
