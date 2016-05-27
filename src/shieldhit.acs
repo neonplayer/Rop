@@ -1,0 +1,19 @@
+#define SHIELDCOLOR_GREEN 0
+#define SHIELDCOLOR_BLUE 1
+#define SHIELDCOLOR_ORANGE 2
+
+script mop_spawnshieldhit (int color)
+{
+	switch (color)
+	{
+	case SHIELDCOLOR_GREEN:
+		SpawnSpotForced("GreenShieldHit", 0, 0, 0);
+		break;
+	case SHIELDCOLOR_BLUE:
+		SpawnSpotForced("BlueShieldHit", 0, 0, 0);
+		break;
+	case SHIELDCOLOR_ORANGE:
+		SpawnSpotForced("OrangeShieldHit", 0, 0, 0);
+		break;
+	}
+}

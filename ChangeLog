@@ -2,6 +2,9 @@ ROP r3:
 
 - Made marines able to go thorugh each other without allowing mops to do so.
 - Fixed shotgun reload when fire is held down.
+- Fixed shield lagging behind the gun.
+- Reduced shield generator bandwidth consumption a lot.
+- Made shield glow with a dynamic light.
 
 ROP r2b:
 

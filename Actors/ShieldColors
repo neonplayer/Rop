@@ -1,0 +1,123 @@
+// Blue hex: Korshun
+// Orange hex: Monsterovich
+
+const int SHIELDCOLOR_GREEN = 0;
+const int SHIELDCOLOR_BLUE = 1;
+const int SHIELDCOLOR_ORANGE = 2;
+
+Actor GreenShieldHex : ShieldHex
+{
+	BloodType "GreenShieldHitSpawner"
+}
+
+Actor BlueShieldHex : ShieldHex
+{
+	BloodType "BlueShieldHitSpawner"
+}
+
+Actor OrangeShieldHex : ShieldHex
+{
+	BloodType "OrangeShieldHitSpawner"
+}
+
+
+Actor GreenShieldHexClientside : ShieldHexClientside
+{
+	States
+	{
+	Spawn:
+		HEXA A 2 Bright
+		Stop
+	}
+}
+Actor BlueShieldHexClientside : ShieldHexClientside
+{
+	States
+	{
+	Spawn:
+		// Steal the sprites from hvm when needed.
+		BHEX A 2 Bright
+		Stop
+	}
+}
+Actor OrangeShieldHexClientside : ShieldHexClientside
+{
+	States
+	{
+	Spawn:
+		// Steal the sprites from hvm when needed.
+		OHEX A 2 Bright
+		Stop
+	}
+}
+
+
+Actor GreenShieldLight : Effect {}
+Actor BlueShieldLight : Effect {}
+Actor OrangeShieldLight : Effect {}
+
+
+Actor GreenShieldHitSpawner : ShieldHitSpawner
+{
+	States
+	{
+	Spawn:
+		NULL A 0 // The actor must have 3 frames to work properly
+		NULL A 0 // because it is a blood actor.
+		NULL A 0 ACS_ExecuteAlways(mop_spawnshieldhit, 0, SHIELDCOLOR_GREEN)
+		NULL A 2
+		Stop
+	}
+}
+
+Actor BlueShieldHitSpawner : ShieldHitSpawner
+{
+	States
+	{
+	Spawn:
+		NULL A 0 // The actor must have 3 frames to work properly
+		NULL A 0 // because it is a blood actor.
+		NULL A 0 ACS_ExecuteWithResult(mop_spawnshieldhit, 0, SHIELDCOLOR_BLUE)
+		NULL A 2
+		Stop
+	}
+}
+
+Actor OrangeShieldHitSpawner : ShieldHitSpawner
+{
+	States
+	{
+	Spawn:
+		NULL A 0 // The actor must have 3 frames to work properly
+		NULL A 0 // because it is a blood actor.
+		NULL A 0 ACS_ExecuteWithResult(mop_spawnshieldhit, 0, SHIELDCOLOR_ORANGE)
+		NULL A 2
+		Stop
+	}
+}
+
+
+Actor GreenShieldHit : Effect
+{
+	Scale 0.5
+	RenderStyle Add
+	
+	States
+	{
+	Spawn:
+		NULL A 0
+		NULL A 0 A_PlaySound("forcebarrier/hit")
+		FHIT ABCDEFGH 1 Bright
+		Stop
+	}
+}
+
+Actor BlueShieldHit : GreenShieldHit
+{
+	Translation "112:127=192:207"
+}
+
+Actor OrangeShieldHit : GreenShieldHit
+{
+	Translation "112:127=211:223"
+}

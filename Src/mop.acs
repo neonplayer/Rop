@@ -16,7 +16,7 @@ int BoomEdition = false;
 // FREE SLOT 809
 // FREE SLOT 810
 #define mop_checkteleportmissile 811
-// FREE SLOT 812
+#define mop_spawnshieldhit 812
 // FREE SLOT 813
 // FREE SLOT 814
 // FREE SLOT 815
@@ -77,3 +77,4 @@ int BoomEdition = false;
 #include "evade.acs"
 #include "possess.acs"
 #include "monsterlist.acs"
+#include "shieldhit.acs"

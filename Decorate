@@ -11,6 +11,11 @@ Actor Imprandomizer : RandomSpawner replaces DoomImp
 }
 
 #Include Actors/Scripts
+#Include Actors/EffectBase
+
+//Shield stuff.
+#Include Actors/ShieldBase
+#Include Actors/ShieldColors
 
 #Include Actors/Enemies/Vanilla
 
