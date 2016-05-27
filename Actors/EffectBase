@@ -1,0 +1,57 @@
+// By Korshun
+
+Actor Effect
+{
+	+CLIENTSIDEONLY
+	+FORCEXYBILLBOARD
+
+	Health 1
+	Radius 0
+	Height 0
+	Mass 0
+ 
+	+MISSILE
+	+NOGRAVITY
+	+NOTELEPORT
+	+NOINTERACTION
+	+NOCLIP
+	+NOBLOCKMAP
+	+DONTSPLASH
+
+	States
+	{
+	 Spawn:
+		NULL A 0
+		Stop
+	 Unseen:
+		NULL A 0
+		Stop
+	}
+}
+
+Actor CollidingEffect : Effect
+{
+	Radius 5
+	Height 10
+ 
+	-NOINTERACTION
+	-NOCLIP
+	-NOBLOCKMAP
+}
+
+Actor FallingEffect : Effect
+{
+	-NOGRAVITY
+}
+
+Actor CollidingFallingEffect : Effect
+{
+	Radius 5
+	Height 10
+	 
+	-NOINTERACTION
+	-NOCLIP
+	-NOBLOCKMAP
+ 
+	-NOGRAVITY
+}

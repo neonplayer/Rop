@@ -1,0 +1,45 @@
+Actor ShieldHex
+{
+	+SERVERSIDEONLY
+
+	Radius 12
+	Height 16
+	
+	+SHOOTABLE
+	+NOGRAVITY
+	+NOTELEPORT
+	+NODAMAGE
+	+DONTRIP
+	
+	+NOBLOODDECALS
+	
+	+GHOST // Give projectiles that you wish to pass through shields THRUGHOST flag.
+	
+	States
+	{
+	Spawn:
+		TNT1 A 2
+		Stop
+	}
+}
+
+Actor ShieldHitSpawner : Effect
+{
+	-CLIENTSIDEONLY
+	+SERVERSIDEONLY
+}
+
+Actor ShieldHexClientside : Effect
+{
+	+SHOOTABLE
+	-NOINTERACTION
+	Scale 0.5
+	RenderStyle Add
+	Alpha 0.25
+}
+
+Actor ShieldSpawnerServerside
+{
+	+SERVERSIDEONLY
+	+NOINTERACTION
+}
