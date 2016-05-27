@@ -1,6 +1,7 @@
 ROP r3:
 
 - Made marines able to go thorugh each other without allowing mops to do so.
+- Fixed shotgun reload when fire is held down.
 
 ROP r2b:
 
