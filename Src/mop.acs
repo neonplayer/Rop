@@ -76,3 +76,4 @@ int BoomEdition = false;
 #include "game.acs"
 #include "evade.acs"
 #include "possess.acs"
+#include "monsterlist.acs"

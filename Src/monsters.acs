@@ -46,36 +46,6 @@ function void EvadingMonster(int speed)
 	MonsterTypes[NumMonsterTypes - 1][MONSTER_EVADESPEED] = speed;
 }
 
-function void InitMonsters(void)
-{
-	AddMonster(0.055, "POSSA1",   "Zombieman2", "Zombieman");
-	
-	AddMonster(0.075, "SPOSA1",   "Shotgunguy2", "Shotgun Zombie");
-	AddMonster(0.1,   "ESPSA1",   "EliteShotgunGuy", "Elite Shotgun Zombie");
-	
-	AddMonster(0.09,  "CPOSA1",   "Chaingunguy2", "Zombie Commando");
-	
-	AddMonster(0.03,  "TROOA1",   "Imp2", "Imp");
-	AddMonster(0.065, "DRKVA1",   "DarkImp", "Dark Imp");
-	
-	AddMonster(0.045, "SARGA1",   "Pinky", "Demon");
-	AddMonster(0.0475,"SPTRA1",   "Spectre2", "Spectre");
-	AddMonster(0.1,   "SKULA1",   "LostSoul2", "Lost Soul"); FlyingMonster();
-	AddMonster(0.25,  "HEADA1",   "Cacodemon2", "Cacodemon"); FlyingMonster();
-	AddMonster(0.25,  "PAINA1",   "PainElemental2", "Pain Elemental"); FlyingMonster();
-	AddMonster(0.25,  "BOS2A1C1", "HellKnight2", "Hell Knight");
-	AddMonster(0.35,  "BOSSA1",   "BaronofHell2", "Baron of Hell");
-	AddMonster(0.3,   "SKELA1D1", "Revenant2", "Revenant");
-	AddMonster(0.3,   "FATTA1",   "Mancubus", "Mancubus");
-	AddMonster(0.325, "BSPIA1D1", "Arachnotron2", "Arachnotron");
-	AddMonster(0.75,  "VILEA1D1", "Archvile2", "Arch-Vile");
-	AddMonster(6.5,   "SPIDA1D1", "Spidermastermind2", "Spider Mastermind");
-	AddMonster(7.25,  "CYBRA1",   "Cyberdemon2", "Cyberdemon");
-	AddMonster(0.075, "SSWVA1",   "WolfensteinSS2", "Wolfenstein SS");
-	
-	AddMonster(0.01,  "BAR1A0",   "NewExplosiveBarrel", "Explosive Barrel");
-}
-
 script mop_count_monstertypes_sv OPEN
 {
 	InitMonsters();
