@@ -1,8 +1,6 @@
 // this shit is recquired
 
 const int mop_possess = 800;
-const int mop_phaseimp = 807;
 const int mop_stopvile = 809;
 const int mop_findmarines = 828;
-const int mop_marines_isbfgavailable = 845;
 const int mop_checkteleportmissile = 811;
