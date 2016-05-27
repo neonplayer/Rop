@@ -3,6 +3,8 @@
 //Ammo Sprite: Eriance, Mechadon, Neon
 //Sounds : Quake 2, Half-life
 
+// Uses upgraded HvM shields by Korshun
+
 Actor ShieldGenerator : DoomWeapon
 {
   Weapon.AmmoUse 1

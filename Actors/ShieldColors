@@ -1,3 +1,6 @@
+// Blue hex: Korshun
+// Orange hex: Monsterovich
+
 const int SHIELDCOLOR_GREEN = 0;
 const int SHIELDCOLOR_BLUE = 1;
 const int SHIELDCOLOR_ORANGE = 2;

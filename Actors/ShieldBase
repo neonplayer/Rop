@@ -1,3 +1,6 @@
+// Original code : CaptainToenail
+// Upgraded by Korshun for HvM
+
 Actor ShieldHex
 {
 	+SERVERSIDEONLY
