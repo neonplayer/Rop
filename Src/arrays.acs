@@ -43,6 +43,7 @@ function void AddStartItem(str actorname, int amount)
 {
 	StartItems[NumStartItems][STARTITEM_ACTORNAME] = actorname;
 	StartItems[NumStartItems][STARTITEM_AMOUNT] = amount;
+	NumStartItems++;
 }
 
 function void AddMonster(int difficulty, str sprite, str actorname, str name)
