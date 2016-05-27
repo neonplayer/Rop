@@ -16,6 +16,9 @@ Actor MarinePlayer : DoomPlayer
   damagefactor "bfgsplash", 0
   DamageFactor "MarinePuff", 0
   
+  Species "Player"
+  +THRUSPECIES
+  
   Player.WeaponSlot 1, NewFist, NewChainsaw
   Player.WeaponSlot 2, NewPistol
   Player.WeaponSlot 3, NewShotgun, NewSSG
