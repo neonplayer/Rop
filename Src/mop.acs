@@ -13,7 +13,7 @@ int BoomEdition = false;
 #define mop_autoconfig 806
 // FREE SLOT 807
 // FREE SLOT 808
-#define mop_stopvile 809
+// FREE SLOT 809
 #define mop_checkteambalance 810
 #define mop_checkteleportmissile 811
 // FREE SLOT 812
