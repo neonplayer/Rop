@@ -34,8 +34,8 @@ function void InitMonsters(void)
 	
 	AddMonster(0.2,   "BSPIA1D1", "Arachnotron2", "Arachnotron");
 	AddMonster(0.5,   "VILEA1D1", "Archvile2", "Arch-Vile");
-	AddMonster(5.0,   "SPIDA1D1", "Spidermastermind2", "Spider Mastermind");
-	AddMonster(6.0,   "CYBRA1",   "Cyberdemon2", "Cyberdemon");
+	AddMonster(5.0,   "SPIDA1D1", "Spidermastermind2", "Spider Mastermind"); BossMonster();
+	AddMonster(6.0,   "CYBRA1",   "Cyberdemon2", "Cyberdemon"); BossMonster();
 	AddMonster(0.02,  "SSWVA1",   "WolfensteinSS2", "Wolfenstein SS");
 	
 	AddMonster(0.01,  "BAR1A0",   "NewExplosiveBarrel", "Explosive Barrel");
