@@ -21,8 +21,8 @@ Actor ShieldGenerator : DoomWeapon
 	SHLD BC 2
   Hold:
     SHLD C 0 bright A_PlaySoundEx ("ForceBarrier/Loop", "SoundSlot5", 1)
-	SHLD C 0 bright A_SpawnItemEx ("MarineShieldSpawnerClientside", 0, 96, 0, 0, 0, 0, -270, 32)
-    SHLD C 1 bright A_SpawnItemEx ("MarineShieldSpawnerServerside", 0, 96, 0, 0, 0, 0, -270, 32)
+	SHLD C 0 bright A_SpawnItemEx ("MarineShieldSpawnerClientside", 0, 96, 0, 0, 0, 0, -270, SXF_NOCHECKPOSITION)
+    SHLD C 1 bright A_SpawnItemEx ("MarineShieldSpawnerServerside", 0, 96, 0, 0, 0, 0, -270, SXF_NOCHECKPOSITION)
     SHLD C 0 bright A_FireCustomMissile ("AmmoCounter")
     SHLD C 0 A_Refire
     SHLD C 0 A_StopSoundEx ("SoundSlot5")
