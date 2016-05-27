@@ -12,7 +12,7 @@ int BoomEdition = false;
 #define mop_evade 805
 #define mop_autoconfig 806
 #define mop_phaseimp 807
-#define mop_attackswitching 808
+// FREE SLOT 808
 #define mop_stopvile 809
 #define mop_checkteambalance 810
 #define mop_checkteleportmissile 811
@@ -74,6 +74,5 @@ int BoomEdition = false;
 
 #include "monsters.acs"
 #include "game.acs"
-#include "attacks.acs"
 #include "evade.acs"
 #include "possess.acs"
