@@ -100,37 +100,6 @@ int MonsterItems[NUM_MONSTER_ITEMS] =
 	"CardinalToken"
 };
 
-script mop_phaseimp (void)
-{
-	//printbold(s:"start");
-
-	if (CheckInventory("PhaseImp_Phased"))
-		terminate;
-		
-	//printbold(s:"phase");
-
-	GiveInventory("PhaseImp_Phased", 1);
-	GiveInventory("PhaseImp_Phase", 1);
-	
-	for (int i = 0; i < 175; i++)
-	{
-		if (GetPlayerInput(-1, INPUT_BUTTONS) & BT_ATTACK)
-			break;
-			
-		Delay(1);
-	}
-	
-	//printbold(s:"unphase");
-	
-	GiveInventory("PhaseImp_Unphase", 1);
-	
-	Delay(175);
-	
-	//printbold(s:"cooldown");
-	
-	TakeInventory("PhaseImp_Phased", 1);
-}
-
 script mop_stopvile (void)
 {
 	SetActorVelocity(0, 0, 0, GetActorVelZ(0), false, true);
