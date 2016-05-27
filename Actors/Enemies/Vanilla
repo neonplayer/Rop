@@ -115,7 +115,7 @@ Actor NewImpBallTrail
 
 Actor Pinky : Demon replaces Demon
 {
-  MeleeRange 96
+  MeleeRange 72
   PainChance 100
   Speed 12
   Obituary "%o became a tasty snack for a pinky."
