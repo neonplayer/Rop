@@ -4,6 +4,7 @@ ROP r3:
 - Fixed shotgun reload when fire is held down.
 - Fixed shield lagging behind the gun.
 - Reduced shield generator bandwidth consumption a lot.
+- Made shield glow with a dynamic light.
 
 ROP r2b:
 
