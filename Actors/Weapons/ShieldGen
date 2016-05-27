@@ -7,6 +7,7 @@
 
 Actor ShieldGenerator : DoomWeapon
 {
+  Tag "Shield Generator"
   Weapon.AmmoUse 1
   Weapon.AmmoGive 10
   Weapon.SlotNumber 8
