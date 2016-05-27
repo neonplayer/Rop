@@ -59,6 +59,18 @@ function void InitPuppetmasterInventory(void)
 	GiveInventory("AllMap", 1);
 }
 
+function void GiveMarineStartItems(void)
+{
+	GiveInventory("IsMarine", 1);
+	for (int i = 0; i < NumStartItems; i++)
+	{
+		int current = CheckInventory(StartItems[i][STARTITEM_ACTORNAME]);
+		int minimum = StartItems[i][STARTITEM_AMOUNT];
+		if (current < minimum)
+			GiveInventory(StartItems[i][STARTITEM_ACTORNAME], minimum - current);
+	}
+}
+
 script mop_enter ENTER
 {
 	Thing_ChangeTid(0, 1000 + PlayerNumber());
@@ -75,34 +87,21 @@ script mop_enter ENTER
 	{	
 		PlayerClasses[PlayerNumber()] = PLAYER_MARINE;
 		//SetPlayerProperty(0, false, PROP_ALLMAP);
+		
 		if (GetCVar("mop_pistolstart"))
 		{		
 			ClearInventory();
 			
-			TakeInventory("NewFist", 1);
-			TakeInventory("NewPistol", 1);
-			TakeInventory("NewChainsaw", 1);
-			TakeInventory("NewShotgun", 1);
-			TakeInventory("NewSuperShotgun", 1);
-			TakeInventory("NewChaingun", 1);
-			TakeInventory("NewRocketLauncher", 1);
-			TakeInventory("NewPlasmaRifle", 1);
-			TakeInventory("NewBFG9000", 1);
-			TakeInventory("ShieldGenerator", 1);
-			
-			GiveInventory("NewPistol", 1);
-			GiveInventory("Clip", 30);
-			GiveInventory("NewFist", 1);
-			GiveInventory("PistolClip", 12);
-			GiveInventory("ShotgunClip", 8);
-			GiveInventory("ChaingunClip", 40);
-			GiveInventory("SSGClip", 2);
-			GiveInventory("PlasmaClip", 50);
-			GiveInventory("RocketClip", 5);
-			GiveInventory("IsMarine", 1);
-			
+			for (int i = 0; i < NumMarineWeapons; i++)
+				TakeInventory(MarineWeapons[i], 0x7fffffff);
+				
 			SetActorProperty(0, APROP_HEALTH, 100);
-			
+		}
+		
+		GiveMarineStartItems();
+					
+		if (GetCVar("mop_pistolstart"))	
+		{	
 			if (GetCVar("mop_pistolstart") == 1)
 			{
 				print(s:"Pistol Start");
@@ -124,15 +123,6 @@ script mop_enter ENTER
 	ACS_ExecuteAlways(mop_log_join, 0, PlayerNumber(), PlayerClasses[PlayerNumber()], GetCVar("mop_manyplayers")+1);
 	LaunchPlayerScripts();
 	UpdatePlayerCount();
-	
-	if (GetCVar("mop_pistolstart") == 1)
-	{
-		SetWeapon("Pistol");
-	}
-	else if (GetCVar("mop_pistolstart") == 2)
-	{
-		SetWeapon("Shotgun");
-	}
 }
 script mop_respawn RESPAWN
 {
@@ -142,7 +132,7 @@ script mop_respawn RESPAWN
 	LaunchPlayerScripts();
 	
 	if (PlayerClasses[PlayerNumber()] == PLAYER_MARINE)
-		SetWeapon("Handgun"); // WTF is this bug?
+		GiveMarineStartItems();
 	else
 		InitPuppetmasterInventory();
 }

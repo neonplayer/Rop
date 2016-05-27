@@ -1,3 +1,5 @@
+// List of all monster types.
+
 #define MONSTER_ACTORNAME 0
 #define MONSTER_DIFFICULTY 1
 #define MONSTER_SCRIPT 2
@@ -10,9 +12,39 @@
 #define MONSTF_FLYING 1
 #define MONSTF_BOSS 2
 
-int NumMonsterTypes = 0;
 #define MAX_MONSTER_TYPES 100
+int NumMonsterTypes = 0;
 int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES];
+
+
+// List of all items marine start with.
+
+#define STARTITEM_ACTORNAME 0
+#define STARTITEM_AMOUNT 1
+#define NUM_STARTITEM_PROPERTIES 2
+
+#define MAX_START_ITEMS 32
+int NumStartItems = 0;
+int StartItems[MAX_START_ITEMS][NUM_STARTITEM_PROPERTIES];
+
+
+// List of all weapons marines can use.
+
+#define MAX_MARINE_WEAPONS 32
+int NumMarineWeapons = 0;
+int MarineWeapons[MAX_MARINE_WEAPONS];
+
+function void AddWeapon(str actorname)
+{
+	MarineWeapons[NumMarineWeapons++] = actorname;
+}
+
+function void AddStartItem(str actorname, int amount)
+{
+	StartItems[NumStartItems][STARTITEM_ACTORNAME] = actorname;
+	StartItems[NumStartItems][STARTITEM_AMOUNT] = amount;
+	NumStartItems++;
+}
 
 function void AddMonster(int difficulty, str sprite, str actorname, str name)
 {
@@ -48,12 +80,12 @@ function void EvadingMonster(int speed)
 
 script mop_count_monstertypes_sv OPEN
 {
-	InitMonsters();
+	InitMOP();
 	//CountMonsterTypes();
 }
 script mop_count_monstertypes_cl OPEN CLIENTSIDE
 {
-	InitMonsters();
+	InitMOP();
 	//CountMonsterTypes();
 }
 

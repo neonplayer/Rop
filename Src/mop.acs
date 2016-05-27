@@ -72,9 +72,9 @@ int BoomEdition = false;
 
 #define POSSESSED_ADDITIONAL_HP 10000
 
-#include "monsters.acs"
+#include "arrays.acs"
 #include "game.acs"
 #include "evade.acs"
 #include "possess.acs"
-#include "monsterlist.acs"
+#include "actorlist.acs"
 #include "shieldhit.acs"
