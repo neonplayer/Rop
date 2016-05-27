@@ -1,4 +1,4 @@
-// this shit is recquired
+// this shit is required
 
 const int mop_possess = 800;
 const int mop_stopvile = 809;
