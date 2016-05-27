@@ -18,6 +18,7 @@ Actor MarinePlayer : DoomPlayer
   
   Species "Player"
   +THRUSPECIES
+  +GHOST // Allows shooting bullets through players and shields.
   
   Player.WeaponSlot 1, NewFist, NewChainsaw
   Player.WeaponSlot 2, NewPistol
