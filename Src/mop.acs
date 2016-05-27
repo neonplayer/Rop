@@ -11,10 +11,10 @@ int BoomEdition = false;
 #define mop_respawn_puppetmaster 804
 #define mop_evade 805
 #define mop_autoconfig 806
-#define mop_phaseimp 807
-#define mop_attackswitching 808
-#define mop_stopvile 809
-#define mop_checkteambalance 810
+// FREE SLOT 807
+// FREE SLOT 808
+// FREE SLOT 809
+// FREE SLOT 810
 #define mop_checkteleportmissile 811
 // FREE SLOT 812
 // FREE SLOT 813
@@ -48,8 +48,8 @@ int BoomEdition = false;
 #define mop_puppetmaster_disconnect 841
 #define mop_player_clientsidedisconnect 842
 #define mop_marines_giveextralives 843
-#define mop_marines_nobfgtimer 844
-#define mop_marines_isbfgavailable 845
+// FREE SLOT 844
+// FREE SLOT 845
 // FREE SLOT 846
 #define mop_count_monstertypes_cl 847
 
@@ -69,12 +69,11 @@ int BoomEdition = false;
 #define HID_GAMESTATUS_ICON4 9
 #define HID_GAMESTATUS2 10
 #define HID_EXTRALIVEPOINTS 11
-#define HID_NOBFG 12
 
 #define POSSESSED_ADDITIONAL_HP 10000
 
 #include "monsters.acs"
 #include "game.acs"
-#include "attacks.acs"
 #include "evade.acs"
 #include "possess.acs"
+#include "monsterlist.acs"

@@ -93,11 +93,6 @@ script mop_possess (void)
 
 	// Show HUD.
 	ACS_ExecuteAlways(mop_possessed_hud, 0, PlayerNumber(), DamageFactor, spawnhealth << 16 | type);
-		
-	// Run attack switching script.
-	int attacklist = FindMonsterAttackList(MonsterTypes[type][MONSTER_ACTORNAME]);
-	if (attacklist != -1)
-		ACS_ExecuteAlways(mop_attackswitching, 0, attacklist);
 	
 	// Lock weapons to prevent firing instantly after possessing.
 	SetPlayerProperty(0, true, PROP_TOTALLYFROZEN);
