@@ -1,6 +1,5 @@
 #library "mop"
 #include "zcommon.acs"
-#include "math.acs"
 
 int BoomEdition = false;
 
