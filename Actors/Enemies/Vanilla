@@ -262,6 +262,7 @@ Actor HellKnight2 : HellKnight replaces HellKnight
   BloodColor DarkGreen
   Obituary "%o was melted by a hellknight."
   HitObituary "%o was slain by a hellknight."
+  DamageFactor "BaronMeteor", 0
   States
   {
   Missile:
@@ -295,7 +296,7 @@ Actor BaronTrail : NewImpBallTrail
   }
 }
 
-Actor BaronOfHell2 : BaronOfHell replaces BaronOfHell
+Actor BaronOfHell2 : BaronOfHell
 {
   BloodColor DarkGreen
   Scale 1.05
@@ -303,14 +304,27 @@ Actor BaronOfHell2 : BaronOfHell replaces BaronOfHell
   Obituary "%o got annihilated by a baron."
   HitObituary "A baron showed %o what it's like to get berserk punch'd."
   +QuickToRetaliate
+  DamageFactor "BaronMeteor", 0
   States
   {
   Missile:
 	BOSS EF 8 A_FaceTarget
+	BOSS A 0 A_Jump(128, "Meteor")
 	BOSS G 0 A_CustomComboAttack("NewBaronBall", 32, Random(1, 8)*6, "Baron/Melee")
 	BOSS G 0 A_CustomMissile("NewBaronBall2", 32, 0, 12)
     BOSS G 8 A_CustomMissile("NewBaronBall2", 32, 0, -12)
 	Goto See
+  Meteor:
+    BOSS G 8 A_CustomMissile("BaronMeteor", 32, 0, 0)
+	Goto See
+  Death:
+    BOSS I 8
+    BOSS J 8 A_Scream
+    BOSS K 8
+    BOSS L 8 A_NoBlocking
+    BOSS MN 8
+    BOSS O -1 A_KillMaster
+    Stop
   }
 }
 
@@ -320,6 +334,46 @@ Actor NewBaronBall2 : NewBaronBall
   Damage 4
   Speed 10
   Decal DoomImpScorch
+}
+
+Actor BaronMeteor : NewBaronBall
+{
+  Scale 0.66
+  RenderStyle Normal
+  Damage 0
+  DamageType "BaronMeteor"
+  +ForceRadiusDmg
+  SeeSound "BaronMeteor/Fire"
+  DeathSound "BaronMeteor/Death"
+  Decal Scorch
+  States
+  {
+  Spawn:
+    ARCB AAAABBBBCCCC 1 Bright A_SpawnItemEx("MeteorTrail")
+	Loop
+  Death:
+    ARCB J 0 Bright A_SetTranslucent (0.67,1)
+    ARCB J 3 Bright
+    ARCB K 3 Bright A_Explode(64,72,0)
+    ARCB LMN 3 Bright
+    Stop
+  }
+}
+
+Actor MeteorTrail
+{   
+  +NoInteraction
+  +ClientSideOnly
+  Scale 0.45
+  RenderStyle Add
+  Alpha 0.67
+  States
+  {
+  Spawn:
+    TNT1 A 3
+    ARCB DEFGHI 3 Bright A_FadeOut(0.05)
+    Stop 
+  }
 }
 
 Actor Revenant2 : Revenant replaces Revenant
