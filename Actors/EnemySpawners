@@ -1,0 +1,23 @@
+Actor ShotguyRandomizer : RandomSpawner replaces Shotgunguy
+{
+  DropItem "Shotgunguy2", 256, 88
+  DropItem "EliteShotgunguy", 256, 12
+}
+
+Actor Imprandomizer : RandomSpawner replaces DoomImp
+{
+  DropItem "Imp2", 256, 88
+  DropItem "DarkImp", 256, 12
+}
+
+Actor DemonRandomizer : RandomSpawner replaces Demon
+{
+  DropItem "Pinky", 256, 87
+  DropItem "Fiend", 256, 13
+}
+
+Actor SpectreRandomizer : RandomSpawner replaces Spectre
+{
+  DropItem "Spectre2", 256, 87
+  DropItem "ShadowFiend", 256, 13
+}

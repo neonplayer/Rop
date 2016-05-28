@@ -34,7 +34,7 @@ function void InitMOP(void)
 	AddMonster(0.045, "SARGA1",   "Pinky", "Demon");
 	AddMonster(0.075, "BDMNA1",   "Fiend", "Fiend");
 	AddMonster(0.0475,"SPTRA1",   "Spectre2", "Spectre");
-	AddMonster(0.08,  "SBDMA1",   "Shadow Fiend", "ShadowFiend");
+	AddMonster(0.08,  "SBDMA1",   "ShadowFiend", "Shadow Fiend");
 	
 	AddMonster(0.07,  "SKULA1",   "LostSoul2", "Lost Soul"); FlyingMonster();
 	

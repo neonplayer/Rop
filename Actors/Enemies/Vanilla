@@ -113,7 +113,7 @@ Actor NewImpBallTrail
   }
 }
 
-Actor Pinky : Demon replaces Demon
+Actor Pinky : Demon
 {
   MeleeRange 72
   PainChance 100
@@ -136,7 +136,7 @@ Actor Pinky : Demon replaces Demon
   }
 }
     
-Actor Spectre2 : Pinky replaces Spectre
+Actor Spectre2 : Pinky
 {
   Alpha 0.35
   Obituary "%o didn't quite see the spectre."
