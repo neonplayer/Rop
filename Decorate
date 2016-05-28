@@ -20,7 +20,7 @@
 //#Include Actors/Enemies/Erroremental
 //#Include Actors/Enemies/Beholder
 //#Include Actors/Enemies/HellCrusader
-//#Include Actors/Enemies/Bishop
+#Include Actors/Enemies/Archon
 //#Include Actors/Enemies/NewRevenant //Haven't thought of anything yet.
 //#Include Actors/Enemies/Torment
 //#Include Actors/Enemies/Aracknight
