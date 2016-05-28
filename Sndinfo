@@ -36,6 +36,8 @@ PsxPinky/Death		PXPNKDTH
 PsxPinky/Attack		PXPNKATK
 PsxPinky/ACT		PXPNKACT
 
+PsxDemon/Pain       PXDMPAIN
+
 //Shield
 
 ForceBarrier/On		DSFRCON

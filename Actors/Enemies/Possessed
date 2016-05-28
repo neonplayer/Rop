@@ -343,7 +343,7 @@ Actor PinkyWeapon : PossessedWeapon
     TNT1 A 0 A_GunFlash
     TNT1 A 0 A_PlaySound("Demon/Melee", Chan_Weapon)
     TNT1 A 6
-	TNT1 A 4 A_CustomPunch(Random(3, 8)*3, true)
+	TNT1 A 4 A_CustomPunch(Random(3, 8)*1.7, true)
 	Goto Ready
   Fire:
     TNT1 A 0 A_PlaySound("Demon/Melee", Chan_Weapon)
@@ -1498,5 +1498,97 @@ Actor EliteShotgunWeapon : PossessedWeapon
 	SHTG A 1 OffSet(0, 32)
 	SHTG A 13
 	Goto Ready
+  }
+}
+
+Actor PossessedFiend : PossessedMonster
+{
+  Player.MorphWeapon "FiendWeapon"
+  Health 250
+  Radius 30
+  Height 56
+  Speed 0.7
+  PainChance 90
+  Mass 400
+  Obituary "%o was eviscerated by %k."
+  States
+  {
+  Spawn:
+    BDMN AB 10
+    Loop
+  See:
+    BDMN AABBCCDD 2
+    Loop
+  Melee:
+    BDMN EF 3
+    BDMN G 4
+    Goto Spawn
+  Missile:
+    BDMN EF 6
+    BDMN G 8
+    Goto Spawn
+  Pain:
+    BDMN H 2
+    BDMN H 2 A_Pain
+    Goto Spawn
+  }
+}
+
+Actor FiendWeapon : PossessedWeapon
+{
+  States
+  {
+  AltFire:
+    TNT1 A 0 A_GunFlash
+    TNT1 A 0 A_PlaySound("PsxPinky/Attack", Chan_Weapon)
+    TNT1 A 6
+	TNT1 A 4 A_CustomPunch(Random(3, 8)*2.5, true)
+	Goto Ready
+  Fire:
+    TNT1 A 1
+	TNT1 A 0 A_Refire
+    TNT1 A 0 A_PlaySound("PsxPinky/Attack", Chan_Weapon)
+    TNT1 A 0 A_Recoil(-20)
+	TNT1 A 0 ThrustThingZ(0, 25, 0, 1)
+    TNT1 A 12
+	TNT1 A 8 A_CustomPunch(Random(1, 10)*4, true)
+	Goto Ready
+  }
+}
+
+Actor PossessedShadowFiend : PossessedMonster
+{
+  Player.MorphWeapon "FiendWeapon"
+  Health 250
+  Radius 30
+  Height 56
+  Speed 0.7
+  PainChance 90
+  Alpha 0.325
+  Mass 400
+  BloodColor "4F4F4F"
+  RenderStyle Translucent
+  Obituary "%o was swallowed whole by %k."
+  Translation "168:183=100:107", "184:187=108:111", "188:191=5:8", "32:47=5:8", "1:2=0:0"
+  States
+  {
+  Spawn:
+    BDMN AB 10
+    Loop
+  See:
+    BDMN AABBCCDD 2
+    Loop
+  Melee:
+    BDMN EF 3
+    BDMN G 4
+    Goto Spawn
+  Missile:
+    BDMN EF 6
+    BDMN G 8
+    Goto Spawn
+  Pain:
+    BDMN H 2
+    BDMN H 2 A_Pain
+    Goto Spawn
   }
 }

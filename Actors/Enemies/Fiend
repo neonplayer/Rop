@@ -1,1 +1,54 @@
-Actor Fiend : 
+Actor Fiend : Demon
+{
+  MeleeRange 72
+  Health 250 //300 is a little too much
+  Speed 14
+  PainChance 90
+  Scale 1.05
+  MaxTargetRange 192 //How close you have to be for him to charge
+  Obituary "%o was eviscerated by a fiend."
+  SeeSound "PsxPinky/sight"
+  AttackSound "PsxPinky/Attack"
+  PainSound "PsxDemon/pain"
+  DeathSound "PsxPinky/death"
+  ActiveSound "PsxPinky/active"
+  States
+  {
+  Spawn:
+    BDMN AB 10 A_Look
+    Loop
+  See:
+    BDMN AABBCCDD 2 A_Chase
+    Loop
+  Missile:
+  Melee:
+    BDMN A 0 A_FaceTarget
+    BDMN A 0 A_JumpIfCloser(64, "YUM")
+    BDMN A 0 A_Recoil(-20)
+	BDMN A 0 ThrustThingZ(0, 25, 0, 1)
+    BDMN EF 6 A_FaceTarget
+    BDMN G 8 A_SargAttack
+    Goto See
+  YUM:
+    BDMN A 0 A_Recoil(-11)
+	BDMN EF 3 A_FaceTarget
+	BDMN G 4 A_CustomMeleeAttack(2.4 * Random(1, 10), "")
+	Goto See
+  Pain:
+    BDMN H 2
+    BDMN H 2 A_Pain
+    Goto See
+  Death:
+    BDMN I 8
+    BDMN J 8 A_Scream
+    BDMN K 4
+    BDMN L 4 A_NoBlocking
+    BDMN M 4
+    BDMN N -1
+    Stop
+  Raise:
+    BDMN N 5
+    BDMN MLKJI 5
+    Goto See
+  }
+}

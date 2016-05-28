@@ -25,8 +25,8 @@ Actor Imprandomizer : RandomSpawner replaces DoomImp
 #Include Actors/Enemies/EliteShotZombie
 //#Include Actors/Enemies/RocketZombie
 #Include Actors/Enemies/DarkImp
-//#Include Actors/Enemies/Fiend
-//#Include Actors/Enemies/EtherealFiend
+#Include Actors/Enemies/Fiend
+#Include Actors/Enemies/ShadowFiend
 //#Include Actors/Enemies/tERROR
 //#Include Actors/Enemies/Erroremental
 //#Include Actors/Enemies/Beholder
