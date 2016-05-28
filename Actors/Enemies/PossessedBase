@@ -21,7 +21,6 @@ Actor PossessedMonster : PlayerPawn
 	DamageFactor "CyberRocket", 0
 	DamageFactor "VileFireAura", 0
 	DamageFactor "BarrelExplosion", 0
-	DamageFactor "BaronMeteor", 0
 	States
 	{
 	Death:
@@ -44,7 +43,6 @@ Actor NewBossBrain : BossBrain replaces BossBrain
 	DamageFactor "CyberRocket", 0
     DamageFactor "VileFireAura", 0
 	DamageFactor "BarrelExplosion", 0
-	DamageFactor "BaronMeteor", 0
 }
 
 Actor PossessedWeapon : Weapon

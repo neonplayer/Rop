@@ -1,8 +1,3 @@
-//Metoer
-
-BaronMeteor/Fire		DSBMTFI
-BaronMeteor/Death		DSBMTDT
-
 //Zombies
 
 PXZMDTH1		PXZMDTH1
@@ -42,11 +37,6 @@ PsxPinky/Attack		PXPNKATK
 PsxPinky/ACT		PXPNKACT
 
 PsxDemon/Pain       PXDMPAIN
-
-//Belphegor
-
-PsxBaron/Sight		DSBLPHI
-Archon/Death		DSBLPDIE
 
 //Shield
 
