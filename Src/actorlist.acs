@@ -46,7 +46,7 @@ function void InitMOP(void)
 	AddMonster(0.15,  "BOS2A1C1", "HellKnight2", "Hell Knight");
 	
 	AddMonster(0.25,  "BOSSA1",   "BaronofHell2", "Baron of Hell");
-	//AddMonster(0.325,  "BELPA1",   "Belphegor", "Belphegor");
+	AddMonster(0.325, "BELPA1C1",   "ArchonOfHell", "Archon of Hell");
 	
 	AddMonster(0.15,  "SKELA1D1", "Revenant2", "Revenant");
 	

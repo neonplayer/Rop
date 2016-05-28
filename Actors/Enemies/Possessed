@@ -606,7 +606,7 @@ Actor PossessedBaronOfHell2 : PossessedMonster
 {
   Player.MorphWeapon "BaronWeapon"
   BloodColor DarkGreen
-  Scale 1.1
+  Scale 1.05
   Speed 0.39375
   Radius 24
   Height 64
@@ -641,15 +641,8 @@ Actor BaronWeapon : PossessedWeapon
   {
   Fire:
     TNT1 A 16
-	TNT1 A 0 A_Jump(128, "AltPrimFire")
-	TNT1 A 0 A_FireCustomMissile("NewBaronBall2", 12)
-	TNT1 A 8 A_FireCustomMissile("NewBaronBall")
-	TNT1 A 15
-	Goto Ready
-  AltPrimFire:
-    TNT1 A 0 A_FireCustomMissile("NewBaronBall2", -12)
-	TNT1 A 8 A_FireCustomMissile("NewBaronBall")
-	TNT1 A 15
+	TNT1 A 8 A_FireCustomMissile("BaronMeteor")
+	TNT1 A 17
 	Goto Ready
   AltFire:
     TNT1 A 16
@@ -1590,5 +1583,81 @@ Actor PossessedShadowFiend : PossessedMonster
     BDMN H 2
     BDMN H 2 A_Pain
     Goto Spawn
+  }
+}
+
+Actor PossessedArchonOfHell : PossessedMonster
+{
+  Player.MorphWeapon "ArchonWeapon"
+  BloodColor DarkGreen
+  Scale 1.1
+  Speed 0.4375
+  Radius 24
+  Height 64
+  PainChance 40
+  Mass 1000
+  Obituary "%k turned %o into a pile of bones."
+  HitObituary "%o was ripped to pieces by %k."
+  Player.ViewHeight 59
+  States
+  {
+  Spawn: 
+    BELP AB 10
+    Loop 
+  See:
+    BELP AABBCCDD 3
+    Loop 
+  Missile:
+    BELP EF 8 Bright
+    BELP G 4 Bright
+    BELP H 4 Bright
+	BELP IJ 8 Bright
+    BELP K 4 Bright
+    BELP L 4 Bright
+	Goto Spawn
+  Melee:
+    BELP EF 8 Bright
+	BELP G 4 Bright
+	BELP H 4 Bright
+	BELP IJ 8 Bright
+	BELP K 4 Bright
+	BELP K 4 Bright
+	BELP L 4 Bright
+	BELP MN 8 Bright
+	BELP O 4 Bright
+	BELP P 4 Bright
+	Goto Spawn
+  Pain: 
+    BELP Q 2 
+    BELP Q 2 A_Pain 
+    Goto See
+  }
+}
+
+Actor ArchonWeapon : PossessedWeapon
+{
+  States
+  {
+  Fire:
+    TNT1 A 16
+	TNT1 A 8 A_FireCustomMissile("BaronMeteor")
+	TNT1 A 16
+	TNT1 A 8 A_FireCustomMissile("BaronMeteor")
+	TNT1 A 25
+	Goto Ready
+  AltFire:
+    TNT1 A 0 SetPlayerProperty(0, true, Prop_Frozen)
+    TNT1 A 16 A_GunFlash
+	TNT1 A 0 A_FireCustomMissile("NewBaronBall", 12)
+	TNT1 A 8 A_FireCustomMissile("NewBaronBall", 0)
+	TNT1 A 16
+	TNT1 A 0 A_FireCustomMissile("NewBaronBall", -12)
+	TNT1 A 8 A_FireCustomMissile("NewBaronBall", 0)
+	TNT1 A 16
+	TNT1 A 0 A_FireCustomMissile("BaronMeteor", 0)
+	TNT1 A 0 A_FireCustomMissile("NewBaronBall", 12)
+	TNT1 A 8 A_FireCustomMissile("NewBaronBall", -12)
+	TNT1 A 35 SetPlayerProperty(0, false, Prop_Frozen)
+	Goto Ready
   }
 }
