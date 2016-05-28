@@ -3,6 +3,7 @@ Actor NewChainsaw : Chainsaw replaces Chainsaw
   Decal BulletChip
   Weapon.PreferredSkin "ChainsawMarine"
   Weapon.SlotNumber 1
+  +THRUGHOST // Allow shooting through marine shields.
   States
   {
   Fire:

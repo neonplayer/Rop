@@ -8,6 +8,7 @@ Actor NewShotgun : Shotgun replaces Shotgun
   Weapon.AmmoGive 0
   +WEAPON.AMMO_OPTIONAL
   +WEAPON.NOALERT
+  +THRUGHOST // Allow shooting through marine shields.
   Weapon.PreferredSkin "ShotgunMarine"
   Decal BulletChip
   Scale 0.85

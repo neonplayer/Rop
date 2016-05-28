@@ -12,6 +12,7 @@ Actor NewPistol : Pistol replaces Pistol
   Weapon.AmmoGive 0
   +WEAPON.AMMO_OPTIONAL
   +WEAPON.NOALERT
+  +THRUGHOST // Allow shooting through marine shields.
   States
   {
   Deselect:
