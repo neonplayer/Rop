@@ -3,6 +3,7 @@ Actor NewFist : Fist replaces Fist
   Decal BulletChip
   Weapon.PreferredSkin "FistMarine"
   Weapon.SlotNumber 1
+  +THRUGHOST // Allow shooting through marine shields.
   States
   {
   Fire:
