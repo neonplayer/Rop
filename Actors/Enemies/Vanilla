@@ -68,6 +68,7 @@ Actor Imp2 : DoomImp
   Obituary "%o played catch with an imp."
   HitObituary "An Imp lended %o a claw."
   +MissileMore
+  Species "Imps"
   States
   {
   Melee:
@@ -119,6 +120,8 @@ Actor Pinky : Demon
   PainChance 100
   Speed 12
   Obituary "%o became a tasty snack for a pinky."
+  +DontHurtSpecies
+  Species "Pinkies"
   States
   {
   Melee:
@@ -159,6 +162,7 @@ Actor Cacodemon2 : Cacodemon replaces Cacodemon
   PainChance 96
   Obituary "%o was purified by a cacodemon." //Since his attack is like the cleric's second weapon from hexen.
   HitObituary "%o wanted to know what's inside of a cacodemon's belly."
+  Species "Cacoes"
   States
   {
   Missile:
@@ -263,6 +267,7 @@ Actor HellKnight2 : HellKnight replaces HellKnight
   Obituary "%o was melted by a hellknight."
   HitObituary "%o was slain by a hellknight."
   DamageFactor "BaronMeteor", 0
+  Species "Nobles"
   States
   {
   Missile:
@@ -304,7 +309,9 @@ Actor BaronOfHell2 : BaronOfHell
   Obituary "%o got annihilated by a baron."
   HitObituary "A baron showed %o what it's like to get berserk punch'd."
   +QuickToRetaliate
+  +DonthurtSpecies
   DamageFactor "BaronMeteor", 0
+  Species "Nobles"
   States
   {
   Missile:
@@ -430,10 +437,12 @@ Actor RevenantRocketTrail
   }
 }
 
-Actor Mancubus : Fatso replaces Fatso
+Actor Mancubus : Fatso
 {
   Scale 1.075
   Obituary "A mancubus made %o all crispy."
+  Species "Fatties"
+  DamageFactor "TormentBfg", 0
   States
   {
   Missile:
@@ -448,6 +457,13 @@ Actor Mancubus : Fatso replaces Fatso
     FATT H 10 Bright A_CustomMissile("NewFatShot", 24, 20, -12)
     FATT IG 5 A_FaceTarget
     Goto See
+  Death:
+    FATT K 6
+    FATT L 6 A_Scream
+    FATT M 6 A_NoBlocking
+    FATT NOPQRS 6
+    FATT T -1 A_KillMaster
+    Stop
   }
 }
 

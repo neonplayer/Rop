@@ -1,3 +1,8 @@
+//Some Projectiles
+
+StrongProjectile/Fire		PSXPRSHT
+StrongProjectile/Death		PSXPRXPL
+
 //Metoer
 
 BaronMeteor/Fire		DSBMTFI
@@ -47,6 +52,16 @@ PsxDemon/Pain       PXDMPAIN
 
 PsxBaron/Sight		DSBLPHI
 Archon/Death		DSBLPDIE
+
+//Torment
+
+PsxFatso/Sight		PXMANSIT
+PsxFatso/Pain		PXMNPAIN
+PsxFatso/Death		PXMANDTH
+PsxFatso/Attack		PXMANATK
+
+HectBfg/Fire		DSFBFGF
+HectBfg/Death		DSFBFGD
 
 //Shield
 

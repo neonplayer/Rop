@@ -1,3 +1,6 @@
+//Sounds: Id Software, Eriance, Midway Games
+//Sprites: Id Software, Eriance, Midway Games
+
 Actor ArchonOfHell : BaronOfHell2
 {
   Health 1250
@@ -11,7 +14,9 @@ Actor ArchonOfHell : BaronOfHell2
   DeathSound "Archon/death"
   ActiveSound "PsxDemon/Act"
   +MissileMore
+  +DontHurtSpecies
   DamageFactor "BaronMeteor", 0
+  Species "Nobles"
   States
   {
   Spawn: 

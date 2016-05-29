@@ -51,7 +51,7 @@ function void InitMOP(void)
 	AddMonster(0.15,  "SKELA1D1", "Revenant2", "Revenant");
 	
 	AddMonster(0.2,   "FATTA1",   "Mancubus", "Mancubus");
-	//AddMonster(0.3,   "FAT2A1",   "Hectebus", "Hectebus");
+	AddMonster(0.3,   "FAT2A1D1",   "TormentedMancubus", "Torment");
 	
 	AddMonster(0.2,   "BSPIA1D1", "Arachnotron2", "Arachnotron");
 	AddMonster(0.5,   "VILEA1D1", "Archvile2", "Arch-Vile");

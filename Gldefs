@@ -354,6 +354,54 @@ Frame DRKVJ { Light VoidDarkImpFire2 }
 Frame DRKVK { Light VoidDarkImpFire2 }
 }
 
+Pointlight ArchonComet1
+{
+Color 0.0 0.6 0.1
+Size 48
+}
+
+Pointlight ArchonComet2
+{
+Color 0.0 0.8 0.2
+Size 96
+}
+
+Pointlight ArchonComet3
+{
+Color 0.0 0.75 0.15
+Size 84
+}
+
+Pointlight ArchonComet4
+{
+Color 0.0 0.5 0.05
+Size 78
+}
+
+Pointlight ArchonComet5
+{
+Color 0.0 0.5 0.05
+Size 72
+}
+
+Pointlight ArchonComet6
+{
+Color 0.0 0.5 0.05
+Size 48
+}
+
+Object BaronMeteor
+{
+Frame ARCBA { Light ArchonComet1 }
+Frame ARCBB { Light ArchonComet1 }
+Frame ARCBC { Light ArchonComet1 }
+Frame ARCBJ { Light ArchonComet2 }
+Frame ARCBK { Light ArchonComet3 }
+Frame ARCBL { Light ArchonComet4 }
+Frame ARCBM { Light ArchonComet5 }
+Frame ARCBN { Light ArchonComet6 }
+}
+
 //Enemies
 
 object NewExplosiveBarrel

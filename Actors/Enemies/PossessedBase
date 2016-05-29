@@ -22,6 +22,7 @@ Actor PossessedMonster : PlayerPawn
 	DamageFactor "VileFireAura", 0
 	DamageFactor "BarrelExplosion", 0
 	DamageFactor "BaronMeteor", 0
+    DamageFactor "TormentBfg", 0
 	States
 	{
 	Death:
@@ -45,6 +46,7 @@ Actor NewBossBrain : BossBrain replaces BossBrain
     DamageFactor "VileFireAura", 0
 	DamageFactor "BarrelExplosion", 0
 	DamageFactor "BaronMeteor", 0
+    DamageFactor "TormentBfg", 0
 }
 
 Actor PossessedWeapon : Weapon

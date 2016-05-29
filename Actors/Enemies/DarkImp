@@ -13,6 +13,7 @@ Actor DarkImp : Imp2
   ActiveSound "Psximp/act"
   Obituary "%o was sent to the void by a dark imp."
   HitObituary "%o got slashed by a dark imp."
+  Species "Imps"
   States
   {
   Spawn:

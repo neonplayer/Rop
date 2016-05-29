@@ -1,3 +1,6 @@
+//Sounds: Midway Games
+//Sprites: Id Software, Eriance
+
 Actor Fiend : Demon
 {
   MeleeRange 72
@@ -12,6 +15,7 @@ Actor Fiend : Demon
   PainSound "PsxDemon/pain"
   DeathSound "PsxPinky/death"
   ActiveSound "PsxPinky/active"
+  Species "Pinkies"
   States
   {
   Spawn:
