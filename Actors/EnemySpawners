@@ -1,7 +1,7 @@
 Actor ShotguyRandomizer : RandomSpawner replaces Shotgunguy
 {
   DropItem "Shotgunguy2", 256, 88
-  DropItem "EliteShotgunguy", 256, 12
+  DropItem "SuperShotgunguy", 256, 12
 }
 
 Actor Imprandomizer : RandomSpawner replaces DoomImp

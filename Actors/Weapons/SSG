@@ -1,3 +1,5 @@
+//Sprites: Per Kristian (I think?)
+
 Actor NewSSG : SuperShotgun replaces SuperShotgun
 {
   Decal BulletChip
@@ -15,41 +17,70 @@ Actor NewSSG : SuperShotgun replaces SuperShotgun
   States
   {
   Ready:
-    SHT2 A 1 A_WeaponReady
+    PKS2 A 1 A_WeaponReady
     Loop
   Deselect:
-    SHT2 A 1 A_Lower
-	SHT2 A 0 A_Lower
+    PKS2 A 1 A_Lower
+	PKS2 A 0 A_Lower
     Loop
   Select:
-    SHT2 A 1 A_Raise
-	SHT2 A 0 A_Raise
+    PKS2 A 1 A_Raise
+	PKS2 A 0 A_Raise
     Loop
   Fire:
-    SHT2 A 0 A_JumpIfNoAmmo("AltFire")
-    SHT2 A 3
-	SHT2 A 0 A_AlertMonsters
-    SHT2 A 0 A_FireBullets (11.2, 7.1, 20, 5, "PlayerBulletPuff")
-    SHT2 A 7 A_GunFlash
-    SHT2 B 7
-    SHT2 C 7 
-	SHT2 A 0 A_JumpIfInventory("Shell", 2, "AltFire")
-	SHT2 C 7 A_WeaponReady
-	SHT2 B 7 A_WeaponReady
+    PKS2 A 0 A_JumpIfInventory("SSGClip", 2, 2)
+    PKS2 A 0 A_JumpIfInventory("SSGClip", 1, "1ShellReload")
+    PKS2 A 0 A_JumpIfNoAmmo("AltFire")
+	PKS2 A 0 A_AlertMonsters
+    PKS2 A 1 A_GunFlash
+    PKS2 A 7 A_FireBullets (11.2, 7.1, 20, 5, "PlayerBulletPuff")
+    PKS2 BCDE 2
+	PKS2 A 0 A_JumpIfInventory("Shell", 1, "AltFire")
+	PKS2 EDCBA 2 A_WeaponReady
 	Goto Ready
+  Flash:
+    PKS3 C 4 Bright A_Light1
+    PKS3 D 3 Bright A_Light2
+    Goto LightDone
+  1ShellReload:
+    PKS2 A 0 A_JumpIfInventory("Shell", 1, 1)
+	Goto Ready
+    PKS2 BCDE 2
+	PKS2 F 2 A_OpenShotgun2
+	Goto ContinueReload
   AltFire:
-    TNT1 A 0 A_JumpIfInventory("SSGClip",2,2)
-    TNT1 A 0 A_JumpIfInventory("Shell",2,2)
+    TNT1 A 0 A_JumpIfInventory("SSGClip",1,2)
+    TNT1 A 0 A_JumpIfInventory("Shell",1,2)
 	TNT1 A 0
 	Goto Ready
-    SHT2 D 7 A_OpenShotgun2
-    SHT2 E 7
-	SHT2 A 0 A_TakeInventory("Shell", 2)
-	SHT2 A 0 A_GiveInventory("SSGClip", 2)
-    SHT2 F 7 A_LoadShotgun2
-    SHT2 G 6
-    SHT2 H 6 A_CloseShotgun2
-    SHT2 A 5
+	PKS2 F 3
+    PKS2 G 3 A_OpenShotgun2
+    PKS2 H 18
+	PKS2 IJK 3
+	PKS2 A 0 A_TakeInventory("Shell", 1)
+	PKS2 A 0 A_GiveInventory("SSGClip", 1)
+	PKS2 L 3 A_LoadShotgun2
+	PKS2 A 0 A_JumpIfInventory("Shell", 1, "ContinueReload")
+	Goto StopReload
+  StopReload:
+    PKS2 TUVWX 2
+	PKS2 Y 2 A_CloseShotgun2
+    PKS2 Z 2
+	PKS3 A 5
+	PKS2 A 5
+	Goto Ready
+  ContinueReload:
+    PKS2 MN 3
+	PKS2 O 4
+	PKS2 PQ 3
+	PKS2 A 0 A_TakeInventory("Shell", 1)
+	PKS2 A 0 A_GiveInventory("SSGClip", 1)
+    PKS2 S 3 A_LoadShotgun2
+	PKS2 TUVWX 2
+    PKS2 Y 2 A_CloseShotgun2
+    PKS2 Z 2
+	PKS3 A 5
+	PKS2 A 5 A_ReFire
     Goto Ready
   }
 }

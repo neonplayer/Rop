@@ -11,7 +11,7 @@
 //List of enemies, which will be added in v2.
 
 //#Include Actors/Enemies/ZombieCyborg
-#Include Actors/Enemies/EliteShotZombie
+#Include Actors/Enemies/SSGzombie
 //#Include Actors/Enemies/RocketZombie
 #Include Actors/Enemies/DarkImp
 #Include Actors/Enemies/Fiend
