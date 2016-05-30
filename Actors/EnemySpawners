@@ -22,12 +22,6 @@ Actor SpectreRandomizer : RandomSpawner replaces Spectre
   DropItem "ShadowFiend", 256, 13
 }
 
-Actor CacoRandomizer : RandomSpawner replaces Cacodemon
-{
-  DropItem "Cacodemon2", 256, 88
-  DropItem "Beholder", 256, 12
-}
-
 //Boss spawners: Faerlyn
 
 ACTOR NobleReplacer Replaces BaronOfHell
