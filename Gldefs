@@ -402,6 +402,17 @@ Frame ARCBM { Light ArchonComet5 }
 Frame ARCBN { Light ArchonComet6 }
 }
 
+PointLight BeholderBeam1
+{
+Color 0.0 0.0 0.65
+Size 64
+}
+
+Object BeBeamTrail
+{
+Frame TFOGB { Light BeholderBeam1 }
+}
+
 //Enemies
 
 object NewExplosiveBarrel
@@ -539,6 +550,102 @@ Frame DRKVG { Light VoidDarkImpFire1 }
 Frame DRKVI { Light VoidDarkImpFire2 }
 Frame DRKVJ { Light VoidDarkImpFire2 }
 Frame DRKVK { Light VoidDarkImpFire2 }
+}
+
+PointLight Behold_A
+{
+Color 0.0 0.0 0.75
+Size 48
+}
+
+PointLight Behold_B
+{
+Color 0.0 0.0 0.75
+Size 50
+}
+
+PointLight Behold_C
+{
+Color 0.0 0.0 0.75
+Size 54
+}
+
+PointLight Behold_D
+{
+Color 0.0 0.0 0.75
+Size 60
+}
+
+PointLight Behold_E
+{
+Color 0.0 0.0 0.75
+Size 64
+}
+
+PointLight Behold_F
+{
+Color 0.0 0.0 0.75
+Size 78
+}
+
+PointLight Behold_G
+{
+Color 0.0 0.0 0.75
+Size 88
+}
+
+PointLight Behold_H
+{
+Color 0.0 0.0 0.75
+Size 56
+}
+
+PointLight Behold_I
+{
+Color 0.0 0.0 0.75
+Size 32
+}
+
+Object Beholder
+{
+Frame ABDNA { Light Behold_A }
+Frame ABDNB { Light Behold_B }
+Frame ABDNC { Light Behold_C }
+Frame ABDND { Light Behold_D }
+Frame ABDNE { Light Behold_B }
+Frame ABDNF { Light Behold_C }
+Frame ABDNG { Light Behold_D }
+Frame ABDNH { Light Behold_B }
+Frame ABDNI { Light Behold_C }
+Frame ABDNJ { Light Behold_D }
+Frame ABDNK { Light Behold_C }
+Frame ABDNL { Light Behold_D }
+Frame ABDNM { Light Behold_E }
+Frame ABDNN { Light Behold_F }
+Frame ABDNO { Light Behold_G }
+Frame ABDNP { Light Behold_H }
+Frame ABDNQ { Light Behold_I }
+}
+
+Object PossessedBeholder
+{
+Frame ABDNA { Light Behold_A }
+Frame ABDNB { Light Behold_B }
+Frame ABDNC { Light Behold_C }
+Frame ABDND { Light Behold_D }
+Frame ABDNE { Light Behold_B }
+Frame ABDNF { Light Behold_C }
+Frame ABDNG { Light Behold_D }
+Frame ABDNH { Light Behold_B }
+Frame ABDNI { Light Behold_C }
+Frame ABDNJ { Light Behold_D }
+Frame ABDNK { Light Behold_C }
+Frame ABDNL { Light Behold_D }
+Frame ABDNM { Light Behold_E }
+Frame ABDNN { Light Behold_F }
+Frame ABDNO { Light Behold_G }
+Frame ABDNP { Light Behold_H }
+Frame ABDNQ { Light Behold_I }
 }
 
 //Marine

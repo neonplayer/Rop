@@ -63,6 +63,23 @@ PsxFatso/Attack		PXMANATK
 HectBfg/Fire		DSFBFGF
 HectBfg/Death		DSFBFGD
 
+//Beholder
+
+Beholder/Sight		DSABDSIT
+Beholder/Death		DSABDEAD
+Beholder/Charge		DSABDCHR
+Beholder/Fire		DSABDFIR
+
+DSZAP1		DSZAP1
+DSZAP2		DSZAP2
+
+$Random Beholder/Zap { DSZAP1 DSZAP2 }
+
+DSAPHIT1		DSAPHIT1
+DSAPHIT2		DSAPHIT2
+
+$Random BeholderLightning/Hit { DSAPHIT1 DSAPHIT2 }
+
 //Shield
 
 ForceBarrier/On		DSFRCON

@@ -18,7 +18,7 @@
 #Include Actors/Enemies/ShadowFiend
 //#Include Actors/Enemies/tERROR
 //#Include Actors/Enemies/Erroremental
-//#Include Actors/Enemies/Beholder
+#Include Actors/Enemies/Beholder
 //#Include Actors/Enemies/HellCrusader
 #Include Actors/Enemies/Archon
 //#Include Actors/Enemies/NewRevenant //Haven't thought of anything yet.
