@@ -34,21 +34,21 @@ int StartItems[MAX_START_ITEMS][NUM_STARTITEM_PROPERTIES];
 int NumMarineWeapons = 0;
 int MarineWeapons[MAX_MARINE_WEAPONS];
 
-function void AddWeapon(str actorname)
+function void AddWeapon(str classname)
 {
-	MarineWeapons[NumMarineWeapons++] = actorname;
+	MarineWeapons[NumMarineWeapons++] = classname;
 }
 
-function void AddStartItem(str actorname, int amount)
+function void AddStartItem(str classname, int amount)
 {
-	StartItems[NumStartItems][STARTITEM_ACTORNAME] = actorname;
+	StartItems[NumStartItems][STARTITEM_ACTORNAME] = classname;
 	StartItems[NumStartItems][STARTITEM_AMOUNT] = amount;
 	NumStartItems++;
 }
 
-function void AddMonster(int difficulty, str sprite, str actorname, str name)
+function void AddMonster(int difficulty, str sprite, str classname, str name)
 {
-	MonsterTypes[NumMonsterTypes][MONSTER_ACTORNAME] = actorname;
+	MonsterTypes[NumMonsterTypes][MONSTER_ACTORNAME] = classname;
 	MonsterTypes[NumMonsterTypes][MONSTER_DIFFICULTY] = difficulty;
 	MonsterTypes[NumMonsterTypes][MONSTER_SCRIPT] = 0;
 	MonsterTypes[NumMonsterTypes][MONSTER_EVADESPEED] = 0;
@@ -58,9 +58,9 @@ function void AddMonster(int difficulty, str sprite, str actorname, str name)
 	NumMonsterTypes++;
 }
 
-function void AddSpawnedMonster(str sprite, str actorname, str name)
+function void AddSpawnedMonster(str sprite, str classname, str name)
 {
-	AddMonster(0, sprite, actorname, name);
+	AddMonster(0, sprite, classname, name);
 }
 
 function void FlyingMonster(void)

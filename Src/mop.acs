@@ -1,5 +1,9 @@
 #library "mop"
+
+#define TIDALLOCSTART 15000
+
 #include "zcommon.acs"
+#include "acsutils.acs"
 
 int BoomEdition = false;
 
@@ -52,8 +56,6 @@ int BoomEdition = false;
 // FREE SLOT 846
 #define mop_count_monstertypes_cl 847
 
-#define MAX_PLAYERS 64
-#define INT_MAX 2147483647
 #define TEMPTID 8080
 #define FIRE_TIDS 8090
 
@@ -77,3 +79,4 @@ int BoomEdition = false;
 #include "possess.acs"
 #include "actorlist.acs"
 #include "shieldhit.acs"
+#include "error.acs"

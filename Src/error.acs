@@ -1,0 +1,5 @@
+function void ACSUtilsErrorHandler(int type, int message)
+{
+	Log(s:"error: ", s:message);
+	printbold(s:"error: ", s:message);
+}
