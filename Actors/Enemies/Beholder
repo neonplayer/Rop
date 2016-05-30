@@ -1,0 +1,96 @@
+Actor Beholder : Cacodemon2
+{
+  Health 600
+  Speed 9
+  PainChance 64
+  SeeSound "Beholder/sight"
+  PainSound "PsxDemon/pain"
+  DeathSound "Beholder/death"
+  ActiveSound "PsxDemon/active"
+  Obituary "%o looked into a beholder's eye."
+  States
+  {
+  Spawn:
+    ABDN ABCDCB 3 A_Look
+	Loop
+  See:
+    ABDN ABCDCB 3 A_Chase
+	Loop
+  Melee:
+    ABDN EF 5 A_FaceTarget
+	ABDN G 5 A_CustomMeleeAttack(Random(3, 8)*6, "Demon/Melee")
+	Goto See
+  Missile:
+    ABDN A 0 A_PlaySound("Beholder/Charge", 8)
+	ABDN EFG 5 A_FaceTarget
+	ABDN G 20 A_FaceTarget
+	ABDN A 0 A_PlaySound("Beholder/Fire", 8)
+	ABDN J 5 Bright A_CustomMissile("BeholderBeam", 32, 0, 0)
+	ABDN A 0 A_PlaySound("Beholder/Zap")
+	ABDN A 0 A_FaceTarget
+	ABDN J 5 Bright A_CustomMissile("BeholderBeam", 32, 0, 0)
+	ABDN A 0 A_PlaySound("Beholder/Zap")
+	ABDN A 0 A_FaceTarget
+	ABDN J 5 Bright A_CustomMissile("BeholderBeam", 32, 0, 0)
+	ABDN A 0 A_PlaySound("Beholder/Zap")
+	ABDN A 0 A_FaceTarget
+	ABDN J 5 Bright A_CustomMissile("BeholderBeam", 32, 0, 0)
+	ABDN A 0 A_PlaySound("Beholder/Zap")
+	ABDN A 0 A_FaceTarget
+	ABDN J 5 Bright A_CustomMissile("BeholderBeam", 32, 0, 0)
+	ABDN A 0 A_PlaySound("Beholder/Zap")
+	Goto See
+  Pain:
+    ABDN K 2 A_StopSound(8)
+	ABDN K 2 A_Pain
+    Goto See
+  Death:
+    ABDN L 6 Bright A_Scream
+	ABDN M 6 Bright
+	ABDN N 6 Bright A_NoBlocking
+	ABDN OPQ 6 Bright
+	TNT1 A -1
+	Stop
+  Raise:
+    ABDN QPONML 6 Bright
+	Goto See
+  }
+}
+
+Actor BeholderBeam
+{
+  Speed 30
+  Radius 5
+  Height 10
+  Damage 4
+  Projectile
+  SeeSound ""
+  DeathSound "BeholderLightning/Hit"
+  DamageType "Monster"
+  States
+  {
+  Spawn:
+    TNT1 A 1 A_SpawnItemEx("BeBeamTrail", 0, 0, -24)
+	Loop
+  Death:
+    TNT1 AAAAAA 0 A_SpawnItemEx("BeBeamTrail", 0, 0, -24, Random(1, -1), Random(1, -1), Random(1, -1), 0, 128)
+	TNT1 A 1
+	Stop
+  }
+}
+
+Actor BeBeamTrail 
+{
+  +NoInteraction
+  +ClientSideOnly
+  RenderStyle Add
+  Alpha 0.85
+  Scale 0.66
+  Translation "114:127=240:247", "112:114=206:207", "224:231=203:207", "168:168=205:205"
+  States
+  {
+  Spawn:
+    TFOG BCDEFG 4 Bright A_FadeOut(0.05)
+	Stop
+  }
+}

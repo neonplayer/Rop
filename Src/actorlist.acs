@@ -39,8 +39,7 @@ function void InitMOP(void)
 	AddMonster(0.07,  "SKULA1",   "LostSoul2", "Lost Soul"); FlyingMonster();
 	
 	AddMonster(0.15,  "HEADA1",   "Cacodemon2", "Cacodemon"); FlyingMonster();
-	//AddMonster(0.2,   "LANTA1",   "Cacolantern", "Cacolantern"); FlyingMonster();
-	//AddMonster(0.3,   "ABDNA1",   "Abaddon", "Abaddon"); FlyingMonster();
+	AddMonster(0.225,   "ABDNA1",   "Beholder", "Beholder"); FlyingMonster();
 	
 	AddMonster(0.2,   "PAINA1",   "PainElemental2", "Pain Elemental"); FlyingMonster();
 	AddMonster(0.15,  "BOS2A1C1", "HellKnight2", "Hell Knight");

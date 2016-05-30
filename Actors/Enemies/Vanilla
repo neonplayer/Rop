@@ -156,7 +156,7 @@ Actor LostSoul2 : Lostsoul replaces Lostsoul
   +QuickToRetaliate
 }
 
-Actor Cacodemon2 : Cacodemon replaces Cacodemon
+Actor Cacodemon2 : Cacodemon
 {
   BloodColor Blue
   PainChance 96
