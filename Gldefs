@@ -402,6 +402,152 @@ Frame ARCBM { Light ArchonComet5 }
 Frame ARCBN { Light ArchonComet6 }
 }
 
+// Hectebus lights from Skulltag
+pointlight HECTSHOT
+{
+    color 0.0 1.0 0.0
+    size 48
+}
+flickerlight HECTSHOT_X1
+{
+    color 0.0 1.0 0.0
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
+flickerlight HECTSHOT_X2
+{
+    color 0.0 0.5 0.0
+    size 64
+    secondarySize 72
+    chance 0.3
+}
+
+flickerlight HECTSHOT_X3
+{
+    color 0.0 0.3 0.0
+    size 80
+    secondarySize 88
+    chance 0.3
+}
+
+object TormentShot
+{
+    frame TORFA { light HECTSHOT }
+    frame TORFB { light HECTSHOT }
+
+    frame TORFC { light HECTSHOT_X1 }
+    frame TORFD { light HECTSHOT_X2 }
+    frame TORFE { light HECTSHOT_X3 }
+}
+
+pointlight TORMBFG
+{
+	color 0.3 1.0 0.3
+	size 48
+}
+
+object TormentBfgBall
+{
+	frame LPRJ { light TORMBFG }
+}
+
+pointlight TORMBFG_XK
+{
+	color 0.3 1.0 0.3
+	size 52
+}
+
+pointlight TORMBFG_XL
+{
+	color 0.3 1.0 0.3
+	size 48
+}
+
+pointlight TORMBFG_XM
+{
+	color 0.3 1.0 0.3
+	size 44
+}
+
+pointlight TORMBFG_XN
+{
+	color 0.3 1.0 0.3
+	size 40
+}
+
+pointlight TORMBFG_XO
+{
+	color 0.3 1.0 0.3
+	size 36
+}
+
+pointlight TORMBFG_XP
+{
+	color 0.3 1.0 0.3
+	size 32
+}
+
+pointlight TORMBFG_XQ
+{
+	color 0.3 1.0 0.3
+	size 28
+}
+
+pointlight TORMBFG_XR
+{
+	color 0.3 1.0 0.3
+	size 24
+}
+
+pointlight TORMBFG_XS
+{
+	color 0.3 1.0 0.3
+	size 20
+}
+
+pointlight TORMBFG_XT
+{
+	color 0.3 1.0 0.3
+	size 16
+}
+
+pointlight TORMBFG_XU
+{
+	color 0.3 1.0 0.3
+	size 12
+}
+
+pointlight TORMBFG_XV
+{
+	color 0.3 1.0 0.3
+	size 8
+}
+
+pointlight TORMBFG_XW
+{
+	color 0.3 1.0 0.3
+	size 4
+}
+
+object TormentBfgDeath
+{
+	frame LPRJK { light TORMBFG_XK }
+	frame LPRJL { light TORMBFG_XL }
+	frame LPRJM { light TORMBFG_XM }
+	frame LPRJN { light TORMBFG_XN }
+	frame LPRJO { light TORMBFG_XO }
+	frame LPRJP { light TORMBFG_XP }
+	frame LPRJQ { light TORMBFG_XQ }
+	frame LPRJR { light TORMBFG_XR }
+	frame LPRJS { light TORMBFG_XS }
+	frame LPRJT { light TORMBFG_XT }
+	frame LPRJU { light TORMBFG_XU }
+	frame LPRJV { light TORMBFG_XV }
+	frame LPRJW { light TORMBFG_XW }
+}
+
 //Enemies
 
 object NewExplosiveBarrel
