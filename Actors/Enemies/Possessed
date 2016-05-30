@@ -323,10 +323,12 @@ Actor PossessedPinky : PossessedMonster
   Melee:
     SARG EF 3
     SARG G 4
+	SARG E 5
     Goto Spawn
   Missile:
     SARG EF 6
     SARG G 8
+	SARG E 5
     Goto Spawn
   Pain:
     SARG H 2
@@ -378,10 +380,12 @@ Actor PossessedSpectre2 : PossessedMonster
   Melee:
     SARG EF 3
     SARG G 4
+	SARG E 5
     Goto Spawn
   Missile:
     SARG EF 6
     SARG G 8
+	SARG E 5
     Goto Spawn
   Pain:
     SARG H 2
@@ -1519,10 +1523,12 @@ Actor PossessedFiend : PossessedMonster
   Melee:
     BDMN EF 3
     BDMN G 4
+	BDMN E 5
     Goto Spawn
   Missile:
     BDMN EF 6
     BDMN G 8
+	BDMN E 5
     Goto Spawn
   Pain:
     BDMN H 2
@@ -1578,10 +1584,12 @@ Actor PossessedShadowFiend : PossessedMonster
   Melee:
     BDMN EF 3
     BDMN G 4
+	BDMN E 5
     Goto Spawn
   Missile:
     BDMN EF 6
     BDMN G 8
+	BDMN E 5
     Goto Spawn
   Pain:
     BDMN H 2
