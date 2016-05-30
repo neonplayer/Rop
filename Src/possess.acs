@@ -56,7 +56,8 @@ script mop_possess (void)
 	}
 	
 	// Save monster items.
-	for (int i = 0; i < NUM_MONSTER_ITEMS; i++)
+	int i;
+	for (i = 0; i < NUM_MONSTER_ITEMS; i++)
 		MonsterItemsTemp[i] = CheckActorInventory(TEMPTID, MonsterItems[i]);
 	
 	// Remove the monster and move puppetmaster to the exact position of the monster.
