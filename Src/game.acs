@@ -505,8 +505,9 @@ function int TryToGoToMarine(int number)
 script mop_findmarines (void)
 {
 	int last = CheckInventory("LastFoundMarine");
+	int i;
 	
-	for (int i = last + 1; i < MAX_PLAYERS; i++)
+	for (i = last + 1; i < MAX_PLAYERS; i++)
 	{
 		if (TryToGoToMarine(i))
 			terminate;
