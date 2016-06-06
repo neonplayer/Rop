@@ -1,0 +1,11 @@
+server bool rop_truereinforcements = false;
+server int rop_pistolstart = 3;
+server int rop_respawnprotection = 5;
+server int rop_possfrags_bosses = 3;
+server int rop_extralivepoints = 100;
+server int rop_livescalingpercentage = 100;
+server int rop_maxlives = 0;
+server bool rop_forceteamjoin = false;
+server bool rop_manyplayers = false;
+
+user bool rop_noicons = false;
