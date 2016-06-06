@@ -311,14 +311,6 @@ script mop_init OPEN
 	ACS_ExecuteAlways(mop_wincondition, 0);
 }
 
-script mop_init_clientside open clientside
-{
-	if (!GetMOPVar("noicons"))
-	{
-		ConsoleCommand("set mop_noicons 0");
-		ConsoleCommand("archivecvar mop_noicons");
-	}
-}
 
 int won = false;
 

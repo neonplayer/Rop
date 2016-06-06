@@ -49,7 +49,7 @@ int BoomEdition = false;
 #define mop_update_fragcounter 837
 #define mop_prevent_respawns 838
 #define mop_status_clientsideicons 839
-#define mop_init_clientside 840
+// FREE SLOT 840
 #define mop_puppetmaster_disconnect 841
 #define mop_player_clientsidedisconnect 842
 #define mop_marines_giveextralives 843
