@@ -1,0 +1,19 @@
+function str MOPVarName(str name)
+{
+	return StrParam(s:MOP_CVAR_PREFIX, s:name);
+}
+
+function int GetMOPVar(str name)
+{
+	return GetCVar(StrParam(s:MOP_CVAR_PREFIX, s:name));
+}
+
+function int GetMOPVarFixed(str name)
+{
+	return GetCVarFixed(StrParam(s:MOP_CVAR_PREFIX, s:name));
+}
+
+function int GetMOPVarString(str name)
+{
+	return GetCVarString(StrParam(s:MOP_CVAR_PREFIX, s:name));
+}

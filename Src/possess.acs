@@ -36,7 +36,7 @@ script mop_possess (void)
 	int flags = MonsterTypes[type][MONSTER_FLAGS];
 	
 	int frags = MopFrags[player-1000];
-	int required = GetCVar("mop_possfrags_bosses");
+	int required = GetMOPVar("possfrags_bosses");
 	if (flags & MONSTF_BOSS)
 	{
 		if (required < 0)

@@ -88,7 +88,7 @@ script mop_enter ENTER
 		PlayerClasses[PlayerNumber()] = PLAYER_MARINE;
 		//SetPlayerProperty(0, false, PROP_ALLMAP);
 		
-		if (GetCVar("mop_pistolstart"))
+		if (GetMOPVar("pistolstart"))
 		{		
 			ClearInventory();
 			
@@ -100,13 +100,13 @@ script mop_enter ENTER
 		
 		GiveMarineStartItems();
 					
-		if (GetCVar("mop_pistolstart"))	
+		if (GetMOPVar("pistolstart"))	
 		{	
-			if (GetCVar("mop_pistolstart") == 1)
+			if (GetMOPVar("pistolstart") == 1)
 			{
 				print(s:"Pistol Start");
 			}
-			else if (GetCVar("mop_pistolstart") == 2)
+			else if (GetMOPVar("pistolstart") == 2)
 			{
 				print(s:"Shotgun Start");
 				GiveInventory("NewShotgun", 1);
@@ -120,7 +120,7 @@ script mop_enter ENTER
 		}
 	}
 	
-	ACS_ExecuteAlways(mop_log_join, 0, PlayerNumber(), PlayerClasses[PlayerNumber()], GetCVar("mop_manyplayers")+1);
+	ACS_ExecuteAlways(mop_log_join, 0, PlayerNumber(), PlayerClasses[PlayerNumber()], GetMOPVar("manyplayers")+1);
 	LaunchPlayerScripts();
 	UpdatePlayerCount();
 }
@@ -165,7 +165,7 @@ script mop_respawn_protection (void)
 	if (PlayerClasses[player] == PLAYER_MOP)
 		terminate;
 
-	int time = GetCVar("mop_respawnprotection");
+	int time = GetMOPVar("respawnprotection");
 	
 	if (time<=0)
 		terminate;
@@ -206,9 +206,9 @@ function void LaunchPlayerScripts(void)
 	ACS_ExecuteAlways(mop_ally_hud, 0);
 	ACS_ExecuteAlways(mop_marines_giveextralives, 0, -1);
 	
-	if (PlayerClasses[PlayerNumber()] == PLAYER_MARINE && GetCVar("mop_truereinforcements") && Lives == 0)
+	if (PlayerClasses[PlayerNumber()] == PLAYER_MARINE && GetMOPVar("truereinforcements") && Lives == 0)
 	{
-		if (GetCVar("mop_pistolstart") == 0)
+		if (GetMOPVar("pistolstart") == 0)
 			ConsoleCommand("set mop_pistolstart 2");
 							
 		ConsoleCommand(StrParam(s:"kickfromgame_idx ", d:PlayerNumber(), s:" \"Marines don't have any more reinforcements.\""));
@@ -260,20 +260,8 @@ script mop_init OPEN
 		ConsoleCommand("alwaysapplydmflags 1");
 		ConsoleCommand("sv_noexit 1");
 	}
-	
-	if (!GetCVar("mop_truereinforcements"))
-	{
-		ConsoleCommand("set mop_truereinforcements 0");
-		ConsoleCommand("archivecvar mop_truereinforcements");
-	}
-	
-	if (!GetCVar("mop_pistolstart"))
-	{
-		ConsoleCommand("set mop_pistolstart 0");
-		ConsoleCommand("archivecvar mop_pistolstart");
-	}
 
-	if (!GetCVar("mop_noautoconfig"))
+	if (!GetMOPVar("noautoconfig"))
 	{
 		ConsoleCommand("sv_disallowsuicide 1");
 		ConsoleCommand("sv_nocoopinfo 1");
@@ -282,50 +270,8 @@ script mop_init OPEN
 		ConsoleCommand("sv_unblockplayers 0");
 		ConsoleCommand("sv_forcealpha 1");
 		
-		if (GetCVar("mop_truereinforcements"))
+		if (GetMOPVar("truereinforcements"))
 			ConsoleCommand("sv_forcerespawn 1");
-	}
-	
-	if (!GetCVar("mop_respawnprotection"))
-	{
-		ConsoleCommand("set mop_respawnprotection 5");
-		ConsoleCommand("archivecvar mop_respawnprotection");
-	}
-	
-	if (!GetCVar("mop_possfrags_bosses"))
-	{
-		ConsoleCommand("set mop_possfrags_bosses 3");
-		ConsoleCommand("archivecvar mop_possfrags_bosses");
-	}
-	
-	if (!GetCVar("mop_extralivepoints"))
-	{
-		ConsoleCommand("set mop_extralivepoints 100");
-		ConsoleCommand("archivecvar mop_extralivepoints");
-	}
-	
-	if(!GetCvar("mop_livescalingpercentage"))
-	{
-		ConsoleCommand("set mop_livescalingpercentage 100");
-		ConsoleCommand("archivecvar mop_livescalingpercentage");
-	}
-	
-	if (!GetCVar("mop_maxlives"))
-	{
-		ConsoleCommand("set mop_maxlives 0");
-		ConsoleCommand("archivecvar mop_maxlives");
-	}
-	
-	if (!GetCVar("mop_forceteamjoin"))
-	{
-		ConsoleCommand("set mop_forceteamjoin 0");
-		ConsoleCommand("archivecvar mop_forceteamjoin");
-	}
-	
-	if (!GetCVar("mop_manyplayers"))
-	{
-		ConsoleCommand("set mop_manyplayers 1");
-		ConsoleCommand("archivecvar mop_manyplayers");
 	}
 	
 	if (GameSkill() > 3)
@@ -348,15 +294,12 @@ script mop_init OPEN
 	}
 	
 	Lives = (monsterforces>>16) + 1;
-	
-	if (GetCvar("mop_livescalingpercentage") <= 0)
-		ConsoleCommand("set mop_livescalingpercentage 100");
-	
-	Lives *= (GetCvar("mop_livescalingpercentage") * 1.0) / 100;
+		
+	Lives *= (GetMOPVar("livescalingpercentage") * 1.0) / 100;
 	Lives = Lives>>16;
 	
-	if (GetCVar("mop_maxlives") > 0 && Lives > GetCVar("mop_maxlives"))
-		Lives = GetCVar("mop_maxlives");
+	if (GetMOPVar("maxlives") > 0 && Lives > GetMOPVar("maxlives"))
+		Lives = GetMOPVar("maxlives");
 		
 
 	if (ThingCountName("BossBrain", 0))
@@ -370,7 +313,7 @@ script mop_init OPEN
 
 script mop_init_clientside open clientside
 {
-	if (!GetCVar("mop_noicons"))
+	if (!GetMOPVar("noicons"))
 	{
 		ConsoleCommand("set mop_noicons 0");
 		ConsoleCommand("archivecvar mop_noicons");
@@ -403,7 +346,7 @@ script mop_status OPEN
 	{	
 		int xoffset = 0;
 		str lives_reinforcements = "\nLives: ";
-		if (GetCVar("mop_truereinforcements"))
+		if (GetMOPVar("truereinforcements"))
 		{
 			lives_reinforcements = "\nReinforcements: ";
 			xoffset = 20.0;
@@ -434,7 +377,7 @@ script mop_status_clientsideicons (int draw) clientside
 {
 	SetHudSize(640, 480, 1);
 	
-	if (GetCVar("mop_noicons"))
+	if (GetMOPVar("noicons"))
 	{
 		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON1, CR_YELLOW, 320.0, 50.0, 0);
 		HudMessageBold(s:""; HUDMSG_PLAIN, HID_GAMESTATUS_ICON2, CR_YELLOW, 320.0, 50.0, 0);
@@ -480,7 +423,7 @@ script mop_marinedeath DEATH
 	if (Lives < 0)
 		Lives = 0;
 		
-	if (Lives <= 0 && !GetCVar("mop_truereinforcements"))
+	if (Lives <= 0 && !GetMOPVar("truereinforcements"))
 		ACS_ExecuteAlways(mop_demonwin, 0);
 }
 
@@ -813,7 +756,7 @@ function void DrawExtraLivesHUD(int current, int maximum)
 	
 	int xoffset = 0;
 	
-	if (GetCVar("mop_truereinforcements"))
+	if (GetMOPVar("truereinforcements"))
 		xoffset = 70.0;
 	
 	HUDMessageBold(s:"(", d:a,s:"%)";HUDMSG_PLAIN, HID_EXTRALIVEPOINTS, CR_WHITE, 430.0+xoffset, 15.0, 0);
@@ -821,7 +764,7 @@ function void DrawExtraLivesHUD(int current, int maximum)
 
 script mop_marines_giveextralives (int type)
 {
-	int points = GetCVar("mop_extralivepoints") * POINTS_FACTOR;
+	int points = GetMOPVar("extralivepoints") * POINTS_FACTOR;
 	
 	if (points <= 0 || won)
 	{
@@ -857,7 +800,7 @@ script mop_marines_giveextralives (int type)
 		Lives += addlives;
 		
 		int xoffset = 0;
-		if (GetCVar("mop_truereinforcements"))
+		if (GetMOPVar("truereinforcements"))
 			xoffset = 70.0;
 		
 		hudmessageBOLd(s:"+", d:addlives;HUDMSG_FADEOUT, 0, CR_GREEN, 460.0+xoffset, 15.0, 1.5);

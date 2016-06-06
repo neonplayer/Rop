@@ -5,6 +5,8 @@
 #include "zcommon.acs"
 #include "acsutils.acs"
 
+#define MOP_CVAR_PREFIX "rop_"
+
 int BoomEdition = false;
 
 #define mop_possess 800
@@ -74,6 +76,7 @@ int BoomEdition = false;
 #define POSSESSED_ADDITIONAL_HP 10000
 
 #include "arrays.acs"
+#include "cvars.acs"
 #include "game.acs"
 #include "evade.acs"
 #include "possess.acs"
