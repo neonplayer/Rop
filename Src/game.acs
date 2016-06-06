@@ -209,7 +209,7 @@ function void LaunchPlayerScripts(void)
 	if (PlayerClasses[PlayerNumber()] == PLAYER_MARINE && GetMOPVar("truereinforcements") && Lives == 0)
 	{
 		if (GetMOPVar("pistolstart") == 0)
-			ConsoleCommand("set mop_pistolstart 2");
+			ConsoleCommand(StrParam(s:MOP_CVAR_PREFIX, s:"pistolstart 2"));
 							
 		ConsoleCommand(StrParam(s:"kickfromgame_idx ", d:PlayerNumber(), s:" \"Marines don't have any more reinforcements.\""));
 	}
