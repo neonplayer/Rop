@@ -354,210 +354,152 @@ Frame DRKVJ { Light VoidDarkImpFire2 }
 Frame DRKVK { Light VoidDarkImpFire2 }
 }
 
-Pointlight ArchonComet1
+Pointlight SoulHarvesterBall1
 {
-Color 0.0 0.6 0.1
+Color 1.0 0.8 0.3
+Size 40
+}
+
+Pointlight SoulHarvesterBall2
+{
+Color 1.0 0.8 0.3
+Size 44
+}
+
+Pointlight SoulHarvesterBall3
+{
+Color 1.0 0.8 0.3
 Size 48
 }
 
-Pointlight ArchonComet2
+Pointlight SoulHarvesterBall4
 {
-Color 0.0 0.8 0.2
-Size 96
+Color 1.0 0.8 0.3
+Size 36
 }
 
-Pointlight ArchonComet3
+Pointlight SoulHarvesterBall5
 {
-Color 0.0 0.75 0.15
-Size 84
+Color 1.0 0.8 0.3
+Size 32
 }
 
-Pointlight ArchonComet4
+Pointlight SoulHarvesterBall6
 {
-Color 0.0 0.5 0.05
-Size 78
+Color 1.0 0.8 0.3
+Size 28
 }
 
-Pointlight ArchonComet5
+Pointlight SoulHarvesterBall7
 {
-Color 0.0 0.5 0.05
-Size 72
+Color 1.0 0.8 0.3
+Size 24
 }
 
-Pointlight ArchonComet6
+Pointlight SoulHarvesterBall8
 {
-Color 0.0 0.5 0.05
-Size 48
+Color 1.0 0.8 0.3
+Size 20
 }
 
-Object BaronMeteor
+Pointlight SoulHarvesterBall9
 {
-Frame ARCBA { Light ArchonComet1 }
-Frame ARCBB { Light ArchonComet1 }
-Frame ARCBC { Light ArchonComet1 }
-Frame ARCBJ { Light ArchonComet2 }
-Frame ARCBK { Light ArchonComet3 }
-Frame ARCBL { Light ArchonComet4 }
-Frame ARCBM { Light ArchonComet5 }
-Frame ARCBN { Light ArchonComet6 }
+Color 1.0 0.8 0.3
+Size 16
 }
 
-PointLight BeholderBeam1
+Object SoulHarvesterBall
 {
-Color 0.0 0.0 0.65
-Size 64
+Frame SHBAA { Light SoulHarvesterBall1 }
+Frame SHBAB { Light SoulHarvesterBall1 }
+Frame SHBAC { Light SoulHarvesterBall2 }
+Frame SHBAD { Light SoulHarvesterBall3 }
+Frame SHBAE { Light SoulHarvesterBall2 }
+Frame SHBAF { Light SoulHarvesterBall1 }
+Frame SHBAG { Light SoulHarvesterBall4 }
+Frame SHBAH { Light SoulHarvesterBall5 }
+Frame SHBAI { Light SoulHarvesterBall6 }
+Frame SHBAJ { Light SoulHarvesterBall7 }
+Frame SHBAK { Light SoulHarvesterBall8 }
+Frame SHBAL { Light SoulHarvesterBall9 }
 }
 
-Object BeBeamTrail
+
+PointLight SoulHarvesterX_1
 {
-Frame TFOGB { Light BeholderBeam1 }
+Offset 0 34 0
+Color 1.0 1.0 0.0
+Size 8
 }
 
-// Hectebus lights from Skulltag
- pointlight HECTSHOT
- {
-     color 0.0 1.0 0.0
-     size 48
- }
- flickerlight HECTSHOT_X1
- {
-     color 0.0 1.0 0.0
-     size 48
-     secondarySize 56
-     chance 0.3
- }
- 
- flickerlight HECTSHOT_X2
- {
-     color 0.0 0.5 0.0
-     size 64
-     secondarySize 72
-     chance 0.3
- }
- 
- flickerlight HECTSHOT_X3
- {
-     color 0.0 0.3 0.0
-     size 80
-     secondarySize 88
-     chance 0.3
- }
- 
- object TormentShot
- {
-     frame TORFA { light HECTSHOT }
-     frame TORFB { light HECTSHOT }
- 
-     frame TORFC { light HECTSHOT_X1 }
-     frame TORFD { light HECTSHOT_X2 }
-     frame TORFE { light HECTSHOT_X3 }
- }
- 
- pointlight TORMBFG
- {
- 	color 0.3 1.0 0.3
- 	size 48
- }
- 
- object TormentBfgBall
- {
- 	frame LPRJ { light TORMBFG }
- }
- 
- pointlight TORMBFG_XK
- {
- 	color 0.3 1.0 0.3
- 	size 52
- }
- 
- pointlight TORMBFG_XL
- {
- 	color 0.3 1.0 0.3
- 	size 48
- }
- 
- pointlight TORMBFG_XM
- {
- 	color 0.3 1.0 0.3
- 	size 44
- }
- 
- pointlight TORMBFG_XN
- {
- 	color 0.3 1.0 0.3
- 	size 40
- }
- 
- pointlight TORMBFG_XO
- {
- 	color 0.3 1.0 0.3
- 	size 36
- }
- 
- pointlight TORMBFG_XP
- {
- 	color 0.3 1.0 0.3
- 	size 32
- }
- 
- pointlight TORMBFG_XQ
- {
- 	color 0.3 1.0 0.3
- 	size 28
- }
- 
- pointlight TORMBFG_XR
- {
- 	color 0.3 1.0 0.3
- 	size 24
- }
- 
- pointlight TORMBFG_XS
- {
- 	color 0.3 1.0 0.3
- 	size 20
- }
- 
- pointlight TORMBFG_XT
- {
- 	color 0.3 1.0 0.3
- 	size 16
- }
- 
- pointlight TORMBFG_XU
- {
- 	color 0.3 1.0 0.3
- 	size 12
- }
- 
- pointlight TORMBFG_XV
- {
- 	color 0.3 1.0 0.3
- 	size 8
- }
- 
- pointlight TORMBFG_XW
- {
- 	color 0.3 1.0 0.3
- 	size 4
- }
- 
- object TormentBfgDeath
- {
- 	frame LPRJK { light TORMBFG_XK }
- 	frame LPRJL { light TORMBFG_XL }
- 	frame LPRJM { light TORMBFG_XM }
- 	frame LPRJN { light TORMBFG_XN }
- 	frame LPRJO { light TORMBFG_XO }
- 	frame LPRJP { light TORMBFG_XP }
- 	frame LPRJQ { light TORMBFG_XQ }
- 	frame LPRJR { light TORMBFG_XR }
- 	frame LPRJS { light TORMBFG_XS }
- 	frame LPRJT { light TORMBFG_XT }
- 	frame LPRJU { light TORMBFG_XU }
- 	frame LPRJV { light TORMBFG_XV }
- 	frame LPRJW { light TORMBFG_XW }
- }
+PointLight SoulHarvesterX_2
+{
+Offset 0 35 0
+Color 1.0 1.0 0.0
+Size 12
+}
+
+PointLight SoulHarvesterX_3
+{
+Offset 0 35 0
+Color 1.0 1.0 0.0
+Size 16
+}
+
+PointLight SoulHarvesterX_4
+{
+Offset 0 35 0
+Color 1.0 1.0 0.0
+Size 20
+}
+
+PointLight SoulHarvesterX_5
+{
+Offset 0 35 0
+Color 1.0 1.0 0.0
+Size 24
+}
+
+PointLight SoulHarvesterX_6
+{
+Offset 0 35 0
+Color 1.0 1.0 0.0
+Size 32
+}
+
+PointLight SoulHarvesterX_7
+{
+Offset 0 35 0
+Color 1.0 1.0 0.0
+Size 40
+}
+
+PointLight SoulHarvesterX_8
+{
+Offset 0 35 0
+Color 1.0 1.0 0.0
+Size 58
+}
+
+PointLight SoulHarvesterX_9
+{
+Offset 0 35 0
+Color 1.0 1.0 0.0
+Size 20
+}
+
+Object SoulHarvester
+{
+Frame SLHVE { Light SoulHarvesterX_1 }
+Frame SLHVF { Light SoulHarvesterX_2 }
+Frame SLHVG { Light SoulHarvesterX_3 }
+Frame SLHVH { Light SoulHarvesterX_4 }
+Frame SLHVI { Light SoulHarvesterX_5 }
+Frame SLHVJ { Light SoulHarvesterX_6 }
+Frame SLHVK { Light SoulHarvesterX_7 }
+Frame SLHVL { Light SoulHarvesterX_8 }
+Frame SLHVM { Light SoulHarvesterX_9 }
+}
 
 //Enemies
 
@@ -698,6 +640,95 @@ Frame DRKVJ { Light VoidDarkImpFire2 }
 Frame DRKVK { Light VoidDarkImpFire2 }
 }
 
+PointLight SoulHarvesterX_1
+{
+Offset 0 34 0
+Color 1.0 1.0 0.0
+Size 8
+}
+
+PointLight SoulHarvesterX_2
+{
+Offset 0 35 0
+Color 1.0 1.0 0.0
+Size 12
+}
+
+PointLight SoulHarvesterX_3
+{
+Offset 0 35 0
+Color 1.0 1.0 0.0
+Size 16
+}
+
+PointLight SoulHarvesterX_4
+{
+Offset 0 35 0
+Color 1.0 1.0 0.0
+Size 20
+}
+
+PointLight SoulHarvesterX_5
+{
+Offset 0 35 0
+Color 1.0 1.0 0.0
+Size 24
+}
+
+PointLight SoulHarvesterX_6
+{
+Offset 0 35 0
+Color 1.0 1.0 0.0
+Size 32
+}
+
+PointLight SoulHarvesterX_7
+{
+Offset 0 35 0
+Color 1.0 1.0 0.0
+Size 40
+}
+
+PointLight SoulHarvesterX_8
+{
+Offset 0 35 0
+Color 1.0 1.0 0.0
+Size 58
+}
+
+PointLight SoulHarvesterX_9
+{
+Offset 0 35 0
+Color 1.0 1.0 0.0
+Size 20
+}
+
+Object SoulHarvester
+{
+Frame SLHVE { Light SoulHarvesterX_1 }
+Frame SLHVF { Light SoulHarvesterX_2 }
+Frame SLHVG { Light SoulHarvesterX_3 }
+Frame SLHVH { Light SoulHarvesterX_4 }
+Frame SLHVI { Light SoulHarvesterX_5 }
+Frame SLHVJ { Light SoulHarvesterX_6 }
+Frame SLHVK { Light SoulHarvesterX_7 }
+Frame SLHVL { Light SoulHarvesterX_8 }
+Frame SLHVM { Light SoulHarvesterX_9 }
+}
+
+Object PossessedSoulHarvester
+{
+Frame SLHVE { Light SoulHarvesterX_1 }
+Frame SLHVF { Light SoulHarvesterX_2 }
+Frame SLHVG { Light SoulHarvesterX_3 }
+Frame SLHVH { Light SoulHarvesterX_4 }
+Frame SLHVI { Light SoulHarvesterX_5 }
+Frame SLHVJ { Light SoulHarvesterX_6 }
+Frame SLHVK { Light SoulHarvesterX_7 }
+Frame SLHVL { Light SoulHarvesterX_8 }
+Frame SLHVM { Light SoulHarvesterX_9 }
+}
+
 //Marine
 
 object MarinePlayer
@@ -729,102 +760,6 @@ Frame SLDCA { Light KsawAmmo_X3 }
 Frame SLDCB { Light KsawAmmo_X2 }
 Frame SLDCC { Light KsawAmmo_X1 }
 Frame SLDCD { Light KsawAmmo_X2 }
-}
-
-PointLight Behold_A
-{
-Color 0.0 0.0 0.75
-Size 48
-}
-
-PointLight Behold_B
-{
-Color 0.0 0.0 0.75
-Size 50
-}
-
-PointLight Behold_C
-{
-Color 0.0 0.0 0.75
-Size 54
-}
-
-PointLight Behold_D
-{
-Color 0.0 0.0 0.75
-Size 60
-}
-
-PointLight Behold_E
-{
-Color 0.0 0.0 0.75
-Size 64
-}
-
-PointLight Behold_F
-{
-Color 0.0 0.0 0.75
-Size 78
-}
-
-PointLight Behold_G
-{
-Color 0.0 0.0 0.75
-Size 88
-}
-
-PointLight Behold_H
-{
-Color 0.0 0.0 0.75
-Size 56
-}
-
-PointLight Behold_I
-{
-Color 0.0 0.0 0.75
-Size 32
-}
-
-Object Beholder
-{
-Frame ABDNA { Light Behold_A }
-Frame ABDNB { Light Behold_B }
-Frame ABDNC { Light Behold_C }
-Frame ABDND { Light Behold_D }
-Frame ABDNE { Light Behold_B }
-Frame ABDNF { Light Behold_C }
-Frame ABDNG { Light Behold_D }
-Frame ABDNH { Light Behold_B }
-Frame ABDNI { Light Behold_C }
-Frame ABDNJ { Light Behold_D }
-Frame ABDNK { Light Behold_C }
-Frame ABDNL { Light Behold_D }
-Frame ABDNM { Light Behold_E }
-Frame ABDNN { Light Behold_F }
-Frame ABDNO { Light Behold_G }
-Frame ABDNP { Light Behold_H }
-Frame ABDNQ { Light Behold_I }
-}
-
-Object PossessedBeholder
-{
-Frame ABDNA { Light Behold_A }
-Frame ABDNB { Light Behold_B }
-Frame ABDNC { Light Behold_C }
-Frame ABDND { Light Behold_D }
-Frame ABDNE { Light Behold_B }
-Frame ABDNF { Light Behold_C }
-Frame ABDNG { Light Behold_D }
-Frame ABDNH { Light Behold_B }
-Frame ABDNI { Light Behold_C }
-Frame ABDNJ { Light Behold_D }
-Frame ABDNK { Light Behold_C }
-Frame ABDNL { Light Behold_D }
-Frame ABDNM { Light Behold_E }
-Frame ABDNN { Light Behold_F }
-Frame ABDNO { Light Behold_G }
-Frame ABDNP { Light Behold_H }
-Frame ABDNQ { Light Behold_I }
 }
 
 //Marine projectiles

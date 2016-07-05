@@ -6,26 +6,27 @@ Actor ShotguyRandomizer : RandomSpawner replaces Shotgunguy
 
 Actor Imprandomizer : RandomSpawner replaces DoomImp
 {
-  DropItem "Imp2", 256, 88
-  DropItem "DarkImp", 256, 12
+  DropItem "Imp2", 256, 75
+  DropItem "DarkImp", 256, 13
+  DropItem "SoulHarvester", 256, 12
 }
 
 Actor DemonRandomizer : RandomSpawner replaces Demon
 {
   DropItem "Pinky", 256, 87
-  DropItem "Fiend", 256, 13
+  //DropItem "Fiend", 256, 13
 }
 
 Actor SpectreRandomizer : RandomSpawner replaces Spectre
 {
   DropItem "Spectre2", 256, 87
-  DropItem "ShadowFiend", 256, 13
+  //DropItem "ShadowFiend", 256, 13
 }
 
 Actor CacoRandomizer : RandomSpawner replaces Cacodemon
 {
   DropItem "Cacodemon2", 256, 88
-  DropItem "Beholder", 256, 12
+  //DropItem "Beholder", 256, 12
 }
 
 //Boss spawners: Faerlyn
@@ -48,13 +49,13 @@ States
 {
 Spawn:
     TNT1 A 1
-    TNT1 A 0 A_Jump(22,"ArchonSpawn")	
+    //TNT1 A 0 A_Jump(22,"ArchonSpawn")	
 NormalSpawn:
     TNT1 A 0 A_SpawnItemEx("BaronOfHell2",0,0,0,0,0,0,0,272)
     Goto Nothing
-ArchonSpawn:
-    TNT1 A 0 A_SpawnItemEx("ArchonOfHell",0,0,0,0,0,0,0,272)
-    Goto Nothing
+//ArchonSpawn:
+    //TNT1 A 0 A_SpawnItemEx("ArchonOfHell",0,0,0,0,0,0,0,272)
+    //Goto Nothing
 Nothing:
     TNT1 A 1
     Loop
@@ -82,13 +83,13 @@ States
 {
 Spawn:
     TNT1 A 1
-    TNT1 A 0 A_Jump(23,"TormentSpawn")	
+    //TNT1 A 0 A_Jump(23,"TormentSpawn")	
 NormalSpawn:
     TNT1 A 0 A_SpawnItemEx("Mancubus",0,0,0,0,0,0,0,272)
     Goto Nothing
-TormentSpawn:
-    TNT1 A 0 A_SpawnItemEx("TormentedMancubus",0,0,0,0,0,0,0,272)
-    Goto Nothing
+//TormentSpawn:
+    //TNT1 A 0 A_SpawnItemEx("TormentedMancubus",0,0,0,0,0,0,0,272)
+    //Goto Nothing
 Nothing:
     TNT1 A 1
     Loop

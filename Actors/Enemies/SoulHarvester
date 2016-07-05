@@ -1,0 +1,100 @@
+//Gldefs: Keksdose, Ghastly Dragon
+//Sprites: Vader
+//Sounds: Id Software, Wildweasel, Vader
+
+Actor SoulHarvester : Imp2
+{
+  Health 90
+  Speed 9
+  PainChance 120
+  Scale 1.075
+  SeeSound "harvester/sight"
+  DeathSound "harvester/death"
+  Obituary "%o had his soul taken by a soul harvester."
+  Species "Imps"
+  States
+  {
+  Spawn:
+    SLHV AB 10 A_Look
+	Loop
+  See:
+    SLHV AABBCCDD 3 A_Chase
+	Loop
+  Melee:
+  Missile:
+    SLHV EFG 3 A_FaceTarget
+    SLHV HIJK 4 Bright A_FaceTarget
+    SLHV L 8 Bright A_CustomMissile("SoulHarvesterBall", 32, 0, 0)
+    SLHV M 6
+    Goto See
+  Pain:
+    SLHV N 3
+    SLHV N 3 A_Pain
+    Goto See
+  Death:
+    SLHV O 6 A_Scream
+    SLHV PQRS 6 
+    SLHV T 4 A_Fall
+    SLHV UV 4
+    SLHV W -1
+    Stop
+  XDeath:
+    SLHV X 6 A_Xscream
+    SLHV Y 6
+    SLHV Z 5
+    SLHV [ 5 A_Fall
+    SLHV ] 5
+    SLHW A -1
+    Stop
+  Raise:
+    SLHV WVUTSRQPO 4
+    Goto See
+  }
+}
+
+actor SoulHarvesterBall
+{
+    Radius 8
+    Height 6
+    Scale 0.4
+    Speed 10
+    Damage 4
+    +SEEKERMISSILE
+    PROJECTILE
+    Renderstyle ADD
+    SeeSound "harvester/scream"
+    DeathSound "imp/shotx"
+	Decal DoomImpScorch
+	DamageType "Monster"
+    States
+    {
+    Spawn:
+        SHBA A 1 Bright A_SeekerMissile (10,20)
+		SHBA A 0 A_SpawnItemEx("SoulBallTrail")
+		SHBA A 1 Bright A_SeekerMissile (10,20)
+		SHBA A 0 A_SpawnItemEx("SoulBallTrail")
+		SHBA B 1 Bright A_SeekerMissile (10,20)
+		SHBA B 0 A_SpawnItemEx("SoulBallTrail")
+		SHBA B 1 Bright A_SeekerMissile (10,20)
+		SHBA B 0 A_SpawnItemEx("SoulBallTrail")
+        Loop
+    Death:
+        SHBA CDEFGHIJKL 3 Bright
+        Stop
+    }
+}
+
+actor SoulBallTrail
+{
+    RENDERSTYLE ADD
+    ALPHA 0.5
+    +NoInteraction
+	+ClientSideOnly
+    States
+    {
+    Spawn:
+    	SBTR H 3 
+        SBTR ABCDEFG 2 Bright
+        Stop
+    }
+}

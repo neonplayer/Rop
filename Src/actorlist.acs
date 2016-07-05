@@ -29,6 +29,7 @@ function void InitMOP(void)
 	AddMonster(0.05,  "CPOSA1",   "Chaingunguy2", "Zombie Commando");
 	
 	AddMonster(0.02,  "TROOA1",   "Imp2", "Imp");
+	AddMonster(0.045, "SLHVA1",   "SoulHarvester", "Soul Harvester");
 	AddMonster(0.05,  "DRKVA1",   "DarkImp", "Dark Imp");
 	
 	AddMonster(0.045, "SARGA1",   "Pinky", "Demon");

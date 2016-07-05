@@ -1,13 +1,3 @@
-//Some Projectiles
-
-StrongProjectile/Fire		PSXPRSHT
-StrongProjectile/Death		PSXPRXPL
-
-//Metoer
-
-BaronMeteor/Fire		DSBMTFI
-BaronMeteor/Death		DSBMTDT
-
 //Zombies
 
 PXZMDTH1		PXZMDTH1
@@ -38,6 +28,19 @@ PsxImp/Act      PXMPACT
 
 $Random PsxImp/Sight { PXMPSIT1 PXMPSIT2 }
 $Random PsxImp/Death { PXMPDTH1 PXMPDTH2 }
+
+//Soul Harvester
+
+$RANDOM harvester/sight { shsight1 shsight2 }
+shsight1 shsight1
+shsight2 shsight2
+
+
+$RANDOM harvester/death { shdeath1 shdeath2 }
+shdeath1 shdeath1
+shdeath2 shdeath2
+
+harvester/scream shfbscrm
 
 //Fiend / Ethereal Fiend
 

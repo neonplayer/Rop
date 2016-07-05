@@ -1,8 +1,0 @@
-Actor ShadowFiend : Fiend
-{
-  RenderStyle Translucent
-  Alpha 0.325
-  Translation "168:183=100:107", "184:187=108:111", "188:191=5:8", "32:47=5:8", "1:2=0:0"
-  Obituary "%o was swallowed whole by a shadow fiend."
-  BloodColor "4F4F4F"
-}
