@@ -1,0 +1,21 @@
+#define MAX_START_ITEMS 32
+int NumStartItems = 0;
+int StartItemAmounts[MAX_START_ITEMS];
+int StartItemActors[MAX_START_ITEMS];
+
+function void AddStartItem(str classname, int amount)
+{
+	if (NumStartItems >= MAX_MONSTER_TYPES)
+		LimitError("Too many start items. Increase MAX_START_ITEMS.");
+
+	StartItemActors[NumStartItems] = classname;
+	StartItemAmounts[NumStartItems] = amount;
+	NumStartItems++;
+}
+
+function void GiveMarineStartItems(void)
+{
+	GiveInventory("IsMarine", 1);
+	for (int i = 0; i < NumStartItems; i++)
+		SetInventory(StartItemActors[i], StartItemAmounts[i]);
+}

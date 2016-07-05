@@ -1,0 +1,17 @@
+#define MAX_MARINE_WEAPONS 32
+int NumMarineWeapons = 0;
+int MarineWeapons[MAX_MARINE_WEAPONS];
+
+function void AddWeapon(str classname)
+{
+	if (NumStartItems >= MAX_MONSTER_TYPES)
+		LimitError("Too many marine weapons. Increase MAX_MARINE_WEAPONS.");
+		
+	MarineWeapons[NumMarineWeapons++] = classname;
+}
+
+function void DisarmMarine(void)
+{
+	for (int i = 0; i < NumMarineWeapons; i++)
+		TakeAllInventory(MarineWeapons[i]);
+}

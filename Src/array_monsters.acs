@@ -1,0 +1,42 @@
+#define MAX_MONSTER_TYPES 100
+int NumMonsterTypes = 0;
+int MonsterActors[MAX_MONSTER_TYPES];
+int MonsterDifficulties[MAX_MONSTER_TYPES];
+int MonsterScripts[MAX_MONSTER_TYPES];
+int MonsterEvadeSpeeds[MAX_MONSTER_TYPES];
+int MonsterFlags[MAX_MONSTER_TYPES];
+int MonsterNames[MAX_MONSTER_TYPES];
+int MonsterSprites[MAX_MONSTER_TYPES];
+
+#define MONSTF_FLYING 1
+#define MONSTF_BOSS 2
+
+function void AddMonster(int difficulty, str sprite, str classname, str name)
+{
+	if (NumMonsterTypes >= MAX_MONSTER_TYPES)
+		LimitError("Too many monster types. Increase MAX_MONSTER_TYPES.");
+
+	MonsterActors[NumMonsterTypes] = classname;
+	MonsterDifficulties[NumMonsterTypes] = difficulty;
+	MonsterScripts[NumMonsterTypes] = 0;
+	MonsterEvadeSpeeds[NumMonsterTypes] = 0;
+	MonsterFlags[NumMonsterTypes] = 0;
+	MonsterNames[NumMonsterTypes] = name;
+	MonsterSprites[NumMonsterTypes] = sprite;
+	NumMonsterTypes++;
+}
+
+function void FlyingMonster(void)
+{
+	MonsterFlags[NumMonsterTypes - 1]|= MONSTF_FLYING;
+}
+
+function void BossMonster(void)
+{
+	MonsterFlags[NumMonsterTypes - 1] |= MONSTF_BOSS;
+}
+
+function void EvadingMonster(int speed)
+{
+	MonsterFlags[NumMonsterTypes - 1] = speed;
+}

@@ -59,18 +59,6 @@ function void InitPuppetmasterInventory(void)
 	GiveInventory("AllMap", 1);
 }
 
-function void GiveMarineStartItems(void)
-{
-	GiveInventory("IsMarine", 1);
-	for (int i = 0; i < NumStartItems; i++)
-	{
-		int current = CheckInventory(StartItems[i][STARTITEM_ACTORNAME]);
-		int minimum = StartItems[i][STARTITEM_AMOUNT];
-		if (current < minimum)
-			GiveInventory(StartItems[i][STARTITEM_ACTORNAME], minimum - current);
-	}
-}
-
 script mop_enter ENTER
 {
 	Thing_ChangeTid(0, 1000 + PlayerNumber());
@@ -91,33 +79,14 @@ script mop_enter ENTER
 		if (GetMOPVar("pistolstart"))
 		{		
 			ClearInventory();
-			
-			for (int i = 0; i < NumMarineWeapons; i++)
-				TakeInventory(MarineWeapons[i], 0x7fffffff);
-				
+			DisarmMarine();	
 			SetActorProperty(0, APROP_HEALTH, 100);
 		}
 		
 		GiveMarineStartItems();
 					
 		if (GetMOPVar("pistolstart"))	
-		{	
-			if (GetMOPVar("pistolstart") == 1)
-			{
-				print(s:"Pistol Start");
-			}
-			else if (GetMOPVar("pistolstart") == 2)
-			{
-				print(s:"Shotgun Start");
-				GiveInventory("NewShotgun", 1);
-			}
-			else 
-			{
-				print(s:"Shieldgun (slot 8) and Shotgun Start");
-				GiveInventory("ShieldGenerator", 1);
-				GiveInventory("NewShotgun", 1);
-			}
-		}
+			PistolStartModes(GetMOPVar("pistolstart"));
 	}
 	
 	ACS_ExecuteAlways(mop_log_join, 0, PlayerNumber(), PlayerClasses[PlayerNumber()], GetMOPVar("manyplayers")+1);
@@ -290,7 +259,7 @@ script mop_init OPEN
 	int monsterforces = 0.0;
 	for (int i = 0; i < NumMonsterTypes; i++)
 	{
-		monsterforces += MonsterTypes[i][MONSTER_DIFFICULTY] * ThingCountName(MonsterTypes[i][MONSTER_ACTORNAME], 0);
+		monsterforces += MonsterDifficulties[i] * ThingCountName(MonsterActors[i], 0);
 	}
 	
 	Lives = (monsterforces>>16) + 1;
@@ -719,7 +688,7 @@ script mop_puppetmaster_disconnect (int player) disconnect
 		int z = LastPossessedMonster[player][LASTMONSTER_Z];
 		int angle = LastPossessedMonster[player][LASTMONSTER_ANGLE];
 
-		SpawnForced(MonsterTypes[type][MONSTER_ACTORNAME], x, y, z, TEMPTID, angle>>8);
+		SpawnForced(MonsterActors[type], x, y, z, TEMPTID, angle>>8);
 		SetActorProperty(TEMPTID, APROP_HEALTH, health);
 		Thing_ChangeTID(TEMPTID, 0);
 	}
@@ -774,7 +743,7 @@ script mop_marines_giveextralives (int type)
 	if (type == 0)
 			terminate;
 	
-	ExtraLivePoints += MonsterTypes[type][MONSTER_DIFFICULTY];
+	ExtraLivePoints += MonsterDifficulties[type];
 	DrawExtraLivesHUD(ExtraLivePoints, points);
 
 	if (ExtraLivePoints >= points)

@@ -1,82 +1,12 @@
-// List of all monster types.
-
-#define MONSTER_ACTORNAME 0
-#define MONSTER_DIFFICULTY 1
-#define MONSTER_SCRIPT 2
-#define MONSTER_EVADESPEED 3
-#define MONSTER_FLAGS 4
-#define MONSTER_NAME 5
-#define MONSTER_SPRITE 6
-#define NUM_MONSTER_PROPERTIES 7
-
-#define MONSTF_FLYING 1
-#define MONSTF_BOSS 2
-
-#define MAX_MONSTER_TYPES 100
-int NumMonsterTypes = 0;
-int MonsterTypes[MAX_MONSTER_TYPES][NUM_MONSTER_PROPERTIES];
-
-
 // List of all items marine start with.
 
-#define STARTITEM_ACTORNAME 0
-#define STARTITEM_AMOUNT 1
-#define NUM_STARTITEM_PROPERTIES 2
-
-#define MAX_START_ITEMS 32
-int NumStartItems = 0;
-int StartItems[MAX_START_ITEMS][NUM_STARTITEM_PROPERTIES];
 
 
 // List of all weapons marines can use.
 
-#define MAX_MARINE_WEAPONS 32
-int NumMarineWeapons = 0;
-int MarineWeapons[MAX_MARINE_WEAPONS];
 
-function void AddWeapon(str classname)
-{
-	MarineWeapons[NumMarineWeapons++] = classname;
-}
 
-function void AddStartItem(str classname, int amount)
-{
-	StartItems[NumStartItems][STARTITEM_ACTORNAME] = classname;
-	StartItems[NumStartItems][STARTITEM_AMOUNT] = amount;
-	NumStartItems++;
-}
 
-function void AddMonster(int difficulty, str sprite, str classname, str name)
-{
-	MonsterTypes[NumMonsterTypes][MONSTER_ACTORNAME] = classname;
-	MonsterTypes[NumMonsterTypes][MONSTER_DIFFICULTY] = difficulty;
-	MonsterTypes[NumMonsterTypes][MONSTER_SCRIPT] = 0;
-	MonsterTypes[NumMonsterTypes][MONSTER_EVADESPEED] = 0;
-	MonsterTypes[NumMonsterTypes][MONSTER_FLAGS] = 0;
-	MonsterTypes[NumMonsterTypes][MONSTER_NAME] = name;
-	MonsterTypes[NumMonsterTypes][MONSTER_SPRITE] = sprite;
-	NumMonsterTypes++;
-}
-
-function void AddSpawnedMonster(str sprite, str classname, str name)
-{
-	AddMonster(0, sprite, classname, name);
-}
-
-function void FlyingMonster(void)
-{
-	MonsterTypes[NumMonsterTypes - 1][MONSTER_FLAGS] |= MONSTF_FLYING;
-}
-
-function void BossMonster(void)
-{
-	MonsterTypes[NumMonsterTypes - 1][MONSTER_FLAGS] |= MONSTF_BOSS;
-}
-
-function void EvadingMonster(int speed)
-{
-	MonsterTypes[NumMonsterTypes - 1][MONSTER_EVADESPEED] = speed;
-}
 
 script mop_count_monstertypes_sv OPEN
 {
@@ -105,7 +35,7 @@ int MonsterItems[NUM_MONSTER_ITEMS] =
 function int IdentifyMonsterType(int tid)
 {
 	for (int i = 0; i < NumMonsterTypes; i++)
-		if (ThingCountName(MonsterTypes[i][MONSTER_ACTORNAME], tid))
+		if (ThingCountName(MonsterActors[i], tid))
 			return i;
 			
 	return -1;
@@ -114,7 +44,7 @@ function int IdentifyMonsterType(int tid)
 function int IdentifyPossessedMonsterType(int player)
 {
 	for (int i = 0; i < NumMonsterTypes; i++)
-		if (ThingCountName(StrParam(s:"Possessed", s:MonsterTypes[i][MONSTER_ACTORNAME]), 1000 + player))
+		if (ThingCountName(StrParam(s:"Possessed", s:MonsterActors[i]), 1000 + player))
 			return i;
 
 	return -1;

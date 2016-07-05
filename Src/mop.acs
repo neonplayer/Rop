@@ -59,7 +59,6 @@ int BoomEdition = false;
 #define mop_count_monstertypes_cl 847
 
 #define TEMPTID 8080
-#define FIRE_TIDS 8090
 
 #define HID_MONSTERINFO 1
 #define HID_GAMESTATUS1 2
@@ -75,6 +74,9 @@ int BoomEdition = false;
 
 #define POSSESSED_ADDITIONAL_HP 10000
 
+#include "array_monsters.acs"
+#include "array_startitems.acs"
+#include "array_weapons.acs"
 #include "arrays.acs"
 #include "cvars.acs"
 #include "game.acs"
