@@ -1,3 +1,23 @@
+function bool PlayerIsMarine(int player)
+{
+	return PlayerClass(player) == 0;
+}
+
+function bool PlayerIsPuppetmaster(int player)
+{
+	return PlayerClass(player) == 1;
+}
+
+function bool IsMarine(void)
+{
+	return PlayerIsMarine(PlayerNumber());
+}
+
+function bool IsPuppetmaster(void)
+{
+	return PlayerIsPuppetmaster(PlayerNumber());
+}
+
 function bool IsPossessed(void)
 {
 	return CheckInventory("IsPossessed");
