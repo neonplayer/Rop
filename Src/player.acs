@@ -1,0 +1,4 @@
+function bool IsPossessed(void)
+{
+	return CheckInventory("IsPossessed");
+}

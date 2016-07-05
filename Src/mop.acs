@@ -76,6 +76,7 @@ int BoomEdition = false;
 #include "cvars.acs"
 #include "game.acs"
 #include "evade.acs"
+#include "player.acs"
 #include "possess.acs"
 #include "actorlist.acs"
 #include "shieldhit.acs"
