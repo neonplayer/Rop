@@ -86,23 +86,7 @@ script mop_enter ENTER
 		GiveMarineStartItems();
 					
 		if (GetMOPVar("pistolstart"))	
-		{	
-			if (GetMOPVar("pistolstart") == 1)
-			{
-				print(s:"Pistol Start");
-			}
-			else if (GetMOPVar("pistolstart") == 2)
-			{
-				print(s:"Shotgun Start");
-				GiveInventory("NewShotgun", 1);
-			}
-			else 
-			{
-				print(s:"Shieldgun (slot 8) and Shotgun Start");
-				GiveInventory("ShieldGenerator", 1);
-				GiveInventory("NewShotgun", 1);
-			}
-		}
+			PistolStartModes(GetMOPVar("pistolstart"));
 	}
 	
 	ACS_ExecuteAlways(mop_log_join, 0, PlayerNumber(), PlayerClasses[PlayerNumber()], GetMOPVar("manyplayers")+1);

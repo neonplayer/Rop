@@ -60,3 +60,22 @@ function void InitMOP(void)
 	
 	AddMonster(0.01,  "BAR1A0",   "NewExplosiveBarrel", "Explosive Barrel");
 }
+
+function void PistolStartModes(int mode)
+{
+	if (mode == 1)
+	{
+		print(s:"Pistol Start");
+	}
+	else if (mode == 2)
+	{
+		print(s:"Shotgun Start");
+		GiveInventory("NewShotgun", 1);
+	}
+	else
+	{
+		print(s:"Shieldgun (slot 8) and Shotgun Start");
+		GiveInventory("ShieldGenerator", 1);
+		GiveInventory("NewShotgun", 1);
+	}
+}
