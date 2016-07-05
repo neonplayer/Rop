@@ -1,24 +1,3 @@
-// List of all items marine start with.
-
-
-
-// List of all weapons marines can use.
-
-
-
-
-
-script mop_count_monstertypes_sv OPEN
-{
-	InitMOP();
-	//CountMonsterTypes();
-}
-script mop_count_monstertypes_cl OPEN CLIENTSIDE
-{
-	InitMOP();
-	//CountMonsterTypes();
-}
-
 // List of items that monsters can carry.
 #define NUM_MONSTER_ITEMS 7
 int MonsterItems[NUM_MONSTER_ITEMS] =

@@ -220,8 +220,14 @@ function int LivingMonsterCount(void)
 int Bossbrain = 0;
 int DamageFactor = 1.0;
 
+script mop_init_clientside OPEN CLIENTSIDE
+{
+	InitMOP();
+}
+
 script mop_init OPEN
 {
+	InitMOP();
 	ConsoleCommand("compat_clientssendfullbuttoninfo 1");
 	
 	if (BoomEdition)
