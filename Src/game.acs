@@ -59,18 +59,6 @@ function void InitPuppetmasterInventory(void)
 	GiveInventory("AllMap", 1);
 }
 
-function void GiveMarineStartItems(void)
-{
-	GiveInventory("IsMarine", 1);
-	for (int i = 0; i < NumStartItems; i++)
-	{
-		int current = CheckInventory(StartItems[i][STARTITEM_ACTORNAME]);
-		int minimum = StartItems[i][STARTITEM_AMOUNT];
-		if (current < minimum)
-			GiveInventory(StartItems[i][STARTITEM_ACTORNAME], minimum - current);
-	}
-}
-
 script mop_enter ENTER
 {
 	Thing_ChangeTid(0, 1000 + PlayerNumber());

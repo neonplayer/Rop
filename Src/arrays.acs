@@ -1,12 +1,5 @@
 // List of all items marine start with.
 
-#define STARTITEM_ACTORNAME 0
-#define STARTITEM_AMOUNT 1
-#define NUM_STARTITEM_PROPERTIES 2
-
-#define MAX_START_ITEMS 32
-int NumStartItems = 0;
-int StartItems[MAX_START_ITEMS][NUM_STARTITEM_PROPERTIES];
 
 
 // List of all weapons marines can use.
@@ -20,12 +13,7 @@ function void AddWeapon(str classname)
 	MarineWeapons[NumMarineWeapons++] = classname;
 }
 
-function void AddStartItem(str classname, int amount)
-{
-	StartItems[NumStartItems][STARTITEM_ACTORNAME] = classname;
-	StartItems[NumStartItems][STARTITEM_AMOUNT] = amount;
-	NumStartItems++;
-}
+
 
 
 
