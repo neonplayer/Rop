@@ -4,15 +4,6 @@
 
 // List of all weapons marines can use.
 
-#define MAX_MARINE_WEAPONS 32
-int NumMarineWeapons = 0;
-int MarineWeapons[MAX_MARINE_WEAPONS];
-
-function void AddWeapon(str classname)
-{
-	MarineWeapons[NumMarineWeapons++] = classname;
-}
-
 
 
 
