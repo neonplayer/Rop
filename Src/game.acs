@@ -290,7 +290,7 @@ script mop_init OPEN
 	int monsterforces = 0.0;
 	for (int i = 0; i < NumMonsterTypes; i++)
 	{
-		monsterforces += MonsterTypes[i][MONSTER_DIFFICULTY] * ThingCountName(MonsterTypes[i][MONSTER_ACTORNAME], 0);
+		monsterforces += MonsterDifficulties[i] * ThingCountName(MonsterActors[i], 0);
 	}
 	
 	Lives = (monsterforces>>16) + 1;
@@ -719,7 +719,7 @@ script mop_puppetmaster_disconnect (int player) disconnect
 		int z = LastPossessedMonster[player][LASTMONSTER_Z];
 		int angle = LastPossessedMonster[player][LASTMONSTER_ANGLE];
 
-		SpawnForced(MonsterTypes[type][MONSTER_ACTORNAME], x, y, z, TEMPTID, angle>>8);
+		SpawnForced(MonsterActors[type], x, y, z, TEMPTID, angle>>8);
 		SetActorProperty(TEMPTID, APROP_HEALTH, health);
 		Thing_ChangeTID(TEMPTID, 0);
 	}
@@ -774,7 +774,7 @@ script mop_marines_giveextralives (int type)
 	if (type == 0)
 			terminate;
 	
-	ExtraLivePoints += MonsterTypes[type][MONSTER_DIFFICULTY];
+	ExtraLivePoints += MonsterDifficulties[type];
 	DrawExtraLivesHUD(ExtraLivePoints, points);
 
 	if (ExtraLivePoints >= points)

@@ -74,6 +74,7 @@ int BoomEdition = false;
 
 #define POSSESSED_ADDITIONAL_HP 10000
 
+#include "array_monsters.acs"
 #include "arrays.acs"
 #include "cvars.acs"
 #include "game.acs"

@@ -33,7 +33,7 @@ script mop_possess (void)
 		terminate;
 	}
 	
-	int flags = MonsterTypes[type][MONSTER_FLAGS];
+	int flags = MonsterFlags[type];
 	
 	int frags = MopFrags[player-1000];
 	int required = GetMOPVar("possfrags_bosses");
@@ -67,7 +67,7 @@ script mop_possess (void)
 	SetActorAngle(0, angle);
 
 	// Morph!
-	MorphActor(0, StrParam(s:"Possessed", s:MonsterTypes[type][MONSTER_ACTORNAME]), "", INT_MAX, 0, "NoFlash", "NoFlash");
+	MorphActor(0, StrParam(s:"Possessed", s:MonsterActors[type]), "", INT_MAX, 0, "NoFlash", "NoFlash");
 	PossessedCount++;
 	
 	// Save monster type
@@ -88,7 +88,7 @@ script mop_possess (void)
 
 	// Set properties.
 	SetPlayerProperty(0, true, PROP_NOTARGET);
-	SetPlayerProperty(0, MonsterTypes[type][MONSTER_FLAGS] & MONSTF_FLYING, PROP_FLY);
+	SetPlayerProperty(0, MonsterFlags[type] & MONSTF_FLYING, PROP_FLY);
 	SetActorProperty(0, APROP_HEALTH, health * DamageFactor / 1.0 + POSSESSED_ADDITIONAL_HP);
 	SetActorVelocity(0, vx, vy, vz, false, true);
 
@@ -172,7 +172,7 @@ script mop_possess (void)
 	}
 	
 	// Spawn the replacement actor.
-	SpawnForced(MonsterTypes[type][MONSTER_ACTORNAME], x, y, z, TEMPTID, angle>>8);
+	SpawnForced(MonsterActors[type], x, y, z, TEMPTID, angle>>8);
 	SetActorVelocity(TEMPTID, vx, vy, vz, false, true);
 	
 	// Give back items and take them away from puppetmaster just in case.
@@ -246,7 +246,7 @@ script mop_monsterinfo (void)
 			SetHUDSize(640,480,0);
 			SetFont("SMALLFONT");
 			HUDMessage(
-				s:MonsterTypes[type][MONSTER_NAME],
+				s:MonsterNames[type],
 				s:"\n\n",
 				d:hp,
 				s:" hp";
@@ -283,7 +283,7 @@ script mop_possessed_hud(int player, int df, int spawnhp_type) CLIENTSIDE
 		);
 		// End of MOP-X code.
 		SetHUDSize(400,300,0);
-		SetFont(MonsterTypes[type][MONSTER_SPRITE]);
+		SetFont(MonsterSprites[type]);
 		HUDMessage(s:"A"; HUDMSG_PLAIN, 0, CR_UNTRANSLATED, 60.0, 275.0, 0.03);
 		
 		Delay(1);
@@ -308,7 +308,7 @@ script mop_respawn_puppetmaster RESPAWN
 	
 	for (int i = 0; i < NumMonsterTypes; i++)
 	{
-		str name = MonsterTypes[i][MONSTER_ACTORNAME];
+		str name = MonsterActors[i];
 		str weaponname = StrParam(s:name, s:"Weapon");
 		TakeInventory(weaponname, 1);
 	}
