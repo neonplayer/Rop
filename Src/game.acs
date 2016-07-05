@@ -79,10 +79,7 @@ script mop_enter ENTER
 		if (GetMOPVar("pistolstart"))
 		{		
 			ClearInventory();
-			
-			for (int i = 0; i < NumMarineWeapons; i++)
-				TakeInventory(MarineWeapons[i], 0x7fffffff);
-				
+			DisarmMarine();	
 			SetActorProperty(0, APROP_HEALTH, 100);
 		}
 		

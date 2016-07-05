@@ -10,3 +10,8 @@ function void AddWeapon(str classname)
 	MarineWeapons[NumMarineWeapons++] = classname;
 }
 
+function void DisarmMarine(void)
+{
+	for (int i = 0; i < NumMarineWeapons; i++)
+		TakeAllInventory(MarineWeapons[i]);
+}
