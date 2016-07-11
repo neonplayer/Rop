@@ -424,81 +424,36 @@ Frame SHBAK { Light SoulHarvesterBall8 }
 Frame SHBAL { Light SoulHarvesterBall9 }
 }
 
-
-PointLight SoulHarvesterX_1
+Object SoulHarvesterBall2
 {
-Offset 0 34 0
-Color 1.0 1.0 0.0
-Size 8
+Frame SHBAA { Light SoulHarvesterBall1 }
+Frame SHBAB { Light SoulHarvesterBall1 }
+Frame SHBAC { Light SoulHarvesterBall2 }
+Frame SHBAD { Light SoulHarvesterBall3 }
+Frame SHBAE { Light SoulHarvesterBall2 }
+Frame SHBAF { Light SoulHarvesterBall1 }
+Frame SHBAG { Light SoulHarvesterBall4 }
+Frame SHBAH { Light SoulHarvesterBall5 }
+Frame SHBAI { Light SoulHarvesterBall6 }
+Frame SHBAJ { Light SoulHarvesterBall7 }
+Frame SHBAK { Light SoulHarvesterBall8 }
+Frame SHBAL { Light SoulHarvesterBall9 }
 }
 
-PointLight SoulHarvesterX_2
+Object SoulHarvesterBall3
 {
-Offset 0 35 0
-Color 1.0 1.0 0.0
-Size 12
-}
-
-PointLight SoulHarvesterX_3
-{
-Offset 0 35 0
-Color 1.0 1.0 0.0
-Size 16
-}
-
-PointLight SoulHarvesterX_4
-{
-Offset 0 35 0
-Color 1.0 1.0 0.0
-Size 20
-}
-
-PointLight SoulHarvesterX_5
-{
-Offset 0 35 0
-Color 1.0 1.0 0.0
-Size 24
-}
-
-PointLight SoulHarvesterX_6
-{
-Offset 0 35 0
-Color 1.0 1.0 0.0
-Size 32
-}
-
-PointLight SoulHarvesterX_7
-{
-Offset 0 35 0
-Color 1.0 1.0 0.0
-Size 40
-}
-
-PointLight SoulHarvesterX_8
-{
-Offset 0 35 0
-Color 1.0 1.0 0.0
-Size 58
-}
-
-PointLight SoulHarvesterX_9
-{
-Offset 0 35 0
-Color 1.0 1.0 0.0
-Size 20
-}
-
-Object SoulHarvester
-{
-Frame SLHVE { Light SoulHarvesterX_1 }
-Frame SLHVF { Light SoulHarvesterX_2 }
-Frame SLHVG { Light SoulHarvesterX_3 }
-Frame SLHVH { Light SoulHarvesterX_4 }
-Frame SLHVI { Light SoulHarvesterX_5 }
-Frame SLHVJ { Light SoulHarvesterX_6 }
-Frame SLHVK { Light SoulHarvesterX_7 }
-Frame SLHVL { Light SoulHarvesterX_8 }
-Frame SLHVM { Light SoulHarvesterX_9 }
+Frame SHBAA { Light SoulHarvesterBall1 }
+Frame SHBAB { Light SoulHarvesterBall1 }
+Frame SHBAC { Light SoulHarvesterBall2 }
+Frame SHBAD { Light SoulHarvesterBall3 }
+Frame SHBAE { Light SoulHarvesterBall2 }
+Frame SHBAF { Light SoulHarvesterBall1 }
+Frame SHBAG { Light SoulHarvesterBall4 }
+Frame SHBAH { Light SoulHarvesterBall5 }
+Frame SHBAI { Light SoulHarvesterBall6 }
+Frame SHBAJ { Light SoulHarvesterBall7 }
+Frame SHBAK { Light SoulHarvesterBall8 }
+Frame SHBAL { Light SoulHarvesterBall9 }
 }
 
 //Enemies
@@ -727,6 +682,81 @@ Frame SLHVJ { Light SoulHarvesterX_6 }
 Frame SLHVK { Light SoulHarvesterX_7 }
 Frame SLHVL { Light SoulHarvesterX_8 }
 Frame SLHVM { Light SoulHarvesterX_9 }
+}
+
+PointLight PlasmaZombieAttack
+{
+Color 0.0 0.0 1.0
+Size 28
+}
+
+Object PlasmaZombie
+{
+Frame PRPSF { Light PlasmaZombieAttack }
+}
+
+Object PossessedPlasmaZombie
+{
+Frame PRPSF { Light PlasmaZombieAttack }
+}
+
+object ZombiePlasma
+{
+    frame PLSEA { light PLASMA_X1 }
+    frame PLSEB { light PLASMA_X2 }
+    frame PLSEC { light PLASMA_X2 }
+    frame PLSED { light PLASMA_X3 }
+    frame PLSEE { light PLASMA_X4 }
+}
+
+pointlight MINIPLASMABALL
+{
+    color 0.0 0.1 1.0
+    size 28
+}
+
+flickerlight MINIPLASMA_X1
+{
+    color 0.2 0.2 1.0
+    size 32
+    secondarySize 72
+    chance 0.4
+}
+
+flickerlight MINIPLASMA_X2
+{
+    color 0.2 0.2 0.8
+    size 40
+    secondarySize 88
+    chance 0.4
+}
+
+flickerlight MINIPLASMA_X3
+{
+    color 0.1 0.1 0.5
+    size 32
+    secondarySize 72
+    chance 0.4
+}
+
+flickerlight MINIPLASMA_X4
+{
+    color 0.0 0.0 0.2
+    size 4
+    secondarySize 16
+    chance 0.4
+}
+
+object MiniPlasma
+{
+    frame PLSSA { light MINIPLASMABALL }
+    frame PLSSB { light MINIPLASMABALL }
+
+    frame PLSEA { light MINIPLASMA_X1 }
+    frame PLSEB { light MINIPLASMA_X2 }
+    frame PLSEC { light MINIPLASMA_X2 }
+    frame PLSED { light MINIPLASMA_X3 }
+    frame PLSEE { light MINIPLASMA_X4 }
 }
 
 //Marine

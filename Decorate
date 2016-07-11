@@ -8,6 +8,7 @@
 #Include Actors/EnemySpawners
 #Include Actors/Enemies/Vanilla
 
+#Include Actors/Enemies/PlasmaZombie
 #Include Actors/Enemies/SSGzombie
 #Include Actors/Enemies/DarkImp
 #Include Actors/Enemies/SoulHarvester
