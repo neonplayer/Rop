@@ -1,4 +1,4 @@
-Actor Zombieman2 : Zombieman replaces Zombieman
+Actor Zombieman2 : Zombieman
 {
   PainChance 150
   Obituary "%o was peppered by a zombieman's pea shooter."

@@ -1,3 +1,9 @@
+Actor ZombiemanRandomizer : RandomSpawner replaces Zombieman
+{
+  DropItem "Zombieman2", 256, 78
+  DropItem "PlasmaZombie", 256, 22
+}
+
 Actor ShotguyRandomizer : RandomSpawner replaces Shotgunguy
 {
   DropItem "Shotgunguy2", 256, 88

@@ -67,6 +67,7 @@ Actor DarkImpBall : NewImpBall
 {
   DamageType "Monster"
   Speed 12
+  Damage (Random(10, 20))
   Alpha 0.67
   Scale 0.7
   States

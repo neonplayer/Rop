@@ -46,6 +46,26 @@ object CacodemonWeaverBall1
     frame BAL2E { light CACOBALL_X3 }
 }
 
+object CacodemonWeaverBall3
+{
+    frame BAL2A { light CACOBALL }
+    frame BAL2B { light CACOBALL }
+
+    frame BAL2C { light CACOBALL_X1 }
+    frame BAL2D { light CACOBALL_X2 }
+    frame BAL2E { light CACOBALL_X3 }
+}
+
+object CacodemonWeaverBall4
+{
+    frame BAL2A { light CACOBALL }
+    frame BAL2B { light CACOBALL }
+
+    frame BAL2C { light CACOBALL_X1 }
+    frame BAL2D { light CACOBALL_X2 }
+    frame BAL2E { light CACOBALL_X3 }
+}
+
 object LostSoulProjectile
 {
     frame SKULA { light LOSTSOUL    }
@@ -72,45 +92,14 @@ object NewBaronBall
     frame BAL7E { light BARONBALL_X3 }
 }
 
-pointlight BARONBALL2
+object NewBaronBallPossessed
 {
-    color 0.0 1.0 0.0
-    size 48
-}
+    frame BAL7A { light BARONBALL    }
+    frame BAL7B { light BARONBALL    }
 
-flickerlight BARONBALL_X21
-{
-    color 0.0 0.7 0.0
-    size 60
-    secondarySize 88
-    chance 0.25
-}
-
-flickerlight BARONBALL_X22
-{
-    color 0.0 0.4 0.0
-    size 72
-    secondarySize 104
-    chance 0.25
-}
-
-flickerlight BARONBALL_X23
-{
-    color 0.0 0.2 0.0
-    size 84
-    secondarySize 120
-    chance 0.25
-}
-
-
-object NewBaronBall2
-{
-    frame BAL7A { light BARONBALL2    }
-    frame BAL7B { light BARONBALL2    }
-
-    frame BAL7C { light BARONBALL_X21 }
-    frame BAL7D { light BARONBALL_X22 }
-    frame BAL7E { light BARONBALL_X23 }
+    frame BAL7C { light BARONBALL_X1 }
+    frame BAL7D { light BARONBALL_X2 }
+    frame BAL7E { light BARONBALL_X3 }
 }
 
 object NewFatShot
@@ -135,6 +124,15 @@ object NewArachPlasma
 object ArachTrail
 {
     frame APBXA { light ARACHPLAS_X1 }
+}
+
+object NewArachPlasma2
+{
+    frame APBXA { light ARACHPLAS_X1 }
+    frame APBXB { light ARACHPLAS_X2 }
+    frame APBXC { light ARACHPLAS_X2 }
+    frame APBXD { light ARACHPLAS_X3 }
+    frame APBXE { light ARACHPLAS_X4 }
 }
 
 object NewRevenantRocket

@@ -9,6 +9,7 @@ Actor PlasmaZombie : Zombieman2
   DeathSound "PsxZombie/death"
   ActiveSound "PsxZombie/active"
   DropItem "Cell", 256, 20
+  +MissileMore
   States
   {
   Spawn:
@@ -39,21 +40,21 @@ Actor PlasmaZombie : Zombieman2
 	PRPS G 3 A_Pain
 	Goto See
   Death:
-    ZMAY H 5
-    ZMAY I 5 A_Scream
-    ZMAY J 5 A_Fall
-    ZMAY K 5
-    ZMAY L -1
+    PRPS H 5
+    PRPS I 5 A_Scream
+    PRPS J 5 A_Fall
+    PRPS K 5
+    PRPS L -1
     Stop
   XDeath:
-    ZMAY O 5
-    ZMAY P 5 A_XScream
-    ZMAY Q 5 A_Fall
-    ZMAY RSTU 5
-    ZMAY V -1
+    PRPS O 5
+    PRPS P 5 A_XScream
+    PRPS Q 5 A_Fall
+    PRPS RSTU 5
+    PRPS V -1
     Stop
   Raise:
-    ZMAY KJIH 5
+    PRPS KJIH 5
     Goto See
   }
 }
@@ -77,7 +78,7 @@ Actor MiniPlasma : PlasmaBall
   Decal DoomImpScorch
   Height 6
   Radius 3
-  Speed 22
+  Speed 28
   Damage (Random(10, 18))
   Scale 0.55
 }

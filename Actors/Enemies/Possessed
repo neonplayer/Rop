@@ -65,7 +65,7 @@ Actor Zombieman2Weapon : PossessedWeapon
 	ZMBG A 1 OffSet(0, 36)
 	ZMBG A 1 OffSet(0, 34)
 	ZMBG A 1 OffSet(0, 32)
-	ZMBG A 5
+	ZMBG A 1
 	ZMBG A 0 A_Refire
 	Goto Ready
   AltFire:
@@ -97,7 +97,7 @@ Actor Zombieman2Weapon : PossessedWeapon
 	ZMBG A 1 OffSet(0, 36)
 	ZMBG A 1 OffSet(0, 34)
 	ZMBG A 1 OffSet(0, 32)
-    ZMBG A 11
+    ZMBG A 5
 	ZMBG A 0 A_Refire
 	Goto Ready
   }
@@ -150,15 +150,15 @@ Actor Shotgunguy2Weapon : PossessedWeapon
   Fire:
     SHTG A 0 A_GunFlash
 	SHTG A 0 A_PlaySound("Shotguy/Attack", CHAN_WEAPON)
-	SHTG A 7 A_FireBullets(4.5, 4.5, 3, Random(1, 3)*5, "MonsterBulletPuff", FBF_NORANDOM)
-	SHTG BC 5
-    SHTG D 4
-    SHTG CB 5
-    SHTG A 4
+	SHTG A 6 A_FireBullets(4, 4, 3, Random(10, 16), "MonsterBulletPuff", FBF_NORANDOM)
+	SHTG FGHIJ 1
+	SHTG KLMNOPQRSRQPONMLK 1
+    SHTG JIHG 1
+	SHTG F 2
 	SHTG A 0 A_Refire
 	Goto Ready
   Flash:
-    SHTF A 4 Bright A_Light1
+    SHTF A 3 Bright A_Light1
 	SHTF B 3 Bright A_Light1
 	Goto LightDone
   AltFire:
@@ -176,7 +176,7 @@ Actor Shotgunguy2Weapon : PossessedWeapon
 	SHTG A 1 OffSet(-1, 42)
 	SHTG A 1 OffSet(0, 36)
 	SHTG A 1 OffSet(0, 32)
-	SHTG A 13
+	SHTG A 1
 	Goto Ready
   }
 }
@@ -227,12 +227,12 @@ Actor Chaingunguy2Weapon : PossessedWeapon
   States
   {
   Fire:
-    TNT1 A 6 A_FireBullets(5.5, 5.5, -1, Random(1, 3)*5, "MonsterBulletPuff")
-	TNT1 A 6 A_FireBullets(5.5, 5.5, -1, Random(1, 3)*5, "MonsterBulletPuff")
+    TNT1 A 6 A_FireBullets(5.5, 5.5, -1, Random(7, 15), "MonsterBulletPuff", FBF_NORANDOM)
+	TNT1 A 6 A_FireBullets(5.5, 5.5, -1, Random(7, 15), "MonsterBulletPuff", FBF_NORANDOM)
 	TNT1 A 0 A_Refire
 	Goto Ready
   AltFire:
-	TNT1 A 4 A_FireBullets(0, 0, 1, Random(1, 3), "MonsterBulletPuff")
+	TNT1 A 4 A_FireBullets(0, 0, 1, Random(9, 17), "MonsterBulletPuff", FBF_NORANDOM)
 	TNT1 A 14
 	TNT1 A 0 A_Refire
 	Goto Ready
@@ -301,6 +301,7 @@ Actor Imp2Weapon : PossessedWeapon
 Actor PossessedImpBall : NewImpBall
 {
   Speed 25
+  Damage (Random(15, 24))
 }
 
 Actor PossessedPinky : PossessedMonster
@@ -349,7 +350,7 @@ Actor PinkyWeapon : PossessedWeapon
     TNT1 A 0 A_PlaySound("Demon/Melee", Chan_Weapon)
     TNT1 A 0 A_Recoil(-10)
     TNT1 A 12
-	TNT1 A 8 A_CustomPunch(Random(1, 10)*4, true)
+	TNT1 A 8 A_CustomPunch(Random(3, 10)*4, true)
 	Goto Ready
   }
 }
@@ -435,7 +436,7 @@ Actor SoulWeapon : PossessedWeapon
 	Goto Ready
   Melee:
     TNT1 A 0 A_PlaySound("Skull/Melee")
-    TNT1 A 0 A_CustomPunch(Random(1, 8)*3, True)
+    TNT1 A 0 A_CustomPunch(Random(3, 8)*3, True)
 	TNT1 A 16
 	Goto Ready
   AltFire:
@@ -483,8 +484,8 @@ Actor CacoWeapon : PossessedWeapon
   {
   Fire:
     TNT1 A 10
-	TNT1 A 0 A_FireCustomMissile("CacodemonWeaverBall2", 0, 0, 0)
-	TNT1 A 5 A_FireCustomMissile("CacodemonWeaverBall1", 0, 0, 0)
+	TNT1 A 0 A_FireCustomMissile("CacodemonWeaverBall3", 0, 0, 0)
+	TNT1 A 5 A_FireCustomMissile("CacodemonWeaverBall4", 0, 0, 0)
 	TNT1 A 15
 	TNT1 A 0 A_Refire
 	Goto Ready
@@ -496,6 +497,16 @@ Actor CacoWeapon : PossessedWeapon
 	TNT1 A 0 A_Refire
 	Goto Ready
   }
+}
+
+Actor CacodemonWeaverBall4 : CacodemonWeaverBall2
+{
+  Damage (Random(16, 27))
+}
+
+Actor CacodemonWeaverBall3 : CacodemonWeaverBall1
+{
+  Damage (Random(16, 27))
 }
 
 Actor PossessedPainElemental2 : PossessedMonster
@@ -592,7 +603,7 @@ Actor KnightWeapon : PossessedWeapon
   {
   Fire:
     TNT1 A 16
-	TNT1 A 8 A_FireCustomMissile("NewBaronBall")
+	TNT1 A 8 A_FireCustomMissile("NewBaronBallPossessed")
 	TNT1 A 10
 	Goto Ready
   AltFire:
@@ -600,6 +611,11 @@ Actor KnightWeapon : PossessedWeapon
 	TNT1 A 8 A_CustomPunch(Random(4, 6)*6, True)
 	Goto Ready
   }
+}
+
+Actor NewBaronBallPossessed : NewBaronBall
+{
+  Damage(Random(30, 58))
 }
 
 Actor PossessedBaronOfHell2 : PossessedMonster
@@ -641,15 +657,12 @@ Actor BaronWeapon : PossessedWeapon
   {
   Fire:
     TNT1 A 16
-	TNT1 A 8 A_FireCustomMissile("BaronMeteor")
-	TNT1 A 17
+	TNT1 A 8 A_FireCustomMissile("NewBaronBallPossessed")
+	TNT1 A 8
 	Goto Ready
   AltFire:
-    TNT1 A 16
-	TNT1 A 0 A_FireCustomMissile("NewBaronBall2", 12)
-	TNT1 A 0 A_FireCustomMissile("NewBaronBall2", -12)
-	TNT1 A 8 A_FireCustomMissile("NewBaronBall", 0)
-	TNT1 A 22
+    TNT1 A 16 A_PlaySound("Baron/Melee", Chan_Weapon)
+	TNT1 A 8 A_CustomPunch(Random(4, 6)*8, True)
 	Goto Ready
   }
 }
@@ -720,6 +733,7 @@ Actor SkeletonWeapon : PossessedWeapon
 
 Actor NewRevenantRocket2 : NewRevenantRocket
 {
+  Damage (Random(26, 48))
   States
   {
   Spawn:
@@ -836,14 +850,14 @@ Actor SpiderWeapon : PossessedWeapon
 	Loop
   Fire:
     SPDG A 0 SetPlayerProperty(0, true, Prop_Frozen)
-    SPDG B 1 Bright A_FireCustomMissile("NewArachPlasma", Random(12, -12))
+    SPDG B 1 Bright A_FireCustomMissile("NewArachPlasma2", Random(12, -12))
 	SPDG C 1 Bright OffSet(0, 36)
 	SPDG A 1 OffSet(0, 42)
 	SPDG A 1 OffSet(0, 48)
 	SPDG A 1 OffSet(0, 42)
 	SPDG A 1 OffSet(0, 36)
 	SPDG A 1 OffSet(0, 32)
-	SPDG B 1 Bright A_FireCustomMissile("NewArachPlasma", Random(12, -12))
+	SPDG B 1 Bright A_FireCustomMissile("NewArachPlasma2", Random(12, -12))
 	SPDG C 1 Bright OffSet(0, 36)
 	SPDG A 1 OffSet(0, 42)
 	SPDG A 1 OffSet(0, 48)
@@ -856,14 +870,14 @@ Actor SpiderWeapon : PossessedWeapon
   AltFire:
     SPDG A 0 A_GunFlash
 	SPDG A 0 SetPlayerProperty(0, true, Prop_Frozen)
-    SPDG B 1 Bright A_FireCustomMissile("NewArachPlasma", 0)
+    SPDG B 1 Bright A_FireCustomMissile("NewArachPlasma2", 0)
 	SPDG B 1 Bright OffSet(0, 36)
 	SPDG C 1 OffSet(0, 42)
 	SPDG C 1 OffSet(0, 48)
 	SPDG C 1 OffSet(0, 42)
 	SPDG A 1 OffSet(0, 36)
 	SPDG A 2 OffSet(0, 32)
-	SPDG B 1 Bright A_FireCustomMissile("NewArachPlasma", 0)
+	SPDG B 1 Bright A_FireCustomMissile("NewArachPlasma2", 0)
 	SPDG B 1 Bright OffSet(0, 36)
 	SPDG C 1 OffSet(0, 42)
 	SPDG C 1 OffSet(0, 48)
@@ -874,6 +888,11 @@ Actor SpiderWeapon : PossessedWeapon
 	SPDG A 0 A_Refire
 	Goto Ready
   }
+}
+
+Actor NewArachPlasma2 : NewArachPlasma
+{
+  Damage (Random(18, 30))
 }
 
 Actor PossessedArchvile2 : PossessedMonster
@@ -918,6 +937,7 @@ Actor VileWeapon : PossessedWeapon
     TNT1 A 0 A_Stop
 	TNT1 A 0 SetPlayerProperty (0, true, PROP_FROZEN)
 	TNT1 A 0 A_SetBlend ("RED",0.3,20)
+	TNT1 A 0 Thing_Damage(0, 19)
 	TNT1 A 10 bright A_FireCustomMissile ("MVileRevive",0,0,0,0,0,0)
 	TNT1 A 0 SetPlayerProperty (0, false, PROP_FROZEN)
 	TNT1 A 5
@@ -1066,9 +1086,9 @@ Actor MindWeapon : PossessedWeapon
   {
   Fire:
     TNT1 A 0 A_PlaySound("spider/attack", Chan_Weapon)
-    TNT1 A 6 A_FireBullets(9, 9, 4, Random(1, 3)*5, "MonsterBulletPuff", FBF_NORANDOM)
+    TNT1 A 6 A_FireBullets(8, 8, 4, Random(6, 15), "MonsterBulletPuff", FBF_NORANDOM)
 	TNT1 A 0 A_PlaySound("spider/attack", Chan_Weapon)
-	TNT1 A 6 A_FireBullets(9, 9, 4, Random(1, 3)*5, "MonsterBulletPuff", FBF_NORANDOM)
+	TNT1 A 6 A_FireBullets(8, 8, 4, Random(6, 15), "MonsterBulletPuff", FBF_NORANDOM)
 	TNT1 A 0 A_Refire
 	Goto Ready
   AltFire:
@@ -1077,22 +1097,22 @@ Actor MindWeapon : PossessedWeapon
     TNT1 A 50 SetPlayerProperty(0, true, PROP_FROZEN)
 	TNT1 A 4
 	TNT1 A 0 A_PlaySound("brain/spit", Chan_Weapon)
-	TNT1 A 5 A_FireCustomMissile("MindCube", Random(3, -3))
+	TNT1 A 5 A_FireCustomMissile("MindCube", Random(1, -1))
 	TNT1 A 10
 	TNT1 A 4
 	TNT1 A 0 A_PlaySound("brain/spit", Chan_Weapon)
-	TNT1 A 5 A_FireCustomMissile("MindCube", Random(3, -3))
+	TNT1 A 5 A_FireCustomMissile("MindCube", Random(1, -1))
 	TNT1 A 10
 	TNT1 A 4
 	TNT1 A 0 A_PlaySound("brain/spit", Chan_Weapon)
-	TNT1 A 5 A_FireCustomMissile("MindCube", Random(3, -3))
+	TNT1 A 5 A_FireCustomMissile("MindCube", Random(1, -1))
 	TNT1 A 10
 	TNT1 A 4
 	TNT1 A 0 A_PlaySound("brain/spit", Chan_Weapon)
-	TNT1 A 5 A_FireCustomMissile("MindCube", Random(3, -3))
+	TNT1 A 5 A_FireCustomMissile("MindCube", Random(1, -1))
 	TNT1 A 10
 	TNT1 A 4
-	TNT1 A 0 A_PlaySound("brain/spit", Chan_Weapon, Random(3, -3))
+	TNT1 A 0 A_PlaySound("brain/spit", Chan_Weapon, Random(1, -1))
 	TNT1 A 5 A_FireCustomMissile("MindCube")
 	TNT1 A 10
 	TNT1 A 30 SetPlayerProperty(0, False, PROP_FROZEN)
@@ -1107,7 +1127,7 @@ Actor MindCube : Rocket
   -RocketTrail
   SeeSound ""
   DamageType "MasterCubeRockets"
-  Damage 5
+  Damage (Random(30, 47))
   +ForceRadiusDmg
   States
   {
@@ -1209,13 +1229,13 @@ Actor CyberWeapon : PossessedWeapon
     TNT1 A 6 SetPlayerProperty(0, true, Prop_frozen)
 	TNT1 A 12 A_FireCustomMissile("CybRocket", 0)
 	TNT1 A 11
-	TNT1 A 11 A_FireCustomMissile("CybRocket", Random(2, -2))
+	TNT1 A 11 A_FireCustomMissile("CybRocket", Random(1, -1))
 	TNT1 A 10
-	TNT1 A 10 A_FireCustomMissile("CybRocket", Random(4, -4))
+	TNT1 A 10 A_FireCustomMissile("CybRocket", Random(2, -2))
 	TNT1 A 9
-	TNT1 A 9 A_FireCustomMissile("CybRocket", Random(6, -6))
+	TNT1 A 9 A_FireCustomMissile("CybRocket", Random(3, -3))
 	TNT1 A 8
-	TNT1 A 8 A_FireCustomMissile("CybRocket", Random(8, -8))
+	TNT1 A 8 A_FireCustomMissile("CybRocket", Random(4, -4))
 	TNT1 A 25 SetPlayerProperty(0, false, Prop_frozen)
 	Goto Ready
   AltFire:
@@ -1309,10 +1329,10 @@ Actor NaziWeapon : PossessedWeapon
   {
   Fire:
     TNT1 A 0 A_PlaySound("chainguy/attack", CHAN_WEAPON)
-    TNT1 A 4 A_FireBullets(8, 8, -1, Random(1, 3)*5, "MonsterBulletPuff", CBAF_NORANDOM)
+    TNT1 A 4 A_FireBullets(5, 5, -1, Random(10, 14), "MonsterBulletPuff", CBAF_NORANDOM)
 	TNT1 A 6
 	TNT1 A 0 A_PlaySound("chainguy/attack", CHAN_WEAPON)
-	TNT1 A 4 A_FireBullets(8, 8, -1, Random(1, 3)*5, "MonsterBulletPuff", CBAF_NORANDOM)
+	TNT1 A 4 A_FireBullets(5, 5, -1, Random(10, 14), "MonsterBulletPuff", CBAF_NORANDOM)
 	TNT1 A 12
 	TNT1 A 0 A_Refire
 	Goto Ready
@@ -1674,18 +1694,23 @@ Actor EliteShotgunWeapon : PossessedWeapon
     Loop
   Fire:
     SHT2 A 3 OffSet(0, 32)
-    SHT2 A 0 A_FireBullets (7, 7, 7, 5, "MonsterBulletPuff")
+    SHT2 A 0 A_FireBullets (7, 7, 14, Random(8, 15), "MonsterBulletPuff")
     SHT2 A 0 A_PlaySound ("weapons/sshotf", CHAN_WEAPON)
     SHT2 A 7 A_GunFlash
-    SHT2 B 7
-    SHT2 C 7 A_CheckReload
-    SHT2 D 7 A_OpenShotgun2
-    SHT2 E 7
-    SHT2 F 7 A_LoadShotgun2
-    SHT2 G 6
-    SHT2 H 6 A_PlaySound ("weapons/sshotc", CHAN_WEAPON)
-    SHT2 A 8
-	SHT2 A 0 A_Refire
+    PKS2 BCDEEDCBA 2
+	PKS2 F 3
+    PKS2 G 3 A_OpenShotgun2
+    PKS2 H 18
+	PKS2 IJK 3
+	PKS2 L 3 A_LoadShotgun2
+	PKS2 MN 3
+	PKS2 O 4
+	PKS2 PQ 3
+    PKS2 S 3 A_LoadShotgun2
+	PKS2 TUVWX 2
+    PKS2 Y 2 A_CloseShotgun2
+    PKS2 Z 2
+	PKS3 A 5
     Goto Ready
   Flash:
     PKS3 C 4 Bright A_Light1
@@ -1706,7 +1731,7 @@ Actor EliteShotgunWeapon : PossessedWeapon
 	SHT2 A 1 OffSet(-1, 42)
 	SHT2 A 1 OffSet(0, 36)
 	SHT2 A 1 OffSet(0, 32)
-	SHT2 A 13
+	SHT2 A 3
 	Goto Ready
   }
 }
