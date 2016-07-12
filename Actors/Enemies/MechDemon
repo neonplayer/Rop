@@ -129,6 +129,8 @@ ACTOR MechtreArm
 {
   Speed 8
   Scale 1.075
+  Alpha 0.3
+  RenderStyle Translucent
   +DOOMBOUNCE
   +DROPOFF
   +ClientSideOnly

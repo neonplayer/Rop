@@ -479,13 +479,14 @@ Actor NewFatShot : FatShot
   }
 }
 
-Actor Arachnotron2 : Arachnotron replaces Arachnotron
+Actor Arachnotron2 : Arachnotron
 {
   Scale 1.075
   Speed 14
   PainChance 96
   +QuickToRetaliate
   Obituary "%o didn't stand a chance against an arachnotron."
+  Species "Arachnotrons"
   States
   {
   Missile:
@@ -504,6 +505,12 @@ Actor Arachnotron2 : Arachnotron replaces Arachnotron
     BSPI I 2
     BSPI I 2 A_Pain
     Goto See+1
+  Death:
+    BSPI J 20 A_Scream
+    BSPI K 7 A_NoBlocking
+    BSPI LMNO 7
+    BSPI P -1 A_KillMaster
+    Stop
   }
 }
 

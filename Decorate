@@ -13,6 +13,7 @@
 #Include Actors/Enemies/DarkImp
 #Include Actors/Enemies/SoulHarvester
 #Include Actors/Enemies/MechDemon
+#Include Actors/Enemies/ArachnoSentinel
 
 #Include Actors/Enemies/PossessedBase
 #Include Actors/Enemies/Possessed

@@ -757,6 +757,12 @@ object MiniPlasma
     frame PLSEE { light MINIPLASMA_X4 }
 }
 
+Object ArachnoSentinel
+{
+Frame CSPIG { Light ZOMBIEATK }
+Frame CSPIH { Light ZOMBIEATK }
+}
+
 //Marine
 
 object MarinePlayer

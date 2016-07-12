@@ -87,6 +87,11 @@ Beholder/Fire		DSABDFIR
 DSZAP1		DSZAP1
 DSZAP2		DSZAP2
 
+//Arachno-Sentinel
+
+Sentinel/Sight		DSCSPISE
+Sentinel/Death		DSCSPIDI
+
 $Random Beholder/Zap { DSZAP1 DSZAP2 }
 
 DSAPHIT1		DSAPHIT1
