@@ -51,6 +51,17 @@ PsxPinky/ACT		PXPNKACT
 
 PsxDemon/Pain       PXDMPAIN
 
+//Mech demon
+
+MechDemon/Sight		DSMDMSIT
+MechDemon/Pain		DSMDMPAI
+MechDemon/Attack	DSMDMATK
+MechDemon/Act		DSMDMACT
+MechDemon/Death		DSMDMDTH
+MechDemon/Walk		DSMDMWAL
+
+$Volume MechDemon/Walk 0.66
+
 //Belphegor
 
 PsxBaron/Sight		DSBLPHI

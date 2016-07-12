@@ -1,0 +1,147 @@
+//Decorate: Carnevil, re-written by neon
+//Sounds: Id Software, Realm667
+//Sprites: Id Software, Neoworm, Vader
+
+Actor MechDemon : Pinky 
+{
+  Health 275
+  Speed 14
+  PainChance 80
+  Scale 1.075
+  SeeSound "Mechdemon/sight"
+  PainSound "Mechdemon/pain"
+  DeathSound "Mechdemon/death"
+  ActiveSound "Mechdemon/active"
+  AttackSound "Mechdemon/Attack"
+  Obituary "%o was crunched up by a mech demon."
+  States
+  {
+  Spawn:
+    MDMN AB 10 A_Look
+	Loop
+  See:
+    MDMN A 0 A_PlaySound("Mechdemon/walk")
+    MDMN AABB 2 A_Chase
+    MDMN C 0 A_PlaySound("Mechdemon/walk")
+    MDMN CCDD 2 A_Chase
+    Loop 
+  Melee:
+    MDMN A 0 A_FaceTarget
+    MDMN A 0 A_JumpIfCloser(64, "NOMNOMNOM")
+    MDMN A 0 A_Recoil(-10)
+    MDMN EF 6 A_FaceTarget
+    MDMN G 8 A_SargAttack
+    Goto See
+  NOMNOMNOM:
+    MDMN A 0 A_Recoil(-7.5)
+	MDMN EF 3 A_FaceTarget
+	MDMN G 4 A_CustomMeleeAttack(1.7 * Random(1, 10), "MechDemon/Attack")
+	Goto See
+  Pain: 
+    MDMN H 2
+    MDMN H 2 A_Pain
+    Goto See
+  Death: 
+    MDMN I 8 
+    MDMN I 0 A_FaceTarget
+    MDMN J 0 A_SpawnItemEx("BloodDemonArm", 10, 0, 32, 0, 8, 0, 0, 128)
+    MDMN J 8 A_Scream
+    MDMN K 4 
+    MDMN L 4 A_NoBlocking
+    MDMN M 4 
+    MDMN N -1 
+    Stop 
+  Raise: 
+    MDMN NMLKJI 5 
+    Goto See 
+  } 
+}
+
+ACTOR BloodDemonArm
+{
+  Speed 8
+  Scale 1.075
+  +DOOMBOUNCE
+  +DROPOFF
+  +ClientSideOnly
+  +ThruActors
+  +Missile
+  States
+  {
+  Spawn:
+    MDMA ABCDEFGH 2
+    Loop
+  Death:
+	MDMA I 300
+	MDMA IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII 2 A_FadeOut
+	Loop
+  }
+}
+
+Actor Mechtre : MechDemon
+{
+  RenderStyle Translucent
+  Alpha 0.3
+  States
+  {
+  Spawn:
+    MSPC AB 10 A_Look
+	Loop
+  See:
+    MSPC A 0 A_PlaySound("Mechdemon/walk")
+    MSPC AABB 2 A_Chase
+    MSPC C 0 A_PlaySound("Mechdemon/walk")
+    MSPC CCDD 2 A_Chase
+    Loop 
+  Melee:
+    MSPC A 0 A_FaceTarget
+    MSPC A 0 A_JumpIfCloser(64, "NOMNOMNOM")
+    MSPC A 0 A_Recoil(-10)
+    MSPC EF 6 A_FaceTarget
+    MSPC G 8 A_SargAttack
+    Goto See
+  NOMNOMNOM:
+    MSPC A 0 A_Recoil(-7.5)
+	MSPC EF 3 A_FaceTarget
+	MSPC G 4 A_CustomMeleeAttack(1.7 * Random(1, 10), "MechDemon/Attack")
+	Goto See
+  Pain: 
+    MSPC H 2
+    MSPC H 2 A_Pain
+    Goto See
+  Death: 
+    MSPC I 8 
+    MSPC I 0 A_FaceTarget
+    MSPC J 0 A_SpawnItemEx("MechtreArm", 10, 0, 32, 0, 8, 0, 0, 128)
+    MSPC J 8 A_Scream
+    MSPC K 4 
+    MSPC L 4 A_NoBlocking
+    MSPC M 4 
+    MSPC N -1 
+    Stop 
+  Raise: 
+    MSPC NMLKJI 5 
+    Goto See 
+  } 
+}
+
+ACTOR MechtreArm
+{
+  Speed 8
+  Scale 1.075
+  +DOOMBOUNCE
+  +DROPOFF
+  +ClientSideOnly
+  +ThruActors
+  +Missile
+  States
+  {
+  Spawn:
+    MSPA ABCDEFGH 2
+    Loop
+  Death:
+	MSPA I 300
+	MSPA IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII 2 A_FadeOut
+	Loop
+  }
+}
