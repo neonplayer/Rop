@@ -1736,6 +1736,60 @@ Actor EliteShotgunWeapon : PossessedWeapon
   }
 }
 
+Actor PossessedDoubleChaingunguy : PossessedMonster
+{
+  Player.MorphWeapon "DoubleChaingunWeapon"
+  Health 110
+  PainChance 100
+  Scale 1.1
+  Radius 20
+  Height 56
+  Speed 0.35
+  Obituary "%k made %o dance to his tune."
+  SeeSound "PsxZombie/sight"
+  PainSound "PsxZombie/pain"
+  DeathSound "PsxZombie/death"
+  ActiveSound "PsxZombie/active"
+  States
+  {
+  Spawn:
+    DPOS AB 10
+    Loop
+  See:
+    DPOS AABBCCDD 3
+    Goto Spawn
+  Missile:
+    DPOS E 3 Bright
+	DPOS F 3 Bright
+    DPOS E 3 Bright
+	DPOS F 4 Bright
+    Goto Spawn
+  Pain:
+    DPOS G 3
+    DPOS G 3 A_Pain
+    Goto See
+  }
+}
+
+Actor DoubleChaingunWeapon : PossessedWeapon
+{
+  AttackSound "chainguy/attack"
+  Decal BulletChip
+  States
+  {
+  Fire:
+    TNT1 A 6 A_FireBullets(5.5, 5.5, 2, Random(7, 15), "MonsterBulletPuff", FBF_NORANDOM)
+	TNT1 A 6 A_FireBullets(5.5, 5.5, 2, Random(7, 15), "MonsterBulletPuff", FBF_NORANDOM)
+	TNT1 A 0 A_Refire
+	Goto Ready
+  AltFire:
+	TNT1 A 4 A_FireBullets(1, 1, 2, Random(9, 17), "MonsterBulletPuff", FBF_NORANDOM)
+	TNT1 A 14
+	TNT1 A 0 A_Refire
+	Goto Ready
+  }
+}
+
 Actor PossessedMechDemon : PossessedMonster
 {
   Player.MorphWeapon "MechWeapon"

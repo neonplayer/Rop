@@ -10,6 +10,7 @@
 
 #Include Actors/Enemies/PlasmaZombie
 #Include Actors/Enemies/SSGzombie
+#Include Actors/Enemies/DoubleChaingunguy
 #Include Actors/Enemies/DarkImp
 #Include Actors/Enemies/SoulHarvester
 #Include Actors/Enemies/MechDemon

@@ -10,6 +10,12 @@ Actor ShotguyRandomizer : RandomSpawner replaces Shotgunguy
   DropItem "SuperShotgunguy", 256, 12
 }
 
+Actor ChainguyRandomizer : RandomSpawner replaces Chaingunguy
+{
+  DropItem "Chaingunguy2", 256, 83
+  DropItem "DoubleChaingunguy", 256, 17
+}
+
 Actor Imprandomizer : RandomSpawner replaces DoomImp
 {
   DropItem "Imp2", 256, 75

@@ -763,6 +763,21 @@ Frame CSPIG { Light ZOMBIEATK }
 Frame CSPIH { Light ZOMBIEATK }
 }
 
+FlickerLight2 DoubleChaingunGuy
+{
+color 1.0 0.8 0.2
+size 48
+secondarySize 56
+interval 1
+offset 0 40 0
+}
+
+Object DoubleChaingunguy
+{
+Frame DPOSE { Light DoubleChaingunGuy }
+Frame DPOSF { Light DoubleChaingunGuy }
+}
+
 //Marine
 
 object MarinePlayer
