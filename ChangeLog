@@ -1,3 +1,16 @@
+ROP r4:
+
+- Removed most new enemies (except dark imp and supershotgun zombie) in favor of modified jmod enemies.
+with the exception of:
+Chainsaw zombie (doesn't feel like a zombieman variant)
+Auto shotgunner (no autoshotgun => no zombie to go with it)
+Shadow (I have enough imps)
+Annihilator (pls no)
+- Buffed most of the existing enemies when possessed.
+- Smoothened the shotgun.
+- Shield will now fire and stop firing much faster.
+- Upgraded ACS (again).
+
 ROP r3:
 
 - Added Fiend (Rare pinky).

@@ -31,8 +31,9 @@ Actor SpectreRandomizer : RandomSpawner replaces Spectre
 
 Actor CacoRandomizer : RandomSpawner replaces Cacodemon
 {
-  DropItem "Cacodemon2", 256, 88
-  //DropItem "Beholder", 256, 12
+  DropItem "Cacodemon2", 256, 72
+  DropItem "Cacolantern", 256, 18
+  //DropItem "Abaddon", 256, 10
 }
 
 //Boss spawners: Faerlyn

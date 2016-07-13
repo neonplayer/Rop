@@ -77,27 +77,20 @@ PsxFatso/Attack		PXMANATK
 HectBfg/Fire		DSFBFGF
 HectBfg/Death		DSFBFGD
 
+//Cacolantern
+
+Lantern/Sight		DSLNTSIT
+Lantern/Death		DSLNTDTH
+
 //Beholder
 
 Beholder/Sight		DSABDSIT
 Beholder/Death		DSABDEAD
-Beholder/Charge		DSABDCHR
-Beholder/Fire		DSABDFIR
-
-DSZAP1		DSZAP1
-DSZAP2		DSZAP2
 
 //Arachno-Sentinel
 
 Sentinel/Sight		DSCSPISE
 Sentinel/Death		DSCSPIDI
-
-$Random Beholder/Zap { DSZAP1 DSZAP2 }
-
-DSAPHIT1		DSAPHIT1
-DSAPHIT2		DSAPHIT2
-
-$Random BeholderLightning/Hit { DSAPHIT1 DSAPHIT2 }
 
 //Shield
 

@@ -20,7 +20,7 @@ Actor ShieldGenerator : DoomWeapon
     SHLD A 1 A_WeaponReady
     Loop
   Fire:
-    SHLD A 28 A_PlayWeaponSound ("ForceBarrier/On")
+    SHLD A 0 A_PlayWeaponSound ("ForceBarrier/On")
 	SHLD BC 2
   Hold:
     SHLD C 0 bright A_PlaySoundEx ("ForceBarrier/Loop", "SoundSlot5", 1)
@@ -41,15 +41,17 @@ Actor ShieldGenerator : DoomWeapon
     SHLD C 0 bright A_FireCustomMissile ("AmmoCounter")
     SHLD C 0 A_Refire
     SHLD C 0 A_StopSoundEx ("SoundSlot5")
-    SHLD C 28 A_PlayWeaponSound ("ForceBarrier/Off")
+    SHLD C 0 A_PlayWeaponSound ("ForceBarrier/Off")
 	SHLD BA 2
     goto Ready
   Deselect:
     SHLD A 1 A_Lower
+	SHLD A 0 A_lower
     SHLD A 0 A_StopSoundEx ("SoundSlot5")
     Loop
   Select:
     SHLD A 1 A_Raise
+	SHLD A 0 A_Raise
     Loop
   Spawn:
     SHLD D -1
@@ -61,7 +63,7 @@ Actor ShieldAmmo : ammo
 {
   Radius 4
   Height 16
-  Inventory.PickupMessage "You picked up a cell for your anti-spam device!"
+  Inventory.PickupMessage "picked up a power cell for your shield gun."
   Inventory.Icon "SLDCA0"
   Inventory.Amount 5
   Inventory.MaxAmount 25

@@ -1,0 +1,83 @@
+//Code: Skulltag Team, rewritten by Neon
+//Sprites: Skulltag Team
+//Sounds: ID software
+
+Actor Cacolantern : Cacodemon2
+{
+  Health 700
+  PainChance 80
+  Scale 1.075
+  Obituary "%o was lit up by a cacolantern."
+  HitObituary "%o was eaten whole by a cacolantern."
+  SeeSound "Lantern/Sight"
+  DeathSound "Lantern/Death"
+  States
+  {
+  Spawn:
+    LANT A 10 A_Look
+	Loop
+  See:
+    LANT A 3 A_Chase
+	Loop
+  Missile:
+    LANT BC 5 A_FaceTarget
+	LANT D 0 A_CustomMissile("CacolanternWeaverBall2", 32, 0, 0)
+	LANT D 5 Bright A_CustomComboAttack("CacolanternWeaverBall1", 32, 10 * random(2, 7))
+	Goto See
+  Pain:
+    LANT E 3
+    LANT E 3 A_Pain
+    LANT F 6
+    Goto See
+  Death:
+    LANT G 8
+    LANT H 8 A_Scream
+    LANT IJ 8
+    LANT K 8 A_NoBlocking
+    LANT L -1 A_SetFloorClip
+    Stop
+  Raise:
+    LANT L 8 A_UnSetFloorClip
+    LANT KJIHG 8
+    Goto See
+  }
+}
+
+Actor CacolanternWeaverBall2 : CacodemonBall
+{
+  Decal CacoScorch
+  DamageType "Monster"
+  Damage (Random(15, 30))
+  Speed 22
+  States
+  {
+  Spawn:
+    LBAL ABAB 1 Bright A_Weave(6, 0, 1.0, 0.0)
+	LBAL A 0 A_SpawnItemEx("LanternBallTrail")
+	Loop
+  Death:
+    LBAL CDE 6 Bright
+	Stop
+  }
+}
+
+Actor CacolanternWeaverBall1 : CacolanternWeaverBall2
+{
+  States
+  {
+  Spawn:
+    LBAL ABAB 1 Bright A_Weave(-6, 0, 1.0, 0.0)
+	LBAL A 0 A_SpawnItemEx("LanternBallTrail")
+	Loop
+  }
+}
+
+Actor LanternBallTrail : NewImpBallTrail
+{
+  States
+  {
+  Spawn:
+    LBAL AAABBB 1 Bright A_FadeOut(0.075)
+	Stop
+  }
+}

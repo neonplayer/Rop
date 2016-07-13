@@ -4,6 +4,7 @@
 
 Actor ArachnoSentinel //has to NOT inherit the arachnotron, otherwise map07 breaks
 {
+  Health 500
   Scale 1.1
   PainChance 80
   radius 64
