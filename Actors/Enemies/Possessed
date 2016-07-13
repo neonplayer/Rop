@@ -176,7 +176,7 @@ Actor Shotgunguy2Weapon : PossessedWeapon
 	SHTG A 1 OffSet(-1, 42)
 	SHTG A 1 OffSet(0, 36)
 	SHTG A 1 OffSet(0, 32)
-	SHTG A 1
+	SHTG A 4
 	Goto Ready
   }
 }
@@ -616,6 +616,7 @@ Actor KnightWeapon : PossessedWeapon
 Actor NewBaronBallPossessed : NewBaronBall
 {
   Damage(Random(30, 58))
+  Speed 20
 }
 
 Actor PossessedBaronOfHell2 : PossessedMonster
@@ -657,14 +658,20 @@ Actor BaronWeapon : PossessedWeapon
   {
   Fire:
     TNT1 A 16
-	TNT1 A 8 A_FireCustomMissile("NewBaronBallPossessed")
-	TNT1 A 8
+	TNT1 A 8 A_FireCustomMissile("NewBaronBallPossessed2")
+	TNT1 A 10
 	Goto Ready
   AltFire:
     TNT1 A 16 A_PlaySound("Baron/Melee", Chan_Weapon)
 	TNT1 A 8 A_CustomPunch(Random(4, 6)*8, True)
 	Goto Ready
   }
+}
+
+Actor NewBaronBallPossessed2 : NewBaronBall
+{
+  Damage(Random(45, 73))
+  Speed 20
 }
 
 Actor PossessedRevenant2 : PossessedMonster
@@ -2083,12 +2090,12 @@ Actor LanternWeapon : PossessedWeapon
 
 Actor CacolanternWeaverBall3 : CacolanternWeaverBall1
 {
-  Damage (Random(27, 34))
+  Damage (Random(30, 41))
 }
 
 Actor CacolanternWeaverBall4 : CacolanternWeaverBall2
 {
-  Damage (Random(27, 34))
+  Damage (Random(30, 41))
 }
 
 Actor PossessedAbaddon : PossessedMonster
@@ -2117,8 +2124,10 @@ Actor PossessedAbaddon : PossessedMonster
     ABDN ABCDCB 3
 	Loop
   Missile:
-    ABDN HI 5
-	ABDN J 5 Bright
+    ABDN HI 4
+	ABDN J 4 Bright
+	ABDN HI 4
+	ABDN J 4 Bright
 	Goto See
   Pain:
     ABDN K 3
@@ -2136,7 +2145,10 @@ Actor AbaddonWeapon : PossessedWeapon
 	TNT1 A 0 A_FireCustomMissile("AbaddonBall2", 0, 0, 0)
 	TNT1 A 0 A_FireCustomMissile("AbaddonWeaver2", 0, 0, 0)
 	TNT1 A 5 A_FireCustomMissile("AbaddonWeaver1", 0, 0, 0)
-	TNT1 A 20
+	TNT1 A 10
+	TNT1 A 0 A_FireCustomMissile("AbaddonWeaver2", 0, 0, 0)
+	TNT1 A 5 A_FireCustomMissile("AbaddonWeaver1", 0, 0, 0)
+	TNT1 A 25
 	TNT1 A 0 A_Refire
 	Goto Ready
   AltFire:
@@ -2153,7 +2165,7 @@ Actor AbaddonBall2 : CacoDemonBall
 {
   Decal CacoScorch
   DamageType "Monster"
-  Damage (Random(35, 47))
+  Damage (Random(40, 53))
   Speed 22
   States
   {
@@ -2232,3 +2244,139 @@ Actor SentinelWeapon : PossessedWeapon
 	Goto Ready
   }
 }
+
+Actor PossessedHectebus : PossessedMonster
+{
+  Player.MorphWeapon "HectWeapon"
+  Health 1100
+  Scale 1.125
+  Radius 48
+  Height 64
+  Speed 0.35
+  Mass 1000
+  Player.ViewHeight 48
+  PainChance 20
+  Obituary "%o was melted by a %k's plasma."
+  SeeSound "PsxFatso/Sight"
+  PainSound "PsxFatso/Pain"
+  ActiveSound "PsxPinky/ACT"
+  DeathSound "PsxFatso/Death"
+  BloodColor "DarkRed"
+  States
+  {
+  Spawn:
+    HECT AB 15
+    Loop
+  See:
+    HECT AABBCCDDEEFF 4
+    Goto Spawn
+  Pain:
+    HECT J 3
+    HECT J 3 A_Pain
+    Goto See
+  Missile:
+    HECT G 20
+    HECT H 10 Bright
+    HECT IG 5
+    HECT H 10 Bright
+    HECT IG 5
+    HECT H 10 Bright
+    HECT IG 5
+    Goto Spawn
+  }
+}
+
+Actor HectWeapon : PossessedWeapon
+{
+  States
+  {
+  Fire:
+    TNT1 A 20 A_PlaySound("psxfatso/Attack", Chan_Weapon)
+	TNT1 A 0 A_FireCustomMissile("HectShot", 0, 0, 0, -4)
+	TNT1 A 0 A_FireCustomMissile("HectShot", 5.625, 0, 0, -4)
+	TNT1 A 0 A_FireCustomMissile("HectShot", 11.25, 0, 0, -4)
+	TNT1 A 10 A_FireCustomMissile("HectShot", 16.875, 0, 0, -4)
+	TNT1 A 10
+	TNT1 A 0 A_FireCustomMissile("HectShot", 0, 0, 0, -4)
+	TNT1 A 0 A_FireCustomMissile("HectShot", -5.625, 0, 0, -4)
+	TNT1 A 0 A_FireCustomMissile("HectShot", -11.25, 0, 0, -4)
+	TNT1 A 10 A_FireCustomMissile("HectShot", -16.875, 0, 0, -4)
+	TNT1 A 10
+	TNT1 A 0 A_FireCustomMissile("HectShot", -11.25, 0, 0, -4)
+	TNT1 A 0 A_FireCustomMissile("HectShot", -5.625, 0, 0, -4)
+	TNT1 A 0 A_FireCustomMissile("HectShot", 0, 0, 0, -4)
+	TNT1 A 0 A_FireCustomMissile("HectShot", 5.625, 0, 0, -4)
+	TNT1 A 10 A_FireCustomMissile("HectShot", 11.25, 0, 0, -4)
+	TNT1 A 35
+	Goto Ready
+  }
+}
+
+Actor PossessedBelphegor : PossessedMonster
+{
+  Player.MorphWeapon "BelpWeapon"
+  Health 1400
+  Radius 24
+  Height 64
+  Mass 1000
+  Speed 0.35
+  PainChance 30
+  Scale 1.1
+  Monster
+  +FLOORCLIP
+  BloodColor "DarkGreen"
+  SeeSound "PsxBaron/Sight"
+  PainSound "PsxPinky/Pain"
+  ActiveSound "PsxPinky/ACT"
+  DeathSound "PsxBaron/Death"
+  Obituary "%o underestimated a belphegor."
+  HitObituary "%o was ripped to pieces by a belphegor."
+  States
+  {
+  Spawn:
+    BELP AB 10
+    Loop
+  See:
+    BELP AABBCCDD 3
+    Loop
+  Pain:
+    BELP H 2
+    BELP H 2 A_Pain
+    Goto See
+  Melee:
+  Missile:
+    BELP EF 6
+    BELP G 6
+    BELP EF 6
+    BELP G 6
+    BELP EF 6 
+    BELP G 6
+    Goto See
+  }
+}
+
+Actor BelpWeapon : PossessedWeapon
+{
+  States
+  {
+  Fire:
+    TNT1 A 12
+	TNT1 A 6 A_FireCustomMissile("PossessedBelphegorBall")
+	TNT1 A 12
+	TNT1 A 6 A_FireCustomMissile("PossessedBelphegorBall")
+	TNT1 A 12
+	TNT1 A 6 A_FireCustomMissile("PossessedBelphegorBall")
+	TNT1 A 15
+	Goto Ready
+  AltFire:
+    TNT1 A 12 A_PlaySound("Baron/Melee", Chan_Weapon)
+	TNT1 A 6 A_CustomPunch(Random(4, 6)*10, True)
+	TNT1 A 12 A_PlaySound("Baron/Melee", Chan_Weapon)
+	TNT1 A 6 A_CustomPunch(Random(4, 6)*10, True)
+	TNT1 A 12 A_PlaySound("Baron/Melee", Chan_Weapon)
+	TNT1 A 6 A_CustomPunch(Random(4, 6)*10, True)
+	Goto Ready
+  }
+}
+
+Actor PossessedBelphegorBall : BelphegorBall { Speed 25 Damage(Random(30, 58)) }

@@ -102,6 +102,16 @@ object NewBaronBallPossessed
     frame BAL7E { light BARONBALL_X3 }
 }
 
+object NewBaronBallPossessed2
+{
+    frame BAL7A { light BARONBALL    }
+    frame BAL7B { light BARONBALL    }
+
+    frame BAL7C { light BARONBALL_X1 }
+    frame BAL7D { light BARONBALL_X2 }
+    frame BAL7E { light BARONBALL_X3 }
+}
+
 object NewFatShot
 {
     frame MANFA { light IMPBALL   }

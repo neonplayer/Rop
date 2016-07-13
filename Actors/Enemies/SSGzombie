@@ -1,6 +1,6 @@
 Actor SuperShotgunguy : Shotgunguy2
 {
-  Health 50
+  Health 90
   Speed 9
   PainChance 100
   Scale 0.95

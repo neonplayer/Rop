@@ -1,45 +1,45 @@
 Actor ZombiemanRandomizer : RandomSpawner replaces Zombieman
 {
-  DropItem "Zombieman2", 256, 78
-  DropItem "PlasmaZombie", 256, 22
+  DropItem "Zombieman2", 256, 3
+  DropItem "PlasmaZombie", 256, 1
 }
 
 Actor ShotguyRandomizer : RandomSpawner replaces Shotgunguy
 {
-  DropItem "Shotgunguy2", 256, 88
-  DropItem "SuperShotgunguy", 256, 12
+  DropItem "Shotgunguy2", 256, 3
+  DropItem "SuperShotgunguy", 256, 1
 }
 
 Actor ChainguyRandomizer : RandomSpawner replaces Chaingunguy
 {
-  DropItem "Chaingunguy2", 256, 83
-  DropItem "DoubleChaingunguy", 256, 17
+  DropItem "Chaingunguy2", 256, 3
+  DropItem "DoubleChaingunguy", 256, 2
 }
 
 Actor Imprandomizer : RandomSpawner replaces DoomImp
 {
-  DropItem "Imp2", 256, 75
-  DropItem "DarkImp", 256, 13
-  DropItem "SoulHarvester", 256, 12
+  DropItem "Imp2", 256, 3
+  DropItem "DarkImp", 256, 2
+  DropItem "SoulHarvester", 256, 1
 }
 
 Actor DemonRandomizer : RandomSpawner replaces Demon
 {
-  DropItem "Pinky", 256, 88
-  DropItem "MechDemon", 256, 12
+  DropItem "Pinky", 256, 3
+  DropItem "MechDemon", 256, 2
 }
 
 Actor SpectreRandomizer : RandomSpawner replaces Spectre
 {
-  DropItem "Spectre2", 256, 88
-  DropItem "Mechtre", 256, 12
+  DropItem "Spectre2", 256, 3
+  DropItem "Mechtre", 256, 2
 }
 
 Actor CacoRandomizer : RandomSpawner replaces Cacodemon
 {
-  DropItem "Cacodemon2", 256, 72
-  DropItem "Cacolantern", 256, 18
-  //DropItem "Abaddon", 256, 10
+  DropItem "Cacodemon2", 256, 4
+  DropItem "Cacolantern", 256, 2
+  DropItem "Abaddon", 256, 1
 }
 
 //Boss spawners: Faerlyn
@@ -62,7 +62,7 @@ States
 {
 Spawn:
     TNT1 A 1
-    //TNT1 A 0 A_Jump(22,"ArchonSpawn")	
+    //TNT1 A 0 A_Jump(64,"ArchonSpawn")	
 NormalSpawn:
     TNT1 A 0 A_SpawnItemEx("BaronOfHell2",0,0,0,0,0,0,0,272)
     Goto Nothing
@@ -96,13 +96,13 @@ States
 {
 Spawn:
     TNT1 A 1
-    //TNT1 A 0 A_Jump(23,"TormentSpawn")	
+    TNT1 A 0 A_Jump(64,"TormentSpawn")	
 NormalSpawn:
     TNT1 A 0 A_SpawnItemEx("Mancubus",0,0,0,0,0,0,0,272)
     Goto Nothing
-//TormentSpawn:
-    //TNT1 A 0 A_SpawnItemEx("TormentedMancubus",0,0,0,0,0,0,0,272)
-    //Goto Nothing
+TormentSpawn:
+    TNT1 A 0 A_SpawnItemEx("Hectebus",0,0,0,0,0,0,0,272)
+    Goto Nothing
 Nothing:
     TNT1 A 1
     Loop
@@ -130,7 +130,7 @@ States
 {
 Spawn:
     TNT1 A 1
-    TNT1 A 0 A_Jump(40,"SentinelSpawn")	
+    TNT1 A 0 A_Jump(64,"SentinelSpawn")	
 NormalSpawn:
     TNT1 A 0 A_SpawnItemEx("Arachnotron2",0,0,0,0,0,0,0,272)
     Goto Nothing

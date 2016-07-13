@@ -65,7 +65,7 @@ $Volume MechDemon/Walk 0.66
 //Belphegor
 
 PsxBaron/Sight		DSBLPHI
-Archon/Death		DSBLPDIE
+PsxBaron/Death		DSBLPDIE
 
 //Torment
 
@@ -73,9 +73,6 @@ PsxFatso/Sight		PXMANSIT
 PsxFatso/Pain		PXMNPAIN
 PsxFatso/Death		PXMANDTH
 PsxFatso/Attack		PXMANATK
-
-HectBfg/Fire		DSFBFGF
-HectBfg/Death		DSFBFGD
 
 //Cacolantern
 

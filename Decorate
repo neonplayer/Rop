@@ -16,7 +16,9 @@
 #Include Actors/Enemies/MechDemon
 #Include Actors/Enemies/Cacolantern
 #Include Actors/Enemies/Abaddon
+#Include Actors/Enemies/Hectebus
 #Include Actors/Enemies/ArachnoSentinel
+#Include Actors/Enemies/Belphegor
 
 #Include Actors/Enemies/PossessedBase
 #Include Actors/Enemies/Possessed

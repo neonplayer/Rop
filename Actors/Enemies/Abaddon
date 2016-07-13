@@ -11,7 +11,7 @@ Actor Abaddon : Cacodemon2
   DeathSound "Beholder/Death"
   Obituary "%o was turned into ashes by an abaddon."
   HitObituary "%o was bitten by an abaddon."
-  DropItem "ShieldAmmo", 128, 5
+  DropItem "ShieldAmmo", 64, 5
   BloodColor "darkBlue"
   States
   {
@@ -23,10 +23,13 @@ Actor Abaddon : Cacodemon2
 	Loop
   Melee:
   Missile:
-    ABDN HI 5 A_FaceTarget
+    ABDN HI 4 A_FaceTarget
 	ABDN J 0 A_CustomMissile("AbaddonBall", 32, 0, 0)
 	ABDN J 0 A_CustomMissile("AbaddonWeaver2", 32, 0, 0)
-	ABDN J 5 Bright A_CustomComboAttack("AbaddonWeaver1", 32, 10 * random(4, 9))
+	ABDN J 4 Bright A_CustomComboAttack("AbaddonWeaver1", 32, 10 * random(4, 9))
+	ABDN HI 4 A_FaceTarget
+	ABDN J 0 A_CustomMissile("AbaddonWeaver2", 32, 0, 0)
+	ABDN J 4 Bright A_CustomComboAttack("AbaddonWeaver1", 32, 10 * random(4, 9))
 	Goto See
   Pain:
     ABDN K 3
