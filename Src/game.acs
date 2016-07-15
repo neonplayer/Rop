@@ -27,8 +27,8 @@ script mop_log_join(int player, int team, int manyplayers) clientside
 {
 	switch(team)
 	{
-	case PLAYER_MARINE: Log(n:player+1, s:" became a Doom Guy."); break;
-	case PLAYER_MOP: Log(n:player+1, s:" became a Puppet Master."); break;
+	case PLAYER_MARINE: Log(s:PlayerName(player), s:" became a Doom Guy."); break;
+	case PLAYER_MOP: Log(s:PlayerName(player), s:" became a Puppet Master."); break;
 	}
 }
 
