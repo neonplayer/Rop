@@ -267,7 +267,7 @@ script mop_init OPEN
 	Lives *= (GetMOPVar("livescalingpercentage") * 1.0) / 100;
 	Lives = Lives>>16;
 	
-	int minlives = min(GetMOPVar("minlives"), 1);
+	int minlives = max(GetMOPVar("minlives"), 1);
 	int maxlives = GetMOPVar("maxlives");
 	if (maxlives <= 0)
 		maxlives = INT_MAX;
