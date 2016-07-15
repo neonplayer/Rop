@@ -21,17 +21,6 @@ int ExtraLivePoints = 0.0;
 #define LASTMONSTER_Z 4
 #define LASTMONSTER_ANGLE 5
 
-function int TeamCount(int team)
-{
-	int count = 0;
-	for (int i = 0; i < MAX_PLAYERS; i++)
-	{
-		if (PlayerClasses[i] == team)
-			count++;
-	}
-	return count;
-}
-
 int LastPossessedMonster[MAX_PLAYERS][NUM_LASTMONSTER_PROPERTIES];
 
 script mop_log_join(int player, int team, int manyplayers) clientside
@@ -41,14 +30,6 @@ script mop_log_join(int player, int team, int manyplayers) clientside
 	case PLAYER_MARINE: Log(n:player+1, s:" became a Doom Guy."); break;
 	case PLAYER_MOP: Log(n:player+1, s:" became a Puppet Master."); break;
 	}
-	
-	if (manyplayers < 2)
-		terminate;
-	
-	if (TeamCount(PLAYER_MARINE) - TeamCount(PLAYER_MOP) == manyplayers)
-		Log(s:"There are so many marines, join puppetmaster team, please!");
-	else if (TeamCount(PLAYER_MOP) - TeamCount(PLAYER_MARINE) == manyplayers)
-		Log(s:"There are so many puppetmasters, join marine team, please!");
 }
 
 
