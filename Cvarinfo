@@ -8,5 +8,6 @@ server int rop_minlives = 1;
 server int rop_maxlives = 0;
 server bool rop_forceteamjoin = false;
 server bool rop_manyplayers = false;
+server bool rop_autoconfig = true;
 
 user bool rop_noicons = false;

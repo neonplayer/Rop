@@ -209,7 +209,17 @@ script mop_init_clientside OPEN CLIENTSIDE
 script mop_init OPEN
 {
 	InitMOP();
-	ConsoleCommand("compat_clientssendfullbuttoninfo 1");
+	
+	if (GetMOPVar("autoconfig"))
+	{
+		ConsoleCommand("sv_disallowsuicide 1"); 
+		ConsoleCommand("sv_nocoopinfo 1");
+		ConsoleCommand("sv_noautomapallies 1");
+		ConsoleCommand("sv_disallowspying 1");
+		ConsoleCommand("sv_unblockplayers 0");
+		ConsoleCommand("sv_forcealpha 1");
+		ConsoleCommand("compat_clientssendfullbuttoninfo 1");
+	}
 	
 	if (BoomEdition)
 	{
@@ -217,19 +227,6 @@ script mop_init OPEN
 		ConsoleCommand("sv_noexit 1");
 	}
 
-	if (!GetMOPVar("noautoconfig"))
-	{
-		ConsoleCommand("sv_disallowsuicide 1");
-		ConsoleCommand("sv_nocoopinfo 1");
-		ConsoleCommand("sv_noautomapallies 1");
-		ConsoleCommand("sv_disallowspying 1");
-		ConsoleCommand("sv_unblockplayers 0");
-		ConsoleCommand("sv_forcealpha 1");
-		
-		if (GetMOPVar("truereinforcements"))
-			ConsoleCommand("sv_forcerespawn 1");
-	}
-	
 	if (GameSkill() > 3)
 	{
 		DamageFactor = 1.5;
