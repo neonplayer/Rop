@@ -267,8 +267,12 @@ script mop_init OPEN
 	Lives *= (GetMOPVar("livescalingpercentage") * 1.0) / 100;
 	Lives = Lives>>16;
 	
-	if (GetMOPVar("maxlives") > 0 && Lives > GetMOPVar("maxlives"))
-		Lives = GetMOPVar("maxlives");
+	int minlives = min(GetMOPVar("minlives"), 1);
+	int maxlives = GetMOPVar("maxlives");
+	if (maxlives <= 0)
+		maxlives = INT_MAX;
+	
+	Lives = clamp(Lives, minlives, maxlives);
 		
 
 	if (ThingCountName("BossBrain", 0))
