@@ -281,6 +281,7 @@ Actor NewBaronBall : BaronBall
 {
   Decal BaronScorch
   DamageType "Monster"
+  Damage (Random(37, 56))
   States
   {
   Spawn:
@@ -352,7 +353,7 @@ Actor Revenant2 : Revenant replaces Revenant
 Actor NewRevenantRocket : RevenantTracer
 {
   Decal RevenantScorch
-  Damage 8
+  Damage (Random(34, 52))
   DamageType "Monster"
   States
   {
