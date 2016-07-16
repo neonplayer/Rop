@@ -44,7 +44,7 @@ int BoomEdition = false;
 // FREE SLOT 832
 // FREE SLOT 833
 // FREE SLOT 834
-#define mop_count_monstertypes_sv 835
+#define mop_init_clientside 835
 #define mop_respawn_protection 836
 #define mop_update_fragcounter 837
 #define mop_prevent_respawns 838
@@ -53,10 +53,6 @@ int BoomEdition = false;
 #define mop_puppetmaster_disconnect 841
 #define mop_player_clientsidedisconnect 842
 #define mop_marines_giveextralives 843
-// FREE SLOT 844
-// FREE SLOT 845
-// FREE SLOT 846
-#define mop_count_monstertypes_cl 847
 
 #define TEMPTID 8080
 
@@ -77,10 +73,10 @@ int BoomEdition = false;
 #include "array_monsters.acs"
 #include "array_startitems.acs"
 #include "array_weapons.acs"
-#include "arrays.acs"
 #include "cvars.acs"
 #include "game.acs"
 #include "evade.acs"
+#include "player.acs"
 #include "possess.acs"
 #include "actorlist.acs"
 #include "shieldhit.acs"

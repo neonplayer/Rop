@@ -1,16 +1,9 @@
-int EvadeDirection = 0;
-
-function int IsUnpossessed(void)
-{
-	return !PlayerInGame(PlayerNumber()) || !CheckInventory("IsPossessed");
-}
-
 script mop_evade (int speed)
 {
 	int timeout;
 	int buttons = GetPlayerInput(-1, INPUT_BUTTONS);
 	
-	if (IsUnpossessed())
+	if (!IsPossessed())
 		terminate;
 		
 	//print(s:"evade");
@@ -20,7 +13,7 @@ script mop_evade (int speed)
 		//print(s:"both buttons");
 		Delay(1);
 		
-		if (IsUnpossessed())
+		if (!IsPossessed())
 			terminate;
 		restart;
 	}
@@ -35,7 +28,7 @@ script mop_evade (int speed)
 				restart;
 			Delay(1);
 			
-			if (IsUnpossessed())
+			if (!IsPossessed())
 				terminate;
 		}
 		
@@ -51,7 +44,7 @@ script mop_evade (int speed)
 				restart;
 			Delay(1);
 			
-			if (IsUnpossessed())
+			if (!IsPossessed())
 				terminate;
 				
 			timeout--;
@@ -78,7 +71,7 @@ script mop_evade (int speed)
 				restart;
 			Delay(1);
 			
-			if (IsUnpossessed())
+			if (!IsPossessed())
 				terminate;
 		}
 		
@@ -94,7 +87,7 @@ script mop_evade (int speed)
 				restart;
 			Delay(1);
 			
-			if (IsUnpossessed())
+			if (!IsPossessed())
 				terminate;
 				
 			timeout--;

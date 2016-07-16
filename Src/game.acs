@@ -21,34 +21,15 @@ int ExtraLivePoints = 0.0;
 #define LASTMONSTER_Z 4
 #define LASTMONSTER_ANGLE 5
 
-function int TeamCount(int team)
-{
-	int count = 0;
-	for (int i = 0; i < MAX_PLAYERS; i++)
-	{
-		if (PlayerClasses[i] == team)
-			count++;
-	}
-	return count;
-}
-
 int LastPossessedMonster[MAX_PLAYERS][NUM_LASTMONSTER_PROPERTIES];
 
 script mop_log_join(int player, int team, int manyplayers) clientside
 {
 	switch(team)
 	{
-	case PLAYER_MARINE: Log(n:player+1, s:" became a Doom Guy."); break;
-	case PLAYER_MOP: Log(n:player+1, s:" became a Puppet Master."); break;
+	case PLAYER_MARINE: Log(s:PlayerName(player), s:" became a Doom Guy."); break;
+	case PLAYER_MOP: Log(s:PlayerName(player), s:" became a Puppet Master."); break;
 	}
-	
-	if (manyplayers < 2)
-		terminate;
-	
-	if (TeamCount(PLAYER_MARINE) - TeamCount(PLAYER_MOP) == manyplayers)
-		Log(s:"There are so many marines, join puppetmaster team, please!");
-	else if (TeamCount(PLAYER_MOP) - TeamCount(PLAYER_MARINE) == manyplayers)
-		Log(s:"There are so many puppetmasters, join marine team, please!");
 }
 
 
@@ -220,9 +201,25 @@ function int LivingMonsterCount(void)
 int Bossbrain = 0;
 int DamageFactor = 1.0;
 
+script mop_init_clientside OPEN CLIENTSIDE
+{
+	InitMOP();
+}
+
 script mop_init OPEN
 {
-	ConsoleCommand("compat_clientssendfullbuttoninfo 1");
+	InitMOP();
+	
+	if (GetMOPVar("autoconfig"))
+	{
+		ConsoleCommand("sv_disallowsuicide 1"); 
+		ConsoleCommand("sv_nocoopinfo 1");
+		ConsoleCommand("sv_noautomapallies 1");
+		ConsoleCommand("sv_disallowspying 1");
+		ConsoleCommand("sv_unblockplayers 0");
+		ConsoleCommand("sv_forcealpha 1");
+		ConsoleCommand("compat_clientssendfullbuttoninfo 1");
+	}
 	
 	if (BoomEdition)
 	{
@@ -230,19 +227,6 @@ script mop_init OPEN
 		ConsoleCommand("sv_noexit 1");
 	}
 
-	if (!GetMOPVar("noautoconfig"))
-	{
-		ConsoleCommand("sv_disallowsuicide 1");
-		ConsoleCommand("sv_nocoopinfo 1");
-		ConsoleCommand("sv_noautomapallies 1");
-		ConsoleCommand("sv_disallowspying 1");
-		ConsoleCommand("sv_unblockplayers 0");
-		ConsoleCommand("sv_forcealpha 1");
-		
-		if (GetMOPVar("truereinforcements"))
-			ConsoleCommand("sv_forcerespawn 1");
-	}
-	
 	if (GameSkill() > 3)
 	{
 		DamageFactor = 1.5;
@@ -267,13 +251,10 @@ script mop_init OPEN
 	Lives *= (GetMOPVar("livescalingpercentage") * 1.0) / 100;
 	Lives = Lives>>16;
 	
-	int minlives = min(GetMOPVar("minlives"), 1);
-	int maxlives = GetMOPVar("maxlives");
-	if (maxlives <= 0)
-		maxlives = INT_MAX;
-	
-	Lives = clamp(Lives, minlives, maxlives);
-		
+	if (Lives < GetMOPVar("minlives"))
+		Lives = GetMOPVar("minlives");
+	else if (Lives > GetMOPVar("maxlives") && GetMOPVar("maxlives") >= 1)
+		Lives = GetMOPVar("maxlives");
 
 	if (ThingCountName("BossBrain", 0))
 	{
