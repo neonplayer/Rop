@@ -82,6 +82,7 @@ Actor Mechtre : MechDemon
 {
   RenderStyle Translucent
   Alpha 0.3
+  Obituary "%o heard a mechtre's machinery too late."
   States
   {
   Spawn:

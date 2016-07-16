@@ -1812,7 +1812,7 @@ Actor PossessedMechDemon : PossessedMonster
   DeathSound "Mechdemon/death"
   ActiveSound "Mechdemon/active"
   AttackSound "Mechdemon/Attack"
-  Obituary "%o was crunched up by a mech demon."
+  Obituary "%o was crunched up by %k."
   States
   {
   Spawn:
@@ -1931,7 +1931,7 @@ Actor PossessedMechtre : PossessedMonster
   DeathSound "Mechdemon/death"
   ActiveSound "Mechdemon/active"
   AttackSound "Mechdemon/Attack"
-  Obituary "%o was crunched up by a mech demon."
+  Obituary "%o heard %k's machinery too late."
   States
   {
   Spawn:
@@ -2110,8 +2110,8 @@ Actor PossessedAbaddon : PossessedMonster
   Mass 400
   SeeSound "Beholder/Sight"
   DeathSound "Beholder/Death"
-  Obituary "%o was turned into ashes by an abaddon."
-  HitObituary "%o was bitten by an abaddon."
+  Obituary "%o was turned into ashes by %k."
+  HitObituary "%o was bitten by %k."
   BloodColor "darkBlue"
   +NoGravity
   +Float
@@ -2193,6 +2193,7 @@ Actor PossessedArachnoSentinel : PossessedMonster
   Species "Arachnotrons"
   seesound "Sentinel/Sight"
   deathsound "Sentinel/Death"
+  Obituary "%o was pulverized by %k."
   States
   {
   Spawn:
@@ -2329,8 +2330,9 @@ Actor PossessedBelphegor : PossessedMonster
   PainSound "PsxPinky/Pain"
   ActiveSound "PsxPinky/ACT"
   DeathSound "PsxBaron/Death"
-  Obituary "%o underestimated a belphegor."
-  HitObituary "%o was ripped to pieces by a belphegor."
+  Obituary "%o underestimated %k."
+  HitObituary "%o was ripped to pieces by %k."
+  Player.ViewHeight 59
   States
   {
   Spawn:

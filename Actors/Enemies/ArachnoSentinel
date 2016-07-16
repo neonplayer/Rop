@@ -20,6 +20,7 @@ Actor ArachnoSentinel //has to NOT inherit the arachnotron, otherwise map07 brea
   +DontHurtSpecies
   Species "Arachnotrons"
   Decal BulletChip
+  Obituary "%o was pulverized by an arachno-sentinel."
   States
   {
   Spawn:
