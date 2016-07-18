@@ -1,4 +1,4 @@
-//Sprites/Code: Z86, Bloax
+//Sprites/Code base: Z86, Bloax
 
 Actor NewChaingun : Chaingun replaces Chaingun
 {

@@ -17,6 +17,7 @@ Actor PossessedZombieman2 : PossessedMonster
   DeathSound "grunt/death"
   ActiveSound "grunt/active"
   Obituary "%o was peppered by a %k's pea shooter."
+  Player.SoundClass Zombie
   States
   {
   Spawn:
@@ -117,6 +118,7 @@ Actor PossessedShotgunguy2 : PossessedMonster
   DeathSound "shotguy/death"
   ActiveSound "shotguy/active"
   Obituary "%o was blown apart by %k."
+  Player.SoundClass Zombie
   States
   {
   Spawn:
@@ -195,6 +197,7 @@ Actor PossessedChainGunGuy2 : PossessedMonster
   ActiveSound "chainguy/active"
   AttackSound "chainguy/attack"
   Obituary "%k made some fine swiss cheese out of %o."
+  Player.SoundClass Zombie
   States
   {
   Spawn:
@@ -274,6 +277,7 @@ Actor PossessedImp2 : PossessedMonster
   PainChance 125
   Obituary "%o played catch with %k."
   HitObituary "%k lended %o a claw."
+  Player.SoundClass Imp
   States
   {
   Spawn:
@@ -338,6 +342,7 @@ Actor PossessedPinky : PossessedMonster
   Speed 0.675 //Buffed speed, because players can easily outrun them.
   PainChance 100
   Mass 400
+  Player.SoundClass PinkDemon
   States
   {
   Spawn:
@@ -393,6 +398,7 @@ Actor PossessedSpectre2 : PossessedMonster
   RenderStyle Translucent
   Obituary "%o didn't quite see %k."
   Translation "16:31=96:107", "32:35=108:111", "36:43=5:8", "44:47=0:0", "79:79=0:0"
+  Player.SoundClass PinkDemon
   States
   {
   Spawn:
@@ -432,6 +438,7 @@ Actor PossessedLostSoul2 : PossessedMonster
   +DontFall
   +Float
   RenderStyle SoulTrans
+  Player.SoundClass Soul
   States
   {
   Spawn:
@@ -481,6 +488,7 @@ Actor PossessedCacodemon2 : PossessedMonster
   Mass 400
   BloodColor Blue
   Obituary "%o was purified by %k."
+  Player.SoundClass Caco
   +NoGravity
   +Float
   States
@@ -544,6 +552,7 @@ Actor PossessedPainElemental2 : PossessedMonster
   PainChance 128
   Mass 400
   Obituary "%o found out that %k isn't defense-less."
+  Player.SoundClass Elemental
   +NoBlood
   +NoBloodDecals
   +QuickToRetaliate
@@ -602,6 +611,7 @@ Actor PossessedHellKnight2 : PossessedMonster
   Obituary "%o was melted by %k."
   HitObituary "%o was slain by %k."
   Player.ViewHeight 54
+  Player.SoundClass Noble
   States
   {
   Spawn:
@@ -657,6 +667,7 @@ Actor PossessedBaronOfHell2 : PossessedMonster
   Obituary "%o got annihilated by %k."
   HitObituary "%k showed %o what it's like to get berserk punch'd."
   Player.ViewHeight 59
+  Player.SoundClass Noble
   States
   {
   Spawn:
@@ -722,6 +733,7 @@ Actor PossessedRevenant2 : PossessedMonster
   PainChance 100
   Mass 500
   Player.ViewHeight 54
+  Player.SoundClass Skeleton
   States
   {
   Spawn:
@@ -798,6 +810,7 @@ Actor PossessedMancubus : PossessedMonster //The only enemy without an altfire :
   Scale 1.075
   Obituary "%k made %o all crispy."
   Player.ViewHeight 48
+  Player.SoundClass Fatty
   States
   {
   Spawn:
@@ -900,6 +913,7 @@ Actor PossessedArachnotron2 : PossessedMonster
   Scale 1.075
   Obituary "%o didn't stand a chance against %k."
   Player.ViewHeight 48
+  Player.SoundClass BabySpider
   States
   {
   Spawn:
@@ -994,6 +1008,7 @@ Actor PossessedArchvile2 : PossessedMonster
   Mass 500
   Obituary "%o burnt to a crisp by %k." //I was gonna leave this blank, but then i decided to make an altfire.
   Player.ViewHeight 52
+  Player.SoundClass Vile
   States
   {
   Spawn:
@@ -1124,6 +1139,7 @@ Actor PossessedSpidermastermind2 : PossessedMonster
   +BOSSDEATH
   Obituary "%o was outsmarted by %k."
   Player.ViewHeight 70
+  Player.SoundClass BigSpider
   States
   {
   Spawn:
@@ -1292,7 +1308,8 @@ Actor PossessedCyberdemon2 : PossessedMonster
   +DONTMORPH
   +BOSSDEATH
   Obituary "%o rode a %k's rocket."
- Player.ViewHeight 90
+  Player.ViewHeight 90
+  Player.SoundClass Cyborg
   States
   {
   Spawn:
@@ -1458,6 +1475,7 @@ Actor PossessedWolfensteinSS2 : PossessedMonster
   Speed 0.35
   PainChance 170
   Obituary "%o was shot on sight by %k."
+  Player.SoundClass Nazi
   States
   {
   Spawn:
@@ -1562,6 +1580,7 @@ Actor PossessedDarkImp : PossessedMonster
   Scale 1.05
   Obituary "%o was sent to the void by %k."
   HitObituary "%o got slashed by %k."
+  Player.SoundClass DarkImp
   States
   {
   Spawn:
@@ -1625,6 +1644,7 @@ Actor PossessedSoulHarvester : PossessedMonster
   ActiveSound "Imp/Active"
   DeathSound "harvester/death"
   Obituary "%o had his soul taken by %k."
+  Player.SoundClass SpookyImp
   States
   {
   Spawn:
@@ -1692,6 +1712,7 @@ Actor PossessedPlasmaZombie : PossessedMonster
   PainSound "PsxZombie/pain"
   DeathSound "PsxZombie/death"
   ActiveSound "PsxZombie/active"
+  Player.SoundClass Zombie64
   States
   {
   Spawn:
@@ -1825,6 +1846,7 @@ Actor PossessedSuperShotgunguy : PossessedMonster
   ActiveSound "PsxZombie/active"
   AttackSound "ExplosiveGuy/Fire"
   Obituary "%k filled %o's face with lead."
+  Player.SoundClass Zombie64
   States
   {
   Spawn:
@@ -1913,6 +1935,7 @@ Actor PossessedDoubleChaingunguy : PossessedMonster
   PainSound "PsxZombie/pain"
   DeathSound "PsxZombie/death"
   ActiveSound "PsxZombie/active"
+  Player.SoundClass Zombie64
   States
   {
   Spawn:
@@ -1994,6 +2017,7 @@ Actor PossessedMechDemon : PossessedMonster
   ActiveSound "Mechdemon/active"
   AttackSound "Mechdemon/Attack"
   Obituary "%o was crunched up by %k."
+  Player.SoundClass MechPinky
   States
   {
   Spawn:
@@ -2113,6 +2137,7 @@ Actor PossessedMechtre : PossessedMonster
   ActiveSound "Mechdemon/active"
   AttackSound "Mechdemon/Attack"
   Obituary "%o heard %k's machinery too late."
+  Player.SoundClass MechPinky
   States
   {
   Spawn:
@@ -2226,6 +2251,7 @@ Actor PossessedCacolantern : PossessedMonster
   Mass 400
   BloodColor Blue
   Obituary "%o was lit up by %k."
+  Player.SoundClass ShinyCaco
   +NoGravity
   +Float
   States
@@ -2294,6 +2320,7 @@ Actor PossessedAbaddon : PossessedMonster
   Obituary "%o was turned into ashes by %k."
   HitObituary "%o was bitten by %k."
   BloodColor "darkBlue"
+  Player.SoundClass SpookyCaco
   +NoGravity
   +Float
   States
@@ -2373,6 +2400,7 @@ Actor PossessedArachnoSentinel : PossessedMonster
   +DontHurtSpecies
   Species "Arachnotrons"
   Obituary "%o was pulverized by %k."
+  Player.SoundClass Scorpion
   States
   {
   Spawn:
@@ -2468,6 +2496,7 @@ Actor PossessedHectebus : PossessedMonster
   ActiveSound "PsxPinky/ACT"
   DeathSound "PsxFatso/Death"
   BloodColor "DarkRed"
+  Player.SoundClass Fatty64
   States
   {
   Spawn:
@@ -2585,6 +2614,7 @@ Actor PossessedBelphegor : PossessedMonster
   Obituary "%o underestimated %k."
   HitObituary "%o was ripped to pieces by %k."
   Player.ViewHeight 59
+  Player.SoundClass VeryNoble
   States
   {
   Spawn:
