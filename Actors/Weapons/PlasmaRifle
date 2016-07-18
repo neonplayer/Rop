@@ -1,11 +1,10 @@
+//Sprites: Bloax
+
 Actor NewPlasmaRifle : PlasmaRifle replaces PlasmaRifle
 {
-  Weapon.AmmoType "PlasmaClip"
-  Weapon.AmmoType2 "Cell"  
+  Weapon.AmmoType "Cell"  
   Weapon.AmmoUse 1
-  Weapon.AmmoGive2 40
-  Weapon.AmmoGive 0
-  +WEAPON.AMMO_OPTIONAL
+  Weapon.AmmoGive 40
   +WEAPON.NOALERT
   Weapon.SlotNumber 6
   Weapon.PreferredSkin "PlasmaMarine"
@@ -20,41 +19,29 @@ Actor NewPlasmaRifle : PlasmaRifle replaces PlasmaRifle
 	PLSG A 0 A_Raise
     Loop
   Fire:
-    PLSG A 0 A_JumpIfNoAmmo("AltFire")
-    PLSG A 0 A_GunFlash
-	PLSG A 0 A_AlertMonsters
-    PLSG A 3 A_FireCustomMissile("NewPlasmaBall", 0, 1)
-    PLSG B 20 A_ReFire
-    Goto Ready
-  Altfire:
-    TNT1 A 0 A_JumpIfInventory("PlasmaClip",50,2)
-    TNT1 A 0 A_JumpIfInventory("Cell",1,2)
-	TNT1 A 0
+	PLSF C 1 Bright A_FireCustomMissile("NewPlasmaBall")
+	PLSF D 2 Bright
+	TNT1 A 0 A_ReFire
+	PLSF E 1 Bright
+	PLSF F 1 Bright
+	PLSF E 1 Bright
+	PKPL B 1
+	PKPL DEF 1
+	PKPL G 6
+	PKPL FEDC 2
+	PKPL BA 1
 	Goto Ready
-	PLSG B 2 OffSet(0, 38)
-	PLSG B 2 OffSet(1, 44)
-	PLSG B 2 OffSet(1, 52)
-	PLSG B 2 OffSet(2, 60)
-	PLSG B 2 OffSet(3, 72)
-	PLSG B 12 A_OpenShotgun2
-	PLSG B 0 A_JumpIfInventory("Cell",1,"Reloadin")
-	PLSG B 12 A_LoadShotgun2
-	PLSG B 12 A_PlaySound ("weapons/sshotc", CHAN_WEAPON)
-	PLSG B 2 OffSet(3, 72)
-	PLSG B 2 OffSet(2, 60)
-	PLSG B 2 OffSet(1, 52)
-	PLSG B 2 OffSet(1, 44)
-	PLSG B 2 OffSet(0, 38)
-	Goto Ready
-  Reloadin:
-	TNT1 A 0 A_TakeInventory("Cell",1)
-	TNT1 A 0 A_GiveInventory("PlasmaClip",1)
-	TNT1 A 0 A_JumpIfInventory("PlasmaClip",50,"Full")
-	TNT1 A 0 A_JumpIfInventory("Cell",1,"Reloadin")
-	Goto AltFire+10
-  Full:
-    TNT1 A 0
-    Goto AltFire+10
+  Hold:
+	PLSF E 1 Bright A_FireCustomMissile("NewPlasmaBall")
+	PLSF F 1 Bright
+	PLSF E 1 Bright
+	PLSF C 1 Bright A_FireCustomMissile("NewPlasmaBall")
+	PLSF D 2 Bright
+	PLSF D 0 Bright A_ReFire
+	Goto Fire+3
+  Flash:
+    TNT1 A 1 A_Light1
+    Goto LightDone
   }
 }
 

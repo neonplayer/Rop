@@ -5,14 +5,27 @@ Actor NewBFG9000 : BFG9000 replaces BFG9000
   Scale 0.9
   States
   {
+  Select:
+    MBFG A 1 A_Raise
+	Loop
+  Deselect:
+    MBFG A 1 A_Lower
+	Loop
+  Ready:
+    MBFG A 1 A_WeaponReady
+	Loop
   Fire:
-    BFGG AAAAAAA 5 A_FireCustomMissile("BFGHeatingUp", Random(8, -8), 0, 0, 0, 0, Random(8, -8))
-	BFGG AAAAAAA 3 A_FireCustomMissile("BFGHeatingUp", Random(8, -8), 0, 0, 0, 0, Random(8, -8))
-	BFGG AAAAAAA 2 A_FireCustomMissile("BFGHeatingUp", Random(8, -8), 0, 0, 0, 0, Random(8, -8)) //2 seconds of charging
-    BFGG A 20 A_BFGSound
-    BFGG B 10 A_GunFlash
-    BFGG B 10 A_FireCustomMissile("NewBFGBall", 0, 1)
-    BFGG B 20 A_ReFire
+    MBFG AAAAAAA 5 A_FireCustomMissile("BFGHeatingUp", Random(8, -8), 0, 0, 0, 0, Random(8, -8))
+	MBFG AAAAAAA 3 A_FireCustomMissile("BFGHeatingUp", Random(8, -8), 0, 0, 0, 0, Random(8, -8))
+	MBFG A 0 A_BFGSound
+	MBFG AAAAAAA 2 A_FireCustomMissile("BFGHeatingUp", Random(8, -8), 0, 0, 0, 0, Random(8, -8)) //2 seconds of charging
+    MBFG A 9
+    MBFG B 5
+    MBFG C 5 Bright A_FireCustomMissile("NewBFGBall", 0, 1)
+	MBFG D 5 Bright
+	MBFG EFGHIJIH 2
+	MBFG GFB 3
+    MBFG A 20 A_ReFire
     Goto Ready
   }
 }
@@ -22,8 +35,8 @@ Actor BFGHeatingUp
   +NoInteraction
   +ClientSideOnly
   Scale 0.13
-  Alpha 0.35
-  RenderStyle Translucent
+  Alpha 0.3
+  RenderStyle Add
   Speed 5
   States
   {
@@ -63,9 +76,9 @@ Actor NewBfgBall : BfgBall
 
 Actor BFGTrail : BfgHeatingUp
 {
-  RenderStyle Translucent
+  RenderStyle Add
   Scale 0.35
-  Alpha 0.46
+  Alpha 0.36
   States
   {
   Spawn:

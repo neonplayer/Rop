@@ -1,3 +1,5 @@
+//Sprites: Per Kristian, Bloax
+
 Actor NewFist : Fist replaces Fist
 {
   Decal BulletChip
@@ -7,17 +9,17 @@ Actor NewFist : Fist replaces Fist
   States
   {
   Fire:
-    PUNG B 4
+    PKFS ABCD 1
     TNT1 A 0 A_JumpIfInventory("PowerStrength", 1, "Berserked")
   Normal:
-    PUNG C 4 A_CustomPunch(2 * random(1, 10), TRUE, 0, "PlayerBulletPuff")
+    PKSF E 2 A_CustomPunch(2 * random(1, 10), TRUE, 0, "PlayerBulletPuff")
     Goto FireEnd
   Berserked:
-    PUNG C 4 A_CustomPunch(20 * random(1, 10), TRUE, 0, "PlayerBulletPuff")
+    PKSF E 2 A_CustomPunch(20 * random(1, 10), TRUE, 0, "PlayerBulletPuff")
   FireEnd:
-    PUNG D 5
-    PUNG C 4
-    PUNG B 5 A_ReFire
+    PKFS FGHI 2
+	PKFS JKL 1
+    PUNG A 5 A_ReFire
     Goto Ready
   }
 }

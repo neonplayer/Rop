@@ -1,12 +1,9 @@
 Actor NewShotgun : Shotgun replaces Shotgun
 {
   Weapon.SlotNumber 3
-  Weapon.AmmoType "ShotgunClip"
-  Weapon.AmmoType2 "Shell"  
+  Weapon.AmmoType "Shell"  
   Weapon.AmmoUse 1
-  Weapon.AmmoGive2 8
-  Weapon.AmmoGive 0
-  +WEAPON.AMMO_OPTIONAL
+  Weapon.AmmoGive 8
   +WEAPON.NOALERT
   +THRUGHOST // Allow shooting through marine shields.
   Weapon.PreferredSkin "ShotgunMarine"
@@ -23,7 +20,6 @@ Actor NewShotgun : Shotgun replaces Shotgun
 	SHTG A 0 A_Lower
     Loop
   Fire:
-    PISG A 0 A_JumpIfNoAmmo("AltFire")
     SHTG A 0 A_AlertMonsters
     SHTG A 0 A_FireBullets (3.5, 3.5, 7, 5, "PlayerBulletPuff")
     SHTG A 6 A_GunFlash
@@ -31,41 +27,13 @@ Actor NewShotgun : Shotgun replaces Shotgun
 	SHTG KLMNOPQRSRQPONMLK 1
     SHTG JIHG 1
 	SHTG F 2
-    SHTG A 7 A_ReFire
+	SHTG A 3
+    SHTG A 4 A_ReFire
     Goto Ready
   Flash:
     SHTF A 3 Bright A_Light1
     SHTF B 3 Bright A_Light2
 	Goto LightDone
-  AltFire:
-    TNT1 A 0 A_JumpIfInventory("ShotgunClip",8,2)
-    TNT1 A 0 A_JumpIfInventory("Shell",1,2)
-	TNT1 A 0
-	Goto Ready
-	TNT1 A 0 A_JumpIfInventory("Shell", 1, 1)
-	Goto Ready
-	SHTG FGHIJKLMNO 1
-	TNT1 A 0 A_JumpIfInventory("ShotgunClip",8,"StopReloading")
-	TNT1 A 0 A_JumpIfInventory("ShotgunClip", 1, "LoadAnim")
-  LoadAnimNoAmmo:
-    SHTG KLMNONMLK 1 A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY|WRF_NOPRIMARY)
-	Goto ReloadContinue
-  LoadAnim:
-	SHTG PQRS 1 A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
-  ReloadContinue:
-	SHTG A 0 A_LoadShotgun2
-	SHTG A 0 A_JumpIfInventory("Shell", 1, 1)
-	Goto StopReloading
-	SHTG A 0 A_TakeInventory("Shell", 1)
-	SHTG A 0 A_GiveInventory("ShotgunClip", 1)
-	TNT1 A 0 A_JumpIfInventory("ShotgunClip",8,"StopReloading")
-	SHTG TSR 2 A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
-	SHTG Q 4 A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
-	Goto AltFire+11
-  StopReloading:
-	SHTG JIHGF 1
-	SHTG A 3
-	Goto Ready
   }
 }
 

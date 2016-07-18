@@ -1,14 +1,13 @@
+//Sprites/Code: Z86, Bloax
+
 Actor NewChaingun : Chaingun replaces Chaingun
 {
   Decal BulletChip
   Weapon.PreferredSkin "ChaingunMarine"
   Weapon.SlotNumber 4
-  Weapon.AmmoType "ChaingunClip"
-  Weapon.AmmoType2 "Clip"  
+  Weapon.AmmoType "Clip"  
   Weapon.AmmoUse 1
-  Weapon.AmmoGive2 20
-  Weapon.AmmoGive 0
-  +WEAPON.AMMO_OPTIONAL
+  Weapon.AmmoGive 20
   +WEAPON.NOALERT
   +THRUGHOST // Allow shooting through marine shields.
   Scale 0.85
@@ -23,48 +22,31 @@ Actor NewChaingun : Chaingun replaces Chaingun
 	CHGG A 0 A_Raise
     Loop
   Fire:
-    CHGG A 0 A_JumpIfNoAmmo("AltFire")
 	CHGG A 0 A_AlertMonsters
 	CHGG A 0 A_GunFlash
-	CHGG A 4 A_FireBullets(5.6, 0, 1, 5, "PlayerBulletPuff")
-	CHGG A 0 A_JumpIfInventory("ChaingunClip", 1, 1)
-	Goto AltFire
-	CHGG B 4 A_FireBullets(5.6, 0, 1, 5, "PlayerBulletPuff")
-    CHGG B 0 A_ReFire
-    Goto Ready
+	PKCG A 1 A_FireBullets(2.5, 2.5, 1, 5, "PlayerBulletPuff")
+    PKCG BCD 1
+	CHGG A 0 A_GunFlash
+	CHGG A 1 A_FireBullets(2.5, 2.5, 1, 5, "PlayerBulletPuff")
+    PKCG BCD 1
+	PKCG B 0 A_ReFire
+	PKCG A 1 A_Weaponready
+	PKCG B 2 A_Weaponready
+	PKCG CD 3 A_Weaponready
+    PKCG ABCD 4 A_WeaponReady
+	Goto Ready
   Flash:
-    CHGF A 2 Bright A_Light1
-	CHGF B 3 Bright
-    Goto LightDone
-  AltFire:
-    TNT1 A 0 A_JumpIfInventory("ChaingunClip",40,2)
-    TNT1 A 0 A_JumpIfInventory("Clip",1,2)
-	TNT1 A 0
-	Goto Ready
-    CHGG A 2 OffSet(0, 38)
-	CHGG A 2 OffSet(0, 44)
-	CHGG A 2 OffSet(0, 52)
-	CHGG A 2 OffSet(0, 60)
-	CHGG A 2 OffSet(0, 72)
-	CHGG A 10 A_OpenShotgun2
-	CHGG A 0 A_JumpIfInventory("Clip",1,"Reloadin")
-	CHGG A 10 A_LoadShotgun2
-	CHGG A 10 A_PlaySound ("weapons/sshotc", CHAN_WEAPON)
-	CHGG A 2 OffSet(0, 72)
-    CHGG A 2 OffSet(0, 60)
-	CHGG A 2 OffSet(0, 52)
-	CHGG A 2 OffSet(0, 44)
-	CHGG A 2 OffSet(0, 38)
-	Goto Ready
-  Reloadin:
-	TNT1 A 0 A_TakeInventory("Clip",1)
-	TNT1 A 0 A_GiveInventory("ChaingunClip",1)
-	TNT1 A 0 A_JumpIfInventory("ChaingunClip",40,"Full")
-	TNT1 A 0 A_JumpIfInventory("Clip",1,"Reloadin")
-	Goto AltFire+10
-  Full:
     TNT1 A 0
-    Goto AltFire+10
+	TNT1 A 0 A_Jump(128, 4)
+	PKCF A 1 Bright A_Light1
+	PKCF B 1 Bright A_Light2
+    TNT1 A 2 Bright A_Light2
+	Goto LightDone
+	TNT1 A 0
+	PKCF C 1 Bright A_Light1
+	PKCF D 1 Bright A_Light2
+    TNT1 A 2 Bright A_Light2
+	Goto LightDone
   }
 }
 

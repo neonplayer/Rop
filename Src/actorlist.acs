@@ -14,7 +14,6 @@ function void InitMOP(void)
 	AddStartItem("NewPistol", 1);
 	AddStartItem("Clip", 50);
 	AddStartItem("NewFist", 1);
-	AddStartItem("PistolClip", 12);
 	AddStartItem("ShotgunClip", 8);
 	AddStartItem("ChaingunClip", 40);
 	AddStartItem("SSGClip", 2);

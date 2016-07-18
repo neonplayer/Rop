@@ -1,3 +1,5 @@
+//Sprites: Z86
+
 Actor NewChainsaw : Chainsaw replaces Chainsaw
 {
   Decal BulletChip
@@ -6,8 +8,14 @@ Actor NewChainsaw : Chainsaw replaces Chainsaw
   +THRUGHOST // Allow shooting through marine shields.
   States
   {
+  Ready:
+    SAWG CCDDEEFF 1 A_WeaponReady 
+	Loop
   Fire:
-    SAWG AB 4 A_Saw("weapons/sawfull", "weapons/sawhit", 2, "PlayerBulletPuff")
+    SAWG A 2 A_Saw("weapons/sawfull", "weapons/sawhit", 2, "PlayerBulletPuff")
+	SAWG B 2
+	SAWG A 2 A_Saw("weapons/sawfull", "weapons/sawhit", 2, "PlayerBulletPuff")
+	SAWG B 2
     SAWG B 0 A_ReFire
     Goto Ready
   }
