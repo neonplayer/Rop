@@ -126,3 +126,276 @@ $playersounddup PuppetMaster male *grunt *pain100
 $playersounddup PuppetMaster male *land *pain100
 $playersound    PuppetMaster male *jump Msnd2
 $playeralias    PuppetMaster male *taunt pm_taunt  
+
+//Sound classes
+
+//Common zombies
+$random Zomb_taunt { grunt/sight1 grunt/sight2 grunt/sight3 }
+
+$playersound    Zombie male *pain100 dspopain
+$playersounddup Zombie male *pain75 *pain100
+$playersounddup Zombie male *pain50 *pain100
+$playersounddup Zombie male *pain25 *pain100
+$playersound    Zombie male *death dsposdth
+$playersound    Zombie male *xdeath DSSLOP
+$playersound    Zombie male *usefail dsposact
+$playersounddup Zombie male *grunt *pain100
+$playersounddup Zombie male *land *pain100
+$playersound    Zombie male *jump dspopain
+$playeralias    Zombie male *taunt Zomb_taunt   
+//Imp
+$random Imp_taunt {imp/sight1 imp/sight2 }
+
+$playersound    Imp male *pain100 dspopain
+$playersounddup Imp male *pain75 *pain100
+$playersounddup Imp male *pain50 *pain100
+$playersounddup Imp male *pain25 *pain100
+$playersound    Imp male *death dsposdth
+$playersound    Imp male *xdeath DSSLOP
+$playersound    Imp male *usefail dsbgact
+$playersounddup Imp male *grunt *pain100
+$playersounddup Imp male *land *pain100
+$playersound    Imp male *jump dspopain
+$playeralias    Imp male *taunt Imp_taunt 
+//Pinky/spectre
+$playersound    PinkDemon male *pain100 DSDMPAIN
+$playersounddup PinkDemon male *pain75 *pain100
+$playersounddup PinkDemon male *pain50 *pain100
+$playersounddup PinkDemon male *pain25 *pain100
+$playersound    PinkDemon male *death DSSGTDTH
+$playersound    PinkDemon male *usefail DSDMACT
+$playersounddup PinkDemon male *grunt *pain100
+$playersounddup PinkDemon male *land *pain100 
+$playersounddup PinkDemon male *jump *Pain100
+$playeralias    PinkDemon male *taunt "demon/sight"
+//Lost soul
+$playersound    Soul male *pain100 DSDMPAIN
+$playersounddup Soul male *pain75 *pain100
+$playersounddup Soul male *pain50 *pain100
+$playersounddup Soul male *pain25 *pain100
+$playersound    Soul male *death DSFIRXPL
+$playersounddup Soul male *xdeath *death
+$playersound    Soul male *usefail DSDMACT
+$playersounddup Soul male *grunt *usefail
+$Playersounddup Soul male *land *usefail
+$playersound    Soul male *taunt dssklatk
+//Cacodemon
+$playersound    Caco male *pain100 DSDMPAIN
+$playersounddup Caco male *pain75 *pain100
+$playersounddup Caco male *pain50 *pain100
+$playersounddup Caco male *pain25 *pain100
+$playersound    Caco male *death DSCACDTH
+$playersound    Caco male *usefail DSDMACT
+$playersounddup Caco male *grunt *pain100
+$playersounddup Caco male *land *pain100 
+$playersounddup Caco male *jump *Pain100
+$playeralias    Caco male *taunt "caco/sight"
+//Pain elemental
+$playersound    Elemental male *pain100 DSPEPAIN
+$playersounddup Elemental male *pain75 *pain100
+$playersounddup Elemental male *pain50 *pain100
+$playersounddup Elemental male *pain25 *pain100
+$playersound    Elemental male *death DSPEDTH
+$playersound    Elemental male *usefail DSDMACT
+$playersounddup Elemental male *grunt *pain100
+$playersounddup Elemental male *land *pain100 
+$playersounddup Elemental male *jump *Pain100
+$playeralias    Elemental male *taunt "pain/sight"
+//HellKnight
+$playersound    Noble male *pain100 DSDMPAIN
+$playersounddup Noble male *pain75 *pain100
+$playersounddup Noble male *pain50 *pain100
+$playersounddup Noble male *pain25 *pain100
+$playersound    Noble male *death DSKNTDTH
+$playersound    Noble male *usefail DSDMACT
+$playersounddup Noble male *grunt *pain100
+$playersounddup Noble male *land *pain100 
+$playersounddup Noble male *jump *Pain100
+$playeralias    Noble male *taunt "Knight/sight"
+//Baron
+$playersound    MoreNoble male *pain100 DSDMPAIN
+$playersounddup MoreNoble male *pain75 *pain100
+$playersounddup MoreNoble male *pain50 *pain100
+$playersounddup MoreNoble male *pain25 *pain100
+$playersound    MoreNoble male *death DSBRSDTH
+$playersound    MoreNoble male *usefail DSDMACT
+$playersounddup MoreNoble male *grunt *pain100
+$playersounddup MoreNoble male *land *pain100 
+$playersounddup MoreNoble male *jump *Pain100
+$playeralias    MoreNoble male *taunt "Baron/sight"
+//Revenant
+$playersound    Skeleton male *pain100 dspopain
+$playersounddup Skeleton male *pain75 *pain100
+$playersounddup Skeleton male *pain50 *pain100
+$playersounddup Skeleton male *pain25 *pain100
+$playersound    Skeleton male *death DSSKEDTH
+$playersound    Skeleton male *usefail DSSKEACT
+$playersounddup Skeleton male *grunt *pain100
+$playersounddup Skeleton male *land *pain100 
+$playersounddup Skeleton male *jump *Pain100
+$playeralias    Skeleton male *taunt "skeleton/sight"
+//Mancubus
+$playersound    Fatty male *pain100 DSMNPAIN
+$playersounddup Fatty male *pain75 *pain100
+$playersounddup Fatty male *pain50 *pain100
+$playersounddup Fatty male *pain25 *pain100
+$playersound    Fatty male *death DSMANDTH
+$playersound    Fatty male *usefail dsposact
+$playersounddup Fatty male *grunt *pain100
+$playersounddup Fatty male *land *pain100 
+$playersound    Fatty male *jump DSMANSIT
+$playeralias    Fatty male *taunt "fatso/raiseguns"
+//Arachnotron
+$playersound    BabySpider male *pain100 DSDMPAIN
+$playersounddup BabySpider male *pain75 *pain100
+$playersounddup BabySpider male *pain50 *pain100
+$playersounddup BabySpider male *pain25 *pain100
+$playersound    BabySpider male *death DSBSPDTH
+$playersound    BabySpider male *usefail DSBSPACT
+$playersounddup BabySpider male *grunt *pain100
+$playersounddup BabySpider male *land *pain100 
+$playersounddup BabySpider male *jump *usefail
+$playeralias    BabySpider male *taunt "Baby/sight"
+//Arch vile
+$playersound    Vile male *pain100 DSVIPAIN
+$playersounddup Vile male *pain75 *pain100
+$playersounddup Vile male *pain50 *pain100
+$playersounddup Vile male *pain25 *pain100
+$playersound    Vile male *death DSVILDTH
+$playersound    Vile male *usefail DSVILACT
+$playersounddup Vile male *grunt *pain100
+$playersounddup Vile male *land *pain100 
+$playersounddup Vile male *jump *pain100
+$playeralias    Vile male *taunt "Vile/Sight"
+//Cyberdemon
+$playersound    Cyborg male *pain100 DSDMPAIN
+$playersounddup Cyborg male *pain75 *pain100
+$playersounddup Cyborg male *pain50 *pain100
+$playersounddup Cyborg male *pain25 *pain100
+$playersound    Cyborg male *death DSCYBDTH
+$playersound    Cyborg male *usefail DSDMACT
+$playersounddup Cyborg male *grunt *pain100
+$playersounddup Cyborg male *land *pain100 
+$playersounddup Cyborg male *jump *pain100
+$playeralias    Cyborg male *taunt "Cyber/sight"
+//Spider mastermind
+$playersound    BigSpider male *pain100 DSDMPAIN
+$playersounddup BigSpider male *pain75 *pain100
+$playersounddup BigSpider male *pain50 *pain100
+$playersounddup BigSpider male *pain25 *pain100
+$playersound    BigSpider male *death DSSPIDTH
+$playersound    BigSpider male *usefail DSDMACT
+$playersounddup BigSpider male *grunt *pain100
+$playersounddup BigSpider male *land *pain100 
+$playersounddup BigSpider male *jump *pain100
+$playeralias    BigSpider male *taunt "Spider/Sight"
+//Wolfensteinss
+$playersound    Nazi male *pain100 dspopain
+$playersounddup Nazi male *pain75 *pain100
+$playersounddup Nazi male *pain50 *pain100
+$playersounddup Nazi male *pain25 *pain100
+$playersound    Nazi male *death DSSSDTH
+$playersound    Nazi male *usefail dsposact
+$playersounddup Nazi male *grunt *pain100
+$playersounddup Nazi male *land *pain100 
+$playersounddup Nazi male *jump *pain100
+$playeralias    Nazi male *taunt "wolfss/sight"
+//dark imp
+$playersound    DarkImp male *pain100 PXZMPAIN
+$playersounddup DarkImp male *pain75 *pain100
+$playersounddup DarkImp male *pain50 *pain100
+$playersounddup DarkImp male *pain25 *pain100
+$playersound    DarkImp male *death "PsxImp/Death"
+$playersound    DarkImp male *usefail PXMPACT
+$playersounddup DarkImp male *grunt *pain100
+$playersounddup DarkImp male *land *pain100 
+$playersounddup DarkImp male *jump *pain100
+$playeralias    DarkImp male *taunt "PsxImp/Sight"
+//Soul harvester
+$playersound    SpookyImp male *pain100 dspopain
+$playersounddup SpookyImp male *pain75 *pain100
+$playersounddup SpookyImp male *pain50 *pain100
+$playersounddup SpookyImp male *pain25 *pain100
+$playeralias    SpookyImp male *death "harvester/death"
+$playersound    SpookyImp male *usefail dsbgact
+$playersounddup SpookyImp male *grunt *pain100
+$playersounddup SpookyImp male *land *pain100 
+$playersounddup SpookyImp male *jump *pain100
+$playeralias    SpookyImp male *taunt "harvester/sight"
+//rare zombies
+$playeralias    Zombie64 male *pain100 "PsxZombie/Pain"
+$playersounddup Zombie64 male *pain75 *pain100
+$playersounddup Zombie64 male *pain50 *pain100
+$playersounddup Zombie64 male *pain25 *pain100
+$playeralias    Zombie64 male *death "PsxZombie/Death"
+$playeralias    Zombie64 male *usefail "PsxZombie/Act"
+$playersounddup Zombie64 male *grunt *pain100
+$playersounddup Zombie64 male *land *pain100 
+$playersounddup Zombie64 male *jump *pain100
+$playeralias    Zombie64 male *taunt "PsxZombie/Sight"
+//Mech demon
+$playeralias    MechPinky male *pain100 "MechDemon/Pain"
+$playersounddup MechPinky male *pain75 *pain100
+$playersounddup MechPinky male *pain50 *pain100
+$playersounddup MechPinky male *pain25 *pain100
+$playeralias    MechPinky male *death "MechDemon/death"
+$playeralias    MechPinky male *usefail "MechDemon/Act"
+$playersounddup MechPinky male *grunt *pain100
+$playeralias    MechPinky male *land "MechDemon/Walk"
+$playersounddup MechPinky male *jump *pain100
+$playeralias    MechPinky male *taunt "MechDemon/Sight"
+//Cacolantern
+$playersound    ShinnyCaco male *pain100 DSDMPAIN
+$playersounddup ShinnyCaco male *pain75 *pain100
+$playersounddup ShinnyCaco male *pain50 *pain100
+$playersounddup ShinnyCaco male *pain25 *pain100
+$playersound    ShinnyCaco male *death DSLNTDTH
+$playersound    ShinnyCaco male *usefail DSDMACT
+$playersounddup ShinnyCaco male *grunt *pain100
+$playersounddup ShinnyCaco male *land *pain100 
+$playersounddup ShinnyCaco male *jump *pain100
+$playeralias    ShinnyCaco male *taunt "Lantern/Sight"
+//Abaddon
+$playersound    SpookyCaco male *pain100 DSDMPAIN
+$playersounddup SpookyCaco male *pain75 *pain100
+$playersounddup SpookyCaco male *pain50 *pain100
+$playersounddup SpookyCaco male *pain25 *pain100
+$playersound    SpookyCaco male *death DSABDEAD
+$playersound    SpookyCaco male *usefail DSDMACT
+$playersounddup SpookyCaco male *grunt *pain100
+$playersounddup SpookyCaco male *land *pain100 
+$playersounddup SpookyCaco male *jump *pain100
+$playeralias    SpookyCaco male *taunt "Beholder/Sight"
+//arachno-sentinel
+$playersound    Scorpion male *pain100 DSDMPAIN
+$playersounddup Scorpion male *pain75 *pain100
+$playersounddup Scorpion male *pain50 *pain100
+$playersounddup Scorpion male *pain25 *pain100
+$playersound    Scorpion male *death DSCSPIDI
+$playersound    Scorpion male *usefail DSBSPACT
+$playersounddup Scorpion male *grunt *pain100
+$playersounddup Scorpion male *land *pain100 
+$playersounddup Scorpion male *jump *pain100
+$playeralias    Scorpion male *taunt "Sentinel/Sight"
+//Hectebus
+$playersound    Fatty64 male *pain100 DSMNPAIN
+$playersounddup Fatty64 male *pain75 *pain100
+$playersounddup Fatty64 male *pain50 *pain100
+$playersounddup Fatty64 male *pain25 *pain100
+$playersound    Fatty64 male *death PXMANDTH
+$playersound    Fatty64 male *usefail PXPNKACT
+$playersounddup Fatty64 male *grunt *pain100
+$playersounddup Fatty64 male *land *pain100 
+$playersound    Fatty64 male *jump PXMANSIT
+$playeralias    Fatty64 male *taunt "PsxFatso/Attack"
+//Belphegor
+$playersound    VeryNoble male *pain100 PXDMPAIN
+$playersounddup VeryNoble male *pain75 *pain100
+$playersounddup VeryNoble male *pain50 *pain100
+$playersounddup VeryNoble male *pain25 *pain100
+$playersound    VeryNoble male *death DSBLPDIE
+$playersound    VeryNoble male *usefail PXPNKACT
+$playersounddup VeryNoble male *grunt *pain100
+$playersounddup VeryNoble male *land *pain100 
+$playersounddup VeryNoble male *jump *Pain100
+$playeralias    VeryNoble male *taunt "PsxBaron/Sight"	
