@@ -10,7 +10,7 @@ function int GetMOPVar(str name)
 
 function int GetMOPVarFixed(str name)
 {
-	return GetCVarFixed(StrParam(s:MOP_CVAR_PREFIX, s:name));
+	return a_GetCVarFixed(StrParam(s:MOP_CVAR_PREFIX, s:name));
 }
 
 function int GetMOPVarString(str name)

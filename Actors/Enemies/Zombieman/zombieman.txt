@@ -1,0 +1,83 @@
+/*
+
+zombieman rifle sprites: ID software (doom alpha)
+
+*/
+
+actor ROPzombieman : zombieman replaces zombieman {}
+
+actor possessedROPzombieman : PossessedMonster
+{
+  player.morphweapon "ROPzombiemanrifle"
+  health 20
+  Radius 20
+  Height 56
+  Speed 0.4 //0.35
+  PainChance 200
+  Monster
+  +FLOORCLIP
+  SeeSound "grunt/sight"
+  PainSound "grunt/pain"
+  DeathSound "grunt/death"
+  ActiveSound "grunt/active"
+  Player.SoundClass Zombie
+  States
+  {
+  Spawn:
+    POSS AB 10
+    Loop
+  See:
+    POSS AABBCCDD 3
+    Loop
+  Melee:
+    POSS F 4 Bright
+    POSS E 10
+    Goto Spawn
+  Missile:
+	POSS EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE 1 a_jumpifinventory("riflechargetoken", 35, "melee")
+	Goto Spawn
+  Pain:
+    POSS G 3
+    POSS G 3 A_Pain
+    Goto Spawn
+  }
+}
+
+actor ROPzombiemanrifle : possessedweapon
+{
+  decal bulletchip
+  obituary "%o was gunned down by %k."
+  states
+  {
+  ready:
+    ZMBW A 1 a_weaponready
+	loop
+  fire:
+    ZMBW A 0 a_takeinventory("riflechargetoken", 35)
+	ZMBW A 0 a_playweaponsound("grunt/attack")
+    ZMBW B 1 bright a_firebullets(6, 6, -1, 10, "bulletpuff", fbf_norandom)
+	ZMBW C 1 bright
+	ZMBW DEFF 1
+	ZMBW EDGH 1
+	ZMBW IJK 1 //a_weaponready(WRF_NOSECONDARY)
+	goto ready
+  altfire:
+    ZMBW A 1 a_weaponready(WRF_NOSECONDARY)
+	ZMBW A 0 a_giveinventory("riflechargetoken", 1)
+	ZMBW A 0 a_jumpifinventory("riflechargetoken", 35, "fireaccurate")
+	loop
+  fireaccurate:
+    ZMBW A 0 a_refire(2)
+	ZMBW A 0 a_takeinventory("riflechargetoken", 35)
+	goto ready
+    ZMBW A 0 a_playweaponsound("grunt/attack")
+	ZMBW A 0 a_takeinventory("riflechargetoken", 35)
+    ZMBW B 1 bright a_firebullets(0, 0, 1, 10, "bulletpuff", fbf_norandom)
+	ZMBW C 1 bright
+	ZMBW DEFF 1
+	ZMBW EDGHIJK 1
+	goto ready
+  }
+}
+	
+actor riflechargetoken : inventory { inventory.maxamount 35 }

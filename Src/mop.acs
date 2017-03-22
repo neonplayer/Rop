@@ -1,6 +1,7 @@
 #library "mop"
 
 #define TIDALLOCSTART 15000
+#define ACSUTILS_HUDLIB_SAVEDSTATES 16
 
 #include "zcommon.acs"
 #include "acsutils.acs"

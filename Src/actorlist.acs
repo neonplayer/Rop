@@ -20,6 +20,8 @@ function void InitMOP(void)
 	AddStartItem("PlasmaClip", 50);
 	AddStartItem("RocketClip", 5);
 	
+	addmonster(0.02, "POSSA1", "ROPzombieman", "Zombieman");
+	/*
 	AddMonster(0.02,  "POSSA1",   "Zombieman2", "Zombieman");
 	AddMonster(0.035, "PRPSA1",   "PlasmaZombie", "Plasma Zombie");
 	
@@ -68,6 +70,7 @@ function void InitMOP(void)
 	AddMonster(0.02,  "SSWVA1",   "WolfensteinSS2", "Wolfenstein SS");
 	
 	AddMonster(0.01,  "BAR1A0",   "NewExplosiveBarrel", "Explosive Barrel");
+	*/
 }
 
 function void PistolStartModes(int mode)

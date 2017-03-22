@@ -5,9 +5,14 @@
 #Include Actors/ShieldBase
 #Include Actors/ShieldColors
 
-#Include Actors/EnemySpawners
-#Include Actors/Enemies/Vanilla
+//#Include Actors/EnemySpawners
 
+#Include Actors/Enemies/PossessedBase
+//#Include Actors/Enemies/Possessed
+
+#include actors/enemies/zombieman/zombieman.txt
+
+/*
 #Include Actors/Enemies/PlasmaZombie
 #Include Actors/Enemies/SSGzombie
 #Include Actors/Enemies/DoubleChaingunguy
@@ -19,9 +24,7 @@
 #Include Actors/Enemies/Hectebus
 #Include Actors/Enemies/ArachnoSentinel
 #Include Actors/Enemies/Belphegor
-
-#Include Actors/Enemies/PossessedBase
-#Include Actors/Enemies/Possessed
+*/
 
 #Include Actors/Weapons/Fist
 #Include Actors/Weapons/Chainsaw
