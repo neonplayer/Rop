@@ -11,3 +11,4 @@ server bool rop_manyplayers = false;
 server bool rop_autoconfig = true;
 
 user bool rop_noicons = false;
+user bool rop_effects = true;

@@ -1,3 +1,7 @@
+#include "actors/bulletpuffs.gl"
+
+#include "actors/enemies/zombieman/zombieman.gl"
+
 //Projectiles
 
 object MonsterBulletPuff

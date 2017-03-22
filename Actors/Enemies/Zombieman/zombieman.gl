@@ -1,0 +1,16 @@
+pointlight zombielight
+{
+  color 1.0 0.8 0.2
+  size 32
+  offset 8 32 0
+}
+
+object ropzombieman
+{
+frame POSSF { light zombielight }
+}
+
+object possessedropzombieman
+{
+frame POSSF { light zombielight }
+}

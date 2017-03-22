@@ -1,0 +1,75 @@
+PointLight FBPLight1
+{
+	color 0.8 0.8 0.0
+	Size 12
+}
+
+PointLight FBPLight2
+{
+	color 0.7 0.7 0.0
+	Size 10
+}
+
+PointLight FBPLight3
+{
+	color 0.6 0.6 0.0
+	Size 8
+}
+
+PointLight FBPLight4
+{
+	color 0.5 0.5 0.0
+	Size 7
+}
+
+PointLight FBPLight5
+{
+	color 0.45 0.45 0.0
+	Size 6
+}
+
+PointLight FBPLight6
+{
+	color 0.4 0.4 0.0
+	Size 5
+}
+
+Object FancyBulletPuff
+{
+Frame TNT1B { light FBPLight1 }
+Frame TNT1C { light FBPLight2 }
+Frame TNT1D { light FBPLight3 }
+Frame TNT1E { light FBPLight4 }
+Frame TNT1F { light FBPLight5 }
+Frame TNT1G { light FBPLight6 }
+}
+
+Object MonsterBulletPuff
+{
+Frame TNT1B { light FBPLight1 }
+Frame TNT1C { light FBPLight2 }
+Frame TNT1D { light FBPLight3 }
+Frame TNT1E { light FBPLight4 }
+Frame TNT1F { light FBPLight5 }
+Frame TNT1G { light FBPLight6 }
+}
+
+Object playerbulletpuff
+{
+Frame TNT1B { light FBPLight1 }
+Frame TNT1C { light FBPLight2 }
+Frame TNT1D { light FBPLight3 }
+Frame TNT1E { light FBPLight4 }
+Frame TNT1F { light FBPLight5 }
+Frame TNT1G { light FBPLight6 }
+}
+
+Object Monstermeleepuff
+{
+Frame TNT1B { light FBPLight1 }
+Frame TNT1C { light FBPLight2 }
+Frame TNT1D { light FBPLight3 }
+Frame TNT1E { light FBPLight4 }
+Frame TNT1F { light FBPLight5 }
+Frame TNT1G { light FBPLight6 }
+}

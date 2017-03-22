@@ -1,0 +1,106 @@
+actor FancyBulletPuff : BulletPuff
+{
+  -allowparticles
+  vspeed 1
+  states
+  {
+  melee:
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_checksight("Fading")
+	TNT1 A 0 a_spawnitemex("BulletPuffSmoke", 0, 0, 0, random(3, -3)*0.5, random(3, -3)*0.5, random(3, 6)*0.5)
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "fading")
+	TNT1 AAAA 0 a_spawnitemex("BulletPuffSmoke", 0, 0, 0, random(3, -3)*0.5, random(3, -3)*0.5, random(3, 6)*0.5)
+	TNT1 AAA 0 a_spawnitemex("BulletPuffRicochet", 0, 0, 0, random(3, -3), random(3, -3), random(3, 6))
+  fading:
+	TNT1 BCDEFG 1
+	stop
+  }
+}
+
+
+Actor BulletPuffSmoke
+{
+  -AllowParticles
+  -Randomize
+  +Noclip
+  +DontSplash
+  +ClientSideOnly
+  +NoGravity
+  RenderStyle Translucent
+  Scale 0.75
+  Alpha 0.3
+  Speed 1
+  Translation "168:191=96:111"
+  States
+  {
+  Spawn:
+    PUFF B 1 A_SetScale(Scalex+0.06, Scaley+0.06)
+	PUFF A 0 A_SetTranslucent(Alpha-0.01, 0)
+	PUFF B 1 A_SetScale(Scalex+0.06, Scaley+0.06)
+	PUFF A 0 A_SetTranslucent(Alpha-0.01, 0)
+	PUFF B 1 A_SetScale(Scalex+0.06, Scaley+0.06)
+	PUFF A 0 A_SetTranslucent(Alpha-0.01, 0)
+	
+	PUFF C 1 A_SetScale(Scalex+0.05, Scaley+0.05)
+	PUFF C 0 A_SetTranslucent(Alpha-0.01, 0)
+	PUFF C 1 A_SetScale(Scalex+0.05, Scaley+0.05)
+	PUFF C 0 A_SetTranslucent(Alpha-0.01, 0)
+	PUFF C 1 A_SetScale(Scalex+0.05, Scaley+0.05)
+	PUFF C 0 A_SetTranslucent(Alpha-0.01, 0)
+	PUFF C 1 A_SetScale(Scalex+0.05, Scaley+0.05)
+	PUFF C 0 A_SetTranslucent(Alpha-0.01, 0)
+	
+	PUFF D 1 A_SetScale(Scalex+0.04, Scaley+0.04)
+	PUFF D 0 A_SetTranslucent(Alpha-0.01, 0)
+	PUFF D 1 A_SetScale(Scalex+0.04, Scaley+0.04)
+	PUFF D 0 A_SetTranslucent(Alpha-0.01, 0)
+	PUFF D 1 A_SetScale(Scalex+0.04, Scaley+0.04)
+	PUFF D 0 A_SetTranslucent(Alpha-0.01, 0)
+	PUFF D 1 A_SetScale(Scalex+0.04, Scaley+0.04)
+	PUFF D 0 A_SetTranslucent(Alpha-0.01, 0)
+	PUFF D 1 A_SetScale(Scalex+0.04, Scaley+0.04)
+	PUFF D 0 A_SetTranslucent(Alpha-0.01, 0)
+	Stop
+  }
+}
+
+Actor BulletPuffRicochet : BulletPuffSmoke
+{
+  +Missile
+  +ThruActors
+  +BounceOnFloors
+  -NoGravity
+  BounceCount 2
+  BounceFactor 0.9
+  RenderStyle Add
+  Gravity 0.5
+  Alpha 0.75
+  States
+  {
+  Spawn:
+    PUFF A 0
+  Spawn2:
+    PUFF A 0 A_JumpIf(Scalex < 0, "Death")
+    PUFF A 2 A_SetScale(Scalex-0.1, Scaley-0.1)
+	Loop
+  Death:
+    TNT1 A 0
+	Stop
+  }
+}
+
+Actor MonsterBulletPuff : fancyBulletPuff
+{
+  DamageType "Monster"
+}
+
+Actor MonsterMeleePuff : fancyBulletPuff replaces BulletPuff // lazy fix, won't work with custom guns
+{
+  DamageType "MonsterMelee"
+}
+
+Actor PlayerBulletPuff : fancyBulletPuff
+{
+  DamageType "MarinePuff"
+}

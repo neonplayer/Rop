@@ -42,4 +42,4 @@
 
 #Include Actors/Marine
 #Include Actors/PuppetMaster
-#Include Actors/BulletPuffs
+#Include Actors/BulletPuffs.txt

@@ -17,3 +17,8 @@ function int GetMOPVarString(str name)
 {
 	return GetCVarString(StrParam(s:MOP_CVAR_PREFIX, s:name));
 }
+
+script "effectchecker" (void) clientside
+{
+	SetResultValue(GetUserCVar(consoleplayernumber(),"rop_effects"));
+}

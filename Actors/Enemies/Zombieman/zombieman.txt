@@ -4,7 +4,38 @@ zombieman rifle sprites: ID software (doom alpha)
 
 */
 
-actor ROPzombieman : zombieman replaces zombieman {}
+actor ROPzombieman : zombieman replaces zombieman
+{
+  painchance 128
+  obituary "%o was gunned down by a zombieman."
+  states
+  {
+  spawn:
+    POSS A 0
+	POSS A 0 a_jump(128, "spawn2")
+  spawn1:
+    POSS A 10 a_look
+	loop
+  spawn2:
+    POSS C 10 a_look
+	loop
+  see:
+    POSS AABBCCDD 3 A_Chase
+    Loop
+  missile:
+    POSS E 10 A_FaceTarget
+    POSS F 8 A_CustomBulletAttack (12.5, 12.5, 1, 10, "BulletPuff", 0, CBAF_NORANDOM)
+    POSS E 8
+	POSS A 0 a_jumpiftargetinlos(1)
+    Goto See
+	POSS A 0 a_jump(168, "see")
+	POSS E 10 A_FaceTarget
+    POSS F 8 A_CustomBulletAttack (12.5, 12.5, 1, 10, "BulletPuff", 0, CBAF_NORANDOM)
+    POSS E 8
+	goto see
+  }
+}
+  
 
 actor possessedROPzombieman : PossessedMonster
 {
@@ -13,7 +44,7 @@ actor possessedROPzombieman : PossessedMonster
   Radius 20
   Height 56
   Speed 0.4 //0.35
-  PainChance 200
+  PainChance 128
   Monster
   +FLOORCLIP
   SeeSound "grunt/sight"
@@ -55,7 +86,7 @@ actor ROPzombiemanrifle : possessedweapon
   fire:
     ZMBW A 0 a_takeinventory("riflechargetoken", 35)
 	ZMBW A 0 a_playweaponsound("grunt/attack")
-    ZMBW B 1 bright a_firebullets(6, 6, -1, 10, "bulletpuff", fbf_norandom)
+    ZMBW B 1 bright a_firebullets(5, 5, -1, 10, "MonsterBulletPuff", fbf_norandom)
 	ZMBW C 1 bright
 	ZMBW DEFF 1
 	ZMBW EDGH 1
@@ -72,7 +103,7 @@ actor ROPzombiemanrifle : possessedweapon
 	goto ready
     ZMBW A 0 a_playweaponsound("grunt/attack")
 	ZMBW A 0 a_takeinventory("riflechargetoken", 35)
-    ZMBW B 1 bright a_firebullets(0, 0, 1, 10, "bulletpuff", fbf_norandom)
+    ZMBW B 1 bright a_firebullets(0, 0, 1, 10, "MonsterBulletPuff", fbf_norandom)
 	ZMBW C 1 bright
 	ZMBW DEFF 1
 	ZMBW EDGHIJK 1
