@@ -1,0 +1,281 @@
+/*
+
+smooth chaingun: Per Kristian
+chaingun reving up/down/loop: id software (doom 3)
+
+*/
+
+actor ropchaingunguy : chaingunguy replaces chaingunguy {}
+
+actor possessedropchaingunguy : possessedmonster
+{
+  player.morphweapon "ropzombiechaingun"
+  Health 70
+  Radius 20
+  Height 56
+  Mass 100
+  Speed 0.4
+  PainChance 170
+  Monster
+  +FLOORCLIP
+  SeeSound "chainguy/sight"
+  PainSound "chainguy/pain"
+  DeathSound "chainguy/death"
+  ActiveSound "chainguy/active"
+  AttackSound "chainguy/attack"
+  Obituary "%o was peppered by %k's heavy weapons."
+  States
+  {
+  Spawn:
+    CPOS AB 10
+    Loop
+  See:
+    CPOS AABBCCDD 3
+    Loop
+  Melee:
+    CPOS A 0 a_jumpifinventory("chaingunspintoken", 1, "melee2")
+    CPOS FFFEEEE 1 Bright
+	goto spawn
+  melee2:
+    CPOS FFEEE 1 bright
+	goto spawn
+  missile:
+    CPOS A 0
+	goto spawn
+  Pain:
+    CPOS G 3
+    CPOS G 3 A_Pain
+    Goto spawn
+  }
+}
+
+actor ropzombiechaingun : possessedweapon
+{
+  AttackSound "chainguy/attack"
+  Decal BulletChip
+  weapon.ammotype "chaingunaccuracytoken"
+  weapon.ammouse 0
+  weapon.ammotype2 "chaingunspintoken"
+  weapon.ammouse2 0
+  States
+  {
+  Ready:
+    PKCG A 0 a_jumpifinventory("chaingunspintoken", 1, "repossescheck")
+    PKCG A 10 A_WeaponReady
+	PKCG A 0 a_takeinventory("chaingunaccuracytoken", 1)
+	Goto Ready+1
+  repossescheck:
+    PKCG A 0 acs_namedexecutealways("setspeed", 0, 20)
+  readyspin:
+    PKCG A 0 a_playsound("zombchaingun/loop")
+    PKCG ABCDABCDABCDABCDABCD 1 a_weaponready
+	loop
+  Fire:
+    PKCG A 0 A_GunFlash
+	PKCG A 0 a_jumpifinventory("chaingunaccuracytoken", 10, "fire10")
+	PKCG A 0 a_jumpifinventory("chaingunaccuracytoken", 9, "fire9")
+	PKCG A 0 a_jumpifinventory("chaingunaccuracytoken", 8, "fire8")
+	PKCG A 0 a_jumpifinventory("chaingunaccuracytoken", 7, "fire7")
+	PKCG A 0 a_jumpifinventory("chaingunaccuracytoken", 6, "fire6")
+	PKCG A 0 a_jumpifinventory("chaingunaccuracytoken", 5, "fire5")
+	PKCG A 0 a_jumpifinventory("chaingunaccuracytoken", 4, "fire4")
+	PKCG A 0 a_jumpifinventory("chaingunaccuracytoken", 3, "fire3")
+	PKCG A 0 a_jumpifinventory("chaingunaccuracytoken", 2, "fire2")
+	PKCG A 0 a_jumpifinventory("chaingunaccuracytoken", 1, "fire1")
+  fire0:
+    PKCG A 0 a_jumpifinventory("chaingunspintoken", 1, "fire0spin")
+    PKCG A 0 A_FireBullets(2, 2, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCCDD 1
+	PKCG B 0 A_ReFire
+	goto stopping
+  fire0spin:
+    PKCG A 0 A_FireBullets(4, 4, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCD 1
+	PKCG B 0 A_ReFire
+	goto readyspin
+  fire1:
+    PKCG A 0 a_jumpifinventory("chaingunspintoken", 1, "fire1spin")
+    PKCG A 0 A_FireBullets(2.5, 2.5, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCCDD 1
+	PKCG B 0 A_ReFire
+	goto stopping
+  fire1spin:
+    PKCG A 0 A_FireBullets(4.75, 4.75, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCD 1
+	PKCG B 0 A_ReFire
+	goto readyspin
+  fire2:
+    PKCG A 0 a_jumpifinventory("chaingunspintoken", 1, "fire2spin")
+    PKCG A 0 A_FireBullets(3, 3, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCCDD 1
+	PKCG B 0 A_ReFire
+	goto stopping
+  fire2spin:
+    PKCG A 0 A_FireBullets(5.5, 5.5, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCD 1
+	PKCG B 0 A_ReFire
+	goto readyspin
+  fire3:
+    PKCG A 0 a_jumpifinventory("chaingunspintoken", 1, "fire3spin")
+    PKCG A 0 A_FireBullets(3.5, 3.5, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCCDD 1
+	PKCG B 0 A_ReFire
+	goto stopping
+  fire3spin:
+    PKCG A 0 A_FireBullets(6.25, 6.25, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCD 1
+	PKCG B 0 A_ReFire
+	goto readyspin
+  fire4:
+    PKCG A 0 a_jumpifinventory("chaingunspintoken", 1, "fire4spin")
+    PKCG A 0 A_FireBullets(4, 4, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCCDD 1
+	PKCG B 0 A_ReFire
+	goto stopping
+  fire4spin:
+    PKCG A 0 A_FireBullets(7, 7, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCD 1
+	PKCG B 0 A_ReFire
+	goto readyspin
+  fire5:
+    PKCG A 0 a_jumpifinventory("chaingunspintoken", 1, "fire5spin")
+    PKCG A 0 A_FireBullets(4.5, 4.5, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCCDD 1
+	PKCG B 0 A_ReFire
+	goto stopping
+  fire5spin:
+    PKCG A 0 A_FireBullets(7.75, 7.75, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCD 1
+	PKCG B 0 A_ReFire
+	goto readyspin
+  fire6:
+    PKCG A 0 a_jumpifinventory("chaingunspintoken", 1, "fire6spin")
+    PKCG A 0 A_FireBullets(5, 5, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCCDD 1
+	PKCG B 0 A_ReFire
+	goto stopping
+  fire6spin:
+    PKCG A 0 A_FireBullets(8.5, 8.5, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCD 1
+	PKCG B 0 A_ReFire
+	goto readyspin
+  fire7:
+    PKCG A 0 a_jumpifinventory("chaingunspintoken", 1, "fire7spin")
+    PKCG A 0 A_FireBullets(5.5, 5.5, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCCDD 1
+	PKCG B 0 A_ReFire
+	goto stopping
+  fire7spin:
+    PKCG A 0 A_FireBullets(9.25, 9.25, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCD 1
+	PKCG B 0 A_ReFire
+	goto readyspin
+  fire8:
+    PKCG A 0 a_jumpifinventory("chaingunspintoken", 1, "fire8spin")
+    PKCG A 0 A_FireBullets(6, 6, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCCDD 1
+	PKCG B 0 A_ReFire
+	goto stopping
+  fire8spin:
+    PKCG A 0 A_FireBullets(10, 10, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCD 1
+	PKCG B 0 A_ReFire
+	goto readyspin
+  fire9:
+    PKCG A 0 a_jumpifinventory("chaingunspintoken", 1, "fire9spin")
+    PKCG A 0 A_FireBullets(6.5, 6.5, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCCDD 1
+	PKCG B 0 A_ReFire
+	goto stopping
+  fire9spin:
+    PKCG A 0 A_FireBullets(10.75, 10.75, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCD 1
+	PKCG B 0 A_ReFire
+	goto readyspin
+  fire10:
+    PKCG A 0 a_jumpifinventory("chaingunspintoken", 1, "fire10spin")
+    PKCG A 0 A_FireBullets(7, 7, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCCDD 1
+	PKCG B 0 A_ReFire
+	goto stopping
+  fire10spin:
+    PKCG A 0 A_FireBullets(11.5, 11.5, -1, 9, "MonsterBulletPuff", FBF_NORANDOM)
+	PKCG A 1 a_giveinventory("chaingunaccuracytoken", 1)
+	PKCG BCD 1
+	PKCG B 0 A_ReFire
+	goto readyspin
+  stopping:
+    PKCG A 0 a_jumpifinventory("chaingunspintoken", 1, "readyspin")
+	PKCG B 0 A_ReFire
+	PKCG A 1 A_Weaponready
+	PKCG B 2 A_Weaponready
+	PKCG CD 3 A_Weaponready
+	PKCG A 1 a_weaponready
+	PKCG A 0 a_takeinventory("chaingunaccuracytoken", 1)
+	PKCG A 3 a_weaponready
+	PKCG BBBBCCCCDD 1 a_weaponready
+	PKCG A 0 a_takeinventory("chaingunaccuracytoken", 1)
+	PKCG DD 1 a_weaponready
+	Goto Ready
+  AltFire:
+    PKCG A 0 a_jumpifinventory("chaingunspintoken", 1, "stopspin")
+	PKCG A 0 a_giveinventory("chaingunspintoken", 1)
+    PKCG A 0 a_playsound("zombchaingun/up")
+	PKCG AAAABBBBCCCCDDDAAABBBCCDD 1
+	PKCG A 0 acs_namedexecutealways("setspeed", 0, 20)
+	Goto readyspin
+  stopspin:
+    PKCG A 0 a_takeinventory("chaingunspintoken", 1)
+    PKCG A 0 a_playsound("zombchaingun/down")
+	PKCG ABBCCCDDDAAAABBBBCCCCDDDD 1
+	PKCG A 0 acs_namedexecutealways("setspeed", 0, 40)
+	goto ready
+  Flash:
+    TNT1 A 0
+	TNT1 A 0 A_Jump(128, 4)
+	PKCF A 1 Bright A_Light1
+	PKCF B 1 Bright A_Light2
+    TNT1 A 2 Bright A_Light2
+	Goto LightDone
+	TNT1 A 0
+	PKCF C 1 Bright A_Light1
+	PKCF D 1 Bright A_Light2
+    TNT1 A 2 Bright A_Light2
+	Goto LightDone
+  }
+}
+
+actor chaingunaccuracytoken : ammo 
+{ 
+  inventory.amount 1
+  inventory.maxamount 10
+  +ignoreskill
+}
+
+actor chaingunspintoken : ammo 
+{ 
+  inventory.amount 1
+  inventory.maxamount 1 
+  +ignoreskill
+}

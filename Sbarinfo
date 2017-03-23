@@ -15,8 +15,8 @@ statusbar fullscreen, fullscreenoffsets, 0.75
 	DrawNumber 3, HudFont_Doom, Green, Armor, InterPolate(50), WhenNotZero, 300, -20;
 	DrawImage ArmorIcon, 245, -4, CenterBottom;
 	
-	DrawNumber 3, HudFont_Doom, Yellow, Ammo2, InterPolate(50), 198, -20;
-	DrawNumber 3, HudFont_Doom, Yellow, Ammo1, InterPolate(50), 148, -20;
+	/*DrawNumber 3, HudFont_Doom, Yellow, Ammo2, InterPolate(50), 198, -20;
+	DrawNumber 3, HudFont_Doom, Yellow, Ammo1, InterPolate(50), 148, -20;*/
 	
 	DrawNumber 3, IndexFont, White, Ammo Clip, 300, -68;
 	DrawNumber 3, IndexFont, White, Ammo Shell, 300, -58;
@@ -30,6 +30,12 @@ statusbar fullscreen, fullscreenoffsets, 0.75
 	DrawSwitchableImage KeySlot 5, "TNT1A0", "STKEYS3", 99, -30;
 	DrawSwitchableImage KeySlot 6, "TNT1A0", "STKEYS4", 99, -20;
 	DrawSwitchableImage KeySlot 4, "TNT1A0", "STKEYS5", 99, -10;
+  }
+  
+  ininventory not IsMarine
+  {
+    DrawNumber 3, HudFont_Doom, Yellow, Ammo2, 490, -40;
+    DrawNumber 3, HudFont_Doom, Yellow, Ammo1, 490, -20;
   }
 }
 

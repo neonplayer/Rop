@@ -1,0 +1,25 @@
+pointlight zombiechaingunlight1
+{
+  color 1.0 0.8 0.2
+  size 24
+  offset 8 32 0
+}
+
+pointlight zombiechaingunlight2
+{
+  color 1.0 0.8 0.2
+  size 36
+  offset 8 32 0
+}
+
+object ropchaingunguy
+{
+frame CPOSE { light zombiechaingunlight1 }
+frame CPOSF { light zombiechaingunlight2 }
+}
+
+object possessedropchaingunguy
+{
+frame CPOSE { light zombiechaingunlight1 }
+frame CPOSF { light zombiechaingunlight2 }
+}

@@ -10,6 +10,15 @@ actor ROPshotgunguy : shotgunguy replaces shotgunguy
   Obituary "%o got some buckshot from a shotgun zombie."
   states
   {
+  spawn:
+    SPOS A 0
+	SPOS A 0 a_jump(128, "spawn2")
+  spawn1:
+    SPOS A 10 a_look
+	loop
+  spawn2:
+    SPOS C 10 a_look
+	loop
   Missile:
     SPOS E 10 A_FaceTarget
 	SPOS A 0 a_jumpiftargetinlos("bulletmissile")
@@ -44,8 +53,14 @@ actor possessedROPshotgunguy : possessedmonster
   States
   {
   Spawn:
-    SPOS AB 10
-    Loop
+    SPOS A 0
+	SPOS A 0 a_jump(128, "spawn2")
+  spawn1:
+    SPOS A 10 a_look
+	loop
+  spawn2:
+    SPOS C 10 a_look
+	loop
   See:
     SPOS AABBCCDD 3
     Loop

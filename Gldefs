@@ -2,6 +2,7 @@
 
 #include "actors/enemies/zombieman/zombieman.gl"
 #include "actors/enemies/shotgunguy/shotgunguy.gl"
+#include "actors/enemies/chaingunguy/chaingunguy.gl"
 
 //Projectiles
 

@@ -16,6 +16,12 @@ $Random PsxZombie/Death { PXZMDTH1 PXZMDTH2 PXZMDTH3 }
 
 ExplosiveGuy/Fire	ESPOSFIR
 
+zombchaingun/up		CGSPUP
+zombchaingun/loop	CGSPLOOP
+zombchaingun/down	CGSPDOWN
+
+$pitchshift zombchaingun/loop 0
+
 //Dark Imp
 
 PXMPSIT1		PXMPSIT1

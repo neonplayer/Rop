@@ -55,8 +55,14 @@ actor possessedROPzombieman : PossessedMonster
   States
   {
   Spawn:
-    POSS AB 10
-    Loop
+    POSS A 0
+	POSS A 0 a_jump(128, "spawn2")
+  spawn1:
+    POSS A 10
+	loop
+  spawn2:
+    POSS C 10
+	loop
   See:
     POSS AABBCCDD 3
     Loop
@@ -78,6 +84,8 @@ actor ROPzombiemanrifle : possessedweapon
 {
   decal bulletchip
   obituary "%o was gunned down by %k."
+  weapon.ammotype "riflechargetoken"
+  weapon.ammouse 0
   states
   {
   ready:
@@ -111,4 +119,9 @@ actor ROPzombiemanrifle : possessedweapon
   }
 }
 	
-actor riflechargetoken : inventory { inventory.maxamount 35 }
+actor riflechargetoken : ammo 
+{ 
+  inventory.amount 1
+  inventory.maxamount 35 
+  +ignoreskill
+}

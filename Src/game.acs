@@ -23,6 +23,8 @@ int ExtraLivePoints = 0.0;
 
 int LastPossessedMonster[MAX_PLAYERS][NUM_LASTMONSTER_PROPERTIES];
 
+script "SetSpeed" (int percentage) { SetActorProperty(0, APROP_SPEED, percentage * 1.0 / 100); }
+
 script mop_log_join(int player, int team, int manyplayers) clientside
 {
 	switch(team)

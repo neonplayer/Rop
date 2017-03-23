@@ -12,6 +12,7 @@
 
 #include actors/enemies/zombieman/zombieman.txt
 #include actors/enemies/shotgunguy/shotgunguy.txt
+#include actors/enemies/chaingunguy/chaingunguy.txt
 
 /*
 #Include Actors/Enemies/PlasmaZombie
