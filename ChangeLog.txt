@@ -1,7 +1,9 @@
 ROP r5:
 
-- Upgraded to zandronum 3.0 (WARNING: will not work with 2.1.2, use a 3.0 alpha!)
+	WARNING: rc5 will not work with 2.1.2, use a 3.0 alpha!
+  
 - Added rop_effects. settng it to 0 or false will remove most special effects.
+- Added colored monster names. (now if you mouse over a monster as a puppetmaster all names won't be red anymore)
 
 ROP r4b:
 

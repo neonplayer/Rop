@@ -1,0 +1,126 @@
+/*
+
+shrapnel sprites: ID Software, Raven Software, 3D Realms, Nanami, Eriance, Keksdose, Jimmy91(Jimmy?).
+
+*/
+
+actor ROPshotgunguy : shotgunguy replaces shotgunguy
+{
+  painchance 128
+  Obituary "%o got some buckshot from a shotgun zombie."
+  states
+  {
+  Missile:
+    SPOS E 10 A_FaceTarget
+	SPOS A 0 a_jumpiftargetinlos("bulletmissile")
+	SPOS F 0 a_playsound("shotguy/attack")
+	SPOS FF 0 A_custommissile("shotguyshrapnel", 32, 0, random(50, -50)*0.1, 0, random(50, -50)*0.1)
+    SPOS F 10 Bright A_custommissile("shotguyshrapnel", 32, 0, random(50, -50)*0.1, 0, random(50, -50)*0.1)
+    SPOS E 10
+    Goto See
+  bulletmissile:
+    SPOS F 10 Bright A_SPosAttackUseAtkSound
+    SPOS E 10
+    Goto See
+  }
+}
+
+actor possessedROPshotgunguy : possessedmonster
+{
+  player.morphweapon "ROPzombieshotgun"
+  Radius 30
+  Height 56
+  Mass 100
+  Speed 0.4
+  PainChance 170
+  Monster
+  +FLOORCLIP
+  SeeSound "shotguy/sight"
+  PainSound "shotguy/pain"
+  DeathSound "shotguy/death"
+  ActiveSound "shotguy/active"
+  Obituary "%o got some buckshot from %k."
+  States
+  {
+  Spawn:
+    SPOS AB 10
+    Loop
+  See:
+    SPOS AABBCCDD 3
+    Loop
+  Missile:
+    SPOS F 6 bright
+    SPOS E 41
+    Goto See
+  Pain:
+    SPOS G 3
+    SPOS G 3 A_Pain
+    Goto See
+  }
+}
+
+actor ROPzombieshotgun : possessedweapon
+{
+  decal bulletchip
+  states
+  {
+  ready:
+    ZMBS A 1 a_weaponready
+	loop
+  fire:
+    ZMBS A 0 a_playweaponsound("shotguy/attack")
+	ZMBS AAAA 0 a_firecustommissile("bulletparticle", random(20, -20)*0.1, 0, 0, 0, 0, random(20, -20)*0.1)
+    ZMBS B 1 bright a_firebullets(8, 8, 5, 8, "monsterbulletpuff", fbf_norandom)
+	ZMBS C 1 bright
+	ZMBS DEFF 1
+	ZMBS EGDHIJKLMNAAA 1
+	ZMBS OPQRSTUVWXYZ 1
+	ZMS2 A 3
+	ZMBS ZYXWVUTSRQPO 1
+	goto ready
+  altfire:
+    ZMBS A 0 a_playweaponsound("shotguy/attack")
+	ZMBS BBB 0 a_firecustommissile("shotguyshrapnel", random(50, -50)*0.1, 0, 0, 0, 0, random(50, -50)*0.1)
+    ZMBS B 1 bright
+	ZMBS C 1 bright
+	ZMBS DEFF 1
+	ZMBS EGDHIJKLMNAAA 1
+	ZMBS OPQRSTUVWXYZ 1
+	ZMS2 A 3
+	ZMBS ZYXWVUTSRQPO 1
+	goto ready
+  }
+}
+
+actor shotguyshrapnel : doomimpball
+{
+  gravity 0.5
+  damage (9)
+  bouncecount 2
+  renderstyle normal
+  speed 30
+  bouncefactor 0.5
+  wallbouncefactor 1.0
+  scale 0.2
+  damagetype "monster"
+  decal bulletchip
+  +bounceonwalls
+  +bounceonceilings
+  +bounceonfloors
+  -nogravity
+  seesound ""
+  deathsound ""
+  projectilekickback 1
+  states
+  {
+  spawn:
+    ZSHR ABCDEFGH 1 bright
+	loop
+  death:
+    TNT1 A 0
+	stop
+  crash:
+    TNT1 A 0 a_spawnitemex("fancybulletpuff")
+	stop
+  }
+}

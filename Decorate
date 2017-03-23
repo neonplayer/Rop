@@ -1,5 +1,5 @@
 #Include Actors/Scripts
-#Include Actors/EffectBase
+#Include Actors/EffectBase.txt
 
 //Shield stuff.
 #Include Actors/ShieldBase
@@ -11,6 +11,7 @@
 //#Include Actors/Enemies/Possessed
 
 #include actors/enemies/zombieman/zombieman.txt
+#include actors/enemies/shotgunguy/shotgunguy.txt
 
 /*
 #Include Actors/Enemies/PlasmaZombie

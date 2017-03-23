@@ -1,0 +1,16 @@
+pointlight zombieshotgunlight
+{
+  color 1.0 0.8 0.2
+  size 44
+  offset 8 32 0
+}
+
+object ropshotgunguy
+{
+frame SPOSF { light zombieshotgunlight }
+}
+
+object possessedropshotgunguy
+{
+frame SPOSF { light zombieshotgunlight }
+}
