@@ -28,7 +28,8 @@ actor ROPshotgunguy : shotgunguy replaces shotgunguy
 actor possessedROPshotgunguy : possessedmonster
 {
   player.morphweapon "ROPzombieshotgun"
-  Radius 30
+  health 30
+  Radius 20
   Height 56
   Mass 100
   Speed 0.4
@@ -94,23 +95,27 @@ actor ROPzombieshotgun : possessedweapon
 
 actor shotguyshrapnel : doomimpball
 {
+  radius 2
+  height 4
   gravity 0.5
-  damage (9)
+  damage (10)
   bouncecount 2
-  renderstyle normal
   speed 30
   bouncefactor 0.5
   wallbouncefactor 1.0
+  renderstyle normal
+  alpha 1.0
   scale 0.2
   damagetype "monster"
   decal bulletchip
   +bounceonwalls
   +bounceonceilings
   +bounceonfloors
+  +forcexybillboard
   -nogravity
   seesound ""
   deathsound ""
-  projectilekickback 1
+  projectilekickback 25
   states
   {
   spawn:

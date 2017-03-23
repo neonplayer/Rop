@@ -14,3 +14,21 @@ object possessedropshotgunguy
 {
 frame SPOSF { light zombieshotgunlight }
 }
+
+pointlight shrapnellight
+{
+  color 0.5 0.25 0.0
+  size 10
+}
+
+object shotguyshrapnel
+{
+frame ZSHRA { light shrapnellight }
+frame ZSHRB { light shrapnellight }
+frame ZSHRC { light shrapnellight }
+frame ZSHRD { light shrapnellight }
+frame ZSHRE { light shrapnellight }
+frame ZSHRF { light shrapnellight }
+frame ZSHRG { light shrapnellight }
+frame ZSHRH { light shrapnellight }
+}

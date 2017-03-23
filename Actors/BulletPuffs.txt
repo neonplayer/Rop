@@ -114,6 +114,7 @@ actor bulletparticle : fallingeffect //technilly unrelated, but whatever
   damage 0
   -noclip
   -nointeraction
+  +forcexybillboard
   states
   {
   spawn:
