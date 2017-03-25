@@ -28,14 +28,13 @@ actor ropchaingunguy : chaingunguy replaces chaingunguy
   {
   Spawn:
     CPOS A 0 
-	CPOS A 0 a_giveinventory("chaingunspintoken", 1)
 	CPOS A 0 a_jumpifinventory("chaingunspintoken", 1, "standby")
 	CPOS A 0 a_changeflag(quicktoretaliate, 0)
 	CPOS A 0 a_changeflag(missilemore, 0)
 	CPOS A 0 a_changeflag(missileevenmore, 0)
 	
     CPOS AB 10 A_Look
-    goto spawn+6
+    goto spawn+5
   standby:
     CPOS U 0 a_playsound("zombchaingun/loop", 8)
 	CPOS UUUUUUUUUUUUUUUUUUUU 1 a_lookex(0, 0, 1280, 0, 180, "standby2")
@@ -164,12 +163,14 @@ actor ropzombiechaingun : possessedweapon
   States
   {
   Ready:
+    PKCG A 0
     PKCG A 0 a_jumpifinventory("chaingunspintoken", 1, "repossescheck")
     PKCG A 10 A_WeaponReady
 	PKCG A 0 a_takeinventory("chaingunaccuracytoken", 1)
 	Goto Ready+1
   repossescheck:
     PKCG A 0 acs_namedexecutealways("setspeed", 0, 20)
+	goto readyspin
   readyspin:
     PKCG A 0 a_playsound("zombchaingun/loop")
     PKCG ABCDABCDABCDABCDABCD 1 a_weaponready

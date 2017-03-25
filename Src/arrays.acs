@@ -1,13 +1,7 @@
 // List of items that monsters can carry.
-#define NUM_MONSTER_ITEMS 7
+#define NUM_MONSTER_ITEMS 1
 int MonsterItems[NUM_MONSTER_ITEMS] =
 {
-	"SSGZombieToken",
-	"QSGZombieToken",
-	"DukeToken",
-	"FamineMeleeToken",
-	"FamineDeathToken",
-	"SentientToken",
-	"CardinalToken"
+	"chaingunspintoken"
 };
 
