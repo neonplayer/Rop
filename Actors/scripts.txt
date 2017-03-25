@@ -1,5 +1,3 @@
-// this shit is required
-
 const int mop_possess = 800;
 const int mop_findmarines = 828;
 const int mop_checkteleportmissile = 811;

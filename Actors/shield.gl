@@ -1,0 +1,34 @@
+// Shields
+
+pointlight SHIELD_GREEN
+{
+	color 0.1 0.3 0.0
+	size 80
+}
+
+pointlight SHIELD_BLUE
+{
+	color 0.0 0.1 0.33
+	size 80
+}
+
+pointlight SHIELD_ORANGE
+{
+	color 0.6 0.3 0.0
+	size 80
+}
+
+object GreenShieldLight
+{
+	frame NULLA { light SHIELD_GREEN }
+}
+
+object BlueShieldLight
+{
+	frame NULLA { light SHIELD_BLUE }
+}
+
+object OrangeShieldLight
+{
+	frame NULLA { light SHIELD_ORANGE }
+}

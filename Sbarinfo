@@ -1,4 +1,4 @@
-statusbar fullscreen, fullscreenoffsets, 0.75
+/*statusbar fullscreen, 1.0
 {
   InInventory IsMarine //Puppet hud is in the acs
   {
@@ -15,8 +15,8 @@ statusbar fullscreen, fullscreenoffsets, 0.75
 	DrawNumber 3, HudFont_Doom, Green, Armor, InterPolate(50), WhenNotZero, 300, -20;
 	DrawImage ArmorIcon, 245, -4, CenterBottom;
 	
-	/*DrawNumber 3, HudFont_Doom, Yellow, Ammo2, InterPolate(50), 198, -20;
-	DrawNumber 3, HudFont_Doom, Yellow, Ammo1, InterPolate(50), 148, -20;*/
+	DrawNumber 3, HudFont_Doom, Yellow, Ammo2, InterPolate(50), 198, -20;
+	DrawNumber 3, HudFont_Doom, Yellow, Ammo1, InterPolate(50), 148, -20;
 	
 	DrawNumber 3, IndexFont, White, Ammo Clip, 300, -68;
 	DrawNumber 3, IndexFont, White, Ammo Shell, 300, -58;
@@ -37,5 +37,95 @@ statusbar fullscreen, fullscreenoffsets, 0.75
     DrawNumber 3, HudFont_Doom, Yellow, Ammo2, 490, -40;
     DrawNumber 3, HudFont_Doom, Yellow, Ammo1, 490, -20;
   }
+}*/
+
+//height 32;
+monospacefonts true, "0";
+
+statusbar fullscreen, fullscreenoffsets
+{
+  ininventory ismarine
+  {
+	ininventory powerstrength
+	{
+		drawimage "PSTRA0", 20, -2, centerbottom;
+	}
+	ininventory not powerstrength
+	{
+		drawimage "MEDIA0", 20, -2, centerbottom;
+	}
+		drawnumber 3, HUDFONT_DOOM, red, health, drawshadow, 82, -20;
+
+		drawimage armoricon, 20, -24, centerbottom;
+		drawnumber 3, HUDFONT_DOOM, green, armor, drawshadow, whennotzero, 82, -39;
+	
+	ininventory basicarmor, 101
+	{
+		drawnumber 3, HUDFONT_DOOM, blue, armor, drawshadow, whennotzero, 82, -39;
+	}
+		drawswitchableimage keyslot 1, "GKEYA0", "RKEYC0", 90, -10;
+		drawswitchableimage keyslot 3, "GKEYA0", "YKEYC0", 100, -10;
+		drawswitchableimage keyslot 2, "GKEYA0", "BKEYC0", 110, -10;
+		
+		drawswitchableimage keyslot 4, "GKEYB0", "RKEYD0", -110, -10;
+		drawswitchableimage keyslot 6, "GKEYB0", "YKEYD0", -100, -10;
+		drawswitchableimage keyslot 5, "GKEYB0", "BKEYD0", -90, -10;
+  }
+
+    usesammo
+    {
+        usessecondaryammo
+        {
+            drawimage ammoicon2, -14, -22, centerbottom;
+            drawnumber 3, HUDFONT_DOOM, yellow, ammo2, drawshadow, -25, -38;
+        }
+		drawimage ammoicon1, -14, -4, centerbottom;
+		drawnumber 3, HUDFONT_DOOM, yellow, ammo1, drawshadow, -25, -20;
+    }
+
+  }
 }
 
+statusbar fullscreen, fullscreenoffsets
+{
+  ininventory ismarine
+  {
+	ininventory powerstrength
+	{
+		drawimage "PSTRA0", 20, -2, centerbottom;
+	}
+	ininventory not powerstrength
+	{
+		drawimage "MEDIA0", 20, -2, centerbottom;
+	}
+		drawnumber 3, HUDFONT_DOOM, red, health, drawshadow, 82, -20;
+
+		drawimage armoricon, 20, -24, centerbottom;
+		drawnumber 3, HUDFONT_DOOM, green, armor, drawshadow, whennotzero, 82, -39;
+	
+	ininventory basicarmor, 101
+	{
+		drawnumber 3, HUDFONT_DOOM, blue, armor, drawshadow, whennotzero, 82, -39;
+	}
+		drawswitchableimage keyslot 1, "GKEYA0", "RKEYC0", 90, -10;
+		drawswitchableimage keyslot 3, "GKEYA0", "YKEYC0", 100, -10;
+		drawswitchableimage keyslot 2, "GKEYA0", "BKEYC0", 110, -10;
+		
+		drawswitchableimage keyslot 4, "GKEYB0", "RKEYD0", -90, -10;
+		drawswitchableimage keyslot 6, "GKEYB0", "YKEYD0", -100, -10;
+		drawswitchableimage keyslot 5, "GKEYB0", "BKEYD0", -110, -10;
+  }
+
+    usesammo
+    {
+        usessecondaryammo
+        {
+            drawimage ammoicon2, -14, -22, centerbottom;
+            drawnumber 3, HUDFONT_DOOM, yellow, ammo2, drawshadow, -25, -38;
+        }
+		drawimage ammoicon1, -14, -4, centerbottom;
+		drawnumber 3, HUDFONT_DOOM, yellow, ammo1, drawshadow, -25, -20;
+    }
+
+  }
+}

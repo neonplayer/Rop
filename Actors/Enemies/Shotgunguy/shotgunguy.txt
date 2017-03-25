@@ -11,13 +11,7 @@ actor ROPshotgunguy : shotgunguy replaces shotgunguy
   states
   {
   spawn:
-    SPOS A 0
-	SPOS A 0 a_jump(128, "spawn2")
-  spawn1:
-    SPOS A 10 a_look
-	loop
-  spawn2:
-    SPOS C 10 a_look
+    SPOS AB 10 a_look
 	loop
   Missile:
     SPOS E 10 A_FaceTarget
@@ -31,6 +25,22 @@ actor ROPshotgunguy : shotgunguy replaces shotgunguy
     SPOS F 10 Bright A_SPosAttackUseAtkSound
     SPOS E 10
     Goto See
+  XDeath:
+    SPOS M 5 a_giveinventory("gibtoken", 1)
+    SPOS N 5 A_XScream
+    SPOS O 5 A_NoBlocking
+    SPOS PQRST 5
+    SPOS U -1
+    Stop
+  Raise:
+    SPOS A 0 a_jumpifinventory("gibtoken", 1, "xraise")
+    SPOS L 5
+    SPOS KJIH 5
+    Goto See
+  xraise:
+    SPOS A 0 a_takeinventory("gibtoken", 1)
+	SPOS UTSRQPONM 5 
+	goto see
   }
 }
 
@@ -50,28 +60,23 @@ actor possessedROPshotgunguy : possessedmonster
   DeathSound "shotguy/death"
   ActiveSound "shotguy/active"
   Obituary "%o got some buckshot from %k."
+  Player.SoundClass Zombie
   States
   {
   Spawn:
-    SPOS A 0
-	SPOS A 0 a_jump(128, "spawn2")
-  spawn1:
-    SPOS A 10 a_look
-	loop
-  spawn2:
-    SPOS C 10 a_look
+    SPOS AB 10
 	loop
   See:
     SPOS AABBCCDD 3
-    Loop
+    goto spawn
   Missile:
     SPOS F 6 bright
     SPOS E 41
-    Goto See
+    Goto spawn
   Pain:
     SPOS G 3
     SPOS G 3 A_Pain
-    Goto See
+    Goto spawn
   }
 }
 
@@ -86,21 +91,21 @@ actor ROPzombieshotgun : possessedweapon
   fire:
     ZMBS A 0 a_playweaponsound("shotguy/attack")
 	ZMBS AAAA 0 a_firecustommissile("bulletparticle", random(20, -20)*0.1, 0, 0, 0, 0, random(20, -20)*0.1)
-    ZMBS B 1 bright a_firebullets(8, 8, 5, 8, "monsterbulletpuff", fbf_norandom)
+    ZMBS B 1 bright a_firebullets(5, 5, 5, 8, "monsterbulletpuff", fbf_norandom)
 	ZMBS C 1 bright
 	ZMBS DEFF 1
-	ZMBS EGDHIJKLMNAAA 1
+	ZMBS EGDHIJKLMNA 1
 	ZMBS OPQRSTUVWXYZ 1
 	ZMS2 A 3
 	ZMBS ZYXWVUTSRQPO 1
 	goto ready
   altfire:
     ZMBS A 0 a_playweaponsound("shotguy/attack")
-	ZMBS BBB 0 a_firecustommissile("shotguyshrapnel", random(50, -50)*0.1, 0, 0, 0, 0, random(50, -50)*0.1)
+	ZMBS BBB 0 a_firecustommissile("shotguyshrapnel", random(40, -40)*0.1, 0, 0, 0, 0, random(40, -40)*0.1)
     ZMBS B 1 bright
 	ZMBS C 1 bright
 	ZMBS DEFF 1
-	ZMBS EGDHIJKLMNAAA 1
+	ZMBS EGDHIJKLMNA 1
 	ZMBS OPQRSTUVWXYZ 1
 	ZMS2 A 3
 	ZMBS ZYXWVUTSRQPO 1

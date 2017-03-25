@@ -21,8 +21,42 @@ function void InitMOP(void)
 	AddStartItem("RocketClip", 5);
 	
 	addmonster(0.02, "POSSA1", "ROPzombieman", "\cbZombieman");
+	
 	addmonster(0.035, "SPOSA1", "ROPshotgunguy", "\cuShotgun Zombie");
+	
 	addmonster(0.05, "CPOSA1", "ROPchaingunguy", "\caChaingun Zombie");
+	
+	addmonster(0.03, "TROOA1", "ROPimp", "\ceImp");
+	
+	addmonster(0.045, "SARGA1", "demon", "\caPinky");
+	
+	addmonster(0.05, "SPTRA1", "spectre", "\cuSpectre");
+	
+	addmonster(0.06, "SKULA1", "lostsoul", "\ciLost Soul"); FlyingMonster();
+	
+	addmonster(0.125, "HEADA1", "cacodemon", "\cgCacodemon"); FlyingMonster();
+	
+	addmonster(0.14, "BOS2A1C1", "hellknight", "\cbHell Knight");
+	
+	addmonster(0.15, "SKELA1D1", "revenant", "\ccRevenant");
+	
+	addmonster(0.175, "PAINA1", "painelemental", "\cePain Elemental"); FlyingMonster();
+	
+	addmonster(0.175, "BSPIA1D1", "arachnotron", "\cbArachnotron");
+	
+	addmonster(0.2, "FATTA1", "fatso", "\ceMancubus");
+	
+	addmonster(0.225, "BOSSA1", "baronofhell", "\caBaron of Hell");
+	
+	addmonster(0.3, "VILEA1D1", "archvile", "\coArch-Vile");
+	
+	addmonster(5.0, "SPIDA1D1", "spidermastermind", "\c[j4]Spider Mastermind"); BossMonster();
+	
+	addmonster(6.0, "CYBRA1", "cyberdemon", "\c[g5]Cyberdemon"); BossMonster();
+	
+	addmonster(0.025, "SSWVA1", "wolfensteinss", "\chWolfenstein \ckSS");
+	
+	addmonster(0.01, "BAR1A0", "explosivebarrel", "\cdExplosive Barrel");
 	/*
 	AddMonster(0.02,  "POSSA1",   "Zombieman2", "Zombieman");
 	AddMonster(0.035, "PRPSA1",   "PlasmaZombie", "Plasma Zombie");

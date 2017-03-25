@@ -1,32 +1,19 @@
-#Include Actors/Scripts
+#Include Actors/Scripts.txt
 #Include Actors/EffectBase.txt
 
 //Shield stuff.
-#Include Actors/ShieldBase
-#Include Actors/ShieldColors
+#Include Actors/ShieldBase.txt
+#Include Actors/ShieldColors.txt
 
-//#Include Actors/EnemySpawners
 
-#Include Actors/Enemies/PossessedBase
-//#Include Actors/Enemies/Possessed
+#Include Actors/Enemies/PossessedBase.txt
+
+actor gibtoken : inventory { inventory.maxamount 1 }
 
 #include actors/enemies/zombieman/zombieman.txt
 #include actors/enemies/shotgunguy/shotgunguy.txt
 #include actors/enemies/chaingunguy/chaingunguy.txt
-
-/*
-#Include Actors/Enemies/PlasmaZombie
-#Include Actors/Enemies/SSGzombie
-#Include Actors/Enemies/DoubleChaingunguy
-#Include Actors/Enemies/DarkImp
-#Include Actors/Enemies/SoulHarvester
-#Include Actors/Enemies/MechDemon
-#Include Actors/Enemies/Cacolantern
-#Include Actors/Enemies/Abaddon
-#Include Actors/Enemies/Hectebus
-#Include Actors/Enemies/ArachnoSentinel
-#Include Actors/Enemies/Belphegor
-*/
+//#include actors/enemies/imp/normalimp.txt
 
 #Include Actors/Weapons/Fist
 #Include Actors/Weapons/Chainsaw
@@ -42,6 +29,6 @@
 #Include Actors/Weapons/ShieldGen
 
 
-#Include Actors/Marine
-#Include Actors/PuppetMaster
+#Include Actors/Marine.txt
+#Include Actors/PuppetMaster.txt
 #Include Actors/BulletPuffs.txt
