@@ -94,7 +94,7 @@ actor ROPzombiemanrifle : possessedweapon
   fire:
     ZMBW A 0 a_takeinventory("riflechargetoken", 35)
 	ZMBW A 0 a_playweaponsound("grunt/attack")
-    ZMBW B 1 bright a_firebullets(5, 5, -1, 10, "MonsterBulletPuff", fbf_norandom)
+    ZMBW B 1 bright a_firebullets(5, 5, -1, 12, "MonsterBulletPuff", fbf_norandom)
 	ZMBW C 1 bright
 	ZMBW DEFF 1
 	ZMBW EDGH 1
@@ -111,7 +111,7 @@ actor ROPzombiemanrifle : possessedweapon
 	goto ready
     ZMBW A 0 a_playweaponsound("grunt/attack")
 	ZMBW A 0 a_takeinventory("riflechargetoken", 35)
-    ZMBW B 1 bright a_firebullets(0, 0, 1, 10, "MonsterBulletPuff", fbf_norandom)
+    ZMBW B 1 bright a_firebullets(0, 0, 1, 12, "MonsterBulletPuff", fbf_norandom)
 	ZMBW C 1 bright
 	ZMBW DEFF 1
 	ZMBW EDGHIJK 1
