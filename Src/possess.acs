@@ -1,5 +1,7 @@
 int LastDeathPosition[MAX_PLAYERS][4];
 
+int MonsterItemsTemp[NUM_MONSTER_ITEMS];
+
 script mop_possess (void)
 {
 	int player = 1000 + PlayerNumber();
@@ -55,6 +57,8 @@ script mop_possess (void)
 	
 	// Save monster items.
 	int i;
+	for (i = 0; i < NUM_MONSTER_ITEMS; i++)
+		MonsterItemsTemp[i] = CheckActorInventory(TEMPTID, MonsterItems[i]);
 	
 	// Remove the monster and move puppetmaster to the exact position of the monster.
 	SetActivator(player);
@@ -77,6 +81,10 @@ script mop_possess (void)
 	
 	// Select first attack.
 	GiveInventory("Attack1", 1);
+	
+	// Give back items.
+	for (i = 0; i < NUM_MONSTER_ITEMS; i++)
+		GiveInventory(MonsterItems[i], MonsterItemsTemp[i]);
 
 	// Set properties.
 	SetPlayerProperty(0, true, PROP_NOTARGET);
@@ -166,6 +174,13 @@ script mop_possess (void)
 	// Spawn the replacement actor.
 	SpawnForced(MonsterActors[type], x, y, z, TEMPTID, angle>>8);
 	SetActorVelocity(TEMPTID, vx, vy, vz, false, true);
+	
+	// Give back items and take them away from puppetmaster just in case.
+	for (i = 0; i < NUM_MONSTER_ITEMS; i++)
+	{
+		GiveActorInventory(TEMPTID, MonsterItems[i], CheckInventory(MonsterItems[i]));
+		TakeInventory(MonsterItems[i], CheckInventory(MonsterItems[i]));
+	}
 	
 	// Transfer health.
 	SetActorProperty(TEMPTID, APROP_HEALTH, FixedDiv((hp1 - POSSESSED_ADDITIONAL_HP) * 1.0, DamageFactor) / 1.0);

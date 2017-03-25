@@ -74,6 +74,7 @@ int BoomEdition = false;
 #include "array_monsters.acs"
 #include "array_startitems.acs"
 #include "array_weapons.acs"
+#include "arrays.acs"
 #include "cvars.acs"
 #include "game.acs"
 #include "evade.acs"
