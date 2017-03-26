@@ -11,13 +11,7 @@ actor ROPzombieman : zombieman replaces zombieman
   states
   {
   spawn:
-    POSS A 0
-	POSS A 0 a_jump(128, "spawn2")
-  spawn1:
-    POSS A 10 a_look
-	loop
-  spawn2:
-    POSS C 10 a_look
+    POSS AB 10 a_look
 	loop
   see:
     POSS AABBCCDD 3 A_Chase
@@ -55,13 +49,7 @@ actor possessedROPzombieman : PossessedMonster
   States
   {
   Spawn:
-    POSS A 0
-	POSS A 0 a_jump(128, "spawn2")
-  spawn1:
-    POSS A 10
-	loop
-  spawn2:
-    POSS C 10
+    POSS AB 10 a_look
 	loop
   See:
     POSS AABBCCDD 3

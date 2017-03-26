@@ -1,26 +1,30 @@
-//Fist Marine - Sprite by: Mark Quinn
-//Chainsaw Marine - Sprite by: Mark Quinn and Xenaero
-//Pistol Marine - Sprite by: Mark Quinn and Grimm
-//Shotgun Marine - Sprite by: Mark Quinn
-//Super Shotgun Marine - Sprite by: Xim, Xenaero and The Skulltag Team 
-//Chaingun Marine - Sprite by: Anthony Cole
-//Rocket Marine - Sprite by: Xim
-//Plasma Marine - Sprite by: CaptainToenail
-//BFG9000 Marine - Sprite by: Toke
-//Shield (IonSpray) Marine - Sprite by: Xaser and Ghastly_dragon
+/*
 
-//Crouching
+	Fist Marine - Sprite by: Mark Quinn
+	Chainsaw Marine - Sprite by: Mark Quinn and Xenaero
+	Pistol Marine - Sprite by: Mark Quinn and Grimm
+	Shotgun Marine - Sprite by: Mark Quinn
+	Super Shotgun Marine - Sprite by: Xim, Xenaero and The Skulltag Team 
+	Chaingun Marine - Sprite by: Anthony Cole
+	Rocket Marine - Sprite by: Xim
+	Plasma Marine - Sprite by: CaptainToenail
+	BFG9000 Marine - Sprite by: Toke
+	Shield (IonSpray) Marine - Sprite by: Xaser and Ghastly_dragon
 
-//Fist Marine - Sprite by: Xim, IcyTux and Ghastly_dragon
-//Chainsaw Marine - Sprite by: Mark Quinn, Xenaero and Xim
-//Pistol Marine - Sprite by: Mark Quinn and Xim
-//Shotgun Marine - Sprite by: Mark Quinn and Xim
-//Super Shotgun Marine - Sprite by: Xim, Xenaero, The Skulltag Team and Ghastly_dragon
-//Chaingun Marine - Sprite by: Anthony Cole and Xim
-//Rocket Marine - Sprite by: Xim and Ghastly_dragon
-//Plasma Marine - Sprite by: CaptainToenail and Ghastly_dragon
-//BFG9000 Marine - Sprite by: Toke and Xim
-//Shield (IonSpray) Marine - Sprite by: Xaser and Ghastly_dragon
+		Crouching
+
+	Fist Marine - Sprite by: Xim, IcyTux and Ghastly_dragon
+	Chainsaw Marine - Sprite by: Mark Quinn, Xenaero and Xim
+	Pistol Marine - Sprite by: Mark Quinn and Xim
+	Shotgun Marine - Sprite by: Mark Quinn and Xim
+	Super Shotgun Marine - Sprite by: Xim, Xenaero, The Skulltag Team and Ghastly_dragon
+	Chaingun Marine - Sprite by: Anthony Cole and Xim
+	Rocket Marine - Sprite by: Xim and Ghastly_dragon
+	Plasma Marine - Sprite by: CaptainToenail and Ghastly_dragon
+	BFG9000 Marine - Sprite by: Toke and Xim
+	Shield (IonSpray) Marine - Sprite by: Xaser and Ghastly_dragon
+
+*/
 
 {
 Name = FistMarine

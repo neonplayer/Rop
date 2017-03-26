@@ -95,9 +95,15 @@ Actor MonsterBulletPuff : fancyBulletPuff
   DamageType "Monster"
 }
 
-Actor MonsterMeleePuff : fancyBulletPuff replaces BulletPuff // lazy fix, won't work with custom guns
+Actor MonsterMeleePuff : BulletPuff
 {
   DamageType "MonsterMelee"
+  states
+  {
+  spawn:
+    TNT1 A 1
+	stop
+  }
 }
 
 Actor PlayerBulletPuff : fancyBulletPuff

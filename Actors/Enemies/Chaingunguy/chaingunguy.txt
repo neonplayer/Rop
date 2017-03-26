@@ -37,7 +37,7 @@ actor ropchaingunguy : chaingunguy replaces chaingunguy
     goto spawn+5
   standby:
     CPOS U 0 a_playsound("zombchaingun/loop", 8)
-	CPOS UUUUUUUUUUUUUUUUUUUU 1 a_lookex(0, 0, 1280, 0, 180, "standby2")
+	CPOS UUUUUUUUUUUUUUUUUUUU 1 a_lookex(LOF_NOSEESOUND, 0, 1280, 0, 180, "standby2")
 	loop
   See:
     CPOS A 0 a_jumpifinventory("chaingunspintoken", 1, "standby")

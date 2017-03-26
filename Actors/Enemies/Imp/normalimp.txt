@@ -1,4 +1,31 @@
-actor ROPimp : doomimp replaces doomimp {}
+const float impballdeathscale = 0.03; //i'm a lazy fuck, lol
+
+actor ROPimp : doomimp replaces doomimp 
+{
+  Obituary "%o was fried by an imp."
+  hitobituary "%o got a few scratches from an imp."
+  mass 125
+  painchance 150
+  states
+  {
+  missile:
+  melee:
+    TROO EEEEFFFF 2 A_FaceTarget
+    TROO G 0 a_jumpifcloser(65, 1)
+  missile2:
+    TROO G 6 a_custommissile("impball", 32, 0, 0)
+    Goto See
+  melee2:
+    TROO A 0 a_playsound("imp/melee")
+    TROO G 2 a_custommeleeattack(8)
+	TROO G 0 a_facetarget
+	TROO G 2 a_custommeleeattack(8)
+	TROO G 0 a_facetarget
+	TROO G 2 a_custommeleeattack(8)
+	TROO G 0 a_facetarget
+	goto see
+  }
+}
 
 actor possessedROPimp : possessedmonster
 {
@@ -17,6 +44,7 @@ actor possessedROPimp : possessedmonster
   ActiveSound "imp/active"
   Obituary "%o was fried by %k."
   hitobituary "%o got a few scratches from %k."
+  Player.SoundClass Imp
   States
   {
   Spawn:
@@ -25,11 +53,15 @@ actor possessedROPimp : possessedmonster
   See:
     TROO AABBCCDD 3
     goto spawn
-  Melee:
   Missile:
     TROO EF 8
     TROO G 6
     Goto spawn
+  melee:
+    TROO GFE 5
+	TROO F 4
+	TROO G 6
+	goto spawn
   Pain:
     TROO H 2
     TROO H 2 A_Pain
@@ -37,14 +69,135 @@ actor possessedROPimp : possessedmonster
   }
 }
 
+actor impball : doomimpball 
+{ 
+  damagetype "monster" 
+  damage (15)
+  decal impscorch1
+  states
+  {
+  spawn:
+    NIBL A 0
+	
+    NIBL A 0 a_jumpif(!callacs("effectchecker"), "nosfx")
+	NIBL AB 1 bright a_spawnitemex("impballtrail")
+	loop
+  nosfx:
+    NIBL AB 1 bright
+	goto spawn+1
+  death:
+    NIBL AAAAA 0 a_spawnitemex("impballparticle", 0, 0, 0, random(4, -4)*0.5, random(4, -4)*0.5, random(4, 14)*0.5)
+    NIBL C 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
+	NIBL C 0 a_fadeout(0.05)
+	NIBL C 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
+	NIBL C 0 a_fadeout(0.05)
+	NIBL C 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
+	NIBL C 0 a_fadeout(0.05)
+	NIBL C 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
+	NIBL C 0 a_fadeout(0.05)
+	NIBL C 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
+	NIBL C 0 a_fadeout(0.05)
+	NIBL C 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
+	NIBL C 0 a_fadeout(0.05)
+	
+	NIBL D 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
+	NIBL D 0 a_fadeout(0.05)
+	NIBL D 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
+	NIBL D 0 a_fadeout(0.05)
+	NIBL D 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
+	NIBL D 0 a_fadeout(0.05)
+	NIBL D 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
+	NIBL D 0 a_fadeout(0.05)
+	NIBL D 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
+	NIBL D 0 a_fadeout(0.05)
+	
+	NIBL E 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
+	NIBL E 0 a_fadeout(0.05)
+	NIBL E 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
+	NIBL E 0 a_fadeout(0.05)
+	NIBL E 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
+	NIBL E 0 a_fadeout(0.05)
+	NIBL E 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
+	NIBL E 0 a_fadeout(0.05)
+	stop
+  }
+}
+
+actor impballtrail : effect
+{
+  renderstyle add
+  scale 0.75
+  states
+  {
+  spawn:
+    NIBL C 0
+	
+    NIBL C 1
+	NIBL CDDEE 1 a_setscale(scalex-0.1, scaley-0.1)
+	stop
+  }
+}
+
+actor impballparticle
+{
+  gravity 0.175
+  renderstyle add
+  scale 0.5
+  alpha 1.0
+  bouncecount 3
+  +doombounce
+  +noradiusdmg
+  +dontsplash
+  +missile
+  bouncefactor 0.8
+  radius 2
+  height 4
+  states
+  {
+  spawn:
+    NIBL A 0
+	NIBL A 0 a_jumpif(!callacs("effectchecker"), "removed")
+    NIBL ABABABABAB 1 a_fadeout(0.02)
+	NIBL ABABABABAB 1 a_fadeout(0.02)
+	NIBL ABABABABAB 1 a_fadeout(0.02)
+	NIBL ABABABABAB 1 a_fadeout(0.02)
+	NIBL ABABAB 1 a_setscale(scalex-0.075, scaley-0.075)
+	stop
+  removed:
+    TNT1 A 0
+	stop
+  }
+}
+
 actor ROPimpclaw : possessedweapon
 {
+  decal bulletchip
   states
   {
   fire:
-    NCLW ABCDEFG 1
-	NCLW H 1 a_firecustommissile("impball")
-	NCLW IJKLMNOPQR 1
+    NCLW ABCEFGHIJKLMNO 1
+	NCLW P 1 a_firecustommissile("impball2")
+	NCLW QRSTUVWX 1
+	TNT1 A 5
+	goto ready
+  altfire:
+    NCL2 ABCDEFGHIJKLMN 1
+	NCL2 A 0 a_playsound("imp/melee")
+	NCL2 O 1 a_custompunch(9, true, 0, "monstermeleepuff", 64)
+	NCL2 P 1
+	NCL2 Q 1 a_custompunch(9, true, 0, "monstermeleepuff", 64)
+	NCL2 R 1
+	NCL2 S 1 a_custompunch(9, true, 0, "monstermeleepuff", 64)
+	NCL2 T 1
+	NCL2 U 1 a_custompunch(9, true, 0, "monstermeleepuff", 64)
+	NCL2 VWX 1
+	TNT1 A 3
 	goto ready
   }
+}
+
+actor impball2 : impball
+{
+  speed 20
+  damage (25)
 }

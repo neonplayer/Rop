@@ -13,7 +13,7 @@ actor gibtoken : inventory { inventory.maxamount 1 }
 #include actors/enemies/zombieman/zombieman.txt
 #include actors/enemies/shotgunguy/shotgunguy.txt
 #include actors/enemies/chaingunguy/chaingunguy.txt
-//#include actors/enemies/imp/normalimp.txt
+#include actors/enemies/imp/normalimp.txt
 
 #Include Actors/Weapons/Fist
 #Include Actors/Weapons/Chainsaw
