@@ -27,6 +27,7 @@ Actor BulletPuffSmoke
   +DontSplash
   +ClientSideOnly
   +NoGravity
+  +forcexybillboard
   RenderStyle Translucent
   Scale 0.75
   Alpha 0.3
@@ -70,6 +71,7 @@ Actor BulletPuffRicochet : BulletPuffSmoke
   +Missile
   +ThruActors
   +BounceOnFloors
+  +forcexybillboard
   -NoGravity
   BounceCount 2
   BounceFactor 0.9

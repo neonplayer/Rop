@@ -73,7 +73,8 @@ actor impball : doomimpball
 { 
   damagetype "monster" 
   damage (15)
-  decal impscorch1
+  decal DoomImpScorch
+  +forcexybillboard
   states
   {
   spawn:
@@ -81,6 +82,7 @@ actor impball : doomimpball
 	
     NIBL A 0 a_jumpif(!callacs("effectchecker"), "nosfx")
 	NIBL AB 1 bright a_spawnitemex("impballtrail")
+	NIBL A 0 bright a_spawnitemex("impballparticle2", 0, 0, 0, random(3, -3)*0.5, random(3, -3)*0.5, random(5, -5)*0.5)
 	loop
   nosfx:
     NIBL AB 1 bright
@@ -126,14 +128,28 @@ actor impball : doomimpball
 actor impballtrail : effect
 {
   renderstyle add
-  scale 0.75
+  scale 1.0
+  alpha 0.35
+  +forcexybillboard
   states
   {
   spawn:
     NIBL C 0
 	
-    NIBL C 1
-	NIBL CDDEE 1 a_setscale(scalex-0.1, scaley-0.1)
+    NIBL C 1 a_setscale(scalex+0.05, scaley+0.05)
+	NIBL C 0 a_fadeout(0.05)
+	NIBL C 1 a_setscale(scalex+0.05, scaley+0.05)
+	NIBL C 0 a_fadeout(0.05)
+	
+	NIBL D 1 a_setscale(scalex+0.05, scaley+0.05)
+	NIBL D 0 a_fadeout(0.05)
+	NIBL D 1 a_setscale(scalex+0.05, scaley+0.05)
+	NIBL D 0 a_fadeout(0.05)
+	
+	NIBL E 1 a_setscale(scalex+0.05, scaley+0.05)
+	NIBL E 0 a_fadeout(0.05)
+	NIBL E 1 a_setscale(scalex+0.05, scaley+0.05)
+	NIBL E 0 a_fadeout(0.05)
 	stop
   }
 }
@@ -148,6 +164,7 @@ actor impballparticle
   +doombounce
   +noradiusdmg
   +dontsplash
+  +forcexybillboard
   +missile
   bouncefactor 0.8
   radius 2
@@ -165,6 +182,21 @@ actor impballparticle
 	stop
   removed:
     TNT1 A 0
+	stop
+  }
+}
+
+actor impballparticle2 : impballparticle
+{
+  alpha 0.5
+  scale 0.5
+  states
+  {
+  spawn:
+    NIBL A 0
+	NIBL A 0 a_jumpif(!callacs("effectchecker"), "removed")
+    NIBL ABABABABAB 1 a_fadeout(0.04)
+	NIBL ABABAB 1 a_setscale(scalex-0.025, scaley-0.025)
 	stop
   }
 }
