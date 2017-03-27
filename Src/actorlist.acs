@@ -28,9 +28,9 @@ function void InitMOP(void)
 	
 	addmonster(0.03, "TROOA1", "ROPimp", "\ceImp");
 	
-	addmonster(0.045, "SARGA1", "demon", "\caPinky");
+	addmonster(0.045, "SARGA1", "ROPpinky", "\caPinky");
 	
-	addmonster(0.05, "SPTRA1", "spectre", "\cuSpectre");
+	addmonster(0.05, "SPTRA1", "ROPspectre", "\cuSpectre");
 	
 	addmonster(0.06, "SKULA1", "lostsoul", "\ciLost Soul"); FlyingMonster();
 	

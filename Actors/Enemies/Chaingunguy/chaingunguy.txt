@@ -53,6 +53,7 @@ actor ropchaingunguy : chaingunguy replaces chaingunguy
 	CPOS A 0 a_changeflag(missilemore, 1)
 	CPOS A 0 a_changeflag(missileevenmore, 1)
 	
+	CPOS A 0 a_stopsound(8)
     CPOS U 0 a_playsound("zombchaingun/loop", 8)
 	CPOS UUUUUUUUUUUUUUUUUUUU 1 a_jumpiftargetinlos("preparetofire")
 	CPOS A 0 a_cleartarget

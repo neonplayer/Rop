@@ -22,6 +22,8 @@ zombchaingun/down	CGSPDOWN
 
 $pitchshift zombchaingun/loop 0
 
+$limit zombchaingun/loop 3
+
 //Dark Imp
 
 PXMPSIT1		PXMPSIT1

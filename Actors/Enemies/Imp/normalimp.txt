@@ -24,6 +24,22 @@ actor ROPimp : doomimp replaces doomimp
 	TROO G 2 a_custommeleeattack(8)
 	TROO G 0 a_facetarget
 	goto see
+  XDeath:
+    TROO N 5 a_giveinventory("gibtoken", 1)
+    TROO O 5 A_XScream
+    TROO P 5
+    TROO Q 5 A_NoBlocking
+    TROO RST 5
+    TROO U -1
+    Stop
+  Raise:
+    TROO A 0 a_jumpifinventory("gibtoken", 1, "xraise")
+    TROO ML 8
+    TROO KJI 6
+    Goto See
+  xraise:
+    TROO TSRQPON 5
+	goto see
   }
 }
 
@@ -53,11 +69,8 @@ actor possessedROPimp : possessedmonster
   See:
     TROO AABBCCDD 3
     goto spawn
-  Missile:
-    TROO EF 8
-    TROO G 6
-    Goto spawn
-  melee:
+  missile:
+    melee:
     TROO GFE 5
 	TROO F 4
 	TROO G 6
@@ -128,7 +141,7 @@ actor impball : doomimpball
 actor impballtrail : effect
 {
   renderstyle add
-  scale 1.0
+  scale 0.75
   alpha 0.35
   +forcexybillboard
   states
