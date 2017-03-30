@@ -119,7 +119,8 @@ actor possessedropchaingunguy : possessedmonster
     CPOS AB 10
     Loop
   spawn2:
-    CPOS U 1 a_jumpifinventory("chaingunspintoken", 1, 1)
+	CPOS U 1
+	CPOS U 0 a_jumpifinventory("chaingunspintoken", 1, 1)
 	CPOS A 0 a_jump(256, "spinstop")
 	goto spawn2
   See:
@@ -127,7 +128,8 @@ actor possessedropchaingunguy : possessedmonster
     CPOS AABBCCDD 3
     Loop
   see2:
-    CPOS U 1 a_jumpifinventory("chaingunspintoken", 1, 1)
+	CPOS U 1
+	CPOS U 0 a_jumpifinventory("chaingunspintoken", 1, 1)
 	CPOS A 0 a_jump(256, "spinstop2")
 	goto see2
   spinstop:
