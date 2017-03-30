@@ -1,19 +1,34 @@
 actor FancyBulletPuff : BulletPuff
 {
   -allowparticles
-  vspeed 1
+  vspeed 0
   states
   {
   melee:
   spawn:
     TNT1 A 0
-	TNT1 A 0 a_checksight("Fading")
+	TNT1 A 0 a_spawnitemex("bulletpuffsfx")
+  fading:
+	TNT1 BCDEFG 1
+	stop
+  }
+}
+
+actor bulletpuffsfx : fancybulletpuff
+{
+  +clientsideonly
+  +nointeraction
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_checksight("fading")
 	TNT1 A 0 a_spawnitemex("BulletPuffSmoke", 0, 0, 0, random(3, -3)*0.5, random(3, -3)*0.5, random(3, 6)*0.5)
 	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "fading")
 	TNT1 AAAA 0 a_spawnitemex("BulletPuffSmoke", 0, 0, 0, random(3, -3)*0.5, random(3, -3)*0.5, random(3, 6)*0.5)
 	TNT1 AAA 0 a_spawnitemex("BulletPuffRicochet", 0, 0, 0, random(3, -3), random(3, -3), random(3, 6))
   fading:
-	TNT1 BCDEFG 1
+    TNT1 A 0
 	stop
   }
 }

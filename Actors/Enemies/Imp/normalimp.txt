@@ -92,13 +92,8 @@ actor impball : doomimpball
   {
   spawn:
     NIBL A 0
-	
-    NIBL A 0 a_jumpif(!callacs("effectchecker"), "nosfx")
 	NIBL AB 1 bright a_spawnitemex("impballtrail")
 	NIBL A 0 bright a_spawnitemex("impballparticle2", 0, 0, 0, random(3, -3)*0.5, random(3, -3)*0.5, random(5, -5)*0.5)
-	loop
-  nosfx:
-    NIBL AB 1 bright
 	goto spawn+1
   death:
     NIBL AAAAA 0 a_spawnitemex("impballparticle", 0, 0, 0, random(4, -4)*0.5, random(4, -4)*0.5, random(4, 14)*0.5)
@@ -149,6 +144,7 @@ actor impballtrail : effect
   spawn:
     NIBL C 0
 	
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
     NIBL C 1 a_setscale(scalex+0.05, scaley+0.05)
 	NIBL C 0 a_fadeout(0.05)
 	NIBL C 1 a_setscale(scalex+0.05, scaley+0.05)
@@ -178,6 +174,7 @@ actor impballparticle
   +noradiusdmg
   +dontsplash
   +forcexybillboard
+  +clientsideonly
   +missile
   bouncefactor 0.8
   radius 2
