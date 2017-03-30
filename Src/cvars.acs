@@ -18,7 +18,13 @@ function int GetMOPVarString(str name)
 	return GetCVarString(StrParam(s:MOP_CVAR_PREFIX, s:name));
 }
 
-script "effectchecker" (void) clientside
+script "effectchecker" (void)
 {
+	if (ConsolePlayerNumber() < 0)
+	{
+		if (GetCVar("rop_debug"))
+			printbold(s:"t=", d:Timer(), s:" effectchecker called in serverside actor \cj", n:0);
+	}
+	
 	SetResultValue(GetUserCVar(consoleplayernumber(),"rop_effects"));
 }

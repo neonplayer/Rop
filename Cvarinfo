@@ -10,5 +10,7 @@ server bool rop_forceteamjoin = false;
 server bool rop_manyplayers = false;
 server bool rop_autoconfig = true;
 
+server bool rop_debug = false;
+
 user bool rop_noicons = false;
 user bool rop_effects = true;
