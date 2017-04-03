@@ -97,6 +97,7 @@ actor impball : doomimpball
 	goto spawn+1
   death:
     NIBL AAAAA 0 a_spawnitemex("impballparticle", 0, 0, 0, random(4, -4)*0.5, random(4, -4)*0.5, random(4, 14)*0.5)
+	NIBL AAAAA 0 a_spawnitemex("impballdeathexplode", 0, 0, 0, random(4, -4)*0.75, random(4, -4)*0.75, random(4, 14)*0.333)
     NIBL C 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
 	NIBL C 0 a_fadeout(0.05)
 	NIBL C 1 bright a_setscale(scalex+impballdeathscale, scaley+impballdeathscale)
@@ -207,6 +208,46 @@ actor impballparticle2 : impballparticle
 	NIBL A 0 a_jumpif(!callacs("effectchecker"), "removed")
     NIBL ABABABABAB 1 a_fadeout(0.04)
 	NIBL ABABAB 1 a_setscale(scalex-0.025, scaley-0.025)
+	stop
+  }
+}
+
+actor impballdeathexplode : impballparticle2
+{
+  scale 0.25
+  gravity 0.45
+  alpha 0.7
+  states
+  {
+  spawn:
+    REDS A 0
+	REDS A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	REDS A 1 a_setscale(scalex+0.01, scaley+0.01)
+	REDS A 0 a_fadeout(0.05)
+	REDS B 1 a_setscale(scalex+0.01, scaley+0.01)
+	REDS B 0 a_fadeout(0.05)
+	REDS C 1 a_setscale(scalex+0.01, scaley+0.01)
+	REDS C 0 a_fadeout(0.05)
+	REDS D 1 a_setscale(scalex+0.01, scaley+0.01)
+	REDS D 0 a_fadeout(0.05)
+	REDS E 1 a_setscale(scalex+0.01, scaley+0.01)
+	REDS E 0 a_fadeout(0.05)
+	REDS F 1 a_setscale(scalex+0.01, scaley+0.01)
+	REDS F 0 a_fadeout(0.05)
+	REDS G 1 a_setscale(scalex+0.01, scaley+0.01)
+	REDS G 0 a_fadeout(0.05)
+	REDS H 1 a_setscale(scalex+0.01, scaley+0.01)
+	REDS H 0 a_fadeout(0.05)
+	REDS I 1 a_setscale(scalex+0.01, scaley+0.01)
+	REDS I 0 a_fadeout(0.05)
+	REDS J 1 a_setscale(scalex+0.01, scaley+0.01)
+	REDS J 0 a_fadeout(0.05)
+	REDS K 1 a_setscale(scalex+0.01, scaley+0.01)
+	REDS K 0 a_fadeout(0.05)
+	REDS L 1 a_setscale(scalex+0.01, scaley+0.01)
+	REDS L 0 a_fadeout(0.05)
+	REDS M 1 a_setscale(scalex+0.01, scaley+0.01)
+	REDS M 0 a_fadeout(0.05)
 	stop
   }
 }

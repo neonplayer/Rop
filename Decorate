@@ -1,5 +1,8 @@
 #Include Actors/Scripts.txt
 #Include Actors/EffectBase.txt
+#Include Actors/BulletPuffs.txt
+#include actors/genericexplosion.txt
+#include actors/blood.txt
 
 //Shield stuff.
 #Include Actors/ShieldBase.txt
@@ -15,6 +18,7 @@ actor gibtoken : inventory { inventory.maxamount 1 }
 #include actors/enemies/chaingunguy/chaingunguy.txt
 #include actors/enemies/imp/normalimp.txt
 #include actors/enemies/pinky/pinky.txt
+#include actors/enemies/lostsoul/lostsoul.txt
 
 #Include Actors/Weapons/Fist
 #Include Actors/Weapons/Chainsaw
@@ -22,7 +26,7 @@ actor gibtoken : inventory { inventory.maxamount 1 }
 #Include Actors/Weapons/Shotgun
 #Include Actors/Weapons/SSG
 #Include Actors/Weapons/Chaingun
-#Include Actors/Weapons/RocketLauncher
+//#Include Actors/Weapons/RocketLauncher
 #Include Actors/Weapons/PlasmaRifle
 #Include Actors/Weapons/BFG9k
 
@@ -32,4 +36,3 @@ actor gibtoken : inventory { inventory.maxamount 1 }
 
 #Include Actors/Marine.txt
 #Include Actors/PuppetMaster.txt
-#Include Actors/BulletPuffs.txt

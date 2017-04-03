@@ -1,0 +1,77 @@
+flickerlight lostsoul_light
+{
+	color 1.0 0.3 0.0
+	offset 0 24 0
+	size 28
+	secondarysize 34
+	chance 0.25
+}
+
+flickerlight lostsoul_light2
+{
+	color 1.0 0.3 0.0
+	offset 0 24 0
+	size 32
+	secondarysize 38
+	chance 0.25
+}
+
+pointlight lostsoul_explight1
+{
+	color 1.0 0.3 0.0
+	offset 0 24 0
+	size 36
+}
+
+pointlight lostsoul_explight2
+{
+	color 0.75 0.15 0.0
+	offset 0 24 0
+	size 30
+}
+
+pointlight lostsoul_explight3
+{
+	color 0.45 0.0 0.0
+	offset 0 24 0
+	size 22
+}
+
+pointlight lostsoul_explight4
+{
+	color 0.2 0.0 0.0
+	offset 0 24 0
+	size 12
+}
+
+object ROPlostsoul
+{
+	frame SKULA { light lostsoul_light }
+    frame SKULB { light lostsoul_light2 }
+    frame SKULC { light lostsoul_light }
+    frame SKULD { light lostsoul_light2 }
+    frame SKULE { light lostsoul_light }
+    frame SKULF { light lostsoul_light2 }
+    frame SKULG { light lostsoul_light }
+
+    frame SKULH { light lostsoul_explight1 }
+    frame SKULI { light lostsoul_explight2 }
+    frame SKULJ { light lostsoul_explight3 }
+    frame SKULK { light lostsoul_explight4 }
+}
+
+object possessedROPlostsoul
+{
+	frame SKULA { light lostsoul_light }
+    frame SKULB { light lostsoul_light }
+    frame SKULC { light lostsoul_light }
+    frame SKULD { light lostsoul_light }
+    frame SKULE { light lostsoul_light }
+    frame SKULF { light lostsoul_light }
+    frame SKULG { light lostsoul_light }
+
+    frame SKULH { light lostsoul_explight1 }
+    frame SKULI { light lostsoul_explight2 }
+    frame SKULJ { light lostsoul_explight3 }
+    frame SKULK { light lostsoul_explight4 }
+}

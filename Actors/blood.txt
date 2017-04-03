@@ -1,0 +1,11 @@
+actor soulblood 
+{
+  +nointeraction
+  +clientsideonly
+  states
+  {
+  spawn:
+    TNT1 A 0
+	stop
+  }
+}

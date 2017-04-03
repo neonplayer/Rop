@@ -93,15 +93,15 @@ actor ROPpinkyteeth : possessedweapon
   fire:
     TNT1 A 0 a_playsound("demon/melee")
     TNT1 A 0 thrustthingz(0, 10, 0, 1)
-	TNT1 A 8 a_recoil(-8)
-	TNT1 A 0 a_custompunch(27, true)
+	TNT1 A 0 a_recoil(-8)
+	TNT1 A 8 a_custompunch(27, true, 0, "monstermeleepuff", 72)
 	TNT1 A 16
 	goto ready
   altfire:
     TNT1 A 0 A_GunFlash
     TNT1 A 0 a_playsound("demon/melee")
 	TNT1 A 4 a_custompunch(7, true)
-	TNT1 AA 4 a_custompunch(8, true)
+	TNT1 AA 4 a_custompunch(8, true, 0, "monstermeleepuff", 72)
 	goto ready
   }
 }

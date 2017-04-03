@@ -1,0 +1,37 @@
+/*
+
+smoke sprites: bloax, xaser, zerrion the insect
+
+*/
+
+actor genericsmoke
+{
+  +clientsideonly
+  +forcexybillboard
+  +nogravity
+  +dontsplash
+  
+  radius 4
+  height 8
+  renderstyle shaded
+  stencilcolor "2D 2D 2D"
+  scale 0.2
+  states
+  {
+  spawn:
+    SMOK A 0
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	SMOK A 0 a_setscale(random(15, 25)*0.01, random(15, 25)*0.01)
+	SMOK A 0 a_jump(128, "spawn2")
+	SMOK A 1 a_fadeout(0.02)
+	SMOK A 0 a_setscale(scalex+0.01, scaley+0.01)
+	goto spawn+4
+  spawn2:
+    SMOK B 1 a_fadeout(0.02)
+	SMOK B 0 a_setscale(scalex+0.01, scaley+0.01)
+	loop
+  removed:
+    TNT1 A 0
+	stop
+  }
+}

@@ -5,3 +5,5 @@
 #include "actors/enemies/shotgunguy/shotgunguy.gl"
 #include "actors/enemies/chaingunguy/chaingunguy.gl"
 #include "actors/enemies/imp/normalimp.gl"
+
+#include "actors/enemies/lostsoul/lostsoul.gl"
