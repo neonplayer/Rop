@@ -765,3 +765,14 @@ script mop_checkteleportmissile (void)
 	else
 		SetResultValue(false);
 }
+
+script "mopeffectid" (void)
+{
+	SetResultValue(2000 + PlayerNumber());
+}
+
+script "removemopeffect" (void) CLIENTSIDE
+{
+	if (ActivatorTid() - 2000 == ConsolePlayerNumber())
+		Thing_Remove(0);
+}
