@@ -124,12 +124,8 @@ actor lostsoulflamespawner2 : lostsoulflamespawner
   }
 }
 
-actor lostsoulflame
+actor lostsoulflame : effect
 {
-  +clientsideonly
-  +noradiusdmg
-  +dontsplash
-  +nogravity
   renderstyle add
   scale 0.25
   alpha 0.8
