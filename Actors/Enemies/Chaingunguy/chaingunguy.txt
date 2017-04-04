@@ -5,7 +5,7 @@ chaingun reving up/down/loop: id software (doom 3)
 
 */
 
-const int possessedchaingundamage = 10;
+const int possessedchaingundamage = 15;
 
 actor ropchaingunguy : chaingunguy replaces chaingunguy 
 {

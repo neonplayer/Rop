@@ -212,7 +212,7 @@ actor impballparticle2 : impballparticle
   }
 }
 
-actor impballdeathexplode : impballparticle2
+actor impballdeathexplode : impballparticle
 {
   scale 0.25
   gravity 0.45
@@ -268,11 +268,11 @@ actor ROPimpclaw : possessedweapon
 	NCL2 A 0 a_playsound("imp/melee")
 	NCL2 O 1 a_custompunch(9, true, 0, "monstermeleepuff", 64)
 	NCL2 P 1
-	NCL2 Q 1 a_custompunch(9, true, 0, "monstermeleepuff", 64)
+	NCL2 Q 1 a_custompunch(10, true, 0, "monstermeleepuff", 64)
 	NCL2 R 1
 	NCL2 S 1 a_custompunch(9, true, 0, "monstermeleepuff", 64)
 	NCL2 T 1
-	NCL2 U 1 a_custompunch(9, true, 0, "monstermeleepuff", 64)
+	NCL2 U 1 a_custompunch(10, true, 0, "monstermeleepuff", 64)
 	NCL2 VWX 1
 	TNT1 A 3
 	goto ready
@@ -282,5 +282,5 @@ actor ROPimpclaw : possessedweapon
 actor impball2 : impball
 {
   speed 20
-  damage (25)
+  damage (30)
 }

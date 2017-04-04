@@ -17,3 +17,84 @@ Decal NewPlasmascorch
   animator GoAway
   lowerdecal PlasmaScorchLower2
 }
+
+decal ROPBloodSplat1
+{
+	pic BSPLAT1
+	shade "BloodDefault"
+	x-scale 0.175
+	y-scale 0.175
+	randomflipx
+	randomflipy
+}
+
+decal ROPBloodSplat2
+{
+	pic BSPLAT2
+	shade "BloodDefault"
+	x-scale 0.175
+	y-scale 0.175
+	randomflipx
+	randomflipy
+}
+
+decal ROPBloodSplat3
+{
+	pic BSPLAT3
+	shade "BloodDefault"
+	x-scale 0.175
+	y-scale 0.175
+	randomflipx
+	randomflipy
+}
+
+decal ROPBloodSplat4
+{
+	pic BSPLAT4
+	shade "BloodDefault"
+	x-scale 0.175
+	y-scale 0.175
+	randomflipx
+	randomflipy
+}
+
+decal ROPBloodSplat5
+{
+	pic BSPLAT5
+	shade "BloodDefault"
+	x-scale 0.175
+	y-scale 0.175
+	randomflipx
+	randomflipy
+}
+
+decal ROPBloodSplat6
+{
+	pic BSPLAT6
+	shade "BloodDefault"
+	x-scale 0.175
+	y-scale 0.175
+	randomflipx
+	randomflipy
+}
+
+decal ROPBloodSplat7
+{
+	pic BSPLAT7
+	shade "BloodDefault"
+	x-scale 0.175
+	y-scale 0.175
+	randomflipx
+	randomflipy
+}
+
+decalgroup ROPBloodSplat
+{
+	BloodSplat1	2
+	BloodSplat2	1
+	BloodSplat3	5
+	BloodSplat4	5
+	BloodSplat5	5
+	BloodSplat6	5
+	BloodSplat7	6
+}

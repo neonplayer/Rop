@@ -7,3 +7,4 @@
 #include "actors/enemies/imp/normalimp.gl"
 
 #include "actors/enemies/lostsoul/lostsoul.gl"
+#include "actors/enemies/cacodemon/cacodemon.gl"

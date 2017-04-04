@@ -1,7 +1,52 @@
-actor soulblood 
+actor ROPblood : effect replaces blood
 {
-  +nointeraction
-  +clientsideonly
+  radius 1
+  height 2
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_checksight("removed")
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), 3)
+	TNT1 AAAA 0 a_spawnitemex("bloodparticle", 0, 0, 0, random(10, -10)*0.167, random(10, -10)*0.167, random(6, 18)*0.333, 0, 1)
+    stop
+  }
+}
+
+actor bloodparticle : CollidingFallingEffect
+{
+  +thruactors
+  -dontsplash
+  //decal ROPBloodSplat
+  states
+  {
+  spawn:
+    BLUD A 0
+	BLUD A 0 a_jump(256, "spawn1", "spawn2", "spawn3")
+  spawn1:
+    BLUD C 0 a_setscale(random(40, 60)*0.01, random(40, 60)*0.01)
+	
+	BLUD C 1 a_fadeout(0.03)
+	BLUD C 0 a_setscale(scalex-random(5, 15)*0.002, scaley-random(5, 15)*0.002)
+	goto spawn1+1
+  spawn2:
+    BLUD B 0 a_setscale(random(65, 85)*0.01, random(65, 85)*0.01)
+	
+	BLUD B 1 a_fadeout(0.03)
+	BLUD B 0 a_setscale(scalex-random(5, 15)*0.002, scaley-random(5, 15)*0.002)
+	goto spawn2+1
+  spawn3:
+    BLUD A 0 a_setscale(random(90, 110)*0.01, random(90, 110)*0.01)
+	
+	BLUD A 1 a_fadeout(0.03)
+	BLUD A 0 a_setscale(scalex-random(5, 15)*0.002, scaley-random(5, 15)*0.002)
+	goto spawn3+1
+  }
+}
+	
+
+actor soulblood : effect
+{
   states
   {
   spawn:

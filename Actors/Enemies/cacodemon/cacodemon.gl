@@ -1,0 +1,73 @@
+pointlight cacoballlight
+{
+  color 0.0 0.0 1.0
+  size 32
+}
+
+pointlight cacoballdeath1
+{
+  color 0.0 0.0 1.0
+  size 44
+}
+
+pointlight cacoballdeath2
+{
+  color 0.0 0.0 0.9
+  size 24
+}
+
+pointlight cacoballdeath3
+{
+  color 0.0 0.0 0.75
+  size 16
+}
+
+pointlight cacoballdeath4
+{
+  color 0.0 0.0 0.5
+  size 8
+}
+
+object cacodemonweaver1
+{
+frame CABLA { light cacoballlight }
+frame CABLB { light cacoballlight }
+frame TNT1A { light cacoballdeath1 }
+frame TNT1B { light cacoballlight }
+frame TNT1C { light cacoballdeath2 }
+frame TNT1D { light cacoballdeath3 }
+frame TNT1E { light cacoballdeath4 }
+}
+
+object cacodemonweaver2
+{
+frame CABLA { light cacoballlight }
+frame CABLB { light cacoballlight }
+frame TNT1A { light cacoballdeath1 }
+frame TNT1B { light cacoballlight }
+frame TNT1C { light cacoballdeath2 }
+frame TNT1D { light cacoballdeath3 }
+frame TNT1E { light cacoballdeath4 }
+}
+
+object cacodemonweaver1possessed
+{
+frame CABLA { light cacoballlight }
+frame CABLB { light cacoballlight }
+frame TNT1A { light cacoballdeath1 }
+frame TNT1B { light cacoballlight }
+frame TNT1C { light cacoballdeath2 }
+frame TNT1D { light cacoballdeath3 }
+frame TNT1E { light cacoballdeath4 }
+}
+
+object cacodemonweaver2possessed
+{
+frame CABLA { light cacoballlight }
+frame CABLB { light cacoballlight }
+frame TNT1A { light cacoballdeath1 }
+frame TNT1B { light cacoballlight }
+frame TNT1C { light cacoballdeath2 }
+frame TNT1D { light cacoballdeath3 }
+frame TNT1E { light cacoballdeath4 }
+}

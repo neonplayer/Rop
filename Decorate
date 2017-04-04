@@ -19,6 +19,7 @@ actor gibtoken : inventory { inventory.maxamount 1 }
 #include actors/enemies/imp/normalimp.txt
 #include actors/enemies/pinky/pinky.txt
 #include actors/enemies/lostsoul/lostsoul.txt
+#include actors/enemies/cacodemon/cacodemon.txt
 
 #Include Actors/Weapons/Fist
 #Include Actors/Weapons/Chainsaw

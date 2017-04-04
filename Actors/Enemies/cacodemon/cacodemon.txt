@@ -1,0 +1,264 @@
+/*
+
+cacodemon ball sprites: eriance, midway (modified by me)
+
+cacodemon ball sounds : 3d realms
+cacodemon melee sound: ??? (from demon eclipse)
+
+*/
+
+actor ROPcacodemon : cacodemon replaces cacodemon
+{
+  scale 0.9
+  bloodcolor blue
+  obituary "%o was electrocuted by a cacodemon."
+  hitobituary "%o became a tasty snack for a cacodemon."
+  states
+  {
+  missile:
+    HEAD A 0 a_jumpifcloser(44, "melee")
+    HEAD BC 5 A_FaceTarget
+  missile2:
+	HEAD D 0 A_custommissile("cacodemonweaver2")
+    HEAD D 5 Bright A_custommissile("cacodemonweaver1")
+    Goto See
+  melee:
+    HEAD A 0 a_playsound("cacodemon/bite")
+	HEAD BC 5 A_FaceTarget
+	HEAD A 0 a_jumpifcloser(44, 1)
+	HEAD A 0 a_jump(256, "missile2")
+	HEAD DDDDD 1 a_custommeleeattack(9, "", "", "monstermeleepuff")
+	goto see
+  pain:
+    HEAD E 2
+	HEAD F 2 a_pain
+	HEAD E 2
+	goto see
+  }
+}
+
+actor cacodemonweaver1 : cacodemonball
+{
+  damage(20)
+  speed 15
+  decal scorch
+  damagetype "monster"
+  seesound "cacoball/sight"
+  deathsound "cacoball/death"
+  states
+  {
+  spawn:
+    CABL A 0
+	
+	CABL A 1 a_weave(2, 0, 1.5, 0)
+    CABL A 0 a_spawnitemex("cacoballtrail1")
+	CABL A 1 a_weave(2, 0, 1.5, 0)
+    CABL A 0 a_spawnitemex("cacoballtrail1")
+	CABL A 1 a_weave(2, 0, 1.5, 0)
+    CABL A 0 a_spawnitemex("cacoballtrail1")
+	CABL A 1 a_weave(2, 0, 1.5, 0)
+    CABL A 0 a_spawnitemex("cacoballtrail1")
+	
+	CABL B 1 a_weave(2, 0, 1.5, 0)
+    CABL B 0 a_spawnitemex("cacoballtrail2")
+	CABL B 1 a_weave(2, 0, 1.5, 0)
+    CABL B 0 a_spawnitemex("cacoballtrail2")
+	CABL B 1 a_weave(2, 0, 1.5, 0)
+    CABL B 0 a_spawnitemex("cacoballtrail2")
+	CABL B 1 a_weave(2, 0, 1.5, 0)
+    CABL B 0 a_spawnitemex("cacoballtrail2")
+	loop
+  death:
+    CABL A 0 a_spawnitemex("cacoballlightning", random(8, -8)*0.333, random(8, -8)*0.333, random(8, -8)*0.333, random(4, -4)*0.2, random(4, -4)*0.2, random(4, -4)*0.2)
+	CABL AA 0 a_spawnitemex("cacoballlightning2", random(8, -8)*0.333, random(8, -8)*0.333, random(8, -8)*0.333, random(4, -4)*0.2, random(4, -4)*0.2, random(4, -4)*0.2)
+	SKUL AAA 0 a_spawnitemex("genericsmoke2", random(5, -5), random(5, -5), random(5, -5), random(3, -3)*0.15, random(3, -3)*0.15, random(3, -3)*0.15)
+	TNT1 ABCDE 2
+	stop
+  }
+}
+
+actor cacodemonweaver2 : cacodemonweaver1
+{
+  states
+  {
+  spawn:
+    CABL A 0
+	
+	CABL A 1 a_weave(-2, 0, 1.5, 0)
+    CABL A 0 a_spawnitemex("cacoballtrail1")
+	CABL A 1 a_weave(-2, 0, 1.5, 0)
+    CABL A 0 a_spawnitemex("cacoballtrail1")
+	CABL A 1 a_weave(-2, 0, 1.5, 0)
+    CABL A 0 a_spawnitemex("cacoballtrail1")
+	CABL A 1 a_weave(-2, 0, 1.5, 0)
+    CABL A 0 a_spawnitemex("cacoballtrail1")
+	
+	CABL B 1 a_weave(-2, 0, 1.5, 0)
+    CABL B 0 a_spawnitemex("cacoballtrail2")
+	CABL B 1 a_weave(-2, 0, 1.5, 0)
+    CABL B 0 a_spawnitemex("cacoballtrail2")
+	CABL B 1 a_weave(-2, 0, 1.5, 0)
+    CABL B 0 a_spawnitemex("cacoballtrail2")
+	CABL B 1 a_weave(-2, 0, 1.5, 0)
+    CABL B 0 a_spawnitemex("cacoballtrail2")
+	loop
+  }
+}
+
+actor cacoballtrail1 : effect
+{
+  renderstyle add
+  alpha 0.5
+  radius 1
+  height 2
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_checksight("removed")
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	
+    TNT1 A 1
+    CABL AAAAAAAAA 1 a_fadeout(0.05)
+	stop
+  }
+}
+
+actor cacoballtrail2 : cacoballtrail1
+{
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_checksight("removed")
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	
+    TNT1 A 1
+    CABL BBBBBBBBB 1 a_fadeout(0.05)
+	stop
+  }
+}
+
+actor cacoballlightning : effect
+{
+  scale 1.0
+  renderstyle add
+  states
+  {
+  spawn:
+    CABL A 0
+	CABL A 0 a_jump(256, "spawn1", "spawn2", "spawn3")
+  spawn1:
+    CABL C 1 a_setscale(scalex-0.025, scaley-0.025)
+	CABL C 0 a_fadeout(0.05)
+	CABL C 1 a_setscale(scalex-0.025, scaley-0.025)
+	CABL C 0 a_fadeout(0.05)
+  spawn2:
+	CABL D 1 a_setscale(scalex-0.025, scaley-0.025)
+	CABL D 0 a_fadeout(0.05)
+	CABL D 1 a_setscale(scalex-0.025, scaley-0.025)
+	CABL D 0 a_fadeout(0.05)
+  spawn3:
+	CABL E 1 a_setscale(scalex-0.025, scaley-0.025)
+	CABL E 0 a_fadeout(0.05)
+	CABL E 1 a_setscale(scalex-0.025, scaley-0.025)
+	CABL E 0 a_fadeout(0.05)
+	goto spawn1
+  }
+}
+
+actor cacoballlightning2 : cacoballlightning
+{
+  states
+  {
+  spawn:
+    CABL A 0 a_checksight("removed")
+	CABL A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	CABL A 0 a_jump(256, "spawn1", "spawn2", "spawn3")
+  spawn1:
+	CABL C 1 a_setscale(scalex-0.025, scaley-0.025)
+	CABL C 0 a_fadeout(0.05)
+	CABL C 1 a_setscale(scalex-0.025, scaley-0.025)
+	CABL C 0 a_fadeout(0.05)
+  spawn2:
+	CABL D 1 a_setscale(scalex-0.025, scaley-0.025)
+	CABL D 0 a_fadeout(0.05)
+	CABL D 1 a_setscale(scalex-0.025, scaley-0.025)
+	CABL D 0 a_fadeout(0.05)
+  spawn3:
+	CABL E 1 a_setscale(scalex-0.025, scaley-0.025)
+	CABL E 0 a_fadeout(0.05)
+	CABL E 1 a_setscale(scalex-0.025, scaley-0.025)
+	CABL E 0 a_fadeout(0.05)
+	goto spawn1
+  }
+}
+
+actor possessedROPcacodemon : possessedmonster
+{
+  player.morphweapon "cacomouth"
+  Health 400
+  Radius 31
+  Height 56
+  Mass 400
+  Speed 0.4
+  PainChance 128
+  Monster
+  +FLOAT
+  +NOGRAVITY
+  scale 0.9
+  bloodcolor blue
+  obituary "%o was electrocuted by %k."
+  hitobituary "%o became a tasty snack for %k."
+  Player.SoundClass Caco
+  states
+  {
+  spawn:
+    HEAD A 10
+    Loop
+  See:
+    HEAD A 3
+    goto spawn
+  Missile:
+    HEAD BC 5
+    HEAD D 5 Bright
+    Goto spawn
+  Pain:
+    HEAD E 3
+    HEAD E 3 A_Pain
+    HEAD F 6
+    Goto spawn
+  }
+}
+
+actor cacomouth : possessedweapon
+{
+  states
+  {
+  fire:
+    TNT1 A 10
+	TNT1 A 0 A_FireCustomMissile("cacodemonweaver1possessed")
+	TNT1 A 0 A_FireCustomMissile("cacodemonweaver2possessed")
+	TNT1 A 5 a_setblend("0400C8", 0.333, 25)
+	TNT1 A 20
+	goto ready
+  altfire:
+    TNT1 A 0 a_playsound("cacodemon/bite")
+    TNT1 A 10
+	TNT1 AAAAA 1 a_custompunch(12, true, 0, "monstermeleepuff")
+	TNT1 A 15
+	goto ready
+  }
+}
+
+actor cacodemonweaver1possessed : cacodemonweaver1
+{
+  damage(28)
+  speed 20
+}
+
+actor cacodemonweaver2possessed : cacodemonweaver2
+{
+  damage(28)
+  speed 20
+}

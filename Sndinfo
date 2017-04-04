@@ -82,6 +82,16 @@ PsxFatso/Pain		PXMNPAIN
 PsxFatso/Death		PXMANDTH
 PsxFatso/Attack		PXMANATK
 
+//cacodemon
+
+cacodemon/bite		CACOBITE
+
+cacoball/sight		CACOPRJ1
+cacoball/death		CACOPRJ2
+
+$volume cacoball/sight 0.5
+$volume cacoball/death 0.5
+
 //Cacolantern
 
 Lantern/Sight		DSLNTSIT
