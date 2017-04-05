@@ -1,3 +1,10 @@
+/*
+
+imp claw sprites: Nmn
+imp ball explosion smoke: bloax
+
+*/
+
 const float impballdeathscale = 0.03; //i'm a lazy fuck, lol
 
 actor ROPimp : doomimp replaces doomimp 

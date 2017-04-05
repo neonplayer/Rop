@@ -1,8 +1,35 @@
-Return of the puppetmasters was made by Neon.
+(?) is used when I am not sure whether the person/company credited is correct, but it's better than nothing. 
+??? is used when I have no idea who made it.
 
-Original MOP was made by Silva.
+Please correct if you know better.
+
+puppetmaster sounds and sprites: raven software (hexen)
+
+smoke sprites: bloax, xaser, zerrion the insect (cryo bow)
+
+smooth chaingun: Per Kristian
+shield gun sprites: Captain Toenail, Id Software, Apogee, Xaser, Vader
+shield gun sounds: Id software (quake 2), Valve (half-life)
+shield gun base code: Captain Toenail
+shield gun ammo sprites: Eriance, Mechadon, (modified)
+
+zombieman rifle sprites: ID software (doom alpha)
+shotgunguy "shrapnel" sprites: ID Software, Raven Software, 3D Realms, Nanami, Eriance, Keksdose, Jimmy91 (inferno demon)
+chaingunguy reving up/down/loop sounds: id software (doom 3)
+imp claw sprites: Nmn (weapon resource wad)
+imp ball explosion smoke: bloax (cryo bow)
+lost soul flame sprites: bloax, xaser, zirrion the insect (cryo bow, modified)
+lost soul particles: 3d realms (?)
+cacodemon ball sprites: eriance, midway (demon eclipse, modified)
+cacodemon ball sounds : 3d realms
+cacodemon melee sound: ??? (from demon eclipse)
+
+Return of the puppetmasters was made by Neon and Korshun.
+
+Original MOP was made by Silva. 
+
+Jmod was made by jes WAN WAN WAN
+
 Complex MOP (which is where the acs comes from) was made by Korshun, MonsterOvich and DJ Skaarj.
 
-Sprite and sound credits can be found in their respective decorate files.
-
-sfx credits: bloax
+Sprite and sound credits can also be found in their respective decorate files.

@@ -1,7 +1,7 @@
 /*
 
 lost soul flame sprites: bloax, xaser, zirrion the insect (modified by me)
-lost soul death particles: 3d realms (?)
+lost soul particles: 3d realms (?)
 
 */
 
