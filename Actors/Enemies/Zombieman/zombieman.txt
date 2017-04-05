@@ -8,7 +8,6 @@ actor ROPzombieman : zombieman replaces zombieman
 {
   painchance 128
   obituary "%o was gunned down by a zombieman."
-  +noblooddecals
   states
   {
   spawn:
@@ -42,7 +41,6 @@ actor possessedROPzombieman : PossessedMonster
   PainChance 128
   Monster
   +FLOORCLIP
-  +noblooddecals
   SeeSound "grunt/sight"
   PainSound "grunt/pain"
   DeathSound "grunt/death"
