@@ -9,6 +9,7 @@ cacodemon melee sound: ??? (from demon eclipse)
 
 actor ROPcacodemon : cacodemon replaces cacodemon
 {
+  -ISMONSTER // Avoid monster removal in teamgame
   scale 0.9
   bloodcolor blue
   obituary "%o was electrocuted by a cacodemon."
