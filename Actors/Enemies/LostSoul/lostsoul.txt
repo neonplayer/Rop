@@ -9,6 +9,7 @@ const int soulflamediffuse = 0.01;
 
 actor ROPlostsoul : lostsoul replaces lostsoul 
 {
+  -ISMONSTER // Avoid monster removal in teamgame
   radius 14
   height 40
   health 75

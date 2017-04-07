@@ -9,6 +9,7 @@ const int possessedchaingundamage = 15;
 
 actor ropchaingunguy : chaingunguy replaces chaingunguy 
 {
+  -ISMONSTER // Avoid monster removal in teamgame
   Health 70
   Radius 20
   Height 56

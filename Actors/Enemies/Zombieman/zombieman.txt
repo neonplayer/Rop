@@ -6,6 +6,7 @@ zombieman rifle sprites: ID software (doom alpha)
 
 actor ROPzombieman : zombieman replaces zombieman
 {
+  -ISMONSTER // Avoid monster removal in teamgame
   painchance 128
   obituary "%o was gunned down by a zombieman."
   states
