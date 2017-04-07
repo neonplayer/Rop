@@ -1,30 +1,38 @@
-function void InitMOP(void)
+#library "rop"
+#include "zcommon.acs"
+#import "mopengine.acs"
+
+#include "rop_decorate.acs"
+
+// Pistol start script.
+script "rop_pistolstart" (int mode)
 {
-	AddWeapon("NewFist");
-	AddWeapon("NewPistol");
-	AddWeapon("NewChainsaw");
-	AddWeapon("NewShotgun");
-	AddWeapon("NewSuperShotgun");
-	AddWeapon("NewChaingun");
-	AddWeapon("NewRocketLauncher");
-	AddWeapon("NewPlasmaRifle");
-	AddWeapon("NewBFG9000");
-	AddWeapon("ShieldGenerator");
-	
-	AddStartItem("NewPistol", 1);
-	AddStartItem("Clip", 50);
-	AddStartItem("NewFist", 1);
-	AddStartItem("ShotgunClip", 8);
-	AddStartItem("ChaingunClip", 40);
-	AddStartItem("SSGClip", 2);
-	AddStartItem("PlasmaClip", 50);
-	AddStartItem("RocketClip", 5);
-	
+	if (mode == 1)
+	{
+		print(s:"Pistol Start");
+	}
+	else if (mode == 2)
+	{
+		print(s:"Shotgun Start");
+		GiveInventory("NewShotgun", 1);
+	}
+	else
+	{
+		print(s:"Shieldgun (slot 8) and Shotgun Start");
+		GiveInventory("ShieldGenerator", 1);
+		GiveInventory("NewShotgun", 1);
+	}
+}
+
+// MOP init script called by MOP Engine.
+script 800 (void)
+{
 	addmonster(0.02, "POSSA1", "ROPzombieman", "\cbZombieman");
 	
 	addmonster(0.035, "SPOSA1", "ROPshotgunguy", "\cuShotgun Zombie");
 	
 	addmonster(0.05, "CPOSA1", "ROPchaingunguy", "\caChaingun Zombie");
+	addmonsteritem("chaingunspintoken");
 	
 	addmonster(0.03, "TROOA1", "ROPimp", "\ceImp");
 	
@@ -109,21 +117,4 @@ function void InitMOP(void)
 	*/
 }
 
-function void PistolStartModes(int mode)
-{
-	if (mode == 1)
-	{
-		print(s:"Pistol Start");
-	}
-	else if (mode == 2)
-	{
-		print(s:"Shotgun Start");
-		GiveInventory("NewShotgun", 1);
-	}
-	else
-	{
-		print(s:"Shieldgun (slot 8) and Shotgun Start");
-		GiveInventory("ShieldGenerator", 1);
-		GiveInventory("NewShotgun", 1);
-	}
-}
+

@@ -1,4 +1,3 @@
-#Include Actors/Scripts.txt
 #Include Actors/EffectBase.txt
 #Include Actors/BulletPuffs.txt
 #include actors/genericexplosion.txt
@@ -37,4 +36,4 @@ actor gibtoken : inventory { inventory.maxamount 1 }
 
 
 #Include Actors/Marine.txt
-#Include Actors/PuppetMaster.txt
+

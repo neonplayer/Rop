@@ -64,7 +64,7 @@ Actor GreenShieldHitSpawner : ShieldHitSpawner
 	Spawn:
 		NULL A 0 // The actor must have 3 frames to work properly
 		NULL A 0 // because it is a blood actor.
-		NULL A 0 ACS_ExecuteAlways(mop_spawnshieldhit, 0, SHIELDCOLOR_GREEN)
+		NULL A 0 ACS_NamedExecuteWithResult("rop_spawnshieldhit", SHIELDCOLOR_GREEN)
 		NULL A 2
 		Stop
 	}
@@ -77,7 +77,7 @@ Actor BlueShieldHitSpawner : ShieldHitSpawner
 	Spawn:
 		NULL A 0 // The actor must have 3 frames to work properly
 		NULL A 0 // because it is a blood actor.
-		NULL A 0 ACS_ExecuteWithResult(mop_spawnshieldhit, 0, SHIELDCOLOR_BLUE)
+		NULL A 0 ACS_NamedExecuteWithResult("rop_spawnshieldhit", SHIELDCOLOR_BLUE)
 		NULL A 2
 		Stop
 	}
@@ -90,7 +90,7 @@ Actor OrangeShieldHitSpawner : ShieldHitSpawner
 	Spawn:
 		NULL A 0 // The actor must have 3 frames to work properly
 		NULL A 0 // because it is a blood actor.
-		NULL A 0 ACS_ExecuteWithResult(mop_spawnshieldhit, 0, SHIELDCOLOR_ORANGE)
+		NULL A 0 ACS_NamedExecuteWithResult("mop_spawnshieldhit", SHIELDCOLOR_ORANGE)
 		NULL A 2
 		Stop
 	}

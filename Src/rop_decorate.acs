@@ -1,0 +1,48 @@
+// Shield hit effect spawner.
+#define SHIELDCOLOR_GREEN 0
+#define SHIELDCOLOR_BLUE 1
+#define SHIELDCOLOR_ORANGE 2
+
+script "rop_spawnshieldhit" (int color)
+{
+	switch (color)
+	{
+	case SHIELDCOLOR_GREEN:
+		SpawnSpotForced("GreenShieldHit", 0, 0, 0);
+		break;
+	case SHIELDCOLOR_BLUE:
+		SpawnSpotForced("BlueShieldHit", 0, 0, 0);
+		break;
+	case SHIELDCOLOR_ORANGE:
+		SpawnSpotForced("OrangeShieldHit", 0, 0, 0);
+		break;
+	}
+}
+
+// Misc. decorate scripts
+script "effectchecker" (void)
+{
+	if (ConsolePlayerNumber() < 0)
+	{
+		if (GetCVar("rop_debug"))
+			printbold(s:"t=", d:Timer(), s:" effectchecker called in serverside actor \cj", n:0);
+	}
+	
+	SetResultValue(GetUserCVar(consoleplayernumber(),"rop_effects"));
+}
+
+script "SetSpeed" (int percentage)
+{
+	SetActorProperty(0, APROP_SPEED, percentage * 1.0 / 100);
+}
+
+script "mopeffectid" (void)
+{
+	SetResultValue(2000 + PlayerNumber());
+}
+
+script "removemopeffect" (void) CLIENTSIDE
+{
+	if (ActivatorTid() - 2000 == ConsolePlayerNumber())
+		Thing_Remove(0);
+}

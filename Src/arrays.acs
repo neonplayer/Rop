@@ -1,7 +1,0 @@
-// List of items that monsters can carry.
-#define NUM_MONSTER_ITEMS 1
-int MonsterItems[NUM_MONSTER_ITEMS] =
-{
-	"chaingunspintoken"
-};
-

@@ -1,6 +1,6 @@
 /*statusbar fullscreen, 1.0
 {
-  InInventory IsMarine //Puppet hud is in the acs
+  InInventory MOPIsMarine //Puppet hud is in the acs
   {
     DrawNumber 3, HudFont_Doom, Red, Health, InterPolate(50), 80, -20;
     InInventory PowerStrength
@@ -32,7 +32,7 @@
 	DrawSwitchableImage KeySlot 4, "TNT1A0", "STKEYS5", 99, -10;
   }
   
-  ininventory not IsMarine
+  ininventory not MOPIsMarine
   {
     DrawNumber 3, HudFont_Doom, Yellow, Ammo2, 490, -40;
     DrawNumber 3, HudFont_Doom, Yellow, Ammo1, 490, -20;
@@ -44,7 +44,7 @@ monospacefonts true, "0";
 
 statusbar fullscreen, fullscreenoffsets
 {
-  ininventory ismarine
+  ininventory mopismarine
   {
 	ininventory powerstrength
 	{
@@ -88,7 +88,7 @@ statusbar fullscreen, fullscreenoffsets
 
 statusbar fullscreen, fullscreenoffsets
 {
-  ininventory ismarine
+  ininventory mopismarine
   {
 	ininventory powerstrength
 	{

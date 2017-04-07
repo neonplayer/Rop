@@ -1,6 +1,6 @@
 Actor MarinePlayer : DoomPlayer
 {  
-  // For startitems see actorlist.acs
+  LimitedToTeam 0 // Marines
 
   damagefactor "bfgsplash", 0
   DamageFactor "MarinePuff", 0
@@ -18,9 +18,16 @@ Actor MarinePlayer : DoomPlayer
   Player.WeaponSlot 6, NewPlasmaRifle
   Player.WeaponSlot 7, NewBFG9000
   Player.WeaponSlot 8, ShieldGenerator
+  
+  Player.StartItem "NewPistol", 1
+  Player.StartItem "Clip", 50
+  Player.StartItem "NewFist", 1
+  Player.StartItem "ShotgunClip", 8
+  Player.StartItem "ChaingunClip", 40
+  Player.StartItem "SSGClip", 2
+  Player.StartItem "PlasmaClip", 50
+  Player.StartItem "RocketClip", 5
 }
-
-Actor IsMarine : Inventory { Inventory.MaxAmount 1 }
 
 ACTOR ShadowEffect : PowerInvisibility
 {
