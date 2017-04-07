@@ -236,8 +236,8 @@ actor possessedROPlostsoul : possessedmonster
 {
   player.morphweapon "ROPsoulcharger"
   Health 75
-  Radius 16
-  Height 56
+  radius 14
+  height 40
   Mass 50
   Speed 0.35
   PainChance 256

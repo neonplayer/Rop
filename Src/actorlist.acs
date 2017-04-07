@@ -34,9 +34,9 @@ function void InitMOP(void)
 	
 	addmonster(0.06, "SKULA1", "ROPlostsoul", "\ciLost Soul"); FlyingMonster();
 	
-	addmonster(0.125, "HEADA1", "ROPcacodemon", "\cgCacodemon"); FlyingMonster();
+	addmonster(0.125, "HEADA1", "ROPcacodemon", "\cgCacodemon"); FlyingMonster(); EvadingMonster(20);
 	
-	addmonster(0.14, "BOS2A1C1", "hellknight", "\cbHell Knight");
+	addmonster(0.14, "BOS2A1C1", "ROPhellknight", "\cbHell Knight");
 	
 	addmonster(0.15, "SKELA1D1", "revenant", "\ccRevenant");
 	

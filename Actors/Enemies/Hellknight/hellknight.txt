@@ -1,0 +1,72 @@
+actor ROPhellknight : hellknight replaces hellknight
+{
+  bloodcolor "darkgreen"
+  scale 1.05
+  mass 750
+  speed 10
+  obituary "%o was defeated by a hellknight."
+  hitobituary "%o was beaten by a hellknight."
+}
+
+actor possessedROPhellknight : possessedmonster 
+{
+  player.morphweapon "knighthand"
+  Health 500
+  Radius 24
+  Height 64
+  Mass 750
+  Speed 0.5
+  scale 1.05
+  PainChance 50
+  Monster
+  bloodcolor "darkgreen"
+  +FLOORCLIP
+  SeeSound "knight/sight"
+  ActiveSound "knight/active"
+  PainSound "knight/pain"
+  DeathSound "knight/death"
+  obituary "%o was defeated by %k."
+  hitobituary "%o was beaten by %k."
+  Player.ViewHeight 54
+  Player.SoundClass Noble
+  Player.JumpZ 5
+  States
+  {
+  Spawn:
+    BOS2 AB 10
+    Loop
+  See:
+    BOS2 AABBCCDD 3
+    Loop
+  Melee:
+  Missile:
+    BOS2 EF 4
+    BOS2 G 8
+	BOS2 FE 8
+	BOS2 E 1
+    Goto See
+  Pain:
+    BOS2 H 2
+    BOS2 H 2 A_Pain
+    Goto See
+  }
+}
+
+actor knighthand : possessedweapon
+{
+  states
+  {
+  fire:
+    HKHD ABCEGIKM 1
+	HKHD A 0 a_firecustommissile("possessedbaronball")
+	HKHD MLKJIHGFEDCBA 1
+	TNT1 A 9
+	goto ready
+  }
+}
+
+actor possessedbaronball : baronball
+{
+  speed 20
+  damage (66)
+}
