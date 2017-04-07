@@ -121,29 +121,6 @@ DSZAPHT3	DSZAPHT3
 $random ForceBarrier/Hit	{ DSZAPHT1 DSZAPHT2 DSZAPHT3 }
 $limit ForceBarrier/Hit	0
 
-//Sound definitions from Complex MOP
-
-game/canexit Signal
-
-$playersound	Possessed	male	*taunt		NOSOUND
-
-$random pm_taunt { pmaster/taunt1 pmaster/taunt2 pmaster/taunt3 }
-
-pmaster/taunt1 Msnd1
-pmaster/taunt2 Msnd4
-pmaster/taunt3 Msnd5
-
-$playersound    PuppetMaster male *pain100 Msnd3  
-$playersounddup PuppetMaster male *pain75 *pain100
-$playersounddup PuppetMaster male *pain50 *pain100
-$playersounddup PuppetMaster male *pain25 *pain100
-$playersound    PuppetMaster male *death Msnd3
-$playersound    PuppetMaster male *xdeath Msnd3
-$playersound    PuppetMaster male *usefail Msnd2
-$playersounddup PuppetMaster male *grunt *pain100
-$playersounddup PuppetMaster male *land *pain100
-$playersound    PuppetMaster male *jump Msnd2
-$playeralias    PuppetMaster male *taunt pm_taunt  
 
 //Sound classes
 
