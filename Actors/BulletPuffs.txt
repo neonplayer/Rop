@@ -118,6 +118,8 @@ Actor MonsterMeleePuff : BulletPuff
   states
   {
   spawn:
+  crash:
+  melee:
     TNT1 A 1
 	stop
   }

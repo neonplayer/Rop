@@ -7,6 +7,7 @@ actor ROPhellknight : hellknight replaces hellknight
   speed 10
   obituary "%o was defeated by a hellknight."
   hitobituary "%o was beaten by a hellknight."
+  -ismonster
 }
 
 actor possessedROPhellknight : possessedmonster 
@@ -38,36 +39,52 @@ actor possessedROPhellknight : possessedmonster
     Loop
   See:
     BOS2 AABBCCDD 3
-    Loop
+    goto spawn
   Melee:
   Missile:
-    BOS2 EF 4
+    BOS2 EF 6
     BOS2 G 8
-	BOS2 FE 8
+	BOS2 FE 6
 	BOS2 E 1
-    Goto See
+    Goto Spawn
   Pain:
     BOS2 H 2
     BOS2 H 2 A_Pain
-    Goto See
+    Goto spawn
   }
 }
 
 actor knighthand : possessedweapon
 {
+  attacksound "baron/melee"
   states
   {
   fire:
-    HKHD ABCEGIKM 1
-	HKHD A 0 a_firecustommissile("possessedbaronball")
-	HKHD MLKJIHGFEDCBA 1
-	TNT1 A 9
+	HKH2 ABCDEFGHIJ 1
+	HKH2 K 1 a_firecustommissile("possessedbaronball")
+	HKH2 UJTISHRGQFPEODNCMBLA 1
+	TNT1 A 1
+	goto ready
+  altfire:
+    HKH2 ABCDEFGHIJ 1
+	//HKH2 A 0 a_playsound("baron/melee")
+	HKH2 K 1 a_custompunch(65, true, 0, "monstermeleepuff")
+	HKH2 UJTISHRGQFPEODNCMBLA 1
+	TNT1 A 1 
 	goto ready
   }
+}
+
+actor hellknightmeleepuff : MonsterMeleePuff
+{
+  +nointeraction
+  +PUFFONACTORS
+  activesound ""
+  seesound "baron/melee"
 }
 
 actor possessedbaronball : baronball
 {
   speed 20
-  damage (66)
+  damage (60)
 }
