@@ -103,7 +103,6 @@ actor possessedropchaingunguy : possessedmonster
   Mass 150
   Speed 0.4
   PainChance 128
-  Monster
   +FLOORCLIP
   SeeSound "chainguy/sight"
   PainSound "chainguy/pain"

@@ -19,7 +19,6 @@ actor possessedROPhellknight : possessedmonster
   Speed 0.5
   scale 1.05
   PainChance 50
-  Monster
   bloodcolor "darkgreen"
   +FLOORCLIP
   SeeSound "knight/sight"

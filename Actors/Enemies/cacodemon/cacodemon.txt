@@ -203,7 +203,6 @@ actor possessedROPcacodemon : possessedmonster
   Mass 400
   Speed 0.4
   PainChance 128
-  Monster
   +FLOAT
   +NOGRAVITY
   scale 0.9

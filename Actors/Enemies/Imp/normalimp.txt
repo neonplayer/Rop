@@ -59,7 +59,6 @@ actor possessedROPimp : possessedmonster
   Mass 125
   Speed 0.45
   PainChance 150
-  Monster
   +FLOORCLIP
   SeeSound "imp/sight"
   PainSound "imp/pain"

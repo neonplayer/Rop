@@ -241,7 +241,6 @@ actor possessedROPlostsoul : possessedmonster
   Mass 50
   Speed 0.35
   PainChance 256
-  Monster
   +FLOAT
   +NOGRAVITY
   +MISSILEMORE

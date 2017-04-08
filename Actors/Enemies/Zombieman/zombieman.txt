@@ -39,7 +39,6 @@ actor possessedROPzombieman : PossessedMonster
   Height 56
   Speed 0.4 //0.35
   PainChance 128
-  Monster
   +FLOORCLIP
   SeeSound "grunt/sight"
   PainSound "grunt/pain"

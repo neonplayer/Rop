@@ -53,7 +53,6 @@ actor possessedROPshotgunguy : possessedmonster
   Mass 100
   Speed 0.4
   PainChance 170
-  Monster
   +FLOORCLIP
   SeeSound "shotguy/sight"
   PainSound "shotguy/pain"

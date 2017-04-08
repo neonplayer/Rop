@@ -53,8 +53,7 @@ actor possessedroppinky : possessedmonster
   Speed 0.65
   Radius 30
   Height 56
-  Mass 400
-  Monster
+  mass 400
   +FLOORCLIP
   SeeSound "demon/sight"
   PainSound "demon/pain"
@@ -114,7 +113,6 @@ actor possessedROPspectre : possessedmonster
   Radius 30
   Height 56
   Mass 400
-  Monster
   +FLOORCLIP
   SeeSound "demon/sight"
   PainSound "demon/pain"
