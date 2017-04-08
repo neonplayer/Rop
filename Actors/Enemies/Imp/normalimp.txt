@@ -9,7 +9,6 @@ const float impballdeathscale = 0.03; //i'm a lazy fuck, lol
 
 actor ROPimp : doomimp replaces doomimp 
 {
-  -ISMONSTER // Avoid monster removal in teamgame
   Obituary "%o was fried by an imp."
   hitobituary "%o got a few scratches from an imp."
   mass 125

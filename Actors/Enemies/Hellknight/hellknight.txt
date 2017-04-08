@@ -1,6 +1,5 @@
 actor ROPhellknight : hellknight replaces hellknight
 {
-  -ISMONSTER // Avoid monster removal in teamgame
   bloodcolor "darkgreen"
   scale 1.05
   mass 750

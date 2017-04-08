@@ -1,6 +1,5 @@
 actor ROPpinky : demon replaces demon 
 {
-  -ISMONSTER // Avoid monster removal in teamgame
   scale 1.1
   PainChance 128
   Obituary "%o was eaten by a pinky."
@@ -20,7 +19,6 @@ actor ROPpinky : demon replaces demon
 
 actor ROPspectre : ROPpinky replaces spectre
 {
-  -ISMONSTER // Avoid monster removal in teamgame
   renderstyle translucent
   alpha 0.5
   translation "16:31=92:107", "32:35=108:111", "36:43=5:8", "44:47=0:0", "208:223=96:107"
