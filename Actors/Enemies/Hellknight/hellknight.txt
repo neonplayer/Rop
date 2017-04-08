@@ -6,7 +6,6 @@ actor ROPhellknight : hellknight replaces hellknight
   speed 10
   obituary "%o was defeated by a hellknight."
   hitobituary "%o was beaten by a hellknight."
-  -ismonster
 }
 
 actor possessedROPhellknight : possessedmonster 
