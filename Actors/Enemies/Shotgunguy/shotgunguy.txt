@@ -6,7 +6,6 @@ shrapnel sprites: ID Software, Raven Software, 3D Realms, Nanami, Eriance, Keksd
 
 actor ROPshotgunguy : shotgunguy replaces shotgunguy
 {
-  -ISMONSTER // Avoid monster removal in teamgame
   painchance 128
   Obituary "%o got some buckshot from a shotgun zombie."
   states
