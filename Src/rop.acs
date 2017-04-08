@@ -5,13 +5,17 @@
 #include "rop_decorate.acs"
 
 // Pistol start script.
-script "rop_pistolstart" (int mode)
+script "rop_pistolstart" ENTER
 {
-	if (mode == 1)
+	if (!IsMarine())
+		terminate;
+
+	int mode = GetCVar("rop_pistolstartmode");
+	if (mode == 0)
 	{
 		print(s:"Pistol Start");
 	}
-	else if (mode == 2)
+	else if (mode == 1)
 	{
 		print(s:"Shotgun Start");
 		GiveInventory("NewShotgun", 1);

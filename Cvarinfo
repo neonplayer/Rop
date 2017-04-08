@@ -1,3 +1,4 @@
 server bool rop_debug = false;
+server int rop_pistolstartmode = 2; // see Src/rop.acs for a list of modes
 
 user bool rop_effects = true;
