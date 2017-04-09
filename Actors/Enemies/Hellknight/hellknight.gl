@@ -1,0 +1,41 @@
+pointlight hkball
+{
+  color 0.0 1.0 0.0
+  size 32
+}
+
+pointlight hkball2
+{
+  color 0.0 0.75 0.0
+  size 40
+}
+
+pointlight hkball3
+{
+  color 0.0 0.45 0.0
+  size 24
+}
+
+pointlight hkball3
+{
+  color 0.0 0.2 0.0
+  size 16
+}
+
+object hellknightplasma
+{
+frame BAL3A { light hkball }
+frame BAL3B { light hkball }
+frame BAL3C { light hkball2 }
+frame BAL3D { light hkball3 }
+frame BAL3E { light hkball4 }
+}
+
+object possessedhellknightplasma
+{
+frame BAL3A { light hkball }
+frame BAL3B { light hkball }
+frame BAL3C { light hkball2 }
+frame BAL3D { light hkball3 }
+frame BAL3E { light hkball4 }
+}

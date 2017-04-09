@@ -8,3 +8,4 @@
 
 #include "actors/enemies/lostsoul/lostsoul.gl"
 #include "actors/enemies/cacodemon/cacodemon.gl"
+#include "actors/enemies/hellknight/hellknight.gl"
