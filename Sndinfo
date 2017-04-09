@@ -70,7 +70,9 @@ MechDemon/Walk		DSMDMWAL
 
 $Volume MechDemon/Walk 0.66
 
-//Belphegor
+//nobles
+
+noble/punch			HKPUNCH
 
 PsxBaron/Sight		DSBLPHI
 PsxBaron/Death		DSBLPDIE

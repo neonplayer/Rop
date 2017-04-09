@@ -1,3 +1,14 @@
+/*
+
+hellknight melee attack sound: croteam (serious sam tfe)
+hellknight projectile sprites: raven software (modified)
+hellknight projectile particles: id software (modified)
+hellknight projectile explosion smoke: bloax
+
+hellknight hand sprites: ??? (from original mop)
+
+*/
+
 actor ROPhellknight : hellknight replaces hellknight
 {
   bloodcolor "darkgreen"
@@ -6,6 +17,199 @@ actor ROPhellknight : hellknight replaces hellknight
   speed 10
   obituary "%o was defeated by a hellknight."
   hitobituary "%o was beaten by a hellknight."
+  states
+  {
+  Missile:
+    BOS2 A 0 a_jumpifcloser(44, "melee")
+    BOS2 EF 8 A_FaceTarget
+  missile2:
+    BOS2 G 8 A_custommissile("hellknightplasma", 32, 0, 0)
+    Goto See
+  melee:
+    BOS2 EF 8 A_FaceTarget
+	BOS2 A 0 a_jumpifcloser(44, "melee")
+	BOS2 A 0 a_jump(256, "missile2")
+	BOS2 G 8 a_custommeleeattack(10 * random(1, 8), "noble/punch", "", "monstermeleepuff")
+	goto see
+  }
+}
+
+actor hellknightplasma : baronball
+{
+  damage (35)
+  decal baronscorch
+  states
+  {
+  spawn:
+    BAL3 A 0
+    BAL3 AA 1 bright a_spawnitemex("hkplasmatrail")
+	BAL3 A 0 a_spawnitemex("hkplasmaparticle", 0, 0, 0, random(6, -6)*0.25, random(6, -6)*0.25, random(6, -6)*0.25)
+	BAL3 BB 1 bright a_spawnitemex("hkplasmatrail")
+	BAL3 A 0 a_spawnitemex("hkplasmaparticle", 0, 0, 0, random(6, -6)*0.25, random(6, -6)*0.25, random(6, -6)*0.25)
+	loop
+  death:
+    BAL3 AAAAAAAAA 0 a_spawnitemex("hkplasmaparticle2", 0, 0, 0, random(8, -8)*0.25, random(8, -8)*0.25, random(4, 14)*0.5)
+	BAL3 AAAAA 0 a_spawnitemex("hkplasmadeathsmoke", 0, 0, 0, random(4, -4)*0.75, random(4, -4)*0.75, random(4, 14)*0.333)
+	BAL3 A 0 a_changeflag(forcexybillboard, 1)
+	
+	BAL3 C 1 a_fadeout(0.02)
+	BAL3 C 0 a_setscale(scalex+0.02, scaley+0.02)
+	BAL3 C 1 a_fadeout(0.02)
+	BAL3 C 0 a_setscale(scalex+0.02, scaley+0.02)
+	BAL3 C 1 a_fadeout(0.02)
+	BAL3 C 0 a_setscale(scalex+0.02, scaley+0.02)
+	BAL3 C 1 a_fadeout(0.02)
+	BAL3 C 0 a_setscale(scalex+0.02, scaley+0.02)
+	BAL3 C 1 a_fadeout(0.02)
+	BAL3 C 0 a_setscale(scalex+0.02, scaley+0.02)
+	BAL3 C 1 a_fadeout(0.02)
+	BAL3 C 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+	BAL3 D 1 a_fadeout(0.02)
+	BAL3 D 0 a_setscale(scalex+0.02, scaley+0.02)
+	BAL3 D 1 a_fadeout(0.02)
+	BAL3 D 0 a_setscale(scalex+0.02, scaley+0.02)
+	BAL3 D 1 a_fadeout(0.02)
+	BAL3 D 0 a_setscale(scalex+0.02, scaley+0.02)
+	BAL3 D 1 a_fadeout(0.02)
+	BAL3 D 0 a_setscale(scalex+0.02, scaley+0.02)
+	BAL3 D 1 a_fadeout(0.02)
+	BAL3 D 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+	BAL3 E 1 a_fadeout(0.02)
+	BAL3 E 0 a_setscale(scalex+0.02, scaley+0.02)
+	BAL3 E 1 a_fadeout(0.02)
+	BAL3 E 0 a_setscale(scalex+0.02, scaley+0.02)
+	BAL3 E 1 a_fadeout(0.02)
+	BAL3 E 0 a_setscale(scalex+0.02, scaley+0.02)
+	BAL3 E 1 a_fadeout(0.02)
+	BAL3 E 0 a_setscale(scalex+0.02, scaley+0.02)
+	stop
+  }
+}
+
+actor hkplasmatrail : effect
+{
+  renderstyle add
+  states
+  {
+  spawn:
+    TNT1 A 0
+    TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	
+    BAL3 A 1 a_setscale(scalex-random(125, 75)*0.001, scaley-random(125, 75)*0.001)
+	BAL3 A 0 a_fadeout(0.1)
+	BAL3 A 1 a_setscale(scalex-random(125, 75)*0.001, scaley-random(125, 75)*0.001)
+	BAL3 A 0 a_fadeout(0.1)
+	BAL3 A 1 a_setscale(scalex-random(125, 75)*0.001, scaley-random(125, 75)*0.001)
+	BAL3 A 0 a_fadeout(0.1)
+	
+	BAL3 B 1 a_setscale(scalex-random(125, 75)*0.001, scaley-random(125, 75)*0.001)
+	BAL3 B 0 a_fadeout(0.1)
+	BAL3 B 1 a_setscale(scalex-random(125, 75)*0.001, scaley-random(125, 75)*0.001)
+	BAL3 B 0 a_fadeout(0.1)
+	BAL3 B 1 a_setscale(scalex-random(125, 75)*0.001, scaley-random(125, 75)*0.001)
+	BAL3 B 0 a_fadeout(0.1)
+	goto spawn+2
+  }
+}
+
+actor hkplasmaparticle : effect
+{
+  renderstyle add
+  scale 0.15
+  states
+  {
+  spawn:
+    TNT1 A 0
+    TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	
+    /*BAL3 A 1 a_scalevelocity(0.9675)
+	BAL3 A 0 a_fadeout(0.04)
+	BAL3 A 0 a_jumpif(alpha < 0.25, "die")
+	BAL3 A 1 a_scalevelocity(0.9675)
+	BAL3 A 0 a_fadeout(0.04)
+	BAL3 A 0 a_jumpif(alpha < 0.25, "die")
+	
+	BAL3 B 1 a_scalevelocity(0.9675)
+	BAL3 B 0 a_fadeout(0.04)
+	BAL3 B 0 a_jumpif(alpha < 0.25, "die")
+	BAL3 B 1 a_scalevelocity(0.9675)
+	BAL3 B 0 a_fadeout(0.04)
+	BAL3 B 0 a_jumpif(alpha < 0.25, "die")*/
+	
+	HKPR A 1 a_scalevelocity(0.9675)
+	HKPR A 0 a_fadeout(0.04)
+	HKPR A 0 a_jumpif(alpha < 0.25, "die")
+	goto spawn+2
+  die:
+    HKPR AAAAAAAAAA 1 a_setscale(scalex-0.015, scaley-0.015)
+	stop
+  }
+}
+
+actor hkplasmaparticle2 : CollidingFallingEffect
+{
+  scale 0.3
+  gravity 0.25
+  renderstyle add
+  bouncetype hexen
+  states
+  {
+  spawn:
+    TNT1 A 0
+    TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	
+	HKPR A 1 a_scalevelocity(0.975)
+	HKPR A 0 a_fadeout(0.05)
+	HKPR A 0 a_jumpif(alpha < 0.25, "die")
+	goto spawn+2
+  die:
+    HKPR AAAAAAAAAA 1 a_setscale(scalex-0.03, scaley-0.03)
+	stop
+  }
+}
+	
+actor hkplasmadeathsmoke : CollidingFallingEffect
+{
+  scale 0.35
+  gravity 0.45
+  alpha 0.7
+  renderstyle add
+  bouncetype hexen
+  states
+  {
+  spawn:
+    GRNS A 0
+	GRNS A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	GRNS A 1 a_setscale(scalex+0.01, scaley+0.01)
+	GRNS A 0 a_fadeout(0.05)
+	GRNS B 1 a_setscale(scalex+0.01, scaley+0.01)
+	GRNS B 0 a_fadeout(0.05)
+	GRNS C 1 a_setscale(scalex+0.01, scaley+0.01)
+	GRNS C 0 a_fadeout(0.05)
+	GRNS D 1 a_setscale(scalex+0.01, scaley+0.01)
+	GRNS D 0 a_fadeout(0.05)
+	GRNS E 1 a_setscale(scalex+0.01, scaley+0.01)
+	GRNS E 0 a_fadeout(0.05)
+	GRNS F 1 a_setscale(scalex+0.01, scaley+0.01)
+	GRNS F 0 a_fadeout(0.05)
+	GRNS G 1 a_setscale(scalex+0.01, scaley+0.01)
+	GRNS G 0 a_fadeout(0.05)
+	GRNS H 1 a_setscale(scalex+0.01, scaley+0.01)
+	GRNS H 0 a_fadeout(0.05)
+	GRNS I 1 a_setscale(scalex+0.01, scaley+0.01)
+	GRNS I 0 a_fadeout(0.05)
+	GRNS J 1 a_setscale(scalex+0.01, scaley+0.01)
+	GRNS J 0 a_fadeout(0.05)
+	GRNS K 1 a_setscale(scalex+0.01, scaley+0.01)
+	GRNS K 0 a_fadeout(0.05)
+	GRNS L 1 a_setscale(scalex+0.01, scaley+0.01)
+	GRNS L 0 a_fadeout(0.05)
+	GRNS M 1 a_setscale(scalex+0.01, scaley+0.01)
+	GRNS M 0 a_fadeout(0.05)
+	stop
+  }
 }
 
 actor possessedROPhellknight : possessedmonster 
@@ -53,12 +257,12 @@ actor possessedROPhellknight : possessedmonster
 
 actor knighthand : possessedweapon
 {
-  attacksound "baron/melee"
+  attacksound "noble/punch"
   states
   {
   fire:
 	HKH2 ABCDEFGHIJ 1
-	HKH2 K 1 a_firecustommissile("possessedbaronball")
+	HKH2 K 1 a_firecustommissile("possessedhellknightplasma")
 	HKH2 UJTISHRGQFPEODNCMBLA 1
 	TNT1 A 1
 	goto ready
@@ -72,15 +276,7 @@ actor knighthand : possessedweapon
   }
 }
 
-actor hellknightmeleepuff : MonsterMeleePuff
-{
-  +nointeraction
-  +PUFFONACTORS
-  activesound ""
-  seesound "baron/melee"
-}
-
-actor possessedbaronball : baronball
+actor possessedhellknightplasma : hellknightplasma
 {
   speed 20
   damage (60)
