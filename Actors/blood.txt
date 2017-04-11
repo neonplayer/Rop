@@ -1,4 +1,4 @@
-actor ROPblood : effect replaces blood
+actor ROPblood : effect replaces blood //aperantly this is spawned serverside no matter what
 {
   radius 1
   height 2
@@ -6,10 +6,22 @@ actor ROPblood : effect replaces blood
   {
   spawn:
     TNT1 A 0
-	TNT1 A 0 a_checksight("removed")
-	TNT1 A 0 a_jumpif(!callacs("effectchecker"), 3)
-	TNT1 AAAA 0 a_spawnitemex("bloodparticle", 0, 0, 0, random(10, -10)*0.167, random(10, -10)*0.167, random(6, 18)*0.333, 0, 1)
+	TNT1 A 0 a_spawnitemex("bloodparticle", 0, 0, 0, random(10, -10)*0.167, random(10, -10)*0.167, random(6, 18)*0.333, 0, 1)
+	TNT1 A 0 a_spawnitemex("bloodsfx")
     stop
+  }
+}
+
+actor bloodsfx : ropblood
+{
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_checksight("removed")
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	TNT1 AAA 0 a_spawnitemex("bloodparticle", 0, 0, 0, random(10, -10)*0.167, random(10, -10)*0.167, random(6, 18)*0.333, 0, 1)
+	stop
   }
 }
 
