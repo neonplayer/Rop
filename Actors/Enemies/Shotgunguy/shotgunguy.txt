@@ -82,6 +82,10 @@ actor possessedROPshotgunguy : possessedmonster
 actor ROPzombieshotgun : possessedweapon
 {
   decal bulletchip
+  weapon.bobstyle inversesmooth
+  weapon.bobrangey 0.75
+  weapon.bobrangex 0.3
+  weapon.bobspeed 2.5
   states
   {
   ready:

@@ -73,6 +73,10 @@ actor ROPzombiemanrifle : possessedweapon
   obituary "%o was gunned down by %k."
   weapon.ammotype "riflechargetoken"
   weapon.ammouse 0
+  weapon.bobstyle inversesmooth
+  weapon.bobrangey 0.75
+  weapon.bobrangex 0.3
+  weapon.bobspeed 2.5
   states
   {
   ready:

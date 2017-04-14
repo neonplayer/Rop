@@ -162,6 +162,10 @@ actor ropzombiechaingun : possessedweapon
   weapon.ammouse 0
   weapon.ammotype2 "chaingunspintoken"
   weapon.ammouse2 0
+  weapon.bobstyle inversesmooth
+  weapon.bobrangex 0.5
+  weapon.bobrangey 0.75
+  weapon.bobspeed 1.25
   States
   {
   Ready:
