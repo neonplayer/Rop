@@ -74,9 +74,10 @@ actor ROPzombiemanrifle : possessedweapon
   weapon.ammotype "riflechargetoken"
   weapon.ammouse 0
   weapon.bobstyle inversesmooth
+  weapon.bobrangex 0.5
   weapon.bobrangey 0.75
-  weapon.bobrangex 0.3
-  weapon.bobspeed 2.5
+  weapon.bobspeed 1.25
+  tag "Zombie Rifle"
   states
   {
   ready:

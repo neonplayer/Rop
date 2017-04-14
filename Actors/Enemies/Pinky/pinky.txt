@@ -87,6 +87,7 @@ actor possessedroppinky : possessedmonster
 
 actor ROPpinkyteeth : possessedweapon
 {
+  tag "Pinky Mouth"
   states
   {
   fire:
@@ -106,7 +107,7 @@ actor ROPpinkyteeth : possessedweapon
 
 actor possessedROPspectre : possessedmonster
 {
-  player.morphweapon "ROPpinkyteeth"
+  player.morphweapon "ROPspectreteeth"
   Health 150
   PainChance 128
   Speed 0.65
@@ -145,4 +146,9 @@ actor possessedROPspectre : possessedmonster
     SARG H 2 A_Pain
     Goto spawn
   }
+}
+
+actor ROPspectreteeth : RopPinkyteeth
+{
+  tag "Spectre Mouth"
 }

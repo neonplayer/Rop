@@ -258,6 +258,7 @@ actor possessedROPhellknight : possessedmonster
 actor knighthand : possessedweapon
 {
   attacksound "noble/punch"
+  tag "Hellknight Hand"
   states
   {
   fire:

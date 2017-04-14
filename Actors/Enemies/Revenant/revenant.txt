@@ -206,6 +206,7 @@ actor revenantzooming : inventory { inventory.maxamount 1 }
 actor revenantlauncher : possessedweapon
 {
   attacksound "skeleton/melee"
+  tag "Revenant Launchers"
   states
   {
   ready:

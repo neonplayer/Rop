@@ -285,6 +285,7 @@ actor possessedROPlostsoul : possessedmonster
 
 actor ROPsoulcharger : possessedweapon
 {
+  tag "Lost Soul Mouth"
   weapon.ammotype "soulflametoken"
   states
   {

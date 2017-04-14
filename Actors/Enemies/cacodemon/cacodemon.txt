@@ -232,6 +232,7 @@ actor possessedROPcacodemon : possessedmonster
 
 actor cacomouth : possessedweapon
 {
+  tag "Cacodemon Mouth"
   states
   {
   fire:

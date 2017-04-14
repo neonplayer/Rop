@@ -261,6 +261,7 @@ actor impballdeathexplode : impballparticle
 actor ROPimpclaw : possessedweapon
 {
   decal bulletchip
+  tag "Imp Claw"
   states
   {
   fire:

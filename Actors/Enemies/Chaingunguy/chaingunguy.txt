@@ -166,6 +166,7 @@ actor ropzombiechaingun : possessedweapon
   weapon.bobrangex 0.5
   weapon.bobrangey 0.75
   weapon.bobspeed 1.25
+  tag "Zombie Chaingun"
   States
   {
   Ready:
