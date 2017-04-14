@@ -4,6 +4,8 @@
 
 #include "rop_decorate.acs"
 
+#define max_monsterinfo 10
+
 // Pistol start script.
 script "rop_pistolstart" ENTER
 {
@@ -28,9 +30,35 @@ script "rop_pistolstart" ENTER
 	}
 }
 
+str monsterinfo[max_monsterinfo] =
+{
+	"\nPrimary fire will fire your rifle. \nSecondary fire will charge a perfectly accurate shot. \n(\cdperfectly accurate, deals slightly more damage,\cgtakes 1 second to charge\c-)",
+	
+	"\nPrimary fire will fire your shotgun. \nSecondary fire will fire shrapnels. \n(\cdcan bounce off walls, \cgless damage, affected by gravity\c-)",
+	
+	"\nPrimary fire will fire your chaingun. \n(gets less accurate the more you shoot, stop firing to regain accuracy) \nSecondary fire revs your chaingun up. \n(\cdfaster firing, \cgreduced movement speed, cannot regain accuracy while reved up\c-)",
+	
+	"Primary fire will throw a fireball. \nSecondary fire will use your melee attack. \n(\cdhigher dps, \cglimited range\c-)",
+	
+	"Primary fire will mini-lunge. \nSecondary fire will bite. \n(\cdhigher dps, \cgdoesn't thrust forward\c-)",
+	
+	"\cdSpectres are partially invisible. \n\nPrimary fire will perform a mini-lunge. \nSecondary fire will bite. \n(\cdhigher dps, \cgdoesn't thrust forward\c-)",
+	
+	"\cdLost souls can fly. \n\cdLost souls gain 7 mana every second (\cgwhile not attacking\cd). \n\nPrimary fire will charge. \nSecondary fire will cause splash damage until mana runs out. \n(\cgRequires 15 mana to initiate\c-)",
+	
+	"\cdCacodemons can fly. \n\cdCacodemons can dodge. (double tap strafe keys) \n\nPrimary fire will fire electric projectiles. \nSecondary fire will bite. \n(\cdhigher dps, \cglimited range\c-)",
+	
+	"\cgHell knights have reduced jump height. \n\nPrimary fire will throw plasma. \nSecondary fire will punch. \n(\cdhigher dps, \cglimited range\c-)",
+	
+	"\cgRevenants have reduced jump height. \n\nPrimary fire will fire a rocket from your left cannon. \nSecondary fire will fire a rocket from your right cannon. \nReloading will toggle homing rockets. \n(\cgWill only home in if you are targeting something, Slightly reduced damage and speed\c-) \nZooming will punch. \n(\cdhigher dps, \cglimited range\c-)"
+};
+
 script "rop_possess" (int monster)
 {
-	print(s:MonsterName(monster), s:" ", s:MonsterActorName(monster)); 
+    if(getcvar("rop_possesmessage"))
+	{
+		print(s: "-", s:MonsterName(monster), s: "\c--\n", s:monsterinfo[monster]); 
+	}
 }
 
 // MOP init script called by MOP Engine.

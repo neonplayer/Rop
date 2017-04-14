@@ -1,4 +1,5 @@
-server bool rop_debug = false;
+server bool rop_debug = false; // for debugging (recommended to be false, but doesn't actually affect gameplay)
 server int rop_pistolstartmode = 2; // see Src/rop.acs for a list of modes
 
-user bool rop_effects = true;
+user bool rop_effects = true; // toggles special effects
+user bool rop_possesmessage = true; // if false you won't get a message when you posses a monster.
