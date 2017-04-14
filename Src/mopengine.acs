@@ -18,3 +18,11 @@ function void AddMonsterAttack(str name) {}
 
 function bool IsMarine(void) {}
 function bool IsPuppetmaster(void) {}
+
+// Monster information
+function str MonsterName(int monster) {}
+function str MonsterActorName(int monster) {}
+
+// Callbacks
+function void MOPOnPossess(str scriptname) {}
+function void MOPOnPossessNum(int scriptnum) {}
