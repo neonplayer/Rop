@@ -28,9 +28,16 @@ script "rop_pistolstart" ENTER
 	}
 }
 
+script "rop_possess" (int monster)
+{
+	print(s:MonsterName(monster), s:" ", s:MonsterActorName(monster)); 
+}
+
 // MOP init script called by MOP Engine.
 script 800 (void)
 {
+	MOPOnPossess("rop_possess");
+
 	addmonster(0.02, "POSSA1", "ROPzombieman", "\cbZombieman");
 	
 	addmonster(0.035, "SPOSA1", "ROPshotgunguy", "\cuShotgun Zombie");
