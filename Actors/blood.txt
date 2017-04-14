@@ -7,7 +7,7 @@ actor ROPblood : effect replaces blood //aperantly this is spawned serverside no
   spawn:
     TNT1 A 0
 	TNT1 A 0 a_spawnitemex("bloodparticle", 0, 0, 0, random(10, -10)*0.167, random(10, -10)*0.167, random(6, 18)*0.333, 0, 1)
-	TNT1 A 0 a_spawnitemex("bloodsfx")
+	TNT1 A 0 a_spawnitemex("bloodsfx",0,0,0,0,0,0,0,1)
     stop
   }
 }

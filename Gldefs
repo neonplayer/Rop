@@ -5,7 +5,7 @@
 #include "actors/enemies/shotgunguy/shotgunguy.gl"
 #include "actors/enemies/chaingunguy/chaingunguy.gl"
 #include "actors/enemies/imp/normalimp.gl"
-
 #include "actors/enemies/lostsoul/lostsoul.gl"
 #include "actors/enemies/cacodemon/cacodemon.gl"
 #include "actors/enemies/hellknight/hellknight.gl"
+#include "actors/enemies/revenant/revenant.gl"

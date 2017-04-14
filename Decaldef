@@ -98,3 +98,13 @@ decalgroup ROPBloodSplat
 	BloodSplat6	5
 	BloodSplat7	6
 }
+
+decal revenantscorch
+{
+	pic SCORCH1
+	shade "00 00 00"
+	x-scale 0.275
+	y-scale 0.275
+	randomflipx
+	randomflipy
+}

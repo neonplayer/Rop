@@ -1,10 +1,13 @@
 ROP r5:
 
 	WARNING: rc5 will not work with 2.1.2, use a 3.0 alpha!
+	You will also need to run it with mopengine_alphax.pk3
   
+- Major weapon, enemy, balance, sfx rework! (too big to list)
 - Added rop_effects. settng it to 0 or false will remove most special effects.
 - Added colored monster names. (now if you mouse over a monster as a puppetmaster all names won't be red anymore)
 - Puppetmasters can now toggle floorhugger mode by pressing reload. (this makes going through walls eaiser, but prevents you from flying.)
+
 
 ROP r4b:
 

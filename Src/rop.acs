@@ -48,9 +48,9 @@ script 800 (void)
 	
 	addmonster(0.125, "HEADA1", "ROPcacodemon", "\cgCacodemon"); FlyingMonster(); EvadingMonster(20);
 	
-	addmonster(0.14, "BOS2A1C1", "ROPhellknight", "\cbHell Knight");
+	addmonster(0.15, "BOS2A1C1", "ROPhellknight", "\cbHell Knight");
 	
-	addmonster(0.15, "SKELA1D1", "revenant", "\ccRevenant");
+	addmonster(0.15, "SKELA1D1", "ROPrevenant", "\ccRevenant");
 	
 	addmonster(0.175, "PAINA1", "painelemental", "\cePain Elemental"); FlyingMonster();
 	

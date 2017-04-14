@@ -24,7 +24,7 @@ $pitchshift zombchaingun/loop 0
 
 $limit zombchaingun/loop 3
 
-//Dark Imp
+//imps
 
 PXMPSIT1		PXMPSIT1
 PXMPSIT2		PXMPSIT2
@@ -37,8 +37,6 @@ PsxImp/Act      PXMPACT
 $Random PsxImp/Sight { PXMPSIT1 PXMPSIT2 }
 $Random PsxImp/Death { PXMPDTH1 PXMPDTH2 }
 
-//Soul Harvester
-
 $RANDOM harvester/sight { shsight1 shsight2 }
 shsight1 shsight1
 shsight2 shsight2
@@ -50,7 +48,7 @@ shdeath2 shdeath2
 
 harvester/scream shfbscrm
 
-//Fiend / Ethereal Fiend
+//pinkies
 
 PsxPinky/Sight		PXPNKSIT
 PsxPinky/Death		PXPNKDTH
@@ -58,8 +56,6 @@ PsxPinky/Attack		PXPNKATK
 PsxPinky/ACT		PXPNKACT
 
 PsxDemon/Pain       PXDMPAIN
-
-//Mech demon
 
 MechDemon/Sight		DSMDMSIT
 MechDemon/Pain		DSMDMPAI
@@ -77,14 +73,14 @@ noble/punch			HKPUNCH
 PsxBaron/Sight		DSBLPHI
 PsxBaron/Death		DSBLPDIE
 
-//Torment
+//mancubi
 
 PsxFatso/Sight		PXMANSIT
 PsxFatso/Pain		PXMNPAIN
 PsxFatso/Death		PXMANDTH
 PsxFatso/Attack		PXMANATK
 
-//cacodemon
+//cacodemons
 
 cacodemon/bite		CACOBITE
 
@@ -94,22 +90,24 @@ cacoball/death		CACOPRJ2
 $volume cacoball/sight 0.5
 $volume cacoball/death 0.5
 
-//Cacolantern
-
 Lantern/Sight		DSLNTSIT
 Lantern/Death		DSLNTDTH
 
-//Beholder
 
 Beholder/Sight		DSABDSIT
 Beholder/Death		DSABDEAD
 
-//Arachno-Sentinel
+//Arachnotrons
 
 Sentinel/Sight		DSCSPISE
 Sentinel/Death		DSCSPIDI
 
-//Shield
+//revenants
+
+Rev/homingon		REVHUP
+Rev/homingoff		REVHDOWN
+
+//Shield gun
 
 ForceBarrier/On		DSFRCON
 ForceBarrier/Off	DSFRCOFF

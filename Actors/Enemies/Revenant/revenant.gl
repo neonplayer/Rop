@@ -1,0 +1,82 @@
+pointlight revenantfire
+{
+  color 1.0 0.45 0.0
+  size 24
+  offset 0 40 -10
+}
+
+pointlight revenantfire2
+{
+  color 1.0 0.45 0.0
+  size 24
+  offset 0 40 10
+}
+
+object ROPrevenant
+{
+frame SKELJ { light revenantfire light revenantfire2 }
+}
+
+object possessedROPrevenant
+{
+frame SKELJ { light revenantfire light revenantfire2 }
+}
+
+flickerlight revrocket
+{
+  color 1.0 0.45 0.0
+  size 26
+  secondarysize 32
+  chance 0.2
+  offset -8 0 0
+}
+
+pointlight revrocket2
+{
+  color 1.0 0.35 0.0
+  size 40
+}
+
+pointlight revrocket3
+{
+  color 0.7 0.1 0.0
+  size 28
+}
+
+pointlight revrocket4
+{
+  color 0.35 0.0 0.0
+  size 12
+}
+
+object revenantrocket
+{
+frame RROKA { light revrocket }
+frame RROKB { light revrocket2 }
+frame RROKC { light revrocket3 }
+frame RROKD { light revrocket4 }
+}
+
+object revenantrockethoming
+{
+frame RROKA { light revrocket }
+frame RROKB { light revrocket2 }
+frame RROKC { light revrocket3 }
+frame RROKD { light revrocket4 }
+}
+
+object revenantrocketpossessed
+{
+frame RROKA { light revrocket }
+frame RROKB { light revrocket2 }
+frame RROKC { light revrocket3 }
+frame RROKD { light revrocket4 }
+}
+
+object revenantrockethomingpossessed
+{
+frame RROKA { light revrocket }
+frame RROKB { light revrocket2 }
+frame RROKC { light revrocket3 }
+frame RROKD { light revrocket4 }
+}

@@ -1,6 +1,8 @@
 /*
 
 smoke sprites: bloax, xaser, zerrion the insect
+explosion particle sprite: 3d Realms (modified)
+explosion ring: id software, monolith games (modified)
 
 */
 
@@ -41,3 +43,119 @@ actor genericsmoke2 : genericsmoke
   scale 0.1
   alpha 0.5
 }
+
+actor genericsmoke3 : genericsmoke
+{
+  scale 0.05
+  alpha 0.375
+}
+
+actor explosionparticle : CollidingFallingEffect
+{
+  radius 2
+  height 4
+  renderstyle add
+  gravity 0.4
+  bouncetype hexen
+  states
+  {
+  spawn:
+    EPRT A 0
+	EPRT A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	EPRT A 0 a_setscale(random(12, 18)*0.01, scaley)
+	EPRT A 0 a_setscale(scalex, scalex)
+	
+	EPRT A 1 a_fadeout(0.02)
+	EPRT A 0 a_jumpif(alpha < 0.25, "die")
+	goto spawn+4
+  die:
+    EPRT A 0 a_jumpif(scalex <= 0 || scaley <= 0, "die2")
+    EPRT A 1 a_setscale(scalex-0.02, scaley-0.02)
+	loop
+  die2:
+    EPRT A 0
+	stop
+  }
+}
+
+actor explosionparticle2 : explosionparticle
+{
+  +nogravity
+  states
+  {
+  spawn:
+    EPRT A 0
+	EPRT A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	EPRT A 0 a_setscale(random(12, 18)*0.01, scaley)
+	EPRT A 0 a_setscale(scalex, scalex)
+	
+	EPRT A 0 a_scalevelocity(0.97)
+	EPRT A 1 a_fadeout(0.05)
+	EPRT A 0 a_jumpif(alpha < 0.25, "die")
+	goto spawn+4
+  }
+}
+
+actor explosionsmoke : CollidingFallingEffect
+{
+  gravity 0.45
+  alpha 0.7
+  renderstyle add
+  bouncetype hexen
+  states
+  {
+  spawn:
+    EXPS A 0
+	EXPS A 0 a_checksight("removed")
+	EXPS A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	
+	EXPS A 0 a_setscale(random(35, 45)*0.01, random(35, 45)*0.01)
+	EXPS A 0 a_Jump(256, "spawn2", "spawn3", "spawn4", "spawn5", "spawn6", "spawn7", "spawn8")
+  spawn2:
+    REDS D 0
+	goto fading
+  spawn3:
+    REDS E 0
+	goto fading
+  spawn4:
+    REDS F 0
+	goto fading
+  spawn5:
+    REDS G 0
+	goto fading
+  spawn6:
+    REDS H 0
+	goto fading
+  spawn7:
+    REDS I 0
+	goto fading
+  spawn8:
+    REDS J 0
+	goto fading
+  fading:
+    "####" "#" 1 a_fadeout(0.075)
+	"####" "#" 0 a_setscale(scalex-random(10, 20)*0.001, scaley-random(10, 20)*0.001)
+	loop
+  }
+}
+
+actor explosionring : effect
+{
+  radius 10
+  height 20
+  scale 0.5
+  renderstyle add
+  alpha 0.5
+  states
+  {
+  spawn:
+    RRNG A 0
+	RRNG A 0 a_checksight("removed")
+	RRNG A 0 a_jumpif(!callacs("effectchecker"), "removed")
+  
+    RRNG A 1 a_fadeout(0.1)
+	RRNG A 0 a_setscale(scalex+0.15, scaley+0.15)
+	goto spawn+3
+  }
+}
+	

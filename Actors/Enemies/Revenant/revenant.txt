@@ -1,0 +1,265 @@
+/*
+
+revenant rocket sprite: eriance, wolfendoom, raven software (modified)
+revenant rocket particle: vader (modified)
+the sound(s) that plays when you reload as a revenant: TheDarkArchon (?)
+
+*/
+
+actor ROPrevenant : revenant replaces revenant
+{
+  scale 0.85
+  obituary "%o wasn't good at dodging a revenant's rocket."
+  hitobituary "%o got into a fight with a revenant and lost."
+  states
+  {
+  Melee:
+    SKEL G 0 A_FaceTarget
+    SKEL G 6 A_SkelWhoosh
+    SKEL H 6 A_FaceTarget
+    SKEL I 6 A_custommeleeattack(35, "skeleton/melee", "", "monstermeleepuff")
+    Goto See
+  Missile:
+	SKEL J 10 Bright A_FaceTarget
+	SKEL A 0 a_jump(128, "homing")
+	SKEL A 0 a_jump(128, "missile2")
+    SKEL K 10 A_custommissile("revenantrocket", 40, -10, 0)
+    SKEL K 10 A_FaceTarget
+	goto see
+  missile2:
+    SKEL K 10 A_custommissile("revenantrocket", 40, 10, 0)
+    SKEL K 10 A_FaceTarget
+	goto see
+  homing:
+    SKEL A 0 a_jump(128, "homing2")
+    SKEL K 10 A_custommissile("revenantrockethoming", 40, -10, 0)
+    SKEL K 10 A_FaceTarget
+    Goto See
+  homing2:
+    SKEL K 10 A_custommissile("revenantrockethoming", 40, 10, 0)
+    SKEL K 10 A_FaceTarget
+    Goto See
+  }
+}
+
+actor revenantrocket : revenanttracer
+{
+  renderstyle normal
+  damage (45)
+  speed 15
+  decal revenantscorch
+  scale 0.75
+  states
+  {
+  spawn:
+    RROK AA 1 bright a_spawnitemex("genericsmoke3", random(8, -8)*0.5, random(8, -8)*0.5, random(8, -8)*0.5, random(8, -8)*0.125, random(8, -8)*0.125, random(8, -8)*0.125)
+    RROK A 0 a_spawnitemex("revenantparticle", 0, 0, 0, random(6, -6)*0.25, random(6, -6)*0.25, random(6, -6)*0.25)
+	loop
+  death:
+    RROK B 0 a_spawnitemex("explosionring")
+    RROK BBB 0 a_spawnitemex("explosionparticle", 0, 0, 0, random(6, -6)*0.25, random(6, -6)*0.25, random(8, 12)*0.5)
+	RROK BBBB 0 a_spawnitemex("explosionparticle2", 0, 0, 0, random(8, -8)*0.5, random(8, -8)*0.5, random(8, -8)*0.5)
+	RROK BBBBB 0 a_spawnitemex("explosionsmoke", 0, 0, 0, random(4, -4)*0.75, random(4, -4)*0.75, random(4, 14)*0.333)
+    RROK BBBB 0 a_spawnitemex("genericsmoke", random(10, -10), random(10, -10), random(-8, 8), random(3, -3)*0.2, random(3, -3)*0.2, random(3, -3)*0.2)
+    RROK B 0 a_settranslucent(1.0, 1)
+    RROK B 0 a_changeflag(forcexybillboard, 1)
+    RROK B 1 a_fadeout(0.02)
+	RROK B 0 a_setscale(scalex+0.02, scaley+0.02)
+	RROK B 1 a_fadeout(0.02)
+	RROK B 0 a_setscale(scalex+0.02, scaley+0.02)
+	RROK B 1 a_fadeout(0.02)
+	RROK B 0 a_setscale(scalex+0.02, scaley+0.02)
+	RROK B 1 a_fadeout(0.02)
+	RROK B 0 a_setscale(scalex+0.02, scaley+0.02)
+	RROK B 1 a_fadeout(0.02)
+	RROK B 0 a_setscale(scalex+0.02, scaley+0.02)
+	RROK B 1 a_fadeout(0.02)
+	RROK B 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+	RROK C 1 a_fadeout(0.02)
+	RROK C 0 a_setscale(scalex+0.02, scaley+0.02)
+	RROK C 1 a_fadeout(0.02)
+	RROK C 0 a_setscale(scalex+0.02, scaley+0.02)
+	RROK C 1 a_fadeout(0.02)
+	RROK C 0 a_setscale(scalex+0.02, scaley+0.02)
+	RROK C 1 a_fadeout(0.02)
+	RROK C 0 a_setscale(scalex+0.02, scaley+0.02)
+	RROK C 1 a_fadeout(0.02)
+	RROK C 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+	RROK D 1 a_fadeout(0.02)
+	RROK D 0 a_setscale(scalex+0.02, scaley+0.02)
+	RROK D 1 a_fadeout(0.02)
+	RROK D 0 a_setscale(scalex+0.02, scaley+0.02)
+	RROK D 1 a_fadeout(0.02)
+	RROK D 0 a_setscale(scalex+0.02, scaley+0.02)
+	RROK D 1 a_fadeout(0.02)
+	RROK D 0 a_setscale(scalex+0.02, scaley+0.02)
+    Stop
+  }
+}
+
+actor revenantrockethoming : revenantrocket
+{
+  speed 10
+  states
+  {
+  spawn:
+    RROK A 1 bright a_spawnitemex("genericsmoke3", random(8, -8)*0.5, random(8, -8)*0.5, random(8, -8)*0.5, random(8, -8)*0.125, random(8, -8)*0.125, random(8, -8)*0.125)
+	RROK A 0 a_seekermissile(2, 3)
+	RROK A 1 bright a_spawnitemex("genericsmoke3", random(8, -8)*0.5, random(8, -8)*0.5, random(8, -8)*0.5, random(8, -8)*0.125, random(8, -8)*0.125, random(8, -8)*0.125)
+	RROK A 0 a_seekermissile(2, 3)
+    RROK A 0 a_spawnitemex("revenantparticle", 0, 0, 0, random(6, -6)*0.25, random(6, -6)*0.25, random(6, -6)*0.25)
+	loop
+  }
+}
+
+actor revenantparticle : effect
+{
+  renderstyle add
+  scale 0.15
+  states
+  {
+  spawn:
+    TNT1 A 0
+    TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	
+	RVPR A 1 a_scalevelocity(0.9675)
+	RVPR A 0 a_fadeout(0.05)
+	RVPR A 0 a_jumpif(alpha < 0.25, "die")
+	goto spawn+2
+  die:
+    RVPR AAAAAAAAAA 1 a_setscale(scalex-0.015, scaley-0.015)
+	stop
+  }
+}
+
+actor revenantparticle2 : revenantparticle
+{
+  states
+  {
+  spawn:
+    TNT1 A 0
+    TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	
+	RVPR A 1 a_fadeout(0.075)
+	RVPR A 0 a_jumpif(alpha < 0.25, "die")
+	goto spawn+2
+  die:
+    RVPR AAAAA 1 a_setscale(scalex-0.03, scaley-0.03)
+	stop
+  }
+}
+
+actor possessedROPrevenant : possessedmonster
+{
+  player.morphweapon "revenantlauncher"
+  scale 0.85
+  Health 300
+  Radius 20
+  Height 56
+  Mass 500
+  Speed 0.5
+  PainChance 100
+  +MISSILEMORE 
+  +FLOORCLIP
+  SeeSound "skeleton/sight"
+  PainSound "skeleton/pain"
+  DeathSound "skeleton/death"
+  ActiveSound "skeleton/active"
+  MeleeSound "skeleton/melee"
+  obituary "%o wasn't good at dodging %k's rocket."
+  hitobituary "%o got into a fight with %k and lost."
+  Player.SoundClass Skeleton
+  Player.JumpZ 5
+  player.viewheight 48
+  states
+  {
+  Spawn:
+    SKEL A 0
+    SKEL AAAAAAAAAABBBBBBBBBB 1 a_jumpifinventory("revenantzooming", 1, "melee")
+    Loop
+  See:
+	SKEL A 0
+	SKEL AAAABBBBCCCCDDDDEEEEFFFF 1 a_jumpifinventory("revenantzooming", 1, "melee")
+    goto spawn
+  Melee:
+    SKEL A 0 a_takeinventory("revenantzooming", 1)
+    SKEL GHI 6
+	SKEL I 1
+    Goto spawn
+  Missile:
+    SKEL J 10 Bright
+    SKEL K 10
+    SKEL K 10
+	SKEL K 1 a_jumpifinventory("revenantzooming", 1, "melee")
+    Goto spawn
+  Pain:
+    SKEL L 5
+    SKEL L 5 A_Pain
+    Goto spawn
+  }
+}
+
+actor revenantzooming : inventory { inventory.maxamount 1 }
+
+actor revenantlauncher : possessedweapon
+{
+  attacksound "skeleton/melee"
+  states
+  {
+  ready:
+    TNT1 A 1 a_weaponready(wrf_allowreload|WRF_ALLOWZOOM)
+	loop
+  fire:
+    TNT1 A 0 a_jumpifinventory("revenanthomingcheck", 1, "firehoming")
+    TNT1 A 10 a_firecustommissile("revenantrocketpossessed", 0, false, -10, 8)
+	TNT1 A 20
+	goto ready
+  firehoming:
+    TNT1 A 10 a_firecustommissile("revenantrockethomingpossessed", 0, false, -10, 8)
+	TNT1 A 20
+	goto ready
+  altfire:
+    TNT1 A 0 a_jumpifinventory("revenanthomingcheck", 1, "altfirehoming")
+    TNT1 A 10 a_firecustommissile("revenantrocketpossessed", 0, false, 10, 8)
+	TNT1 A 20
+	goto ready
+  altfirehoming:
+    TNT1 A 10 a_firecustommissile("revenantrockethomingpossessed", 0, false, 10, 8)
+	TNT1 A 20
+	goto ready
+  reload:
+    TNT1 A 0 a_jumpifinventory("revenanthomingcheck", 1, "reload2")
+    TNT1 A 0 a_giveinventory("revenanthomingcheck", 1)
+	TNT1 A 0 a_playsound("rev/homingon")
+	TNT1 A 0 a_print("Homing rockets enabled.", 2.5)
+	TNT1 A 10 a_setblend(green, 0.333, 10)
+	goto ready
+  reload2:
+    TNT1 A 0 a_takeinventory("revenanthomingcheck", 1)
+	TNT1 A 0 a_playsound("rev/homingoff")
+	TNT1 A 0 a_print("Homing rockets disabled.", 2.5)
+	TNT1 A 10 a_setblend(red, 0.333, 10)
+	goto ready
+  zoom:
+    TNT1 A 0 a_giveinventory("revenantzooming", 1)
+    TNT1 A 12 a_playsound("skeleton/swing")
+	TNT1 A 6 a_custompunch(50, true, 0, "monstermeleepuff")
+	goto ready
+  }
+}
+
+actor revenanthomingcheck : inventory { inventory.maxamount 1 }
+
+actor revenantrocketpossessed : revenantrocket
+{
+  speed 20
+  damage (65)
+}
+
+actor revenantrockethomingpossessed : revenantrockethoming
+{
+  speed 15
+  damage (60)
+}
