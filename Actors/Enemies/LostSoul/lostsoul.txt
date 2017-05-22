@@ -21,6 +21,8 @@ actor ROPlostsoul : lostsoul replaces lostsoul
   states
   {
   spawn:
+    SKUL A 0
+    SKUL A 0 a_changeflag(friendly, 0)
     SKUL A 2 bright a_look
 	TNT1 A 0 a_spawnitemex("lostsoulflamespawner", 0, 0, 24)
 	SKUL A 2 bright a_look

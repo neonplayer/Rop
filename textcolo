@@ -1,0 +1,82 @@
+//colors with comments (aside from the colors used by several monsters) aren't used by the acs, but have been kept in so you can still use them in chat.
+
+zombie //too simlar to the arachnotron's
+{
+	#43331B #BFA78F 0 256
+	console:
+	#43331B #BFA78F 0 256
+}
+
+sergeant //also used by the spectre.
+{
+	#0B0B0B #5B5B5B 0 256
+	console:
+	#0B0B0B #5B5B5B 0 256
+}
+
+chainguy
+{
+	#1C0000 #AA2222 0 256
+	console:
+	#1C0000 #AA2222 0 256
+}
+
+imp
+{
+	#2B230F #A36B3F 0 256
+	console:
+	#2B230F #A86D3C 0 256
+}
+
+pinky
+{
+	#530707 #FFB7B7 0 256
+	console:
+	#530707 #FFB7B7 0 256
+}
+
+oldsoul //ugly af, but maybe someone wants to use it
+{
+	#5B0000 #A70000 0 128
+	#6F5743 #BFA78F 129 256
+	console:
+	#5B0000 #A70000 0 128
+	#6F5743 #BFA78F 129 256
+}
+
+soul
+{
+	#542400 #EA9533 0 256
+	console:
+	#542400 #EA9533 0 256
+}
+
+caco
+{
+	#4F0000 #EF0000 0 256
+	console:
+	#4F0000 #EF0000 0 256
+}
+
+knight
+{
+	#473323 #A78F77 0 192
+	#E79B6B #FFB383 193 256
+	console:
+	#473323 #A78F77 0 192
+	#E79B6B #FFB383 193 256
+}
+
+pain
+{
+	#1F170B #836B57 0 256
+	console:
+	#1F170B #836B57 0 256
+}
+
+arachno
+{
+	#3F2B1B #B79F87 0 256
+	console:
+	#3F2B1B #B79F87 0 256
+}

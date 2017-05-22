@@ -4,7 +4,7 @@
 
 #include "rop_decorate.acs"
 
-#define max_monsterinfo 10
+#define max_monsterinfo 11
 
 // Pistol start script.
 script "rop_pistolstart" ENTER
@@ -32,11 +32,11 @@ script "rop_pistolstart" ENTER
 
 str monsterinfo[max_monsterinfo] =
 {
-	"\nPrimary fire will fire your rifle. \nSecondary fire will charge a perfectly accurate shot. \n(\cdperfectly accurate, deals slightly more damage,\cgtakes 1 second to charge\c-)",
+	"Primary fire will fire your rifle. \nSecondary fire will charge a perfectly accurate shot. \n(\cdperfectly accurate, deals slightly more damage,\cgtakes 1 second to charge\c-)",
 	
-	"\nPrimary fire will fire your shotgun. \nSecondary fire will fire shrapnels. \n(\cdcan bounce off walls, \cgless damage, affected by gravity\c-)",
+	"Primary fire will fire your shotgun. \nSecondary fire will fire shrapnels. \n(\cdcan bounce off walls, \cgless damage, affected by gravity\c-)",
 	
-	"\nPrimary fire will fire your chaingun. \n(gets less accurate the more you shoot, stop firing to regain accuracy) \nSecondary fire revs your chaingun up. \n(\cdfaster firing, \cgreduced movement speed, cannot regain accuracy while reved up\c-)",
+	"Primary fire will fire your chaingun. \n(gets less accurate the more you shoot, stop firing to regain accuracy) \nSecondary fire revs your chaingun up. \n(\cdfaster firing, \cgreduced movement speed, cannot regain accuracy while reved up\c-)",
 	
 	"Primary fire will throw a fireball. \nSecondary fire will use your melee attack. \n(\cdhigher dps, \cglimited range\c-)",
 	
@@ -50,14 +50,16 @@ str monsterinfo[max_monsterinfo] =
 	
 	"\cgHell knights have reduced jump height. \n\nPrimary fire will throw plasma. \nSecondary fire will punch. \n(\cdhigher dps, \cglimited range\c-)",
 	
-	"\cgRevenants have reduced jump height. \n\nPrimary fire will fire a rocket from your left cannon. \nSecondary fire will fire a rocket from your right cannon. \nReloading will toggle homing rockets. \n(\cgWill only home in if you are targeting something, Slightly reduced damage and speed\c-) \nZooming will punch. \n(\cdhigher dps, \cglimited range\c-)"
+	"\cgRevenants have reduced jump height. \n\nPrimary fire will fire a rocket from your left cannon. \nSecondary fire will fire a rocket from your right cannon. \nReloading will toggle homing rockets. \n(\cgWill only home in if you are targeting something, Slightly reduced damage and speed\c-) \nZooming will punch. \n(\cdhigher dps, \cglimited range\c-)",
+	
+	"\cdPain elementals can fly. \n\cdPain elementals gain 10 mana when using a primary or a secondary attack. \n\nPrimary fire will fire a suicidal lost soul. \nSecondary fire will bite \n(\cdhigher dps, \cglimited range\c-) \nReloading will spawn a lost soul when you have 100 mana. \n(\cgLimited to 10 lostsouls\c-)"
 };
 
 script "rop_possess" (int monster)
 {
-    if(getcvar("rop_possesmessage"))
+    if(getcvar("rop_possessmessage"))
 	{
-		print(s: "-", s:MonsterName(monster), s: "\c--\n", s:monsterinfo[monster]); 
+		print(s: "-", s:MonsterName(monster), s: "\c--\n\n", s:monsterinfo[monster]); 
 	}
 }
 
@@ -66,30 +68,32 @@ script 800 (void)
 {
 	MOPOnPossess("rop_possess");
 
-	addmonster(0.02, "POSSA1", "ROPzombieman", "\cbZombieman");
+	addmonster(0.02, "POSSA1", "ROPzombieman", "\c[arachno]Zombieman");
 	
-	addmonster(0.035, "SPOSA1", "ROPshotgunguy", "\cuShotgun Zombie");
+	addmonster(0.035, "SPOSA1", "ROPshotgunguy", "\c[sergeant]Shotgun Zombie");
 	
-	addmonster(0.05, "CPOSA1", "ROPchaingunguy", "\caChaingun Zombie");
+	addmonster(0.05, "CPOSA1", "ROPchaingunguy", "\c[chainguy]Chaingun Zombie");
 	addmonsteritem("chaingunspintoken");
 	
-	addmonster(0.03, "TROOA1", "ROPimp", "\ceImp");
+	addmonster(0.03, "TROOA1", "ROPimp", "\c[imp]Imp");
 	
-	addmonster(0.045, "SARGA1", "ROPpinky", "\caPinky");
+	addmonster(0.045, "SARGA1", "ROPpinky", "\c[pinky]Pinky");
 	
-	addmonster(0.05, "SPTRA1", "ROPspectre", "\cuSpectre");
+	addmonster(0.05, "SPTRA1", "ROPspectre", "\c[sergeant]Spectre");
 	
-	addmonster(0.06, "SKULA1", "ROPlostsoul", "\ciLost Soul"); FlyingMonster();
+	addmonster(0.06, "SKULA1", "ROPlostsoul", "\c[soul]Lost Soul"); FlyingMonster();
 	
-	addmonster(0.125, "HEADA1", "ROPcacodemon", "\cgCacodemon"); FlyingMonster(); EvadingMonster(20);
+	addmonster(0.125, "HEADA1", "ROPcacodemon", "\c[caco]Cacodemon"); FlyingMonster(); EvadingMonster(20);
 	
-	addmonster(0.15, "BOS2A1C1", "ROPhellknight", "\cbHell Knight");
+	addmonster(0.15, "BOS2A1C1", "ROPhellknight", "\c[knight]Hell Knight");
 	
-	addmonster(0.15, "SKELA1D1", "ROPrevenant", "\ccRevenant");
+	addmonster(0.15, "SKELA1D1", "ROPrevenant", "\cjRevenant");
 	
-	addmonster(0.175, "PAINA1", "painelemental", "\cePain Elemental"); FlyingMonster();
+	addmonster(0.175, "PAINA1", "ROPpainelemental", "\c[pain]Pain Elemental"); FlyingMonster();
+	addmonsteritem("painsoullimit");
+	addmonsteritem("painelementalmana");
 	
-	addmonster(0.175, "BSPIA1D1", "arachnotron", "\cbArachnotron");
+	addmonster(0.175, "BSPIA1D1", "arachnotron", "\c[arachno]Arachnotron");
 	
 	addmonster(0.2, "FATTA1", "fatso", "\ceMancubus");
 	

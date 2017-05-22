@@ -50,6 +50,8 @@ actor genericsmoke3 : genericsmoke
   alpha 0.375
 }
 
+actor genericsmokebig : genericsmoke { scale 0.4 }
+
 actor explosionparticle : CollidingFallingEffect
 {
   radius 2
@@ -78,6 +80,22 @@ actor explosionparticle : CollidingFallingEffect
   }
 }
 
+actor explosionparticlebig : explosionparticle
+{
+  states
+  {
+  spawn:
+    EPRT A 0
+	EPRT A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	EPRT A 0 a_setscale(random(24, 36)*0.01, scaley)
+	EPRT A 0 a_setscale(scalex, scalex)
+	
+	EPRT A 1 a_fadeout(0.02)
+	EPRT A 0 a_jumpif(alpha < 0.25, "die")
+	goto spawn+4
+  }
+}
+
 actor explosionparticle2 : explosionparticle
 {
   +nogravity
@@ -87,6 +105,23 @@ actor explosionparticle2 : explosionparticle
     EPRT A 0
 	EPRT A 0 a_jumpif(!callacs("effectchecker"), "removed")
 	EPRT A 0 a_setscale(random(12, 18)*0.01, scaley)
+	EPRT A 0 a_setscale(scalex, scalex)
+	
+	EPRT A 0 a_scalevelocity(0.97)
+	EPRT A 1 a_fadeout(0.05)
+	EPRT A 0 a_jumpif(alpha < 0.25, "die")
+	goto spawn+4
+  }
+}
+
+actor explosionparticle2big : explosionparticle2
+{
+  states
+  {
+  spawn:
+    EPRT A 0
+	EPRT A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	EPRT A 0 a_setscale(random(24, 36)*0.01, scaley)
 	EPRT A 0 a_setscale(scalex, scalex)
 	
 	EPRT A 0 a_scalevelocity(0.97)
@@ -139,6 +174,21 @@ actor explosionsmoke : CollidingFallingEffect
   }
 }
 
+actor explosionsmokebig : explosionsmoke
+{
+  states
+  {
+  spawn:
+    EXPS A 0
+	EXPS A 0 a_checksight("removed")
+	EXPS A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	
+	EXPS A 0 a_setscale(random(60, 70)*0.01, random(60, 70)*0.01)
+	EXPS A 0 a_Jump(256, "spawn2", "spawn3", "spawn4", "spawn5", "spawn6", "spawn7", "spawn8")
+	goto spawn2
+  }
+}
+
 actor explosionring : effect
 {
   radius 10
@@ -159,3 +209,17 @@ actor explosionring : effect
   }
 }
 	
+actor explosionringbig : explosionring
+{
+  states
+  {
+  spawn:
+    RRNG A 0
+	RRNG A 0 a_checksight("removed")
+	RRNG A 0 a_jumpif(!callacs("effectchecker"), "removed")
+  
+    RRNG A 1 a_fadeout(0.075)
+	RRNG A 0 a_setscale(scalex+0.2, scaley+0.2)
+	goto spawn+3
+  }
+}

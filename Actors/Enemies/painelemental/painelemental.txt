@@ -1,0 +1,161 @@
+actor ROPpainelemental : painelemental replaces painelemental
+{
+  scale 1.1
+  hitobituary "%o found out that pain elementals can fight back."
+  +quicktoretaliate
+  states
+  {
+  Missile:
+    PAIN D 5 A_FaceTarget
+    PAIN E 5 A_FaceTarget
+    PAIN F 5 Bright A_FaceTarget
+    PAIN F 0 Bright A_PainAttack("ROPlostsoul")
+    Goto See
+  Death:
+    PAIN HHHH 2 Bright a_spawnitemex("explosionsmokebig", 0, 0, 32, random(4, -4)*0.75, random(4, -4)*0.75, random(4, 14)*0.333)
+	PAIN I 0 bright a_scream
+	PAIN IIIIJJJJKKKK 2 Bright a_spawnitemex("explosionsmokebig", 0, 0, 32, random(4, -4)*0.75, random(4, -4)*0.75, random(4, 14)*0.333)
+	PAIN L 0 a_settranslucent(1.0, 1)
+	PAIN L 0 a_changeflag(forcexybillboard, 1)
+    PAIN LLLL 0 a_spawnitemex("explosionparticlebig", 0, 0, 32, random(6, -6)*0.5, random(6, -6)*0.5, random(12, 16)*0.5)
+	PAIN LLLLL 0 a_spawnitemex("explosionparticle2big", 0, 0, 32, random(8, -8)*0.5, random(8, -8)*0.5, random(8, -8)*0.75)
+	PAIN LLLLLLLL 0 a_spawnitemex("explosionsmokebig", 0, 0, 32, random(4, -4), random(4, -4), random(4, 14)*0.45)
+    PAIN LLLLL 0 a_spawnitemex("genericsmokebig", random(10, -10), random(10, -10), random(24, 48), random(3, -3)*0.75, random(3, -3)*0.75, random(3, -3)*0.75)
+	PAIN L 0 a_settranslucent(0.75, 1)
+	PAIN L 0 a_spawnitemex("explosionringbig", 0, 0, 32)
+    PAIN L 4 Bright A_PainDie("ROPlostsoul")
+	PAIN M 0 a_settranslucent(0.5, 1)
+    PAIN M 4 Bright
+    Stop
+  }
+}
+
+actor possessedROPpainelemental : possessedmonster
+{
+  player.morphweapon "painmouth"
+  Health 400
+  Radius 31
+  Height 56
+  Mass 400
+  Speed 0.35
+  PainChance 128
+  +FLOAT
+  +NOGRAVITY
+  Player.SoundClass Elemental
+  obituary "%o was killed by %k's suicidal lost soul."
+  hitobituary "%o found out that %k can fight back."
+  Player.ViewHeight 48
+  states
+  {
+  Spawn:
+    PAIN A 1 a_jumpifinventory("painelementalreloadtoken", 1, "spawnsoul")
+    Loop
+  See:
+    PAIN AAAAAABBBBBBCCCCCC 1 a_jumpifinventory("painelementalreloadtoken", 1, "spawnsoul")
+    goto spawn
+  Missile:
+    PAIN A 0 a_takeinventory("painelementalreloadtoken", 1)
+    PAIN DEF 5
+    Goto spawn
+  spawnsoul:
+    PAIN D 35 a_takeinventory("painelementalreloadtoken", 1)
+	PAIN EF 5
+	goto spawn
+  Pain:
+    PAIN G 6
+    PAIN G 6 A_Pain
+    Goto spawn
+  }
+}
+
+actor painmouth : possessedweapon
+{
+  tag "Pain Elemental Mouth"
+  weapon.ammotype "painelementalmana"
+  weapon.ammotype2 "painsoullimit"
+  states
+  {
+  ready:
+    TNT1 A 1 a_weaponready(wrf_allowreload)
+	loop
+  fire:
+    TNT1 A 15
+	TNT1 A 15 a_firecustommissile("painelementalprojectile")
+	TNT1 A 0 a_giveinventory("painelementalmana", 10)
+	TNT1 A 15
+	goto ready
+  altfire:
+    TNT1 A 0 a_playsound("cacodemon/bite")
+    TNT1 A 10
+	TNT1 AAAAA 1 a_custompunch(14, true, 0, "monstermeleepuff")
+	TNT1 A 0 a_giveinventory("painelementalmana", 10)
+	TNT1 A 15
+	goto ready
+  reload:
+    TNT1 A 0 a_jumpifinventory("painelementalmana", 100, "reload2")
+	goto reloadfail
+  reload2:
+    TNT1 A 0 a_jumpifinventory("painsoullimit" , 10, "reloadfail2")
+    TNT1 A 0 a_giveinventory("painelementalreloadtoken", 1)
+	TNT1 A 0 a_takeinventory("painelementalmana", 100)
+	TNT1 A 0 a_playsound("pain/sight")
+    TNT1 A 35
+	TNT1 A 0 a_playsound("skull/melee")
+	TNT1 A 0 a_spawnitemex("ROPlostsoul", 40, 0, 0, 10, 0, 0, 0, SXF_NOCHECKPOSITION)
+	TNT1 A 25 a_giveinventory("painsoullimit", 1)
+	goto ready
+  reloadfail:
+    TNT1 A 10 a_print("You need 100 mana to spawn a lost soul.", 3.0)
+	goto ready
+  reloadfail2:
+    TNT1 A 10 a_print("You have reached the limit on how many lost souls you can spawn.", 3.0)
+	goto ready
+  }
+}
+
+actor painelementalprojectile : cacodemonball
+{
+  speed 20
+  damage (36)
+  scale 0.85
+  renderstyle soultrans
+  seesound "skull/melee"
+  deathsound "skull/death"
+  damagetype "monster"
+  states
+  {
+  spawn:
+    SKUL CCCCDDDD 1 Bright a_spawnitemex("lostsoulflamespawner2", 0, 0, 12)
+	loop
+  death:
+    SKUL A 0 a_explode(36, 112, 0)
+    SKUL AAAAAAAAA 0 a_spawnitemex("lostsoulflame3", 0, 0, 16, random(6, -6)*0.333, random(6, -6)*0.333, random(6, -6)*0.333)
+	SKUL AAAAA 0 a_spawnitemex("lostsouldeathparticle", 0, 0, 16, random(6, -6)*0.333, random(6, -6)*0.333, random(6, -6)*0.333)
+	SKUL AAAA 0 a_spawnitemex("genericsmoke", random(10, -10), random(10, -10), random(8, 32), random(3, -3)*0.2, random(3, -3)*0.2, random(3, -3)*0.2)
+	SKUL F 3 Bright a_settranslucent(0.9, 1)
+    SKUL G 3 Bright A_Scream
+	SKUL G 0 Bright a_fadeout(0.1)
+    SKUL H 3 Bright a_fadeout(0.1)
+    SKUL I 3 Bright A_NoBlocking
+	SKUL I 0 Bright a_fadeout(0.1)
+    SKUL J 3 bright a_fadeout(0.1)
+    SKUL K 3 bright a_fadeout(0.1)
+	stop
+  }
+}
+  
+actor painelementalreloadtoken : inventory { inventory.maxamount 1 }
+
+actor painsoullimit : ammo 
+{ 
+  inventory.amount 1
+  inventory.maxamount 10 
+  +ignoreskill
+}
+
+actor painelementalmana : ammo 
+{ 
+  inventory.amount 1
+  inventory.maxamount 100 
+  +ignoreskill
+}

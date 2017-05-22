@@ -1,0 +1,13 @@
+object painelementalprojectile
+{
+    frame SKULC { light lostsoul_light }
+    frame SKULD { light lostsoul_light2 }
+    frame SKULE { light lostsoul_light }
+    frame SKULF { light lostsoul_light2 }
+    frame SKULG { light lostsoul_light }
+
+    frame SKULH { light lostsoul_explight1 }
+    frame SKULI { light lostsoul_explight2 }
+    frame SKULJ { light lostsoul_explight3 }
+    frame SKULK { light lostsoul_explight4 }
+}
