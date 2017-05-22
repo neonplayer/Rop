@@ -21,14 +21,14 @@ chainguy
 	#1C0000 #AA2222 0 256
 }
 
-imp
+imp //also used by the mancubus.
 {
 	#2B230F #A36B3F 0 256
 	console:
 	#2B230F #A86D3C 0 256
 }
 
-pinky
+pinky //also used by the baron.
 {
 	#530707 #FFB7B7 0 256
 	console:
@@ -74,9 +74,41 @@ pain
 	#1F170B #836B57 0 256
 }
 
+fatty
+{
+	#372313 #FFCFB3 0 256
+	console:
+	#372313 #FFCFB3 0 256
+}
+
 arachno
 {
 	#3F2B1B #B79F87 0 256
 	console:
 	#3F2B1B #B79F87 0 256
+}
+
+vile
+{
+	#070707 #836B4B 0 128
+	#CF8353 #FFE3D3 129 256
+	console:
+	#070707 #836B4B 0 128
+	#CF8353 #FFE3D3 129 256
+}
+
+mind
+{
+	#4F3B23 #FFBB93 0 256
+	console:
+	#4F3B23 #FFBB93 0 256
+}
+
+barrel
+{
+	#131313 #7B7F63 0 192
+	#4B9F3F #6FEF67 193 256
+	console:
+	#131313 #7B7F63 0 192
+	#4B9F3F #6FEF67 193 256
 }

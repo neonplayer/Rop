@@ -99,7 +99,7 @@ script 800 (void)
 	
 	addmonster(0.05, "SPTRA1", "ROPspectre", "\c[sergeant]Spectre");
 	
-	addmonster(0.06, "SKULA1", "ROPlostsoul", "\c[soul]Lost Soul"); FlyingMonster();
+	addmonster(0.06, "SKULA1", "ROPlostsoul", "\ciLost Soul"); FlyingMonster();
 	
 	addmonster(0.125, "HEADA1", "ROPcacodemon", "\c[caco]Cacodemon"); FlyingMonster(); EvadingMonster(20);
 	
@@ -113,19 +113,19 @@ script 800 (void)
 	
 	addmonster(0.175, "BSPIA1D1", "arachnotron", "\c[arachno]Arachnotron");
 	
-	addmonster(0.2, "FATTA1", "fatso", "\ceMancubus");
+	addmonster(0.2, "FATTA1", "fatso", "\c[fatty]Mancubus");
 	
-	addmonster(0.225, "BOSSA1", "baronofhell", "\caBaron of Hell");
+	addmonster(0.225, "BOSSA1", "baronofhell", "\c[pinky]Baron of Hell");
 	
-	addmonster(0.3, "VILEA1D1", "archvile", "\coArch-Vile");
+	addmonster(0.3, "VILEA1D1", "archvile", "\c[vile]Arch-Vile");
 	
-	addmonster(5.0, "SPIDA1D1", "spidermastermind", "\c[j4]Spider Mastermind"); BossMonster();
+	addmonster(5.0, "SPIDA1D1", "spidermastermind", "\c[mind]Spider Mastermind"); BossMonster();
 	
 	addmonster(6.0, "CYBRA1", "cyberdemon", "\c[g5]Cyberdemon"); BossMonster();
 	
-	addmonster(0.025, "SSWVA1", "wolfensteinss", "\chWolfenstein \ckSS");
+	addmonster(0.025, "SSWVA1", "wolfensteinss", "\chWolfenstein \cfSS");
 	
-	addmonster(0.01, "BAR1A0", "explosivebarrel", "\cdExplosive Barrel");
+	addmonster(0.01, "BAR1A0", "explosivebarrel", "\c[barrel]Explosive Barrel");
 	/*
 	AddMonster(0.02,  "POSSA1",   "Zombieman2", "Zombieman");
 	AddMonster(0.035, "PRPSA1",   "PlasmaZombie", "Plasma Zombie");
