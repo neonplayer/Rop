@@ -81,14 +81,12 @@ actor painmouth : possessedweapon
   fire:
     TNT1 A 15
 	TNT1 A 15 a_firecustommissile("painelementalprojectile")
-	TNT1 A 0 a_giveinventory("painelementalmana", 10)
 	TNT1 A 15
 	goto ready
   altfire:
     TNT1 A 0 a_playsound("cacodemon/bite")
     TNT1 A 10
 	TNT1 AAAAA 1 a_custompunch(14, true, 0, "monstermeleepuff")
-	TNT1 A 0 a_giveinventory("painelementalmana", 10)
 	TNT1 A 15
 	goto ready
   reload:

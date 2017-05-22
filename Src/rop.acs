@@ -3,6 +3,7 @@
 #import "mopengine.acs"
 
 #include "rop_decorate.acs"
+#include "rop_utils.acs"
 
 #define max_monsterinfo 11
 
@@ -60,6 +61,23 @@ script "rop_possess" (int monster)
     if(getcvar("rop_possessmessage"))
 	{
 		print(s: "-", s:MonsterName(monster), s: "\c--\n\n", s:monsterinfo[monster]); 
+	}
+	
+	if (MonsterActorName(monster) == "ROPpainelemental")
+		ACS_NamedExecuteWithResult("rop_manaregen");
+}
+
+#define MANAREGEN_RATE 10.0 // per second
+
+script "rop_manaregen" (void)
+{
+	int accum = 0.0;
+	while (IsPossessed())
+	{
+		accum += MANAREGEN_RATE / 35;
+		GiveInventory("painelementalmana", itrunc(accum));
+		accum = fract(accum);
+		Delay(1);
 	}
 }
 
