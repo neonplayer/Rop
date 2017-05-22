@@ -11,3 +11,43 @@ object painelementalprojectile
     frame SKULJ { light lostsoul_explight3 }
     frame SKULK { light lostsoul_explight4 }
 }
+
+pointlight pain_light1
+{
+	color 0.75 0.75 0.0
+	size 32
+}
+
+pointlight pain_light2
+{
+	color 1.0 0.45 0.0
+	size 40
+}
+
+pointlight pain_light1
+{
+	color 0.8 0.25 0.0
+	size 48
+}
+
+pointlight pain_light2
+{
+	color 0.6 0.1 0.0
+	size 56
+}
+
+object roppainelemental
+{
+	frame PAINJ { light pain_light1 }
+	frame PAINK { light pain_light2 }
+	frame PAINL { light pain_light3 }
+	frame PAINM { light pain_light4 }
+}
+
+object possessedroppainelemental
+{
+	frame PAINJ { light pain_light1 }
+	frame PAINK { light pain_light2 }
+	frame PAINL { light pain_light3 }
+	frame PAINM { light pain_light4 }
+}

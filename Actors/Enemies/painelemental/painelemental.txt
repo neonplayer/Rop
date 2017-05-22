@@ -99,7 +99,7 @@ actor painmouth : possessedweapon
 	TNT1 A 0 a_playsound("pain/sight")
     TNT1 A 35
 	TNT1 A 0 a_playsound("skull/melee")
-	TNT1 A 0 a_spawnitemex("ROPlostsoul", 40, 0, 0, 10, 0, 0, 0, SXF_NOCHECKPOSITION)
+	TNT1 A 0 a_spawnitemex("ROPlostsoul", 66.5, 0, 0, 10, 0, 0, 0, SXF_NOCHECKPOSITION)
 	TNT1 A 25 a_giveinventory("painsoullimit", 1)
 	goto ready
   reloadfail:
