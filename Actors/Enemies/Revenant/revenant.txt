@@ -49,6 +49,7 @@ actor revenantrocket : revenanttracer
   speed 15
   decal revenantscorch
   scale 0.75
+  damagetype "monster"
   states
   {
   spawn:
@@ -235,13 +236,13 @@ actor revenantlauncher : possessedweapon
     TNT1 A 0 a_giveinventory("revenanthomingcheck", 1)
 	TNT1 A 0 a_playsound("rev/homingon")
 	TNT1 A 0 a_print("Homing rockets enabled.", 2.5)
-	TNT1 A 10 a_setblend(green, 0.333, 10)
+	TNT1 A 10 a_setblend("green", 0.1, 10)
 	goto ready
   reload2:
     TNT1 A 0 a_takeinventory("revenanthomingcheck", 1)
 	TNT1 A 0 a_playsound("rev/homingoff")
 	TNT1 A 0 a_print("Homing rockets disabled.", 2.5)
-	TNT1 A 10 a_setblend(red, 0.333, 10)
+	TNT1 A 10 a_setblend("red", 0.1, 10)
 	goto ready
   zoom:
     TNT1 A 0 a_giveinventory("revenantzooming", 1)
@@ -262,5 +263,5 @@ actor revenantrocketpossessed : revenantrocket
 actor revenantrockethomingpossessed : revenantrockethoming
 {
   speed 15
-  damage (60)
+  damage (55)
 }

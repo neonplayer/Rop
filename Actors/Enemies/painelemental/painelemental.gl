@@ -1,4 +1,4 @@
-object painelementalprojectile
+object painelementalprojectile //lights are from lostsoul.gl
 {
     frame SKULC { light lostsoul_light }
     frame SKULD { light lostsoul_light2 }

@@ -38,6 +38,7 @@ actor hellknightplasma : baronball
 {
   damage (35)
   decal baronscorch
+  damagetype "monster"
   states
   {
   spawn:
