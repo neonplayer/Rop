@@ -1,6 +1,6 @@
 ROP r5:
 
-	WARNING: You will need to run rop rc5 with mopengine for it to work.
+	WARNING: You will need to run rop rc5 with mopengine with the "teamgame" gamemode for it to work properly.
   
 - Major weapon, enemy, balance, sfx rework! (too big to list)
 - Added rop_effects. settng it to 0 or false will remove most special effects.
