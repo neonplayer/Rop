@@ -3,6 +3,7 @@ actor ROPpainelemental : painelemental replaces painelemental
   scale 1.1
   hitobituary "%o found out that pain elementals can fight back."
   +quicktoretaliate
+  tag "Pain Elemental"
   states
   {
   Missile:
@@ -45,6 +46,7 @@ actor possessedROPpainelemental : possessedmonster
   obituary "%o was killed by %k's suicidal lost soul."
   hitobituary "%o found out that %k can fight back."
   Player.ViewHeight 48
+  tag "Pain Elemental"
   states
   {
   Spawn:
@@ -144,16 +146,16 @@ actor painelementalprojectile : cacodemonball
   
 actor painelementalreloadtoken : inventory { inventory.maxamount 1 }
 
-actor painsoullimit : ammo 
+actor painsoullimit : ammo
 { 
-  inventory.amount 1
   inventory.maxamount 10 
+  inventory.amount 1
   +ignoreskill
 }
 
 actor painelementalmana : ammo 
 { 
-  inventory.amount 1
   inventory.maxamount 100 
+  inventory.amount 1
   +ignoreskill
 }

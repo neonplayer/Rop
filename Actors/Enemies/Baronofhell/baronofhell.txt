@@ -1,0 +1,395 @@
+/*
+
+baron of hell punch sound : croteam (serious sam tfe)
+baron of hell projectile sprites : id software, vader (bruiser demon)
+baron of hell projectile sounds : midway (psx doom, pitch shifted)
+
+baron of hell hand sprites: ??? (from original mop)
+
+*/
+
+actor ropbaronofhell : baronofhell replaces baronofhell
+{
+  bloodcolor "darkgreen"
+  speed 10
+  scale 1.1
+  obituary "%o was eviscerated by a baron of hell."
+  hitobituary "%o was tko's by a baron of hell."
+  tag "Baron Of Hell"
+  States
+  {
+  Spawn:
+    BOSS A 0
+    BOSS A 0 a_giveinventory("baronofhellmanatoken", 1)
+    BOSS AB 10 A_Look
+    goto spawn+2
+  See:
+    BOSS A 0 a_giveinventory("baronofhellmanatoken", 1)
+    BOSS AABBCCDDAABBCCDD 3 A_Chase
+    Loop
+  Melee:
+  Missile:
+    BOSS EF 8 A_FaceTarget
+	BOSS A 0 a_jumpifinventory("baronofhellmanatoken", 5, "missile2")
+	BOSS A 0 a_jumpifinventory("baronofhellmanatoken", 3, "missile1")
+	goto missile3
+  missile2:
+    BOSS G 8 a_custommissile("baronplasma2")
+	BOSS A 0 a_takeinventory("baronofhellmanatoken", 2)
+    Goto See
+  missile1:
+    BOSS G 8 a_custommissile("baronplasma")
+	BOSS A 0 a_takeinventory("baronofhellmanatoken", 2)
+    Goto See
+  missile3:
+    BOSS G 8 a_custommissile("baronplasma3")
+	BOSS A 0 a_takeinventory("baronofhellmanatoken", 2)
+    Goto See
+  Pain:
+    BOSS H 2
+    BOSS H 2 A_Pain
+    Goto See
+  Death:
+    BOSS I 8
+    BOSS J 8 A_Scream
+    BOSS K 8
+    BOSS L 8 A_NoBlocking
+    BOSS MN 8
+    BOSS O -1 A_BossDeath
+    Stop
+  Raise:
+    BOSS O 8
+    BOSS NMLKJI 8
+    Goto See
+  }
+}
+
+actor baronplasma : baronball
+{
+  speed 25
+  damage (45)
+  decal baronscorch
+  damagetype "monster"
+  +forcexybillboard
+  scale 0.75
+  seesound "baron/fire1"
+  deathsound "baron/explode1"
+  states
+  {
+  spawn:
+    BRPR A 0
+	BRPR A 0 a_spawnitemex("baronplasmatrail")
+	BRPR A 1 bright a_weave(6, 6, 0.5, 0.5)
+    BRPR A 0 a_spawnitemex("baronplasmatrail")
+	BRPR A 1 bright a_weave(6, 6, 0.5, 0.5)
+	BRPR B 0 a_spawnitemex("baronplasmatrail")
+	BRPR B 1 bright a_weave(6, 6, 0.5, 0.5)
+    BRPR B 0 a_spawnitemex("baronplasmatrail")
+	BRPR B 1 bright a_weave(6, 6, 0.5, 0.5)
+	loop
+  death:
+    BRPR AAAAAAAAA 0 a_spawnitemex("baronplasmaparticle2", 0, 0, 0, random(8, -8)*0.25, random(8, -8)*0.25, random(3, 10)*0.5)
+	BRPR AAAAA 0 a_spawnitemex("hkplasmadeathsmoke", 0, 0, 0, random(4, -4)*0.75, random(4, -4)*0.75, random(4, 14)*0.333)
+	
+	BRPR K 1 a_fadeout(0.02)
+	BRPR K 0 a_setscale(scalex+0.02, scaley+0.02)
+	BRPR K 1 a_fadeout(0.02)
+	BRPR K 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+    BRPR L 1 a_fadeout(0.02)
+	BRPR L 0 a_setscale(scalex+0.02, scaley+0.02)
+	BRPR L 1 a_fadeout(0.02)
+	BRPR L 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+	BRPR M 1 a_fadeout(0.02)
+	BRPR M 0 a_setscale(scalex+0.02, scaley+0.02)
+	BRPR M 1 a_fadeout(0.02)
+	BRPR M 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+    BRPR N 1 a_fadeout(0.02)
+	BRPR N 0 a_setscale(scalex+0.02, scaley+0.02)
+	BRPR N 1 a_fadeout(0.02)
+	BRPR N 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+	BRPR O 1 a_fadeout(0.02)
+	BRPR O 0 a_setscale(scalex+0.02, scaley+0.02)
+	BRPR O 1 a_fadeout(0.02)
+	BRPR O 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+    BRPR P 1 a_fadeout(0.02)
+	BRPR P 0 a_setscale(scalex+0.02, scaley+0.02)
+	BRPR P 1 a_fadeout(0.02)
+	BRPR P 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+	BRPR Q 1 a_fadeout(0.02)
+	BRPR Q 0 a_setscale(scalex+0.02, scaley+0.02)
+	BRPR Q 1 a_fadeout(0.02)
+	BRPR Q 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+    BRPR R 1 a_fadeout(0.02)
+	BRPR R 0 a_setscale(scalex+0.02, scaley+0.02)
+	BRPR R 1 a_fadeout(0.02)
+	BRPR R 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+	BRPR S 1 a_fadeout(0.02)
+	BRPR S 0 a_setscale(scalex+0.02, scaley+0.02)
+	BRPR S 1 a_fadeout(0.02)
+	BRPR S 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+    BRPR T 1 a_fadeout(0.02)
+	BRPR T 0 a_setscale(scalex+0.02, scaley+0.02)
+	BRPR T 1 a_fadeout(0.02)
+	BRPR T 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+	BRPR U 1 a_fadeout(0.02)
+	BRPR U 0 a_setscale(scalex+0.02, scaley+0.02)
+	BRPR U 1 a_fadeout(0.02)
+	BRPR U 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+    BRPR V 1 a_fadeout(0.02)
+	BRPR V 0 a_setscale(scalex+0.02, scaley+0.02)
+	BRPR V 1 a_fadeout(0.02)
+	BRPR V 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+	BRPR W 1 a_fadeout(0.02)
+	BRPR W 0 a_setscale(scalex+0.02, scaley+0.02)
+	BRPR W 1 a_fadeout(0.02)
+	BRPR W 0 a_setscale(scalex+0.02, scaley+0.02)
+	
+    BRPR X 1 a_fadeout(0.02)
+	BRPR X 0 a_setscale(scalex+0.02, scaley+0.02)
+	BRPR X 1 a_fadeout(0.02)
+	BRPR X 0 a_setscale(scalex+0.02, scaley+0.02)
+	stop
+  }
+}
+
+actor baronplasma2 : baronplasma
+{
+  speed 20
+  scale 0.85
+  seesound "baron/fire2"
+  deathsound "baron/explode2"
+  states
+  {
+  spawn:
+    BRPR A 0
+	BRPR A 0 a_spawnitemex("baronplasmatrail2")
+	BRPR A 1 bright a_weave(6, 6, 0.5, 0.5)
+    BRPR A 0 a_spawnitemex("baronplasmatrail2")
+	BRPR A 1 bright a_weave(6, 6, 0.5, 0.5)
+	BRPR B 0 a_spawnitemex("baronplasmatrail2")
+	BRPR B 1 bright a_weave(6, 6, 0.5, 0.5)
+    BRPR B 0 a_spawnitemex("baronplasmatrail2")
+	BRPR B 1 bright a_weave(6, 6, 0.5, 0.5)
+	loop
+  }
+}
+  
+actor baronplasma3 : baronplasma
+{
+  speed 15
+  scale 0.6
+  seesound "baron/fire3"
+  deathsound "baron/explode3"
+  states
+  {
+  spawn:
+    BRPR A 0
+	BRPR A 0 a_spawnitemex("baronplasmatrail3")
+	BRPR A 1 bright a_weave(6, 6, 0.5, 0.5)
+    BRPR A 0 a_spawnitemex("baronplasmatrail3")
+	BRPR A 1 bright a_weave(6, 6, 0.5, 0.5)
+	BRPR B 0 a_spawnitemex("baronplasmatrail3")
+	BRPR B 1 bright a_weave(6, 6, 0.5, 0.5)
+    BRPR B 0 a_spawnitemex("baronplasmatrail3")
+	BRPR B 1 bright a_weave(6, 6, 0.5, 0.5)
+	loop
+  }
+}
+
+actor baronplasmatrail : effect
+{
+  scale 0.75
+  renderstyle add
+  states
+  {
+  spawn:
+    TNT1 A 0
+    TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	
+    BRPR A 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 A 0 a_fadeout(0.075)
+	BRPR A 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 A 0 a_fadeout(0.075)
+	
+	BRPR B 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 B 0 a_fadeout(0.075)
+	BRPR B 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 B 0 a_fadeout(0.075)
+	
+	BRPR C 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 C 0 a_fadeout(0.075)
+	BRPR C 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 C 0 a_fadeout(0.075)
+	
+	BRPR D 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 D 0 a_fadeout(0.075)
+	BRPR D 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 D 0 a_fadeout(0.075)
+	
+	BRPR E 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 E 0 a_fadeout(0.075)
+	BRPR E 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 E 0 a_fadeout(0.075)
+	
+	BRPR F 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 F 0 a_fadeout(0.075)
+	BRPR F 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 F 0 a_fadeout(0.075)
+	
+	BRPR G 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 G 0 a_fadeout(0.075)
+	BRPR G 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 G 0 a_fadeout(0.075)
+	
+	BRPR H 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 H 0 a_fadeout(0.075)
+	BRPR H 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 H 0 a_fadeout(0.075)
+	
+	BRPR I 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 I 0 a_fadeout(0.075)
+	BRPR I 1 a_setscale(scalex-random(50, 25)*0.001, scaley-random(50, 25)*0.001)
+	BAL3 I 0 a_fadeout(0.075)
+	goto spawn+2
+  }
+}
+
+actor baronplasmatrail2 : baronplasmatrail { scale 0.85 }
+actor baronplasmatrail3 : baronplasmatrail { scale 0.6 }
+
+actor baronplasmaparticle2 : CollidingFallingEffect
+{
+  scale 0.25
+  gravity 0.25
+  renderstyle add
+  bouncetype hexen
+  states
+  {
+  spawn:
+    TNT1 A 0
+    TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	
+	BRPR K 1 a_scalevelocity(0.95)
+	BRPR K 0 a_fadeout(0.075)
+	BRPR K 0 a_jumpif(alpha < 0.25, "die")
+	goto spawn+2
+  die:
+    BRPR KKKKKKKKKK 1 a_setscale(scalex-0.025, scaley-0.025)
+	stop
+  }
+}
+
+actor possessedropbaronofhell : PossessedMonster
+{
+  player.morphweapon "baronhand"
+  Health 1000
+  Radius 24
+  Height 64
+  Mass 1000
+  Speed 0.4375
+  PainChance 50
+  +FLOORCLIP
+  +BOSSDEATH
+  obituary "%o was eviscerated by %k."
+  hitobituary "%o was tko's by %k."
+  tag "Baron of Hell"
+  scale 1.1
+  player.viewheight 57
+  player.jumpz 5
+  player.soundclass morenoble
+  tag "Baron Of Hell"
+  states
+  {
+  Spawn:
+    BOSS AB 10
+    Loop
+  See:
+    BOSS AABBCCDD 3
+    goto spawn
+  Melee:
+  Missile:
+    BOSS EFGFE 6
+    Goto spawn
+  Pain:
+    BOSS H 2
+    BOSS H 2 A_Pain
+    Goto spawn
+  }
+}
+
+actor baronhand : possessedweapon
+{
+  tag "Baronofhell Hand"
+  attacksound "noble/punch"
+  weapon.ammotype "baronofhellmanatoken"
+  weapon.ammouse 0
+  states
+  {
+  ready:
+    TNT1 A 130 a_weaponready
+	TNT1 A 0 a_jumpifinventory("baronofhellmanatoken", 6, "ready")
+	BOHH A 0 a_setblend("green", 0.1, 10)
+    BOHH A 0 a_giveinventory("baronofhellmanatoken", 1)
+	TNT1 A 15 a_weaponready
+	goto ready+1
+  fire:
+    BOHH ABCDEFGHIJK 1
+	BOHH A 0 a_jumpifinventory("baronofhellmanatoken", 5, "fire1")
+	BOHH A 0 a_jumpifinventory("baronofhellmanatoken", 3, "fire2")
+	goto fire3
+  fire1:
+    BOHH L 1 a_firecustommissile("possessedbaronplasma2")
+	goto firefinish
+  fire2:
+    BOHH L 1 a_firecustommissile("possessedbaronplasma")
+	goto firefinish
+  fire3:
+    BOHH L 1 a_firecustommissile("possessedbaronplasma3")
+  firefinish:
+	BOHH A 0 a_takeinventory("baronofhellmanatoken", 2)
+	BOHH MNOPQRSTUVWXYZ 1
+	goto ready
+  altfire:
+    BOHH ABCDEFGHIJK 1
+	BOHH L 1 a_custompunch(70, true, 0, "monstermeleepuff")
+	BOHH MNOPQRSTUVWXYZ 1
+	goto ready
+  }
+}
+
+actor possessedbaronplasma : baronplasma 
+{
+  damage (60)
+  speed 25 
+}
+
+actor possessedbaronplasma2 : baronplasma2
+{
+  damage (65)
+  speed 30 
+}
+
+actor possessedbaronplasma3 : baronplasma3
+{
+  damage (60)
+  speed 15
+}
+
+actor baronofhellmanatoken : ammo
+{
+  inventory.maxamount 6
+  inventory.amount 1
+  +ignoreskill
+}

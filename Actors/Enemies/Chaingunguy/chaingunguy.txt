@@ -24,6 +24,7 @@ actor ropchaingunguy : chaingunguy replaces chaingunguy
   AttackSound "chainguy/attack"
   Obituary "%o was peppered by a heavy weapon dude."
   Dropitem "Chaingun"
+  tag "Heavy weapon dude"
   States
   {
   Spawn:
@@ -111,6 +112,7 @@ actor possessedropchaingunguy : possessedmonster
   AttackSound "chainguy/attack"
   Obituary "%o was peppered by %k's heavy weapons."
   Player.SoundClass Zombie
+  tag "Heavy weapon dude"
   States
   {
   Spawn:
@@ -380,15 +382,15 @@ actor ropzombiechaingun : possessedweapon
 
 actor chaingunaccuracytoken : ammo 
 { 
-  inventory.amount 1
   inventory.maxamount 10
+  inventory.amount 1
   +ignoreskill
 }
 
 actor chaingunspintoken : ammo 
 { 
-  inventory.amount 1
   inventory.maxamount 1 
+  inventory.amount 1
   +ignoreskill
 }
 

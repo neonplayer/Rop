@@ -8,6 +8,7 @@ actor ROPshotgunguy : shotgunguy replaces shotgunguy
 {
   painchance 128
   Obituary "%o got some buckshot from a shotgun zombie."
+  tag "Shotgun Guy"
   states
   {
   spawn:
@@ -60,6 +61,7 @@ actor possessedROPshotgunguy : possessedmonster
   ActiveSound "shotguy/active"
   Obituary "%o got some buckshot from %k."
   Player.SoundClass Zombie
+  tag "Shotgun Guy"
   States
   {
   Spawn:

@@ -5,7 +5,7 @@
 #include "rop_decorate.acs"
 #include "rop_utils.acs"
 
-#define max_monsterinfo 11
+#define max_monsterinfo 14
 
 // Pistol start script.
 script "rop_pistolstart" ENTER
@@ -53,7 +53,13 @@ str monsterinfo[max_monsterinfo] =
 	
 	"\cgRevenants have reduced jump height. \n\nPrimary fire will fire a rocket from your left cannon. \nSecondary fire will fire a rocket from your right cannon. \nReloading will toggle homing rockets. \n(\cgWill only home in if you are targeting something, Slightly reduced damage and speed\c-) \nZooming will punch. \n(\cdhigher dps, \cglimited range\c-)",
 	
-	"\cdPain elementals can fly. \n\cdPain elementals gain 10 mana when using a primary or a secondary attack. \n\nPrimary fire will fire a suicidal lost soul. \nSecondary fire will bite \n(\cdhigher dps, \cglimited range\c-) \nReloading will spawn a lost soul when you have 100 mana. \n(\cgLimited to 10 lostsouls\c-)"
+	"\cdPain elementals can fly. \n\cdPain elementals gain mana over time. \n\nPrimary fire will fire a suicidal lost soul. \nSecondary fire will bite \n(\cdhigher dps, \cglimited range\c-) \nReloading will spawn a lost soul when you have 100 mana. \n(\cgLimited to 10 lostsouls\c-)",
+	
+	"", //arachnotron
+	
+	"", //mancubus
+	
+	"\cgBarons have reduced jump height. \n\cdBarons gain mana after a while of not attacking. \n\nPrimary fire will throw plasma. \n(the more mana you have, the faster the projectile will be. projectiles use 2 mana, you can throw plasma without any mana.\c-) \nSecondary fire will punch. \n(\cdhigher dps, \cglimited range\c-)"
 };
 
 script "rop_possess" (int monster)
@@ -115,7 +121,8 @@ script 800 (void)
 	
 	addmonster(0.2, "FATTA1", "fatso", "\c[fatty]Mancubus");
 	
-	addmonster(0.225, "BOSSA1", "baronofhell", "\c[pinky]Baron of Hell");
+	addmonster(0.225, "BOSSA1", "ropbaronofhell", "\c[pinky]Baron of Hell");
+	addmonsteritem("baronofhellmanatoken");
 	
 	addmonster(0.3, "VILEA1D1", "archvile", "\c[vile]Arch-Vile");
 	

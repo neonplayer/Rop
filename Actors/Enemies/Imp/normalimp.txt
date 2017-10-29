@@ -13,6 +13,7 @@ actor ROPimp : doomimp replaces doomimp
   hitobituary "%o got a few scratches from an imp."
   mass 125
   painchance 150
+  tag "Imp"
   states
   {
   missile:
@@ -67,6 +68,7 @@ actor possessedROPimp : possessedmonster
   Obituary "%o was fried by %k."
   hitobituary "%o got a few scratches from %k."
   Player.SoundClass Imp
+  tag "Imp"
   States
   {
   Spawn:

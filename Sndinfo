@@ -70,6 +70,14 @@ $Volume MechDemon/Walk 0.66
 
 noble/punch			HKPUNCH
 
+baron/fire1			BRNPRFR1
+baron/fire2			BRNPRFR2
+baron/fire3			BRNPRFR3
+
+baron/explode1		BRNPRDT1
+baron/explode2		BRNPRDT2
+baron/explode3		BRNPRDT3
+
 PsxBaron/Sight		DSBLPHI
 PsxBaron/Death		DSBLPDIE
 

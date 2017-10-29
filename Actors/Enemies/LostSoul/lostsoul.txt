@@ -18,6 +18,7 @@ actor ROPlostsoul : lostsoul replaces lostsoul
   bloodtype "soulblood" //aka no blood
   +missileevenmore
   +noblooddecals
+  tag "Lost Soul"
   states
   {
   spawn:
@@ -259,6 +260,7 @@ actor possessedROPlostsoul : possessedmonster
   Player.SoundClass Soul
   player.viewheight 16
   bloodtype "soulblood"
+  tag "Lost Soul"
   states
   {
   Spawn:
@@ -368,9 +370,9 @@ actor ROPsoulcharger : possessedweapon
   }
 }
 
-actor soulflametoken : ammo 
+actor soulflametoken : ammo
 { 
-  inventory.amount 1
   inventory.maxamount 100 
+  inventory.amount 1
   +ignoreskill
 }

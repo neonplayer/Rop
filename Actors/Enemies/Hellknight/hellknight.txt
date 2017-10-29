@@ -17,6 +17,7 @@ actor ROPhellknight : hellknight replaces hellknight
   speed 10
   obituary "%o was defeated by a hellknight."
   hitobituary "%o was beaten by a hellknight."
+  tag "Hell Knight"
   states
   {
   Missile:
@@ -125,20 +126,6 @@ actor hkplasmaparticle : effect
     TNT1 A 0
     TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
 	
-    /*BAL3 A 1 a_scalevelocity(0.9675)
-	BAL3 A 0 a_fadeout(0.04)
-	BAL3 A 0 a_jumpif(alpha < 0.25, "die")
-	BAL3 A 1 a_scalevelocity(0.9675)
-	BAL3 A 0 a_fadeout(0.04)
-	BAL3 A 0 a_jumpif(alpha < 0.25, "die")
-	
-	BAL3 B 1 a_scalevelocity(0.9675)
-	BAL3 B 0 a_fadeout(0.04)
-	BAL3 B 0 a_jumpif(alpha < 0.25, "die")
-	BAL3 B 1 a_scalevelocity(0.9675)
-	BAL3 B 0 a_fadeout(0.04)
-	BAL3 B 0 a_jumpif(alpha < 0.25, "die")*/
-	
 	HKPR A 1 a_scalevelocity(0.9675)
 	HKPR A 0 a_fadeout(0.04)
 	HKPR A 0 a_jumpif(alpha < 0.25, "die")
@@ -234,6 +221,7 @@ actor possessedROPhellknight : possessedmonster
   Player.ViewHeight 54
   Player.SoundClass Noble
   Player.JumpZ 5
+  tag "Hell Knight"
   States
   {
   Spawn:

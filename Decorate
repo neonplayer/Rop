@@ -22,6 +22,7 @@ actor gibtoken : inventory { inventory.maxamount 1 }
 #include actors/enemies/hellknight/hellknight.txt
 #include actors/enemies/revenant/revenant.txt
 #include actors/enemies/painelemental/painelemental.txt
+#include actors/enemies/baronofhell/baronofhell.txt
 
 #Include Actors/Weapons/Fist
 #Include Actors/Weapons/Chainsaw

@@ -10,3 +10,4 @@
 #include "actors/enemies/hellknight/hellknight.gl"
 #include "actors/enemies/revenant/revenant.gl"
 #include "actors/enemies/painelemental/painelemental.gl"
+#include "actors/enemies/baronofhell/baronofhell.gl"

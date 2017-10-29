@@ -4,6 +4,7 @@ actor ROPpinky : demon replaces demon
   PainChance 128
   Obituary "%o was eaten by a pinky."
   attacksound ""
+  tag "Pinky"
   states
   {
   melee:
@@ -22,6 +23,7 @@ actor ROPspectre : ROPpinky replaces spectre
   renderstyle translucent
   alpha 0.5
   translation "16:31=92:107", "32:35=108:111", "36:43=5:8", "44:47=0:0", "208:223=96:107"
+  tag "Spectre"
   states
   {
   Pain:
@@ -62,6 +64,7 @@ actor possessedroppinky : possessedmonster
   Obituary "%o was eaten by %k."
   Player.SoundClass PinkDemon
   scale 1.1
+  tag "Pinky"
   States
   {
   Spawn:
@@ -125,6 +128,7 @@ actor possessedROPspectre : possessedmonster
   renderstyle translucent
   alpha 0.5
   translation "16:31=92:107", "32:35=108:111", "36:43=5:8", "44:47=0:0", "208:223=96:107"
+  tag "Spectre"
   States
   {
   Spawn:

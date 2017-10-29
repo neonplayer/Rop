@@ -11,6 +11,7 @@ actor ROPrevenant : revenant replaces revenant
   scale 0.85
   obituary "%o wasn't good at dodging a revenant's rocket."
   hitobituary "%o got into a fight with a revenant and lost."
+  tag "Revenant"
   states
   {
   Melee:
@@ -174,6 +175,7 @@ actor possessedROPrevenant : possessedmonster
   Player.SoundClass Skeleton
   Player.JumpZ 5
   player.viewheight 48
+  tag "Revenant"
   states
   {
   Spawn:
@@ -206,6 +208,8 @@ actor revenantzooming : inventory { inventory.maxamount 1 }
 
 actor revenantlauncher : possessedweapon
 {
+  weapon.ammotype "revenanthomingcheck"
+  weapon.ammouse 0
   attacksound "skeleton/melee"
   tag "Revenant Launchers"
   states
@@ -252,7 +256,12 @@ actor revenantlauncher : possessedweapon
   }
 }
 
-actor revenanthomingcheck : inventory { inventory.maxamount 1 }
+actor revenanthomingcheck : ammo 
+{ 
+  inventory.maxamount 1 
+  inventory.amount 1
+  +ignoreskill
+}
 
 actor revenantrocketpossessed : revenantrocket
 {

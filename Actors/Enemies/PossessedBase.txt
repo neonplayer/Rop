@@ -39,8 +39,4 @@ Actor NewBossBrain : BossBrain replaces BossBrain
     DamageFactor "TormentBfg", 0
 }
 
-Actor PossessedWeapon : MOPPossessedWeapon
-{
-
-}
-
+Actor PossessedWeapon : MOPPossessedWeapon {}

@@ -13,6 +13,7 @@ actor ROPcacodemon : cacodemon replaces cacodemon
   bloodcolor blue
   obituary "%o was electrocuted by a cacodemon."
   hitobituary "%o became a tasty snack for a cacodemon."
+  tag "Cacodemon"
   states
   {
   missile:
@@ -210,6 +211,7 @@ actor possessedROPcacodemon : possessedmonster
   obituary "%o was electrocuted by %k."
   hitobituary "%o became a tasty snack for %k."
   Player.SoundClass Caco
+  tag "Cacodemon"
   states
   {
   spawn:

@@ -1,0 +1,209 @@
+object baronplasma
+{
+  frame BRPRA { light baronprojectile2 }
+  frame BRPRB { light baronprojectile2 }
+  frame BRPRK { light baronprdeath1 }
+  frame BRPRL { light baronprdeath2 }
+  frame BRPRM { light baronprdeath3 }
+  frame BRPRN { light baronprdeath4 }
+  frame BRPRO { light baronprdeath5 }
+  frame BRPRP { light baronprdeath6 }
+  frame BRPRQ { light baronprdeath7 }
+  frame BRPRR { light baronprdeath8 }
+  frame BRPRS { light baronprdeath9 }
+  frame BRPRT { light baronprdeath10 }
+  frame BRPRU { light baronprdeath11 }
+  frame BRPRV { light baronprdeath12 }
+  frame BRPRW { light baronprdeath13 }
+}
+
+object baronplasma2
+{
+  frame BRPRA { light baronprojectile3 }
+  frame BRPRB { light baronprojectile3 }
+  frame BRPRK { light baronprdeath1 }
+  frame BRPRL { light baronprdeath2 }
+  frame BRPRM { light baronprdeath3 }
+  frame BRPRN { light baronprdeath4 }
+  frame BRPRO { light baronprdeath5 }
+  frame BRPRP { light baronprdeath6 }
+  frame BRPRQ { light baronprdeath7 }
+  frame BRPRR { light baronprdeath8 }
+  frame BRPRS { light baronprdeath9 }
+  frame BRPRT { light baronprdeath10 }
+  frame BRPRU { light baronprdeath11 }
+  frame BRPRV { light baronprdeath12 }
+  frame BRPRW { light baronprdeath13 }
+}
+
+object baronplasma3
+{
+  frame BRPRA { light baronprojectile1 }
+  frame BRPRB { light baronprojectile1 }
+  frame BRPRK { light baronprdeath1 }
+  frame BRPRL { light baronprdeath2 }
+  frame BRPRM { light baronprdeath3 }
+  frame BRPRN { light baronprdeath4 }
+  frame BRPRO { light baronprdeath5 }
+  frame BRPRP { light baronprdeath6 }
+  frame BRPRQ { light baronprdeath7 }
+  frame BRPRR { light baronprdeath8 }
+  frame BRPRS { light baronprdeath9 }
+  frame BRPRT { light baronprdeath10 }
+  frame BRPRU { light baronprdeath11 }
+  frame BRPRV { light baronprdeath12 }
+  frame BRPRW { light baronprdeath13 }
+}
+
+object possessedbaronplasma
+{
+  frame BRPRA { light baronprojectile2 }
+  frame BRPRB { light baronprojectile2 }
+  frame BRPRK { light baronprdeath1 }
+  frame BRPRL { light baronprdeath2 }
+  frame BRPRM { light baronprdeath3 }
+  frame BRPRN { light baronprdeath4 }
+  frame BRPRO { light baronprdeath5 }
+  frame BRPRP { light baronprdeath6 }
+  frame BRPRQ { light baronprdeath7 }
+  frame BRPRR { light baronprdeath8 }
+  frame BRPRS { light baronprdeath9 }
+  frame BRPRT { light baronprdeath10 }
+  frame BRPRU { light baronprdeath11 }
+  frame BRPRV { light baronprdeath12 }
+  frame BRPRW { light baronprdeath13 }
+}
+
+object possessedbaronplasma2
+{
+  frame BRPRA { light baronprojectile3 }
+  frame BRPRB { light baronprojectile3 }
+  frame BRPRK { light baronprdeath1 }
+  frame BRPRL { light baronprdeath2 }
+  frame BRPRM { light baronprdeath3 }
+  frame BRPRN { light baronprdeath4 }
+  frame BRPRO { light baronprdeath5 }
+  frame BRPRP { light baronprdeath6 }
+  frame BRPRQ { light baronprdeath7 }
+  frame BRPRR { light baronprdeath8 }
+  frame BRPRS { light baronprdeath9 }
+  frame BRPRT { light baronprdeath10 }
+  frame BRPRU { light baronprdeath11 }
+  frame BRPRV { light baronprdeath12 }
+  frame BRPRW { light baronprdeath13 }
+}
+
+object possessedbaronplasma3
+{
+  frame BRPRA { light baronprojectile1 }
+  frame BRPRB { light baronprojectile1 }
+  frame BRPRK { light baronprdeath1 }
+  frame BRPRL { light baronprdeath2 }
+  frame BRPRM { light baronprdeath3 }
+  frame BRPRN { light baronprdeath4 }
+  frame BRPRO { light baronprdeath5 }
+  frame BRPRP { light baronprdeath6 }
+  frame BRPRQ { light baronprdeath7 }
+  frame BRPRR { light baronprdeath8 }
+  frame BRPRS { light baronprdeath9 }
+  frame BRPRT { light baronprdeath10 }
+  frame BRPRU { light baronprdeath11 }
+  frame BRPRV { light baronprdeath12 }
+  frame BRPRW { light baronprdeath13 }
+}
+
+pointlight baronprojectile1
+{
+  color 0.0 1.0 0.0
+  size 32
+}
+
+pointlight baronprojectile2
+{
+  color 0.0 1.0 0.0
+  size 38
+}
+
+pointlight baronprojectile3
+{
+  color 0.0 1.0 0.0
+  size 44
+}
+
+pointlight baronprdeath1
+{
+  color 0.0 1.0 0.0
+  size 40
+}
+
+pointlight baronprdeath2
+{
+  color 0.0 0.95 0.0
+  size 42
+}
+
+pointlight baronprdeath3
+{
+  color 0.0 0.9 0.0
+  size 44
+}
+
+pointlight baronprdeath4
+{
+  color 0.0 0.8 0.0
+  size 46
+}
+
+pointlight baronprdeath5
+{
+  color 0.0 0.7 0.0
+  size 48
+}
+
+pointlight baronprdeath6
+{
+  color 0.0 0.6 0.0
+  size 50
+}
+
+pointlight baronprdeath7
+{
+  color 0.0 0.5 0.0
+  size 52
+}
+
+pointlight baronprdeath8
+{
+  color 0.0 0.4 0.0
+  size 54
+}
+
+pointlight baronprdeath9
+{
+  color 0.0 0.3 0.0
+  size 56
+}
+
+pointlight baronprdeath10
+{
+  color 0.0 0.2 0.0
+  size 58
+}
+
+pointlight baronprdeath11
+{
+  color 0.0 0.15 0.0
+  size 60
+}
+
+pointlight baronprdeath12
+{
+  color 0.0 0.1 0.0
+  size 62
+}
+
+pointlight baronprdeath13
+{
+  color 0.0 0.05 0.0
+  size 64
+}

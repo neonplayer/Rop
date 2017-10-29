@@ -8,6 +8,7 @@ actor ROPzombieman : zombieman replaces zombieman
 {
   painchance 128
   obituary "%o was gunned down by a zombieman."
+  tag "Zombieman"
   states
   {
   spawn:
@@ -45,6 +46,7 @@ actor possessedROPzombieman : PossessedMonster
   DeathSound "grunt/death"
   ActiveSound "grunt/active"
   Player.SoundClass Zombie
+  tag "Zombieman"
   States
   {
   Spawn:
@@ -113,7 +115,7 @@ actor ROPzombiemanrifle : possessedweapon
 	
 actor riflechargetoken : ammo 
 { 
-  inventory.amount 1
   inventory.maxamount 35 
+  inventory.amount 1
   +ignoreskill
 }
