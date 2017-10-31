@@ -39,4 +39,4 @@ actor gibtoken : inventory { inventory.maxamount 1 }
 
 
 #Include Actors/Marine.txt
-
+#include actors/barrel.txt

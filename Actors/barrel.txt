@@ -1,0 +1,138 @@
+/*
+
+barrel explosion smoke and barrel pieces: ID software (doom)
+
+*/
+
+actor ropexplosivebarrel : explosivebarrel replaces explosivebarrel
+{
+  -noblood
+  bloodcolor "4B9F3F"
+  obituary "%o decided to stand next to a barrel."
+  tag "Explosive Barrel"
+  states
+  {
+  spawn:
+    BAR1 A 4
+	BEXP A 4
+	BAR1 B 4
+	loop
+  death:
+    BEXP A 0 a_jumpifinventory("barrelfusetoken", 15, "kaboom") //there has to be a 15 tic delay so that maps don't break.
+    BEXP C 1 bright a_setscale(random(95, 105)*0.01, random(95, 105)*0.01)
+	BEXP C 0 a_spawnitemex("explosionsmoke", random(8, -8), random(8, -8), random(8, 24), random(8, -8)*0.333, random(8, -8)*0.333, random(8, -8)*0.333)
+	BEXP A 0 a_giveinventory("barrelfusetoken", 1)
+	loop
+  kaboom:
+	BEXP D 0 a_settranslucent(1.0, 1)
+	BEXP D 0 a_explode
+	BEXP D 0 a_quake(3, 25, 0, 96, "")
+	BEXP D 0 a_quake(2, 25, 0, 192, "")
+	BEXP D 0 a_spawnitemex("explosionringbig", 0, 0, 32)
+	BEXP DDDDD 0 a_spawnitemex("barrelexplosionsmoke", random(8, -8), random(8, -8), random(4, 24), random(4, -4)*0.5, random(4, -4)*0.5, random(4, 8)*0.5)
+	BEXP DDDDDD 0 a_spawnitemex("barrelpiece", random(6, -6), random(6, -6), random(20, 32), random(12, -12)*0.5, random(12, -12)*0.5, random(12, 22)*0.5)
+    BEXP DDDDDDDD 0 a_spawnitemex("genericsmokebarrel", random(10, -10), random(10, -10), random(8, 24), random(6, -6)*0.2, random(6, -6)*0.2, random(4, 14)*0.2)
+	BEXP D 5 a_scream
+    BEXP E 10 Bright
+	stop
+    //TNT1 A 1050 Bright A_BarrelDestroy //deathmatch doesn't work anyway
+    //TNT1 A 5 A_Respawn
+    //Wait
+  }
+}
+
+actor barrelfusetoken : inventory { inventory.maxamount 15 }
+
+actor barrelpiece : CollidingFallingEffect
+{
+  gravity 0.8
+  +bounceonwalls
+  +bounceonfloors
+  +bounceonceilings
+  +thruactors
+  bouncecount 4
+  bouncefactor 0.5
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	TNT1 A 0 a_setscale(random(50, 70)*0.01, scaley)
+	TNT1 A 0 a_setscale(scalex, scalex)
+	TNT1 A 0 a_jump(128, "altspawn")
+    BRP1 ABCDEFGHIJKLMNOP 1
+	loop
+  altspawn:
+    BRP1 PONMLKJIHGFEDCBA 1
+	loop
+  death:
+    TNT1 A 0 a_jump(256, "death1", "death2", "death3", "death4")
+  death1:
+    BRP1 A 1 a_fadeout(random(8, 16)*0.001)
+	loop
+  death2:
+    BRP1 E 1 a_fadeout(random(8, 16)*0.001)
+	loop
+  death3:
+    BRP1 I 1 a_fadeout(random(8, 16)*0.001)
+	loop
+  death4:
+    BRP1 M 1 a_fadeout(random(8, 16)*0.001)
+	loop
+  }
+}
+
+actor barrelexplosionsmoke : effect
+{
+  renderstyle add
+  alpha 0.5
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	TNT1 A 0 a_setscale(random(40, 60)*0.01, scaley)
+	TNT1 A 0 a_setscale(scalex, scalex)
+	BRP2 AAAAABBBBCCC 1 a_fadeout(0.02)
+	stop
+  }
+}
+
+actor possessedropexplosivebarrel : possessedmonster
+{
+  player.morphweapon "barrelweapon"
+  Health 20
+  Radius 10
+  Height 42
+  speed 0.25
+  +ACTIVATEMCROSS
+  +DONTGIB
+  +NOICEDEATH
+  +OLDRADIUSDMG
+  DeathSound "world/barrelx"
+  bloodcolor "4B9F3F"
+  obituary "%o decided to stand next to %k."
+  player.viewheight 32
+  player.jumpz 0
+  tag "Explosive Barrel"
+  states
+  {
+  spawn:
+    BAR1 A 4
+	BEXP A 4
+	BAR1 B 4
+	loop
+  }
+}
+
+actor barrelweapon : possessedweapon
+{
+  tag "Explosive Barrel" //what the hell do i call this? lol
+  damagetype "monster"
+  states
+  {
+  fire:
+    TNT1 A 1 thing_damage(0, 20)
+	stop
+  }
+}

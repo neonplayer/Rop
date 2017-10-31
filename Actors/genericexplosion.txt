@@ -50,6 +50,12 @@ actor genericsmoke3 : genericsmoke
   alpha 0.375
 }
 
+actor genericsmokebarrel : genericsmoke
+{
+  scale 0.3
+  stencilcolor "14 14 14"
+}
+
 actor genericsmokebig : genericsmoke { scale 0.4 }
 
 actor explosionparticle : CollidingFallingEffect

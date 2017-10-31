@@ -5,7 +5,7 @@
 #include "rop_decorate.acs"
 #include "rop_utils.acs"
 
-#define max_monsterinfo 14
+#define max_monsterinfo 19
 
 // Pistol start script.
 script "rop_pistolstart" ENTER
@@ -59,7 +59,17 @@ str monsterinfo[max_monsterinfo] =
 	
 	"", //mancubus
 	
-	"\cgBarons have reduced jump height. \n\cdBarons gain mana after a while of not attacking. \n\nPrimary fire will throw plasma. \n(the more mana you have, the faster the projectile will be. projectiles use 2 mana, you can throw plasma without any mana.\c-) \nSecondary fire will punch. \n(\cdhigher dps, \cglimited range\c-)"
+	"\cgBarons have reduced jump height. \n\cdBarons gain mana after a while of not attacking. \n\nPrimary fire will throw plasma. \n(the more mana you have, the faster the projectile will be. projectiles use 2 mana, you can throw plasma without any mana.\c-) \nSecondary fire will punch. \n(\cdhigher dps, \cglimited range\c-)",
+	
+	"", //archvile
+	
+	"", //cyberdemon
+	
+	"", //spider master
+	
+	"", //heilhitlah
+	
+	"Sneak up next to a marine and blow him up! \n\nPrimary fire will detonate the barrel."
 };
 
 script "rop_possess" (int monster)
@@ -132,7 +142,7 @@ script 800 (void)
 	
 	addmonster(0.025, "SSWVA1", "wolfensteinss", "\chWolfenstein \cfSS");
 	
-	addmonster(0.01, "BAR1A0", "explosivebarrel", "\c[barrel]Explosive Barrel");
+	addmonster(0.01, "BAR1A0", "ropexplosivebarrel", "\c[barrel]Explosive Barrel");
 	/*
 	AddMonster(0.02,  "POSSA1",   "Zombieman2", "Zombieman");
 	AddMonster(0.035, "PRPSA1",   "PlasmaZombie", "Plasma Zombie");

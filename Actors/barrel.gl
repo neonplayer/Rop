@@ -1,0 +1,48 @@
+pulselight barrellight
+{
+  color 0.0 0.85 0.0
+  size 16
+  secondarysize 24
+  interval 2.0
+  offset 0 30 0
+}
+
+flickerlight barrelboom1
+{
+  color 1.0 0.0 0.0
+  size 40
+  secondarysize 56
+  chance 0.5
+}
+
+pointlight barrelboom2
+{
+  color 0.666 0.0 0.0
+  size 56
+}
+
+pointlight barrelboom3
+{
+  color 0.333 0.0 0.0
+  size 64
+}
+
+object ropexplosivebarrel
+{
+  frame BAR1A { light barrellight }
+  frame BAR1B { light barrellight }
+  frame BEXPA { light barrellight }
+  frame BEXPC { light barrelboom1 }
+  frame BEXPD { light barrelboom2 }
+  frame BEXPE { light barrelboom3 }
+}
+
+object possessedropexplosivebarrel
+{
+  frame BAR1A { light barrellight }
+  frame BAR1B { light barrellight }
+  frame BEXPA { light barrellight }
+  frame BEXPC { light barrelboom1 }
+  frame BEXPD { light barrelboom2 }
+  frame BEXPE { light barrelboom3 }
+}
