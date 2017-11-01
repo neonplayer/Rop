@@ -1,3 +1,17 @@
+//items
+
+pickup/smallhealth			2HPPKUP
+pickup/mediumhealth			10HPPKUP
+pickup/bighealth			25HPPKUP	
+pickup/megahealth			100HPPKP	
+
+pickup/ultrahealth			MEGAPKUP
+pickup/invisibility			INVISPKP
+pickup/invulnerability		INVULPKP
+pickup/radsuit				SUITPKUP	
+pickup/monitor				MAPPKUP	
+pickup/steroids				BERSPKUP
+
 //Zombies
 
 PXZMDTH1		PXZMDTH1

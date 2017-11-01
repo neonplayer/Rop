@@ -1,0 +1,110 @@
+pulselight megaspherelight
+{
+  color 0.652 0.558 0.465
+  size 32
+  secondarysize 48
+  interval 3.0
+  offset 0 28 0
+}
+
+object ropmegasphere
+{
+  frame MEGAE { light megaspherelight }
+  frame MEGAF { light megaspherelight }
+  frame MEGAG { light megaspherelight }
+  frame MEGAH { light megaspherelight }
+}
+
+pointlight blurlight1
+{
+  color 1.0 0.0 0.5
+  size 40
+}
+
+pointlight blurlight2
+{
+  color 1.0 0.0 0.3
+  size 40
+}
+
+pointlight blurlight3
+{
+  color 1.0 0.0 0.1
+  size 40
+}
+
+pointlight blurlight4
+{
+  color 1.0 0.0 0.0
+  size 40
+}
+
+object ropinvisibility
+{
+  frame PINSA { light blurlight1 }
+  frame PINSB { light blurlight2 }
+  frame PINSC { light blurlight3 }
+  frame PINSD { light blurlight4 }
+}
+
+pulselight invulnlight
+{
+  color 0.0 1.0 0.0
+  size 32
+  secondarysize 48
+  interval 3.0
+  offset 0 28 0
+}
+
+object ropinvulnerability
+{
+  frame PINVE { light invulnlight }
+  frame PINVF { light invulnlight }
+  frame PINVG { light invulnlight }
+  frame PINVH { light invulnlight }
+}
+
+pulselight maplight
+{
+  color 0.0 0.8 0.0
+  size 32
+  secondarysize 48
+  interval 3.0
+  offset 0 28 0
+}
+
+object ropallmap
+{
+  frame PMAPA { light maplight }
+  frame PMAPB { light maplight }
+  frame PMAPC { light maplight }
+  frame PMAPD { light maplight }
+}
+
+pulselight infraredlight
+{
+  color 0.75 0.0 0.0
+  size 16
+  secondarysize 32
+  interval 3.0
+}
+
+object ropinfrared
+{
+  frame PVISA { light infraredlight }
+  frame PVISB { light infraredlight }
+}
+
+pulselight berserklight
+{
+  color 1.0 0.0 0.0
+  size 8
+  secondarysize 16
+  interval 3.0
+  offset 0 16 0
+}
+
+object ropberserk
+{
+  frame PSTRA { light berserklight }
+}

@@ -12,3 +12,6 @@
 #include "actors/enemies/revenant/revenant.gl"
 #include "actors/enemies/painelemental/painelemental.gl"
 #include "actors/enemies/baronofhell/baronofhell.gl"
+
+#include "actors/items/health.gl"
+#include "actors/items/powerups.gl"

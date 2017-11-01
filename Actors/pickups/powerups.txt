@@ -1,0 +1,131 @@
+/*
+
+megasphere pickup sound: croteam (serious sam tfe)
+megasphere particle: id software (doom)
+
+*/
+
+actor ropmegasphere : megasphere replaces megasphere
+{
+  inventory.pickupmessage "\cfMega Sphere"
+  inventory.pickupsound "pickup/ultrahealth"
+  +floatbob
+  renderstyle add
+  states
+  {
+  spawn:
+    MEGA EEEFFFGGGHHH 2 bright a_spawnitemex("megaparticle", 0, 0, 28, random(1.5, -1.5)*0.5, random(1.5, -1.5)*0.5, random(1.5, -1.5)*0.5)
+	loop
+  }
+}
+
+actor megaparticle : effect
+{
+  renderstyle add
+  alpha 0.5
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_checksight("removed")
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	TNT1 A 0 a_setscale(random(80, 120)*0.01, scaley)
+	TNT1 A 0 a_setscale(scalex, scalex)
+	
+	MEGP A 1 a_scalevelocity(0.95)
+	MEGP A 0 a_fadeout(0.015)
+	MEGP A 0 a_setscale(scalex+0.02, scaley+0.02)
+	goto spawn+5
+  }
+}
+
+actor ropinvisibility : blursphere replaces blursphere
+{
+  inventory.pickupmessage "\cfPartial Invisibility"
+  inventory.pickupsound "pickup/invisibility"
+  +floatbob
+  -visibilitypulse
+  renderstyle add
+  states
+  {
+  spawn:
+    PINS AAABBBCCCDDD 2 bright a_spawnitemex("invisparticle", 0, 0, 28, random(1.5, -1.5)*0.5, random(1.5, -1.5)*0.5, random(1.5, -1.5)*0.5)
+	loop
+  }
+}
+
+actor invisparticle : effect
+{
+  renderstyle add
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_checksight("removed")
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	TNT1 A 0 a_setscale(random(80, 120)*0.01, scaley)
+	TNT1 A 0 a_setscale(scalex, scalex)
+	
+	VISP A 1 a_scalevelocity(0.95)
+	VISP A 0 a_fadeout(0.03)
+	VISP A 0 a_setscale(scalex+0.02, scaley+0.02)
+	goto spawn+5
+  }
+}
+
+actor ropinvulnerability : invulnerabilitysphere replaces invulnerabilitysphere
+{
+  inventory.pickupmessage "\cfInvulnerability"
+  inventory.pickupsound "pickup/invulnerability"
+  +floatbob
+  renderstyle add
+  powerup.colormap 1.0, 0.969, 0.484
+  states
+  {
+  spawn:
+    PINV EEEFFFGGGHHH 2 bright a_spawnitemex("invulnparticle", 0, 0, 28, random(1.5, -1.5)*0.5, random(1.5, -1.5)*0.5, random(1.5, -1.5)*0.5)
+	loop
+  }
+}
+
+actor invulnparticle : effect
+{
+  renderstyle add
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_checksight("removed")
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	TNT1 A 0 a_setscale(random(80, 120)*0.01, scaley)
+	TNT1 A 0 a_setscale(scalex, scalex)
+	
+	INVP A 1 a_scalevelocity(0.95)
+	INVP A 0 a_fadeout(0.03)
+	INVP A 0 a_setscale(scalex+0.02, scaley+0.02)
+	goto spawn+5
+  }
+}
+
+actor ropradsuit : radsuit replaces radsuit
+{
+  inventory.pickupmessage "\cfRadiation suit"
+  inventory.pickupsound "pickup/radsuit"
+}
+
+actor ropallmap : allmap replaces allmap
+{
+  inventory.pickupmessage "\cfArea map download complete!"
+  inventory.pickupsound "pickup/monitor"
+}
+
+actor ropinfrared : infrared replaces infrared
+{
+  inventory.pickupmessage "\cfNight vision goggles"
+}
+
+actor ropberserk : berserk replaces berserk
+{
+  inventory.pickupmessage "\cfBerserk"
+  inventory.pickupsound "pickup/steroids"
+}

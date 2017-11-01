@@ -34,9 +34,10 @@ actor gibtoken : inventory { inventory.maxamount 1 }
 #Include Actors/Weapons/PlasmaRifle
 #Include Actors/Weapons/BFG9k
 
-//#Include Actors/Items
 #Include Actors/Weapons/ShieldGen
 
+#include actors/pickups/health.txt
+#include actors/pickups/powerups.txt
 
 #Include Actors/Marine.txt
 #include actors/barrel.txt

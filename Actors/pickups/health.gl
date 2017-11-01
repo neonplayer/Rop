@@ -1,0 +1,30 @@
+pulselight healthbonuslight
+{
+  color 0.0 0.0 1.0
+  size 8
+  secondarysize 16
+  interval 3.0
+  offset 0 6 0
+}
+
+object rophealthbonus
+{
+  frame SMHPC { light healthbonuslight }
+}
+
+pulselight soullight
+{
+  color 0.0 0.0 1.0
+  size 32
+  secondarysize 48
+  interval 3.0
+  offset 0 28 0
+}
+
+object ropsoulsphere
+{
+  frame SOULA { light soullight }
+  frame SOULB { light soullight }
+  frame SOULC { light soullight }
+  frame SOULD { light soullight }
+}

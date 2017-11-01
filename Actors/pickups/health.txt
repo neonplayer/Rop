@@ -1,0 +1,69 @@
+/*
+
+2 health pickup sound: croteam (serious sam tfe)
+10, 25 and 100 health pickup sounds: ID software (quake 3)
+
+soulsphere particle: id software (doom)
+
+*/
+
+actor rophealthbonus : healthbonus replaces healthbonus
+{
+  inventory.amount 2
+  inventory.pickupmessage "\ca+2 health"
+  inventory.pickupsound "pickup/smallhealth"
+  -countitem
+  scale 0.65
+  states
+  {
+  spawn:
+    SMHP C -1
+	stop 
+  }
+}
+
+actor ropstimpack : stimpack replaces stimpack
+{
+  inventory.pickupmessage "\ca+10 health"
+  inventory.pickupsound "pickup/mediumhealth"
+}
+
+actor ropmedikit : medikit replaces medikit
+{
+  inventory.pickupmessage "\ca+25 health"
+  inventory.pickupsound "pickup/bighealth"
+  scale 0.9
+}
+
+actor ropsoulsphere : soulsphere replaces soulsphere
+{
+  inventory.pickupmessage "\ca+100 health"
+  inventory.pickupsound "pickup/megahealth"
+  +floatbob
+  renderstyle add
+  states
+  {
+  spawn:
+    SOUL AAABBBCCCDDDCCCBBB 2 bright a_spawnitemex("soulparticle", 0, 0, 28, random(1.5, -1.5)*0.5, random(1.5, -1.5)*0.5, random(1.5, -1.5)*0.5)
+	loop
+  }
+}
+
+actor soulparticle : effect
+{
+  renderstyle add
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_checksight("removed")
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	TNT1 A 0 a_setscale(random(80, 120)*0.01, scaley)
+	TNT1 A 0 a_setscale(scalex, scalex)
+	
+	SOLP A 1 a_scalevelocity(0.95)
+	SOLP A 0 a_fadeout(0.03)
+	SOLP A 0 a_setscale(scalex+0.02, scaley+0.02)
+	goto spawn+5
+  }
+}
