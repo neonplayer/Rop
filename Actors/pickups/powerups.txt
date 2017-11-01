@@ -1,7 +1,9 @@
 /*
 
 megasphere pickup sound: croteam (serious sam tfe)
-megasphere particle: id software (doom)
+megasphere, invisibility, invulnerability particle: id software (doom)
+
+invulnerability, invisibility, radsuit, allmap pickup sounds: id software (quake)
 
 */
 
