@@ -1,0 +1,50 @@
+/*
+
+armor shard sprites: id software, infirnex
+armor shard pickup sound: id software (quake 3)
+green armor pickup sound: id software (quake)
+blue armor pickup sound: croteam (serious sam tfe)
+
+*/
+
+actor roparmorbonus : armorbonus replaces armorbonus
+{
+  armor.saveamount 2
+  inventory.pickupmessage "\cd+2 armor"
+  inventory.pickupsound "pickup/smallarmor"
+  tag "Armor bonus"
+  states
+  {
+  spawn:
+    ASHR ABCDCB 6
+	loop
+  }
+}
+
+actor ropgreenarmor : greenarmor replaces greenarmor
+{
+  translation "116:127=112:127"
+  inventory.pickupmessage "\cd+100 armor"
+  inventory.pickupsound "pickup/mediumarmor"
+  tag "Green Armor"
+  states
+  {
+  spawn:
+    ARM1 B -1
+	stop
+  }
+}
+
+actor ropbluearmor : bluearmor replaces bluearmor
+{
+  inventory.pickupmessage "\cd+200 armor"
+  inventory.pickupsound "pickup/largearmor"
+  tag "Blue armor"
+  inventory.icon "BARMA0"
+  states
+  {
+  spawn:
+    BARM A -1
+	stop
+  }
+}

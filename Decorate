@@ -37,6 +37,7 @@ actor gibtoken : inventory { inventory.maxamount 1 }
 #Include Actors/Weapons/ShieldGen
 
 #include actors/pickups/health.txt
+#include actors/pickups/armor.txt
 #include actors/pickups/powerups.txt
 
 #Include Actors/Marine.txt

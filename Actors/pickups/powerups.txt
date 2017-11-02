@@ -13,6 +13,7 @@ actor ropmegasphere : megasphere replaces megasphere
   inventory.pickupsound "pickup/ultrahealth"
   +floatbob
   renderstyle add
+  tag "Megasphere"
   states
   {
   spawn:
@@ -48,6 +49,7 @@ actor ropinvisibility : blursphere replaces blursphere
   +floatbob
   -visibilitypulse
   renderstyle add
+  tag "Partial Invisibility"
   states
   {
   spawn:
@@ -81,7 +83,8 @@ actor ropinvulnerability : invulnerabilitysphere replaces invulnerabilitysphere
   inventory.pickupsound "pickup/invulnerability"
   +floatbob
   renderstyle add
-  powerup.colormap 1.0, 0.969, 0.484
+  powerup.colormap 1.0, 1.0, 1.0
+  tag "Invulnerability"
   states
   {
   spawn:
@@ -113,21 +116,25 @@ actor ropradsuit : radsuit replaces radsuit
 {
   inventory.pickupmessage "\cfRadiation suit"
   inventory.pickupsound "pickup/radsuit"
+  tag "Radiation suit"
 }
 
 actor ropallmap : allmap replaces allmap
 {
   inventory.pickupmessage "\cfArea map download complete!"
   inventory.pickupsound "pickup/monitor"
+  tag "Computer Map"
 }
 
 actor ropinfrared : infrared replaces infrared
 {
   inventory.pickupmessage "\cfNight vision goggles"
+  tag "Night vision goggles"
 }
 
 actor ropberserk : berserk replaces berserk
 {
   inventory.pickupmessage "\cfBerserk"
   inventory.pickupsound "pickup/steroids"
+  tag "Berserk"
 }

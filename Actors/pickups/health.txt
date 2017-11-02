@@ -14,6 +14,7 @@ actor rophealthbonus : healthbonus replaces healthbonus
   inventory.pickupsound "pickup/smallhealth"
   -countitem
   scale 0.65
+  tag "Health Bonus"
   states
   {
   spawn:
@@ -26,6 +27,7 @@ actor ropstimpack : stimpack replaces stimpack
 {
   inventory.pickupmessage "\ca+10 health"
   inventory.pickupsound "pickup/mediumhealth"
+  tag "Stimpack"
 }
 
 actor ropmedikit : medikit replaces medikit
@@ -33,6 +35,7 @@ actor ropmedikit : medikit replaces medikit
   inventory.pickupmessage "\ca+25 health"
   inventory.pickupsound "pickup/bighealth"
   scale 0.9
+  tag "Medikit"
 }
 
 actor ropsoulsphere : soulsphere replaces soulsphere
@@ -41,6 +44,7 @@ actor ropsoulsphere : soulsphere replaces soulsphere
   inventory.pickupsound "pickup/megahealth"
   +floatbob
   renderstyle add
+  tag "Soulsphere"
   states
   {
   spawn:

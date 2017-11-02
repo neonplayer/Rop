@@ -1,0 +1,61 @@
+pointlight shardlight1
+{
+  color 0.0 0.65 0.0
+  size 8
+  offset 0 20 0
+}
+
+pointlight shardlight2
+{
+  color 0.0 0.65 0.0
+  size 10
+  offset 0 20 0
+}
+
+pointlight shardlight3
+{
+  color 0.0 0.65 0.0
+  size 12
+  offset 0 20 0
+}
+
+pointlight shardlight4
+{
+  color 0.0 0.65 0.0
+  size 14
+  offset 0 20 0
+}
+
+object roparmorbonus
+{
+  frame ASHRA { light shardlight1 }
+  frame ASHRB { light shardlight2 }
+  frame ASHRC { light shardlight3 }
+  frame ASHRD { light shardlight4 }
+}
+
+pulselight greenarmorlight
+{
+  color 0.0 1.0 0.0
+  size 24
+  secondarysize 36
+  interval 3.0
+}
+
+object ropgreenarmor
+{
+  frame ARM1B { light greenarmorlight }
+}
+
+pulselight bluearmorlight
+{
+  color 0.0 0.0 1.0
+  size 24
+  secondarysize 36
+  interval 3.0
+}
+
+object ropbluearmor
+{
+  frame BARMA { light bluearmorlight }
+}
