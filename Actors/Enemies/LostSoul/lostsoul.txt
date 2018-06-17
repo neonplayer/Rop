@@ -16,7 +16,6 @@ actor ROPlostsoul : lostsoul replaces lostsoul
   speed 3 //he calls a_chase much more
   Obituary "%o was rammed by a lostsoul."
   bloodtype "soulblood" //aka no blood
-  +missileevenmore
   +noblooddecals
   tag "Lost Soul"
   states
@@ -112,7 +111,7 @@ actor lostsoulflamespawner : effect
   spawn:
     TNT1 A 0
 	TNT1 A 0 ACS_NamedExecuteWithResult("removemopeffect")
-	TNT1 AA 0 a_spawnitemex("lostsoulflame", random(-2, -4), random(7, -7), random(6, 12)-24, random(0, -5)*0.33, random(2, -2)*0.333, random(3, 5)*0.6)
+	TNT1 AA 0 a_spawnitemex("lostsoulflame", random(-2, -4), random(7, -7), random(6, 12)-24, random(0, -5)*0.2, random(2, -2)*0.2, random(3, 5)*0.6)
 	stop
   }
 }
@@ -124,7 +123,7 @@ actor lostsoulflamespawner2 : lostsoulflamespawner
   spawn:
     TNT1 A 0
 	TNT1 A 0 ACS_NamedExecuteWithResult("removemopeffect")
-	TNT1 AA 0 a_spawnitemex("lostsoulflame2", random(-2, -4), random(7, -7), random(18, 30)-24, random(0, -5)*0.33, random(2, -2)*0.333, random(3, 5)*0.6)
+	TNT1 AA 0 a_spawnitemex("lostsoulflame2", random(-2, -4), random(7, -7), random(18, 30)-24, random(0, -5)*0.2, random(2, -2)*0.2, random(3, 5)*0.6)
 	stop
   }
 }

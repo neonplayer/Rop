@@ -98,7 +98,7 @@ script "rop_manaregen" (void)
 }
 
 // MOP init script called by MOP Engine.
-script 800 (void)
+script "mopengine_init" (void)
 {
 	MOPOnPossess("rop_possess");
 

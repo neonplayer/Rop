@@ -29,9 +29,9 @@ actor ropexplosivebarrel : explosivebarrel replaces explosivebarrel
 	BEXP D 0 a_quake(3, 25, 0, 96, "")
 	BEXP D 0 a_quake(2, 25, 0, 192, "")
 	BEXP D 0 a_spawnitemex("explosionringbig", 0, 0, 32)
-	BEXP DDDDD 0 a_spawnitemex("barrelexplosionsmoke", random(8, -8), random(8, -8), random(4, 24), random(4, -4)*0.5, random(4, -4)*0.5, random(4, 8)*0.5)
+	BEXP DDDDD 0 a_spawnitemex("doomexplosionsmoke", random(8, -8), random(8, -8), random(4, 24), random(4, -4)*0.5, random(4, -4)*0.5, random(4, 8)*0.5)
 	BEXP DDDDDD 0 a_spawnitemex("barrelpiece", random(6, -6), random(6, -6), random(20, 32), random(12, -12)*0.5, random(12, -12)*0.5, random(12, 22)*0.5)
-    BEXP DDDDDDDD 0 a_spawnitemex("genericsmokebarrel", random(10, -10), random(10, -10), random(8, 24), random(6, -6)*0.2, random(6, -6)*0.2, random(4, 14)*0.2)
+    BEXP DDDDDDDD 0 a_spawnitemex("genericsmokeblack", random(10, -10), random(10, -10), random(8, 24), random(6, -6)*0.2, random(6, -6)*0.2, random(4, 14)*0.2)
 	BEXP D 5 a_scream
     BEXP E 10 Bright
 	stop
@@ -79,22 +79,6 @@ actor barrelpiece : CollidingFallingEffect
   death4:
     BRP1 M 1 a_fadeout(random(8, 16)*0.001)
 	loop
-  }
-}
-
-actor barrelexplosionsmoke : effect
-{
-  renderstyle add
-  alpha 0.5
-  states
-  {
-  spawn:
-    TNT1 A 0
-	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
-	TNT1 A 0 a_setscale(random(40, 60)*0.01, scaley)
-	TNT1 A 0 a_setscale(scalex, scalex)
-	BRP2 AAAAABBBBCCC 1 a_fadeout(0.02)
-	stop
   }
 }
 

@@ -50,7 +50,7 @@ actor genericsmoke3 : genericsmoke
   alpha 0.375
 }
 
-actor genericsmokebarrel : genericsmoke
+actor genericsmokeblack : genericsmoke
 {
   scale 0.3
   stencilcolor "14 14 14"
@@ -192,6 +192,22 @@ actor explosionsmokebig : explosionsmoke
 	EXPS A 0 a_setscale(random(60, 70)*0.01, random(60, 70)*0.01)
 	EXPS A 0 a_Jump(256, "spawn2", "spawn3", "spawn4", "spawn5", "spawn6", "spawn7", "spawn8")
 	goto spawn2
+  }
+}
+
+actor doomexplosionsmoke : effect
+{
+  renderstyle add
+  alpha 0.5
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	TNT1 A 0 a_setscale(random(40, 60)*0.01, scaley)
+	TNT1 A 0 a_setscale(scalex, scalex)
+	BRP2 AAAAABBBBCCC 1 a_fadeout(0.02)
+	stop
   }
 }
 

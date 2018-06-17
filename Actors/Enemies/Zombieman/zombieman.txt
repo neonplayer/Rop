@@ -9,6 +9,8 @@ actor ROPzombieman : zombieman replaces zombieman
   painchance 128
   obituary "%o was gunned down by a zombieman."
   tag "Zombieman"
+  speed 9
+  +avoidmelee
   states
   {
   spawn:
@@ -18,15 +20,30 @@ actor ROPzombieman : zombieman replaces zombieman
     POSS AABBCCDD 3 A_Chase
     Loop
   missile:
-    POSS E 10 A_FaceTarget
-    POSS F 8 A_CustomBulletAttack (12.5, 12.5, 1, 10, "BulletPuff", 0, CBAF_NORANDOM)
+    POSS E 0 a_jumpifcloser(640, "missileclose")
+	POSS EEEEEEEEEEEEEEEEE 2 a_facetarget
+	POSS E 1 a_facetarget
+	POSS F 8 a_custombulletattack(1.25, 1.25, 1, 12, "fancybulletpuff", 0, cbaf_norandom)
+	POSS E 8
+	goto see
+  missileclose:
+    POSS EEEEE 2 A_FaceTarget
+    POSS F 8 A_CustomBulletAttack (9.0, 9.0, 1, 10, "fancyBulletPuff", 0, CBAF_NORANDOM)
     POSS E 8
 	POSS A 0 a_jumpiftargetinlos(1)
     Goto See
-	POSS A 0 a_jump(168, "see")
-	POSS E 10 A_FaceTarget
-    POSS F 8 A_CustomBulletAttack (12.5, 12.5, 1, 10, "BulletPuff", 0, CBAF_NORANDOM)
+	POSS A 0 a_jump(144, "see")
+	POSS E 2 A_FaceTarget
+    POSS F 8 A_CustomBulletAttack (9.0, 9.0, 1, 10, "fancyBulletPuff", 0, CBAF_NORANDOM)
     POSS E 8
+	goto see
+  pain:
+    POSS G 3
+	POSS G 3 a_pain
+	POSS A 0 a_jump(128, "missile")
+	POSS A 0 a_facetarget
+	POSS A 0 a_setangle(angle+frandom(60, 120)*(random(1, 0)*2-1))
+	POSS A 0 a_recoil(frandom(-8, -13))
 	goto see
   }
 }
@@ -38,7 +55,7 @@ actor possessedROPzombieman : PossessedMonster
   health 20
   Radius 20
   Height 56
-  Speed 0.4 //0.35
+  Speed 0.425 //0.39375
   PainChance 128
   +FLOORCLIP
   SeeSound "grunt/sight"
