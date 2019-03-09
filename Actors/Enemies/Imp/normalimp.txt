@@ -10,7 +10,7 @@ const float impballdeathscale = 0.03; //i'm a lazy fuck, lol
 actor ROPimp : doomimp replaces doomimp 
 {
   Obituary "%o was fried by an imp."
-  hitobituary "%o got a few scratches from an imp."
+  hitobituary "%o was clawed by an imp"
   mass 125
   painchance 150
   tag "Imp"
@@ -93,7 +93,7 @@ actor possessedROPimp : possessedmonster
 actor impball : doomimpball 
 { 
   damagetype "monster" 
-  damage (15)
+  damage (16)
   decal DoomImpScorch
   +forcexybillboard
   states
@@ -264,6 +264,8 @@ actor ROPimpclaw : possessedweapon
 {
   decal bulletchip
   tag "Imp Claw"
+  Obituary "%o was fried by %k."
+  hitobituary "%o was clawed by %k."
   states
   {
   fire:
@@ -275,11 +277,11 @@ actor ROPimpclaw : possessedweapon
   altfire:
     NCL2 ABCDEFGHIJKLMN 1
 	NCL2 A 0 a_playsound("imp/melee")
-	NCL2 O 1 a_custompunch(9, true, 0, "monstermeleepuff", 64)
+	NCL2 O 1 a_custompunch(10, true, 0, "monstermeleepuff", 64)
 	NCL2 P 1
 	NCL2 Q 1 a_custompunch(10, true, 0, "monstermeleepuff", 64)
 	NCL2 R 1
-	NCL2 S 1 a_custompunch(9, true, 0, "monstermeleepuff", 64)
+	NCL2 S 1 a_custompunch(10, true, 0, "monstermeleepuff", 64)
 	NCL2 T 1
 	NCL2 U 1 a_custompunch(10, true, 0, "monstermeleepuff", 64)
 	NCL2 VWX 1
@@ -290,6 +292,6 @@ actor ROPimpclaw : possessedweapon
 
 actor impball2 : impball
 {
-  speed 20
-  damage (30)
+  speed 25
+  damage (28)
 }

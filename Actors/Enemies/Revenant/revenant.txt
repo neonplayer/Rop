@@ -18,7 +18,7 @@ actor ROPrevenant : revenant replaces revenant
     SKEL G 0 A_FaceTarget
     SKEL G 6 A_SkelWhoosh
     SKEL H 6 A_FaceTarget
-    SKEL I 6 A_custommeleeattack(35, "skeleton/melee", "", "monstermeleepuff")
+    SKEL I 6 A_custommeleeattack(32, "skeleton/melee", "", "monstermeleepuff")
     Goto See
   Missile:
 	SKEL J 10 Bright A_FaceTarget
@@ -170,8 +170,6 @@ actor possessedROPrevenant : possessedmonster
   DeathSound "skeleton/death"
   ActiveSound "skeleton/active"
   MeleeSound "skeleton/melee"
-  obituary "%o wasn't good at dodging %k's rocket."
-  hitobituary "%o got into a fight with %k and lost."
   Player.SoundClass Skeleton
   Player.JumpZ 5
   player.viewheight 48
@@ -180,14 +178,14 @@ actor possessedROPrevenant : possessedmonster
   {
   Spawn:
     SKEL A 0
-    SKEL AAAAAAAAAABBBBBBBBBB 1 a_jumpifinventory("revenantzooming", 1, "melee")
+    SKEL AAAAAAAAAABBBBBBBBBB 1 a_jumpifinventory("zoomcheck", 1, "melee")
     Loop
   See:
 	SKEL A 0
-	SKEL AAAABBBBCCCCDDDDEEEEFFFF 1 a_jumpifinventory("revenantzooming", 1, "melee")
+	SKEL AAAABBBBCCCCDDDDEEEEFFFF 1 a_jumpifinventory("zoomcheck", 1, "melee")
     goto spawn
   Melee:
-    SKEL A 0 a_takeinventory("revenantzooming", 1)
+    SKEL A 0 a_takeinventory("zoomcheck", 1)
     SKEL GHI 6
 	SKEL I 1
     Goto spawn
@@ -195,7 +193,7 @@ actor possessedROPrevenant : possessedmonster
     SKEL J 10 Bright
     SKEL K 10
     SKEL K 10
-	SKEL K 1 a_jumpifinventory("revenantzooming", 1, "melee")
+	SKEL K 1 a_jumpifinventory("zoomcheck", 1, "melee")
     Goto spawn
   Pain:
     SKEL L 5
@@ -204,14 +202,14 @@ actor possessedROPrevenant : possessedmonster
   }
 }
 
-actor revenantzooming : inventory { inventory.maxamount 1 }
-
 actor revenantlauncher : possessedweapon
 {
   weapon.ammotype "revenanthomingcheck"
   weapon.ammouse 0
   attacksound "skeleton/melee"
   tag "Revenant Launchers"
+  obituary "%o wasn't good at dodging %k's rocket."
+  hitobituary "%o got into a fight with %k and lost."
   states
   {
   ready:
@@ -249,7 +247,7 @@ actor revenantlauncher : possessedweapon
 	TNT1 A 10 a_setblend("red", 0.1, 10)
 	goto ready
   zoom:
-    TNT1 A 0 a_giveinventory("revenantzooming", 1)
+    TNT1 A 0 a_giveinventory("zoomcheck", 1)
     TNT1 A 12 a_playsound("skeleton/swing")
 	TNT1 A 6 a_custompunch(50, true, 0, "monstermeleepuff")
 	goto ready
@@ -266,11 +264,21 @@ actor revenanthomingcheck : ammo
 actor revenantrocketpossessed : revenantrocket
 {
   speed 20
-  damage (65)
+  damage (60)
 }
 
 actor revenantrockethomingpossessed : revenantrockethoming
 {
   speed 15
-  damage (55)
+  damage (45)
+  states
+  {
+  spawn:
+    RROK A 1 bright a_spawnitemex("genericsmoke3", random(8, -8)*0.5, random(8, -8)*0.5, random(8, -8)*0.5, random(8, -8)*0.125, random(8, -8)*0.125, random(8, -8)*0.125)
+	RROK A 0 a_seekermissile(10, 15)
+	RROK A 1 bright a_spawnitemex("genericsmoke3", random(8, -8)*0.5, random(8, -8)*0.5, random(8, -8)*0.5, random(8, -8)*0.125, random(8, -8)*0.125, random(8, -8)*0.125)
+	RROK A 0 a_seekermissile(10, 15)
+    RROK A 0 a_spawnitemex("revenantparticle", 0, 0, 0, random(6, -6)*0.25, random(6, -6)*0.25, random(6, -6)*0.25)
+	loop
+  }
 }

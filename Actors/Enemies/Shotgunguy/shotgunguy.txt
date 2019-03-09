@@ -7,7 +7,7 @@ shrapnel sprites: ID Software, Raven Software, 3D Realms, Nanami, Eriance, Keksd
 actor ROPshotgunguy : shotgunguy replaces shotgunguy
 {
   painchance 128
-  Obituary "%o got some buckshot from a shotgun zombie."
+  Obituary "%o was filled with lead by a shotgun zombie."
   tag "Shotgun Guy"
   states
   {
@@ -23,7 +23,8 @@ actor ROPshotgunguy : shotgunguy replaces shotgunguy
     SPOS E 10
     Goto See
   bulletmissile:
-    SPOS F 10 Bright A_SPosAttackUseAtkSound
+    SPOS F 0 bright A_PlaySound("shotguy/attack", CHAN_WEAPON)
+	SPOS F 10 bright A_CustomBulletAttack(22.5, 0, 3, 10, "BulletPuff", 0, CBAF_NORANDOM)
     SPOS E 10
     Goto See
   XDeath:
@@ -59,7 +60,7 @@ actor possessedROPshotgunguy : possessedmonster
   PainSound "shotguy/pain"
   DeathSound "shotguy/death"
   ActiveSound "shotguy/active"
-  Obituary "%o got some buckshot from %k."
+  Obituary "%o was filled with lead by %k."
   Player.SoundClass Zombie
   tag "Shotgun Guy"
   States
@@ -97,7 +98,7 @@ actor ROPzombieshotgun : possessedweapon
   fire:
     ZMBS A 0 a_playweaponsound("shotguy/attack")
 	ZMBS AAAA 0 a_firecustommissile("bulletparticle", random(20, -20)*0.1, 0, 0, 0, 0, random(20, -20)*0.1)
-    ZMBS B 1 bright a_firebullets(5, 5, 5, 10, "monsterbulletpuff", fbf_norandom)
+    ZMBS B 1 bright a_firebullets(5, 5, 6, 10, "monsterbulletpuff", fbf_norandom)
 	ZMBS C 1 bright
 	ZMBS DEFF 1
 	ZMBS EGDHIJKLMNA 1
@@ -107,7 +108,7 @@ actor ROPzombieshotgun : possessedweapon
 	goto ready
   altfire:
     ZMBS A 0 a_playweaponsound("shotguy/attack")
-	ZMBS BBB 0 a_firecustommissile("shotguyshrapnel", random(40, -40)*0.1, 0, 0, 0, 0, random(40, -40)*0.1)
+	ZMBS BBBBB 0 a_firecustommissile("shotguyshrapnel", random(40, -40)*0.1, 0, 0, 0, 0, random(40, -40)*0.1)
     ZMBS B 1 bright
 	ZMBS C 1 bright
 	ZMBS DEFF 1
@@ -124,7 +125,7 @@ actor shotguyshrapnel : doomimpball
   radius 2
   height 4
   gravity 0.5
-  damage (14)
+  damage (11)
   bouncecount 2
   speed 30
   bouncefactor 0.5

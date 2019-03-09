@@ -11,6 +11,8 @@
 #Include Actors/Enemies/PossessedBase.txt
 
 actor gibtoken : inventory { inventory.maxamount 1 }
+actor reloadcheck : inventory { inventory.maxamount 1 }
+actor zoomcheck : inventory { inventory.maxamount 1 }
 
 #include actors/enemies/zombieman/zombieman.txt
 #include actors/enemies/shotgunguy/shotgunguy.txt

@@ -12,7 +12,7 @@ actor ROPpinky : demon replaces demon
     SARG E 0 thrustthingz(0, 10, 0, 1)
 	SARG E 0 a_recoil(-8)
 	SARG E 0 a_facetarget
-	SARG E 8 a_custommeleeattack(15)
+	SARG E 8 a_custommeleeattack(20)
 	SARG FG 8
 	goto see
   }
@@ -23,6 +23,7 @@ actor ROPspectre : ROPpinky replaces spectre
   renderstyle translucent
   alpha 0.5
   translation "16:31=92:107", "32:35=108:111", "36:43=5:8", "44:47=0:0", "208:223=96:107"
+  obituary "%o didn't notice a spectre."
   tag "Spectre"
   states
   {
@@ -91,13 +92,14 @@ actor possessedroppinky : possessedmonster
 actor ROPpinkyteeth : possessedweapon
 {
   tag "Pinky Mouth"
+  Obituary "%o was eaten by %k."
   states
   {
   fire:
     TNT1 A 0 a_playsound("demon/melee")
     TNT1 A 0 thrustthingz(0, 10, 0, 1)
 	TNT1 A 0 a_recoil(-8)
-	TNT1 A 8 a_custompunch(35, true, 0, "monstermeleepuff", 72)
+	TNT1 A 8 a_custompunch(32, true, 0, "monstermeleepuff", 72)
 	TNT1 A 16
 	goto ready
   altfire:
@@ -155,4 +157,5 @@ actor possessedROPspectre : possessedmonster
 actor ROPspectreteeth : RopPinkyteeth
 {
   tag "Spectre Mouth"
+  obituary "%o didn't notice %k."
 }

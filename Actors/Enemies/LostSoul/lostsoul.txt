@@ -74,7 +74,7 @@ actor ROPlostsoul : lostsoul replaces lostsoul
 	TNT1 C 0 a_spawnitemex("lostsoulflamespawner", 0, 0, 24)
 	
 	
-    SKUL D 1 Bright A_SkullAttack
+    SKUL D 1 Bright A_SkullAttack //cant easily change the damage on this :/
 	TNT1 D 0 a_spawnitemex("lostsoulflamespawner2", 0, 0, 24)
 	SKUL DDD 1 Bright a_spawnitemex("lostsoulflamespawner2", 0, 0, 24)
 	
@@ -91,7 +91,7 @@ actor ROPlostsoul : lostsoul replaces lostsoul
   death:
     SKUL AAAAAAAAA 0 a_spawnitemex("lostsoulflame3", 0, 0, 16, random(6, -6)*0.333, random(6, -6)*0.333, random(6, -6)*0.333)
 	SKUL AAAAA 0 a_spawnitemex("lostsouldeathparticle", 0, 0, 16, random(6, -6)*0.333, random(6, -6)*0.333, random(6, -6)*0.333)
-	SKUL AAAA 0 a_spawnitemex("genericsmoke", random(10, -10), random(10, -10), random(8, 32), random(3, -3)*0.2, random(3, -3)*0.2, random(3, -3)*0.2)
+	SKUL AAAA 0 a_spawnitemex("genericsmokeblack", random(10, -10), random(10, -10), random(8, 32), random(3, -3)*0.2, random(3, -3)*0.2, random(3, -3)*0.2)
 	SKUL F 3 Bright a_settranslucent(0.9, 1)
     SKUL G 3 Bright A_Scream
 	SKUL G 0 Bright a_fadeout(0.1)
@@ -290,6 +290,7 @@ actor ROPsoulcharger : possessedweapon
 {
   tag "Lost Soul Mouth"
   weapon.ammotype "soulflametoken"
+  Obituary "%o was rammed by %k."
   states
   {
   ready:
@@ -334,14 +335,14 @@ actor ROPsoulcharger : possessedweapon
 	TNT1 A 0 a_spawnitemex("lostsoulflamespawner", 0, 0, 24, 0, 0, 0, 0, 0, 0, CallACS("mopeffectid"))
 	Goto Ready
   altfire:
-    TNT1 A 0 a_jumpifinventory("soulflametoken", 15, "altfire2")
+    TNT1 A 0 a_jumpifinventory("soulflametoken", 50, "altfire2")
 	TNT1 A 0 a_jump(256, "noaltfire")
   altfire2:
     TNT1 A 0 a_gunflash
   altfire3:
     TNT1 A 0 a_playsound("vile/firecrkl", 7, 1.0, true)
   altfire4:
-    TNT1 A 1 a_explode(8, 128, 0)
+    TNT1 A 1 a_explode(6, 128, 0)
 	TNT1 A 0 a_takeinventory("soulflametoken", 1)
 	TNT1 A 0 a_spawnitemex("lostsoulflamespawner", 0, 0, 24, 0, 0, 0, 0, 0, 0, CallACS("mopeffectid"))
 	//TNT1 AAA 0 a_spawnitemex("lostsoulrageflame", random(8, -8), random(8, -8), random(20, 30), random(2, -2), random(2, -2), random(3, 8)*0.5)
@@ -355,7 +356,7 @@ actor ROPsoulcharger : possessedweapon
     TNT1 A 10 a_playsound("imp/shotx", 7)
 	goto ready
   noaltfire:
-    TNT1 A 2 a_print("You need 15 mana to use your alternative attack", 3.0)
+    TNT1 A 2 a_print("You need 50 mana to use your alternative attack", 3.0)
     TNT1 A 0 a_spawnitemex("lostsoulflamespawner", 0, 0, 24, 0, 0, 0, 0, 0, 0, CallACS("mopeffectid"))
 	TNT1 A 2
 	TNT1 A 0 a_spawnitemex("lostsoulflamespawner", 0, 0, 24, 0, 0, 0, 0, 0, 0, CallACS("mopeffectid"))

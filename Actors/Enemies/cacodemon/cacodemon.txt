@@ -208,8 +208,6 @@ actor possessedROPcacodemon : possessedmonster
   +NOGRAVITY
   scale 0.9
   bloodcolor blue
-  obituary "%o was electrocuted by %k."
-  hitobituary "%o became a tasty snack for %k."
   Player.SoundClass Caco
   tag "Cacodemon"
   states
@@ -235,6 +233,8 @@ actor possessedROPcacodemon : possessedmonster
 actor cacomouth : possessedweapon
 {
   tag "Cacodemon Mouth"
+  obituary "%o was electrocuted by %k."
+  hitobituary "%o became a tasty snack for %k."
   states
   {
   fire:
@@ -255,12 +255,12 @@ actor cacomouth : possessedweapon
 
 actor cacodemonweaver1possessed : cacodemonweaver1
 {
-  damage(28)
+  damage(25)
   speed 20
 }
 
 actor cacodemonweaver2possessed : cacodemonweaver2
 {
-  damage(28)
+  damage(25)
   speed 20
 }

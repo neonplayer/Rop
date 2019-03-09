@@ -38,7 +38,7 @@ actor ropchaingunguy : chaingunguy replaces chaingunguy
     goto spawn+5
   standby:
     CPOS U 0 a_playsound("zombchaingun/loop", 8)
-	CPOS UUUUUUUUUUUUUUUUUUUU 1 a_lookex(LOF_NOSEESOUND, 0, 1280, 0, 180, "standby2")
+	CPOS UUUUUUUUUUUUUUUUUUUU 1 a_lookex(LOF_NOSEESOUND, 0, 1024, 0, 180, "standby2")
 	loop
   See:
     CPOS A 0 a_jumpifinventory("chaingunspintoken", 1, "standby")
@@ -46,7 +46,7 @@ actor ropchaingunguy : chaingunguy replaces chaingunguy
     goto see+1
   Missile:
     CPOS E 10 A_FaceTarget
-    CPOS FE 4 bright A_CustomBulletAttack(13, 13, 1, 9, "BulletPuff", 0, CBAF_NORANDOM)
+    CPOS FE 4 bright A_CustomBulletAttack(13, 13, 1, 10, "BulletPuff", 0, CBAF_NORANDOM)
     CPOS F 1 A_CPosRefire
     Goto Missile+1
   standby2:
@@ -70,7 +70,7 @@ actor ropchaingunguy : chaingunguy replaces chaingunguy
 	CPOS A 0 a_jumpiftargetinlos("checking")
 	goto standby
   missile2:
-    CPOS FE 4 bright A_CustomBulletAttack(13, 13, 1, 9, "BulletPuff", 0, CBAF_NORANDOM)
+    CPOS FE 3 bright A_CustomBulletAttack(13, 13, 1, 9, "BulletPuff", 0, CBAF_NORANDOM)
 	CPOS F 0 a_cposrefire
 	goto missile2
   Pain:

@@ -67,7 +67,7 @@ actor ropbaronofhell : baronofhell replaces baronofhell
 actor baronplasma : baronball
 {
   speed 25
-  damage (45)
+  damage (42)
   decal baronscorch
   damagetype "monster"
   +forcexybillboard
@@ -302,8 +302,6 @@ actor possessedropbaronofhell : PossessedMonster
   PainChance 50
   +FLOORCLIP
   +BOSSDEATH
-  obituary "%o was eviscerated by %k."
-  hitobituary "%o was tko's by %k."
   tag "Baron of Hell"
   scale 1.1
   player.viewheight 57
@@ -335,10 +333,12 @@ actor baronhand : possessedweapon
   attacksound "noble/punch"
   weapon.ammotype "baronofhellmanatoken"
   weapon.ammouse 0
+  obituary "%o was eviscerated by %k."
+  hitobituary "%o was tko's by %k."
   states
   {
   ready:
-    TNT1 A 130 a_weaponready
+    TNT1 A 35 a_weaponready
 	TNT1 A 0 a_jumpifinventory("baronofhellmanatoken", 6, "ready")
 	BOHH A 0 a_setblend("green", 0.1, 10)
     BOHH A 0 a_giveinventory("baronofhellmanatoken", 1)
@@ -363,7 +363,7 @@ actor baronhand : possessedweapon
 	goto ready
   altfire:
     BOHH ABCDEFGHIJK 1
-	BOHH L 1 a_custompunch(70, true, 0, "monstermeleepuff")
+	BOHH L 1 a_custompunch(75, true, 0, "monstermeleepuff")
 	BOHH MNOPQRSTUVWXYZ 1
 	goto ready
   }
@@ -371,13 +371,13 @@ actor baronhand : possessedweapon
 
 actor possessedbaronplasma : baronplasma 
 {
-  damage (60)
+  damage (67)
   speed 25 
 }
 
 actor possessedbaronplasma2 : baronplasma2
 {
-  damage (65)
+  damage (75)
   speed 30 
 }
 

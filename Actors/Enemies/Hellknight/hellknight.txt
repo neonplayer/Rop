@@ -30,14 +30,14 @@ actor ROPhellknight : hellknight replaces hellknight
     BOS2 EF 8 A_FaceTarget
 	BOS2 A 0 a_jumpifcloser(44, "melee")
 	BOS2 A 0 a_jump(256, "missile2")
-	BOS2 G 8 a_custommeleeattack(10 * random(1, 8), "noble/punch", "", "monstermeleepuff")
+	BOS2 G 8 a_custommeleeattack(36, "noble/punch", "", "monstermeleepuff")
 	goto see
   }
 }
 
 actor hellknightplasma : baronball
 {
-  damage (35)
+  damage (36)
   decal baronscorch
   damagetype "monster"
   states
@@ -216,8 +216,6 @@ actor possessedROPhellknight : possessedmonster
   ActiveSound "knight/active"
   PainSound "knight/pain"
   DeathSound "knight/death"
-  obituary "%o was defeated by %k."
-  hitobituary "%o was beaten by %k."
   Player.ViewHeight 54
   Player.SoundClass Noble
   Player.JumpZ 5
@@ -248,8 +246,13 @@ actor knighthand : possessedweapon
 {
   attacksound "noble/punch"
   tag "Hellknight Hand"
+  obituary "%o was defeated by %k."
+  hitobituary "%o was beaten by %k."
   states
   {
+  ready:
+    TNT1 A 1 a_weaponready(wrf_allowreload|WRF_ALLOWZOOM)
+	loop
   fire:
 	HKH2 ABCDEFGHIJ 1
 	HKH2 K 1 a_firecustommissile("possessedhellknightplasma")
@@ -257,6 +260,12 @@ actor knighthand : possessedweapon
 	TNT1 A 1
 	goto ready
   altfire:
+	HKH2 ABCDEFGHIJ 1
+	HKH2 K 1 a_firecustommissile("possessedhellknightplasmagravity")
+	HKH2 UJTISHRGQFPEODNCMBLA 1
+	TNT1 A 1
+	goto ready
+  reload:
     HKH2 ABCDEFGHIJ 1
 	//HKH2 A 0 a_playsound("baron/melee")
 	HKH2 K 1 a_custompunch(65, true, 0, "monstermeleepuff")
@@ -270,4 +279,12 @@ actor possessedhellknightplasma : hellknightplasma
 {
   speed 20
   damage (60)
+}
+
+actor possessedhellknightplasmagravity : hellknightplasma
+{
+  speed 20
+  damage (70)
+  gravity 0.666
+  -nogravity
 }
