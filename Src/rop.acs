@@ -12,22 +12,20 @@ script "rop_pistolstart" ENTER
 {
 	if (!IsMarine())
 		terminate;
-
+		
 	int mode = GetCVar("rop_pistolstartmode");
-	if (mode == 0)
+	switch(mode)
 	{
-		print(s:"Pistol Start");
-	}
-	else if (mode == 1)
-	{
-		print(s:"Shotgun Start");
-		GiveInventory("NewShotgun", 1);
-	}
-	else
-	{
-		print(s:"Shieldgun (slot 8) and Shotgun Start");
-		GiveInventory("ShieldGenerator", 1);
-		GiveInventory("NewShotgun", 1);
+		case 0:
+			print(s:"Pistol Start");
+			break;
+		case 1:
+			print(s:"Shotgun Start");
+			GiveInventory("NewShotgun", 1);
+		case 2:
+		    print(s:"Shieldgun (slot 8) and Shotgun Start");
+			GiveInventory("ShieldGenerator", 1);
+			GiveInventory("NewShotgun", 1);
 	}
 }
 

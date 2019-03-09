@@ -99,6 +99,7 @@ actor possessedropexplosivebarrel : possessedmonster
   player.viewheight 32
   player.jumpz 0
   tag "Explosive Barrel"
+  player.soundclass MOPPuppetmaster
   states
   {
   spawn:

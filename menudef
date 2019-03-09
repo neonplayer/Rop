@@ -1,0 +1,46 @@
+listmenu "MainMenu"
+{
+  staticpatch 85,0,"M_DOOM"
+  POSITION 92,72
+	
+  textitem "New Game","N","PlayerClassMenu"
+  textitem "ROP Options","C","RopMenu"
+  textitem "Options","O","OptionsMenu"
+  textitem "Load","L","LoadGameMenu"
+  textitem "Save","S","SaveGameMenu"
+  textitem "Quit","Q","QuitMenu"
+}
+
+optionmenu Ropmenu
+{
+  title "ROP options"
+  submenu "MOP Engine options", MopEngineMenu
+  statictext ""
+  statictext ""
+  statictext "Server-sided options"
+  statictext ""
+  statictext ""
+  option "rop_debug", "rop_debug", "onoff"
+  statictext "toggles debug messages, doesnt affect gameplay"
+  statictext ""
+  option "rop_pistolstartmode", "rop_pistolstartmode", "pistolstart"
+  statictext "selects what weapon(s) marines spawn with"
+  statictext ""
+  statictext ""
+  statictext "Client-sided options"
+  statictext ""
+  statictext ""
+  option "rop_effects", "rop_effects", "onoff"
+  statictext "toggles effects"
+  statictext ""
+  option "rop_possessmessage", "rop_possessmessage", "onoff"
+  statictext "toggles the help message puppetmasters"
+  statictext "get upon possessing an enemy"
+}
+  
+optionvalue "pistolstart"
+{
+  0, "pistol only"
+  1, "shotgun only"
+  2, "shotgun + shieldgun"
+}
