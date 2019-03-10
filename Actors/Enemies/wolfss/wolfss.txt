@@ -1,0 +1,107 @@
+/*
+
+mp40 sprites: apogee software, id software, captain toenail (rott)
+mp40 sounds: infinity ward (call of duty 2, medal of honor: pacific assault)
+
+*/
+
+actor ROPnazi : wolfensteinss replaces wolfensteinss
+{
+  attacksound "mp40/fire"
+  obituary "%o got a history lesson from a wolfenstein ss."
+  painchance 128
+  translation "192:207=88:111", "240:247=5:8"
+  tag "Wolfenstein SS"
+  states
+  {
+  missile:
+    SSWV EF 10 A_FaceTarget
+	SSWV F 0 a_jumpifinventory("mp40clip", 32, "reload")
+	SSWV F 0 a_giveinventory("mp40clip", 1)
+	SSWV G 2 bright A_CustomBulletAttack(10, 10, 1, 5, "BulletPuff", 0, CBAF_NORANDOM)
+    SSWV F 2 A_FaceTarget
+	SSWV F 1 A_CPosRefire
+	goto missile+2
+  reload:
+    SSWV F 24 a_playsound("mp40/reload")
+	SSWV F 0 a_takeinventory("mp40clip", 32)
+	SSWV F 36 a_playsound("mp40/reload2")
+	goto see
+  }
+}
+
+actor possessedROPnazi : possessedmonster
+{
+  player.morphweapon "ROPmp40"
+  Health 50
+  Radius 20
+  Height 56
+  Speed 0.425
+  +FLOORCLIP
+  obituary "%o got a history lesson from a wolfenstein ss."
+  painchance 128
+  translation "192:207=88:111", "240:247=5:8"
+  tag "Wolfenstein SS"
+  player.soundclass nazi
+  states
+  {
+  Spawn:
+    SSWV AB 10
+    Loop
+  See:
+    SSWV AABBCCDD 3
+    goto spawn
+  Missile:
+    SSWV G 2 bright
+    SSWV F 4
+	goto spawn
+  Pain:
+    SSWV H 3
+    SSWV H 3 A_Pain
+    Goto spawn
+  }
+}
+
+actor ROPmp40 : possessedweapon
+{
+  attacksound "mp40/fire"
+  weapon.ammotype "mp40clip"
+  weapon.ammouse 0
+  weapon.bobstyle inversesmooth
+  weapon.bobrangex 0.5
+  weapon.bobrangey 0.75
+  weapon.bobspeed 1.5
+  tag "SS mp40"
+  decal bulletchip
+  states
+  {
+  ready:
+    SS40 A 1 a_weaponready(wrf_allowreload)
+	loop
+  fire:
+    TNT1 A 0 a_jumpifinventory("mp40clip", 32, "reload")
+	TNT1 A 0 a_giveinventory("mp40clip", 1)
+	SS40 B 1 bright a_firebullets(3, 3, 1, 9, "monsterbulletpuff", fbf_norandom)
+	SS40 C 1 bright
+	SS40 DEF 1
+	SS40 A 1 a_refire
+	goto ready
+  reload:
+    SS40 G 1 a_playsound("mp40/reload2")
+    SS40 HIJKLMNOP 1
+    SS40 P 14
+	TNT1 F 0 a_takeinventory("mp40clip", 32)
+	SS40 Q 1 a_playsound("mp40/reload")
+	SS40 RSRQ 1
+	SS40 P 21
+    SS40 PONMLKJIHG 1
+	goto ready
+  }
+}
+
+actor mp40clip : ammo 
+{ 
+  inventory.maxamount 32
+  inventory.amount 1
+  +ignoreskill
+}

@@ -147,7 +147,7 @@ actor painelementalprojectile : cacodemonball
   }
 }
   
-actor painelementalreloadtoken : inventory { inventory.maxamount 1 }
+actor painelementalreloadtoken : MOPBoolean {}
 
 actor painsoullimit : ammo
 { 

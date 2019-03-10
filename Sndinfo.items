@@ -1,0 +1,19 @@
+//items
+
+pickup/smallhealth			2HPPKUP
+pickup/mediumhealth			10HPPKUP
+pickup/bighealth			25HPPKUP	
+pickup/megahealth			100HPPKP	
+
+pickup/smallarmor			2APKUP
+pickup/mediumarmor			100APKUP
+pickup/largearmor			200APKUP
+
+misc/k_pkup					KEYPKUP
+
+pickup/ultrahealth			MEGAPKUP
+pickup/invisibility			INVISPKP
+pickup/invulnerability		INVULPKP
+pickup/radsuit				SUITPKUP	
+pickup/monitor				MAPPKUP	
+pickup/steroids				BERSPKUP

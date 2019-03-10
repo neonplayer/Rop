@@ -1,0 +1,13 @@
+//Shield gun
+
+ForceBarrier/On		DSFRCON
+ForceBarrier/Off	DSFRCOFF
+ForceBarrier/Loop	DSFRCLOP
+
+DSZAPHT1	DSZAPHT1
+DSZAPHT2	DSZAPHT2
+DSZAPHT3	DSZAPHT3
+
+
+$random ForceBarrier/Hit	{ DSZAPHT1 DSZAPHT2 DSZAPHT3 }
+$limit ForceBarrier/Hit	0

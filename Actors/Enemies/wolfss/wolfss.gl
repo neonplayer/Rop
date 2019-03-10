@@ -1,0 +1,16 @@
+pointlight nazilight
+{
+  color 1.0 0.8 0.2
+  size 24
+  offset 0 32 0
+}
+
+object ropnazi
+{
+frame SSWVG { light nazilight }
+}
+
+object possessedropnazi
+{
+frame SSWVG { light nazilight }
+}

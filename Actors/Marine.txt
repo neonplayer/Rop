@@ -22,11 +22,6 @@ Actor MarinePlayer : DoomPlayer
   Player.StartItem "NewPistol", 1
   Player.StartItem "Clip", 50
   Player.StartItem "NewFist", 1
-  Player.StartItem "ShotgunClip", 8
-  Player.StartItem "ChaingunClip", 40
-  Player.StartItem "SSGClip", 2
-  Player.StartItem "PlasmaClip", 50
-  Player.StartItem "RocketClip", 5
 }
 
 ACTOR ShadowEffect : PowerInvisibility

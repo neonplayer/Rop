@@ -65,7 +65,7 @@ str monsterinfo[max_monsterinfo] =
 	
 	"", //spider master
 	
-	"", //heilhitlah
+	"Primary fire will fire your mp40. \nReload will reload your mp40.",
 	
 	"Sneak up next to a marine and blow him up! \n\nPrimary fire will detonate the barrel."
 };
@@ -111,7 +111,7 @@ script "mopengine_init" (void)
 	
 	addmonster(0.045, "SARGA1", "ROPpinky", "\c[pinky]Pinky");
 	
-	addmonster(0.05, "SPTRA1", "ROPspectre", "\c[sergeant]Spectre");
+	addmonster(0.05, "SPTRA0", "ROPspectre", "\c[sergeant]Spectre");
 	
 	addmonster(0.06, "SKULA1", "ROPlostsoul", "\ciLost Soul"); FlyingMonster();
 	
@@ -138,7 +138,7 @@ script "mopengine_init" (void)
 	
 	addmonster(6.0, "CYBRA1", "cyberdemon", "\c[g5]Cyberdemon"); BossMonster();
 	
-	addmonster(0.025, "SSWVA1", "wolfensteinss", "\chWolfenstein \cfSS");
+	addmonster(0.025, "NPRWA0", "ropnazi", "\c[sergeant]Wolfenstein \cfSS");
 	
 	addmonster(0.01, "BAR1A0", "ropexplosivebarrel", "\c[barrel]Explosive Barrel");
 	/*
