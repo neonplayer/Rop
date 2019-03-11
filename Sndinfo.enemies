@@ -83,6 +83,8 @@ PsxBaron/Death		DSBLPDIE
 
 //mancubi
 
+fatshot/die			FTSHDIE
+
 PsxFatso/Sight		PXMANSIT
 PsxFatso/Pain		PXMNPAIN
 PsxFatso/Death		PXMANDTH

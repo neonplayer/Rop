@@ -1,0 +1,220 @@
+/*
+
+mancubus projectile sprites: midway (doom 64, modified)
+
+mancubus flamethrower sprite: scuba steve, id software
+
+*/
+
+actor ROPmancubus : fatso replaces fatso
+{
+  scale 1.1
+  painchance 64
+  tag "Mancubus"
+  obituary "%o was turned into a pile of ash by a mancubus."
+  states
+  {
+  missile:
+    FATT G 20 A_FatRaise
+	FATT H 0 A_custommissile("ROPfatshot", 18, 27, 0)
+    FATT H 10 bright A_custommissile("ROPfatshot", 18, -27, 11.25)
+    FATT IG 5 A_FaceTarget
+	FATT H 0 A_custommissile("ROPfatshot", 18, -27, 0)
+    FATT H 10 bright A_custommissile("ROPfatshot", 18, 27, -11.25)
+    FATT IG 5 A_FaceTarget
+    FATT H 0 A_custommissile("ROPfatshot", 18, -27, 5.625)
+    FATT H 10 bright A_custommissile("ROPfatshot", 18, 27, -5.625)
+    FATT IG 5 A_FaceTarget
+    goto See
+  }
+}
+
+actor ROPfatshot : fatshot
+{
+  damage (36)
+  damagetype "monster"
+  decal scorch
+  scale 0.666
+  states
+  {
+  spawn:
+    FTSH AAABBBCCC 1 bright a_spawnitemex("fattrail", 0, 0, 0, frandom(2, -2), frandom(2, -2), frandom(2, -2))
+	loop
+  death:
+    FTSH A 0 a_setscale(1.0, 1.0)
+	FTSH B 0 a_spawnitemex("explosionring")
+    FTSH DDDD 0 a_spawnitemex("fattrail2", frandom(4, -4), frandom(4, -4), frandom(4, -4), frandom(2, -2)*0.25, frandom(2, -2)*0.25, frandom(2, -2)*0.25)
+	FTSH DDD 0 a_spawnitemex("genericsmoke", random(10, -10), random(10, -10), random(10, -10), random(3, -3)*0.2, random(3, -3)*0.2, random(3, -3)*0.2)
+	FTSH D 0 a_spawnitemex("genericsmokeblack", random(10, -10), random(10, -10), random(10, -10), random(3, -3)*0.2, random(3, -3)*0.2, random(3, -3)*0.2)
+	FTSH DDDD 1 a_setscale(scalex+0.025, scaley+0.025)
+	FTSH D 0 a_fadeout(0.1)
+	FTSH EEE 1 a_setscale(scalex+0.025, scaley+0.025)
+	FTSH D 0 a_fadeout(0.1)
+	FTSH FFF 1 a_setscale(scalex+0.025, scaley+0.025)
+	FTSH D 0 a_fadeout(0.1)
+	FTSH GG 1 a_setscale(scalex+0.025, scaley+0.025)
+	FTSH D 0 a_fadeout(0.1)
+	FTSH HH 1 a_setscale(scalex+0.025, scaley+0.025)
+	FTSH D 0 a_fadeout(0.1)
+	FTSH I 1 a_setscale(scalex+0.025, scaley+0.025)
+	stop
+  }
+}
+
+actor fattrail : effect
+{
+  renderstyle add
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	TNT1 A 0 a_setscale(random(40, 55)*0.01, scaley)
+	TNT1 A 0 a_setscale(scalex, scalex)
+	TNT1 A 1
+	FTSH D 1 a_fadeout(0.05)
+	FTSH D 0 a_setscale(scalex*1.01, scaley*1.01)
+	FTSH E 1 a_fadeout(0.05)
+	FTSH E 0 a_setscale(scalex*1.01, scaley*1.01)
+	FTSH F 1 a_fadeout(0.05)
+	FTSH F 0 a_setscale(scalex*1.01, scaley*1.01)
+	FTSH G 1 a_fadeout(0.05)
+	FTSH G 0 a_setscale(scalex*1.01, scaley*1.01)
+	FTSH H 1 a_fadeout(0.05)
+	FTSH H 0 a_setscale(scalex*1.01, scaley*1.01)
+	FTSH I 1 a_fadeout(0.05)
+	stop
+  }
+}
+
+actor fattrail2 : fattrail
+{
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	TNT1 A 0 a_setscale(random(85, 95)*0.01, scaley)
+	TNT1 A 0 a_setscale(scalex, scalex)
+	TNT1 A 1
+	FTSH DDDD 1 a_fadeout(0.01)
+	FTSH D 0 a_setscale(scalex*1.025, scaley*1.025)
+	FTSH EEEE 1 a_fadeout(0.01)
+	FTSH E 0 a_setscale(scalex*1.025, scaley*1.025)
+	FTSH FFF 1 a_fadeout(0.01)
+	FTSH F 0 a_setscale(scalex*1.025, scaley*1.025)
+	FTSH GGG 1 a_fadeout(0.01)
+	FTSH G 0 a_setscale(scalex*1.025, scaley*1.025)
+	FTSH HH 1 a_fadeout(0.01)
+	FTSH H 0 a_setscale(scalex*1.025, scaley*1.025)
+	FTSH II 1 a_fadeout(0.01)
+	stop
+  }
+}
+
+actor possessedROPmancubus : possessedmonster
+{
+  player.morphweapon "ROPfatflamers"
+  Health 600
+  Radius 48
+  Height 64
+  Mass 1000
+  Speed 0.35
+  PainChance 64
+  scale 1.1
+  +floorclip
+  player.soundclass fatty
+  player.viewheight 56
+  Player.JumpZ 5
+  states
+  {
+  Spawn:
+    FATT AB 15
+    Loop
+  See:
+    FATT AABBCCDDEEFF 4
+    goto spawn
+  Missile:
+    FATT G 5
+    FATT H 5 a_jumpifinventory("altcheck", 1, "missile2")
+	FATT IG 5
+	goto spawn
+  missile2:
+    FATT G 15 a_takeinventory("altcheck", 1)
+    FATT H 7 Bright
+    FATT IG 4
+    FATT H 7 Bright
+    FATT IG 4
+    FATT H 7 Bright
+    FATT IG 4
+    Goto spawn
+  Pain:
+    FATT J 3
+    FATT J 3 A_Pain
+    Goto spawn
+  }
+}
+
+actor ROPfatflamers : possessedweapon
+{
+  tag "Mancubus flamers"
+  obituary "%o was turned into a pile of ash by %k."
+  weapon.bobstyle inversesmooth
+  weapon.bobrangex 0.25
+  weapon.bobrangey 0.5
+  states
+  {
+  ready:
+    MANC A 1 a_weaponready
+	loop
+  fire:
+    MANC A 0 a_firecustommissile("possessedROPfatshot", 2.5, false, 27, -14)
+	MANC B 1 bright a_firecustommissile("possessedROPfatshot", -2.5, false, -27, -14)
+	MANC CDE 1 bright
+	MANC ONMLKJIHGFA 1
+	MANC A 31 a_weaponready(wrf_noprimary|wrf_nosecondary) //this is so it bobs
+	goto ready
+  altfire:
+    MANC A 0 a_giveinventory("altcheck", 1)
+    MANC A 2 offset(0, 31) a_playsound("fatso/raiseguns")
+	MANC A 2 offset(0, 30)
+	MANC A 1 offset(0, 29)
+	MANC A 1 offset(0, 27)
+	MANC A 1 offset(0, 25)
+	MANC A 1 offset(0, 22)
+	MANC A 1 offset(0, 19)
+	MANC A 1 offset(0, 17)
+	MANC A 1 offset(0, 15)
+	MANC A 2 offset(0, 14)
+	MANC A 2 offset(0, 13)
+	MANC A 0 a_firecustommissile("possessedROPfatshot", -11.25, false, 27, -14)
+	MANC B 1 bright a_firecustommissile("possessedROPfatshot", -2.5, false, -27, -14)
+	MANC CDE 1 bright
+	MANC ONMLKJIHGFA 1
+	MANC A 0 a_firecustommissile("possessedROPfatshot", 2.5, false, 27, -14)
+	MANC B 1 bright a_firecustommissile("possessedROPfatshot", 11.25, false, -27, -14)
+	MANC CDE 1 bright
+	MANC ONMLKJIHGFA 1
+	MANC A 0 a_firecustommissile("possessedROPfatshot", 1, false, 27, -14)
+	MANC B 1 bright a_firecustommissile("possessedROPfatshot", -1, false, -27, -14)
+	MANC CDE 1 bright
+	MANC ONMLKJIHGFA 1
+	MANC A 2 offset(0, 14)
+	MANC A 1 offset(0, 15)
+	MANC A 1 offset(0, 17)
+	MANC A 1 offset(0, 19)
+	MANC A 1 offset(0, 22)
+	MANC A 1 offset(0, 25)
+	MANC A 1 offset(0, 27)
+	MANC A 1 offset(0, 29)
+	MANC A 2 offset(0, 30)
+	MANC A 2 offset(0, 31)
+	MANC A 8 offset(0, 32)
+	goto ready
+  }
+}
+
+actor possessedROPfatshot : ROPfatshot
+{
+  damage (52)
+}

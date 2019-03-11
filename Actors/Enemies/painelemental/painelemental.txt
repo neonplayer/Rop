@@ -134,7 +134,7 @@ actor painelementalprojectile : cacodemonball
     SKUL A 0 a_explode(32, 112, 0)
     SKUL AAAAAAAAA 0 a_spawnitemex("lostsoulflame3", 0, 0, 16, random(6, -6)*0.333, random(6, -6)*0.333, random(6, -6)*0.333)
 	SKUL AAAAA 0 a_spawnitemex("lostsouldeathparticle", 0, 0, 16, random(6, -6)*0.333, random(6, -6)*0.333, random(6, -6)*0.333)
-	SKUL AAAA 0 a_spawnitemex("genericsmoke", random(10, -10), random(10, -10), random(8, 32), random(3, -3)*0.2, random(3, -3)*0.2, random(3, -3)*0.2)
+	SKUL AAAA 0 a_spawnitemex("genericsmokeblack", random(10, -10), random(10, -10), random(8, 32), random(3, -3)*0.2, random(3, -3)*0.2, random(3, -3)*0.2)
 	SKUL F 3 Bright a_settranslucent(0.9, 1)
     SKUL G 3 Bright A_Scream
 	SKUL G 0 Bright a_fadeout(0.1)

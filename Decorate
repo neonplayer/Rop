@@ -11,6 +11,7 @@
 #Include Actors/Enemies/PossessedBase.txt
 
 actor gibtoken : MOPBoolean {}
+actor altcheck : MOPBoolean {}
 actor reloadcheck : MOPBoolean {}
 actor zoomcheck : MOPBoolean {}
 
@@ -25,6 +26,7 @@ actor zoomcheck : MOPBoolean {}
 #include actors/enemies/revenant/revenant.txt
 #include actors/enemies/painelemental/painelemental.txt
 #include actors/enemies/baronofhell/baronofhell.txt
+#include actors/enemies/fatties/fatso.txt
 #include actors/enemies/wolfss/wolfss.txt
 
 #Include Actors/Weapons/Fist

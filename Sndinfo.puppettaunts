@@ -114,8 +114,8 @@ $playersound    Fatty male *death DSMANDTH
 $playersound    Fatty male *usefail dsposact
 $playersounddup Fatty male *grunt *pain100
 $playersounddup Fatty male *land *pain100 
-$playersound    Fatty male *jump DSMANSIT
-$playeralias    Fatty male *taunt "fatso/raiseguns"
+$playersounddup Fatty male *jump *pain100 
+$playeralias    Fatty male *taunt "fatso/sight"
 //Arachnotron
 $playersound    BabySpider male *pain100 DSDMPAIN
 $playersounddup BabySpider male *pain75 *pain100

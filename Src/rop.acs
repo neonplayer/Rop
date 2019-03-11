@@ -55,7 +55,7 @@ str monsterinfo[max_monsterinfo] =
 	
 	"", //arachnotron
 	
-	"", //mancubus
+	"\cgMancubi have reduced jump height. \n\nPrimary fire will fire both cannons once. \nSecondary fire will fire 3 bursts \n(\cgHarder to aim, \cgIncreased wind up time\c-)",
 	
 	"\cgBarons have reduced jump height. \n\cdBarons gain mana after a while of not attacking. \n\nPrimary fire will throw plasma. \n(the more mana you have, the faster the projectile will be. projectiles use 2 mana, you can throw plasma without any mana.\c-) \nSecondary fire will punch. \n(\cdhigher dps, \cglimited range\c-)",
 	
@@ -127,7 +127,7 @@ script "mopengine_init" (void)
 	
 	addmonster(0.175, "BSPIA1D1", "arachnotron", "\c[arachno]Arachnotron");
 	
-	addmonster(0.2, "FATTA1", "fatso", "\c[fatty]Mancubus");
+	addmonster(0.2, "FATTA1", "ROPmancubus", "\c[fatty]Mancubus");
 	
 	addmonster(0.225, "BOSSA1", "ropbaronofhell", "\c[pinky]Baron of Hell");
 	addmonsteritem("baronofhellmanatoken");
