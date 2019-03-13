@@ -1,5 +1,6 @@
-#include "actors/bulletpuffs.gl"
-#include "actors/shield.gl"
+#include "actors/effects/bulletpuffs.gl"
+#include "actors/effects/shield.gl"
+#include "actors/effects/telefog.gl"
 #include "actors/barrel.gl"
 
 #include "actors/enemies/zombieman/zombieman.gl"

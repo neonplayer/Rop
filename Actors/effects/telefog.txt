@@ -1,0 +1,124 @@
+actor ROPteleportfog : teleportfog replaces teleportfog
+{
+  +clientsideonly
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_spawnitemex("teleportsmoke2", random(8, -8), random(8, -8), 8, frandom(2, -2)*0.5, frandom(2, -2)*0.5, frandom(3, 6))
+    TNT1 A 0 a_jumpif(!callacs("effectchecker"), "fading")
+	TNT1 AAAAA 0 a_spawnitemex("teleportsmoke", random(8, -8), random(8, -8), 8, frandom(2, -2)*0.5, frandom(2, -2)*0.5, frandom(3, 6))
+	TNT1 AAAAAAAAAAAAAAAA 0 a_spawnitemex("teleportparticle", random(16, -16), random(16, -16), random(8, 32), frandom(1, -1)*0.5, frandom(1, -1)*0.5, frandom(1, 7)*0.5)
+  fading:
+    TNT1 BCDEFGHI 2
+	stop
+  }
+}
+
+actor teleportsmoke
+{
+  renderstyle add
+  +clientsideonly
+  +dontsplash
+  +noblockmap
+  +forcexybillboard
+  gravity 0.333
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_setscale(random(35, 55)*0.01, scaley)
+	TNT1 A 0 a_setscale(scalex, scalex)
+  spawn2:
+	TFOG AAAABBBBAAAABBBB 1 a_fadeout(0.02)
+	TFOG CCCC 1 a_setscale(scalex*0.99, scaley*0.99)
+	TFOG C 0 a_fadeout(0.03)
+	TFOG DDDD 1 a_setscale(scalex*0.99, scaley*0.99)
+	TFOG D 0 a_fadeout(0.03)
+	TFOG EEE 1 a_setscale(scalex*0.99, scaley*0.99)
+	TFOG E 0 a_fadeout(0.03)
+	TFOG FFF 1 a_setscale(scalex*0.99, scaley*0.99)
+	TFOG F 0 a_fadeout(0.03)
+	TFOG GG 1 a_setscale(scalex*0.99, scaley*0.99)
+	stop
+  death:
+    TNT1 A 0
+	stop
+  }
+}
+
+actor teleportsmoke2 : teleportsmoke
+{
+  states
+  {
+  spawn:
+	TNT1 A 0
+	goto spawn2
+  }
+}
+
+actor teleportparticle : effect
+{
+  renderstyle add
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_setscale(random(25, 50)*0.01, scaley)
+	TNT1 A 0 a_setscale(scalex, scalex)
+	TNT1 A 0 a_jump(128, 2)
+	TFOG F 0 a_setscale(scalex*0.85, scaley*0.85)
+	goto spawn2
+	TFOG J 0
+  spawn2:
+    TFOG "#" 1 a_fadeout(0.05)
+	TFOG "#" 0 a_scalevelocity(0.98)
+	loop
+  }
+}
+
+actor ROPitemfog : ROPteleportfog replaces itemfog
+{
+  states
+  {
+  spawn:
+    TNT1 A 0 a_spawnitemex("itemsmoke2", 0, 0, 0, frandom(4, -4)*0.5, frandom(4, -4)*0.5, frandom(4, -4)*0.5)
+    TNT1 A 0 a_jumpif(!callacs("effectchecker"), "fading")
+	TNT1 AAAAAA 0 a_spawnitemex("itemsmoke", 0, 0, 0, frandom(4, -4)*0.5, frandom(4, -4)*0.5, frandom(4, -4)*0.5)
+	goto fading
+  }
+}
+
+actor itemsmoke : teleportparticle
+{
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_setscale(random(35, 50)*0.01, scaley)
+	TNT1 A 0 a_setscale(scalex, scalex)
+  spawn2:
+	RFOG AAABBBAAABBB 1 a_scalevelocity(0.9)
+	RFOG CCC 1 a_setscale(scalex*0.99, scaley*0.99)
+	RFOG C 0 a_fadeout(0.1)
+	RFOG DDD 1 a_setscale(scalex*0.99, scaley*0.99)
+	RFOG D 0 a_fadeout(0.1)
+	RFOG EE 1 a_setscale(scalex*0.99, scaley*0.99)
+	RFOG E 0 a_fadeout(0.1)
+	RFOG FF 1 a_setscale(scalex*0.99, scaley*0.99)
+	RFOG F 0 a_fadeout(0.1)
+	RFOG G 1 a_setscale(scalex*0.99, scaley*0.99)
+	stop
+  }
+}
+
+actor itemsmoke2 : itemsmoke
+{
+  scale 0.75
+  states
+  {
+  spawn:
+    TNT1 A 0
+	goto spawn2
+  }
+}

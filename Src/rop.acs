@@ -31,7 +31,7 @@ script "rop_pistolstart" ENTER
 
 str monsterinfo[max_monsterinfo] =
 {
-	"Primary fire will fire your rifle. \nSecondary fire will charge a perfectly accurate shot. \n(\cdperfectly accurate, deals slightly more damage,\cgtakes 1 second to charge\c-)",
+	"Primary fire will fire your rifle. \nSecondary fire will charge a perfectly accurate shot. \n(\cdperfectly accurate, deals slightly more damage, \cgtakes 1 second to charge\c-)",
 	
 	"Primary fire will fire your shotgun. \nSecondary fire will fire shrapnels. \n(\cdcan bounce off walls, \cgless damage, affected by gravity\c-)",
 	

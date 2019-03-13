@@ -1,0 +1,127 @@
+pointlight telight1
+{
+  color 0.35 0.82 0.06
+  size 48
+  offset 0 8 0
+}
+
+pointlight telight2
+{
+  color 0.31 0.77 0.05
+  size 46
+  offset 0 16 0
+}
+
+pointlight telight3
+{
+  color 0.27 0.72 0.04
+  size 42
+  offset 0 20 0
+}
+
+pointlight telight4
+{
+  color 0.23 0.67 0.03
+  size 36
+  offset 0 22 0
+}
+
+pointlight telight5
+{
+  color 0.19 0.62 0.02
+  size 28
+  offset 0 20 0
+}
+
+pointlight telight6
+{
+  color 0.15 0.57 0.01
+  size 18
+  offset 0 14 0
+}
+
+pointlight telight7
+{
+  color 0.11 0.52 0
+  size 10
+  offset 0 8 0
+}
+
+pointlight telight8
+{
+  color 0.07 0.47 0
+  size 2
+  offset 0 2 0
+}
+
+object ROPteleportfog
+{
+  frame TNT1B { light telight1 }
+  frame TNT1C { light telight2 }
+  frame TNT1D { light telight3 }
+  frame TNT1E { light telight4 }
+  frame TNT1F { light telight5 }
+  frame TNT1G { light telight6 }
+  frame TNT1H { light telight7 }
+  frame TNT1I { light telight8 }
+}
+
+pointlight itemlight1
+{
+  color 0.26 0.55 1.0
+  size 32
+}
+
+pointlight itemlight2
+{
+  color 0.23 0.5 0.93
+  size 30
+}
+
+pointlight itemlight3
+{
+  color 0.2 0.45 0.86
+  size 28
+}
+
+pointlight itemlight4
+{
+  color 0.17 0.4 0.79
+  size 24
+}
+
+pointlight itemlight5
+{
+  color 0.14 0.35 0.72
+  size 20
+}
+
+pointlight itemlight6
+{
+  color 0.11 0.3 0.65
+  size 14
+}
+
+pointlight itemlight7
+{
+  color 0.08 0.25 0.58
+  size 8
+}
+
+pointlight itemlight8
+{
+  color 0.05 0.2 0.51
+  size 2
+}
+
+object ROPitemfog
+{
+  frame TNT1B { light itemlight1 }
+  frame TNT1C { light itemlight2 }
+  frame TNT1D { light itemlight3 }
+  frame TNT1E { light itemlight4 }
+  frame TNT1F { light itemlight5 }
+  frame TNT1G { light itemlight6 }
+  frame TNT1H { light itemlight7 }
+  frame TNT1I { light itemlight8 }
+}

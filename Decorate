@@ -1,11 +1,12 @@
-#Include Actors/EffectBase.txt
-#Include Actors/BulletPuffs.txt
-#include actors/genericexplosion.txt
-#include actors/blood.txt
+#Include Actors/effects/EffectBase.txt
+#Include Actors/effects/BulletPuffs.txt
+#include actors/effects/genericexplosion.txt
+#include actors/effects/blood.txt
+#include actors/effects/telefog.txt
 
 //Shield stuff.
-#Include Actors/ShieldBase.txt
-#Include Actors/ShieldColors.txt
+#Include Actors/effects/ShieldBase.txt
+#Include Actors/effects/ShieldColors.txt
 
 
 #Include Actors/Enemies/PossessedBase.txt
