@@ -9,6 +9,17 @@ pickup/smallarmor			2APKUP
 pickup/mediumarmor			100APKUP
 pickup/largearmor			200APKUP
 
+pickup/clip					CLIPPKP
+pickup/clipbox				ABOXPKP
+pickup/shell				4SHLPKP
+pickup/shellbox				20SHLPKP
+pickup/rocket				RKTPKP
+pickup/rocketbox			RKTBPKP
+pickup/cell					CELLPKP	
+pickup/cellbox				CBOXPKP
+pickup/shieldammo			SHLDPKP
+pickup/backpack				BPPKP
+
 misc/k_pkup					KEYPKUP
 
 pickup/ultrahealth			MEGAPKUP

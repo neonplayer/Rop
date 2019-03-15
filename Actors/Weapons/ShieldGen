@@ -1,6 +1,5 @@
 //Code : CaptainToenail
 //Sprites : Captain Toenail, Id Software, Apogee, Xaser, Vader
-//Ammo Sprite: Eriance, Mechadon, Neon
 //Sounds : Quake 2, Half-life
 
 // Uses upgraded HvM shields by Korshun
@@ -11,7 +10,7 @@ Actor ShieldGenerator : DoomWeapon
   Weapon.AmmoUse 1
   Weapon.AmmoGive 10
   Weapon.SlotNumber 8
-  Weapon.AmmoType "ShieldAmmo"
+  Weapon.AmmoType "ROPShieldAmmo"
   Inventory.PickupMessage "You got the shield generator!"
   Weapon.PreferredSkin "ShieldMarine"
   States
@@ -73,26 +72,6 @@ Actor ShieldGenerator : DoomWeapon
     stop
   }
 }
-
-Actor ShieldAmmo : ammo
-{
-  Radius 4
-  Height 16
-  Inventory.PickupMessage "picked up a power cell for your shield gun."
-  Inventory.Icon "SLDCA0"
-  Inventory.Amount 5
-  Inventory.MaxAmount 25
-  Ammo.BackpackAmount 3
-  Ammo.BackpackMaxAmount 50
-  States
-  {
-  Spawn:
-    SLDC E 35
-	SLDC ADBCBDA 4 Bright
-	Loop
-  }
-}
-  
 
 actor AmmoCounter //for using ammo
 {

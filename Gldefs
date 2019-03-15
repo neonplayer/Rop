@@ -16,6 +16,7 @@
 #include "actors/enemies/fatties/fatso.gl"
 #include "actors/enemies/wolfss/wolfss.gl"
 
+#include "actors/pickups/ammo.gl"
 #include "actors/pickups/health.gl"
 #include "actors/pickups/armor.gl"
 #include "actors/pickups/powerups.gl"

@@ -42,6 +42,7 @@ actor zoomcheck : MOPBoolean {}
 
 #Include Actors/Weapons/ShieldGen
 
+#include actors/pickups/ammo.txt
 #include actors/pickups/health.txt
 #include actors/pickups/armor.txt
 #include actors/pickups/powerups.txt

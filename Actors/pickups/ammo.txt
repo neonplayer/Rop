@@ -1,0 +1,149 @@
+/*
+
+clip pickup sound: id software (doom 3)
+clip box pickup sound: croteam (serious sam TFE)
+
+4 shell pickup sound: id software (doom 3)
+20 shell pickup sound: id software (doom 3)
+
+rocket pickup sound: id software (doom 3)
+rocket box pickup sound: id software (doom 3)
+
+cell pickup sound: id software (doom 3)
+cell box pickup sound: id software (doom 3)
+
+shield ammo pickup sprite Eriance, Mechadon (modified)
+shield ammo pickup sound: Mechadon
+
+backpack pickup sound: id software (quake 2)
+
+*/
+
+actor ROPclip : clip replaces clip
+{
+  inventory.pickupsound "pickup/clip"
+  inventory.pickupmessage "\cb+10 bullets"
+  tag "Clip"
+}
+
+actor ROPclipbox : clipbox replaces clipbox
+{
+  inventory.pickupsound "pickup/clipbox"
+  inventory.pickupmessage "\cb+50 bullets"
+  tag "Bullet box"
+}
+
+actor ROPshell : shell replaces shell
+{
+  inventory.pickupsound "pickup/shell"
+  inventory.pickupmessage "\cr+4 shells"
+  inventory.maxamount 40
+  ammo.backpackmaxamount 80
+  tag "Shells"
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_jump(128, "spawn3")
+  spawn2:
+    SHLP B -1
+	stop
+  spawn3:
+    SHLP C -1
+	stop
+  }
+}
+
+actor ROPshellbox : ropshell replaces shellbox
+{
+  inventory.pickupsound "pickup/shellbox"
+  inventory.pickupmessage "\cr+20 shells"
+  Inventory.Amount 20
+  tag "Shell box"
+  States
+  {
+  Spawn:
+    SBOX A -1
+    Stop
+  }
+}
+
+actor ROProcketammo : rocketammo replaces rocketammo
+{
+  inventory.pickupsound "pickup/rocket"
+  inventory.pickupmessage "\ce+1 rocket"
+  inventory.maxamount 40
+  ammo.backpackmaxamount 80
+  tag "Rocket"
+  scale 0.8
+}
+
+actor ROProcketbox : ROProcketammo replaces rocketbox
+{
+  inventory.pickupsound "pickup/rocketbox"
+  inventory.pickupmessage "\ce+5 rockets"
+  tag "Rocket box"
+  scale 0.75
+  States
+  {
+  Spawn:
+    BROK A -1
+    Stop
+  }
+}
+
+actor ROPcell : cell replaces cell
+{
+  inventory.pickupsound "pickup/cell"
+  inventory.pickupmessage "\cn+20 cells"
+  inventory.maxamount 200
+  ammo.backpackmaxamount 400
+  tag "Cell"
+}
+
+actor ROPcellpack : ROPcell replaces cellpack
+{
+  inventory.pickupsound "pickup/cellbox"
+  inventory.pickupmessage "\cn+100 cells"
+  tag "Cellpack"
+  scale 0.8
+  states
+  {
+  Spawn:
+    CELP A -1
+    Stop
+  }
+}
+
+actor ROPshieldammo : ammo
+{
+  Radius 4
+  Height 16
+  inventory.pickupsound "pickup/shieldammo"
+  inventory.pickupmessage "\cq+5 Shield cells"
+  inventory.amount 5
+  inventory.maxamount 30
+  ammo.backpackamount 5
+  ammo.backpackmaxamount 60
+  tag "Shield Cell"
+  inventory.icon "SHLAB0"
+  scale 0.75
+  states
+  {
+  spawn:
+    SHLA E 70
+	SHLA AB 3
+	SHLA C 5
+	SHLA D 3 bright
+	SHLA C 5
+	SHLA BA 3
+	loop
+  }
+}
+
+actor ROPbackpack : backpack replaces backpack
+{
+  inventory.pickupsound "pickup/backpack"
+  inventory.pickupmessage "\cb+10 bullets \cr+4 shells \ce+1 rocket \cn+20 cells \cf2x capacity"
+  tag "Backpack"
+}
