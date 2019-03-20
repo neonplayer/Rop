@@ -125,15 +125,18 @@ actor possessedROParachnotron : possessedmonster
     BSPI DEEFF 3
     Goto spawn
   Missile:
-    BSPI G 4 Bright
+    BSPI G 0
+	BSPI G 0 a_jumpifinventory("reloadcheck", 1, "missileB")
 	BSPI G 0 a_jumpifinventory("altcheck", 1, "missile2")
+	BSPI G 15
+  missileb:
+	BSPI G 4
     BSPI H 6 Bright
     Goto spawn
   missile2:
     BSPI G 0 a_takeinventory("altcheck", 1)
-    BSPI G 11 bright
 	BSPI HGHGH 2 bright
-	BSPI G 20 bright
+	BSPI G 30 bright
 	goto spawn
   Pain:
     BSPI I 3	
@@ -156,17 +159,20 @@ actor arachplasmarifle : possessedweapon
     ARPR A 1 a_weaponready
 	loop
   fire:
-    ARPR A 0 acs_namedexecutealways("setspeed", 0, 10)
+    ARPR A 15 acs_namedexecutealways("setspeed", 0, 10)
+	ARPR A 0 a_giveinventory("reloadcheck", 1)
+  fire2:
     ARPR B 1 bright a_firecustommissile("ROParachplasmapossessed", 0, false, 0, -8)
 	ARPR CD 1 bright
 	ARPR EFGHIJ 1
-	ARPR KL 1 a_refire
-	ARPR A 8 a_refire
+	ARPR KL 1 a_refire("fire2")
+	ARPR A 8 a_refire("fire2")
 	ARPR A 0 acs_namedexecutealways("setspeed", 0, 50)
+	ARPR A 0 a_takeinventory("reloadcheck", 1)
 	goto ready
   altfire:
     ARPR A 0 a_giveinventory("altcheck", 1)
-	ARPR A 15 acs_namedexecutealways("setspeed", 0, 25)
+	ARPR A 0 acs_namedexecutealways("setspeed", 0, 25)
 	ARPR B 1 bright a_firecustommissile("ROParachplasmapossessed", random(1, -1), false, 0, -8, 0, random(1, -1))
 	ARPR CD 1 bright
 	ARPR E 1 
@@ -176,7 +182,7 @@ actor arachplasmarifle : possessedweapon
 	ARPR B 1 bright a_firecustommissile("ROParachplasmapossessed", random(3, -3), false, 0, -8, 0, random(3, -3))
 	ARPR CD 1 bright
 	ARPR EFGHIJ 1 
-	ARPR A 12
+	ARPR A 22
 	ARPR A 10 a_refire
 	ARPR A 0 acs_namedexecutealways("setspeed", 0, 50)
 	goto ready

@@ -5,11 +5,13 @@ legend:
 
 Please correct me if you know better.
 
-puppetmaster sounds and sprites: raven software (hexen)
+--- effects ---
 
 smoke sprites: bloax, xaser, zerrion the insect (cryo bow)
 explosion particle sprite: 3d Realms (modified)
 explosion ring: id software, monolith games (modified)
+
+--- weapons ---
 
 smooth chaingun: Per Kristian
 shield gun sprites: Captain Toenail, Id Software, Apogee, Xaser, Vader
@@ -17,31 +19,90 @@ shield gun sounds: Id software (quake 2), Valve (half-life)
 shield gun base code: Captain Toenail
 shield gun ammo sprites: Eriance, Mechadon, (modified)
 
+--- pickups ---
+
+clip pickup sound: id software (doom 3)
+clip box pickup sound: croteam (serious sam TFE)
+
+4 shell pickup sound: id software (doom 3)
+20 shell pickup sound: id software (doom 3)
+
+rocket pickup sound: id software (doom 3)
+rocket box pickup sound: id software (doom 3)
+
+cell pickup sound: id software (doom 3)
+cell box pickup sound: id software (doom 3)
+
+shield ammo pickup sprite Eriance, Mechadon (modified)
+shield ammo pickup sound: Mechadon
+
+backpack pickup sound: id software (quake 2)
+
+armor shard sprites: id software, infirnex
+armor shard pickup sound: id software (quake 3)
+green armor pickup sound: id software (quake)
+blue armor pickup sound: croteam (serious sam tfe)
+
+2 health pickup sound: croteam (serious sam tfe)
+10, 25 and 100 health pickup sounds: ID software (quake 3)
+soulsphere particle: id software (doom)
+
+megasphere pickup sound: croteam (serious sam tfe)
+megasphere, invisibility, invulnerability particle: id software (doom)
+
+invulnerability, invisibility, radsuit, allmap pickup sounds: id software (quake)
+
+--- enemies ---
+
 zombieman rifle sprites: ID software (doom alpha)
+
 shotgunguy "shrapnel" sprites: ID Software, Raven Software, 3D Realms, Nanami, Eriance, Keksdose, Jimmy91 (inferno demon)
+
 chaingunguy reving up/down/loop sounds: id software (doom 3)
+
 imp claw sprites: Nmn (weapon resource wad)
 imp ball explosion smoke: bloax (cryo bow)
+
 lost soul flame sprites: bloax, xaser, zirrion the insect (cryo bow, modified)
 lost soul particles: 3d realms (?)
+
 cacodemon ball sprites: eriance, midway (demon eclipse, modified)
 cacodemon ball sounds : 3d realms
 cacodemon melee sound: ??? (from demon eclipse)
-hellknight melee attack sound: croteam (serious sam tfe)
+
+hellknight/baronofhell melee attack sound: croteam (serious sam tfe)
 hellknight projectile sprites: raven software (modified)
 hellknight projectile particles: id software (modified)
 hellknight projectile explosion smoke: bloax
-hellknight hand sprites: ??? (from original mop)
+hellknight/baronofhell hand sprites: ??? (from original mop)
+
+baron of hell projectile sprites : id software, vader (bruiser demon)
+baron of hell projectile sounds : midway (psx doom, pitch shifted)
+
 revenant rocket sprite: eriance, wolfendoom, raven software (modified)
 revenant rocket particle: vader (modified)
 the sound(s) that plays when you reload as a revenant: TheDarkArchon (?)
 
+mancubus projectile sprites: midway (doom 64, modified)
+mancubus flamethrower sprite: scuba steve, id software
+
+arachnotron projectile sprites: id software (doom 3)
+arachnotron projectile sounds: id software (doom 3)
+arachnotron plasma rifle sprites: id software, shadesmaster, JoeyTD
+
+wolfenstein ss mp40 sprites: apogee software, id software, captain toenail (rott)
+wolfenstein ss mp40 sounds: infinity ward (call of duty 2, medal of honor: pacific assault)
+
+--- misc ---
+
 Return of the puppetmasters was made by Neon and Korshun.
 
-Original MOP was made by Silva. 
+Original MOP was made by Silva and JabberWock. 
 
 Jmod was made by jes WAN WAN WAN
 
-Complex MOP (which is where the acs comes from) was made by Korshun, MonsterOvich and DJ Skaarj.
+Complex MOP (which is where some the acs comes from) was made by Korshun, MonsterOvich and DJ Skaarj.
+
+MOP engine was made by Korshun.
 
 Sprite and sound credits can also be found in their respective decorate files.

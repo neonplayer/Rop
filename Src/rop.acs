@@ -53,7 +53,7 @@ str monsterinfo[max_monsterinfo] =
 	
 	"\cdPain elementals can fly. \n\cdPain elementals gain mana over time. \n\nPrimary fire will fire a suicidal lost soul. \nSecondary fire will bite \n(\cdhigher dps, \cglimited range\c-) \nReloading will spawn a lost soul when you have 100 mana. \n(\cgLimited to 10 lostsouls\c-)",
 	
-	"\cgArachnotrons can't jump. \n\nPrimary fire will fire your plasma rifle. \nSecondary fire will fire a 3 shot burst. \n(\cdFaster fire rate, \cdLesser mobility penalty, \cgLess accurate\c-)", //arachnotron
+	"\cgArachnotrons can't jump. \n\nPrimary fire will fire your plasma rifle. \nSecondary fire will fire a 3 shot burst. \n(\cdFaster fire rate, \cdLesser mobility penalty, \cdNo delay, \cgLess accurate\c-)", //arachnotron
 	
 	"\cgMancubi have reduced jump height. \n\nPrimary fire will fire both cannons once. \nSecondary fire will fire 3 bursts \n(\cgHarder to aim, \cgIncreased wind up time\c-)",
 	
