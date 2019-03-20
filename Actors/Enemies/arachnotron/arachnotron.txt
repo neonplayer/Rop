@@ -1,0 +1,184 @@
+/*
+
+projectile sprites: id software (doom 3)
+projectile sounds: id software (doom 3)
+
+arachnotron plasma rifle sprites: id software, shadesmaster, JoeyTD
+
+*/
+
+actor ROParachnotron : arachnotron replaces arachnotron
+{
+  painchance 56
+  obituary "%o was fried by an arachnotron."
+  scale 1.1
+  states
+  {
+  Missile:
+    BSPI A 20 Bright A_FaceTarget
+    BSPI G 4 Bright A_custommissile("ROParachplasma", -8)
+    BSPI H 4 Bright
+    BSPI H 1 Bright A_SpidRefire
+    Goto Missile+1
+  }
+}
+
+actor ROParachplasma : arachnotronplasma
+{
+  scale 0.5
+  decal MummyScorch
+  damage (20)
+  seesound "plasma/fire"
+  deathsound "plasma/death"
+  states
+  {
+  spawn:
+    APLS ABCDEFGHIJKL 1 bright a_spawnitemex("arachplasmatrail", 0, 0, 0, frandom(2, -2)*0.333, frandom(2, -2)*0.333, frandom(2, -2)*0.333)
+	loop
+  death:
+    TNT1 AAAAAA 0 a_spawnitemex("arachdeathsmoke", frandom(3, -3), frandom(3, -3), frandom(3, -3), frandom(1, -1)*0.5, frandom(1, -1)*0.5, frandom(0, -1))
+	TNT1 A 0 a_spawnitemex("arachring")
+	ASFX A 0 a_setscale(1.0, 1.0)
+	ASFX ABCDEFGHIJKLMNOP 1 bright
+	stop
+  }
+}
+
+actor ROParachplasmapossessed : ROParachplasma
+{
+  damage (30)
+}
+
+actor arachplasmatrail : effect
+{
+  renderstyle add
+  alpha 0.2
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	TNT1 A 0 a_setscale(random(35, 65)*0.01, scaley)
+	TNT1 A 0 a_setscale(scalex, scalex)
+	ASFX A 0 a_jump(256, 1,2,3,4,5,6,7,8)
+	ASFX EFGHIJKLM 1 
+  spawn2:
+	ASFX "#" 1 a_setscale(scalex*1.05, scaley*1.05)
+	ASFX "#" 0 a_fadeout(0.0334)
+	loop
+  }
+}
+
+actor arachdeathsmoke : arachplasmatrail
+{
+  alpha 0.666
+  states
+  {
+  spawn:
+    TNT1 A 0
+	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "removed")
+	TNT1 A 0 a_setscale(random(40, 60)*0.01, scaley)
+	TNT1 A 0 a_setscale(scalex, scalex)
+	ASFX ABCDEFGHIJKLM 1 bright a_fadeout(0.015)
+	stop
+  }
+}
+
+actor arachring : explosionring
+{
+  scale 0.3
+  states
+  {
+  spawn:
+    ASFX A 0
+	ASFX A 0 a_jumpif(!callacs("effectchecker"), "removed")
+  
+    ASFX Q 1 a_fadeout(0.05)
+	ASFX A 0 a_setscale(scalex*1.15, scaley*1.15)
+	goto spawn+2
+  }
+}
+  
+actor possessedROParachnotron : possessedmonster
+{
+  player.morphweapon "arachplasmarifle"
+  Health 500
+  Radius 64
+  Height 64
+  Mass 600
+  Speed 0.5
+  PainChance 56
+  +FLOORCLIP
+  scale 1.1
+  player.jumpz 0
+  player.viewheight 40
+  player.soundclass BabySpider
+  states
+  {
+   Spawn:
+    BSPI AB 10
+    Loop
+  See:
+    BSPI A 3 A_playsound("baby/walk")
+    BSPI ABBCC 3
+    BSPI D 3 A_playsound("baby/walk")
+    BSPI DEEFF 3
+    Goto spawn
+  Missile:
+    BSPI G 4 Bright
+	BSPI G 0 a_jumpifinventory("altcheck", 1, "missile2")
+    BSPI H 6 Bright
+    Goto spawn
+  missile2:
+    BSPI G 0 a_takeinventory("altcheck", 1)
+    BSPI G 11 bright
+	BSPI HGHGH 2 bright
+	BSPI G 20 bright
+	goto spawn
+  Pain:
+    BSPI I 3	
+    BSPI I 3 A_Pain
+    Goto spawn
+  }
+}
+
+actor arachplasmarifle : possessedweapon
+{
+  tag "Arachnotron plasma rifle"
+  obituary "%o was fried by %k."
+  weapon.bobstyle inversesmooth
+  weapon.bobrangex 0.167
+  weapon.bobrangey 0.333
+  weapon.bobspeed 1.25
+  states
+  {
+  ready:
+    ARPR A 1 a_weaponready
+	loop
+  fire:
+    ARPR A 0 acs_namedexecutealways("setspeed", 0, 10)
+    ARPR B 1 bright a_firecustommissile("ROParachplasmapossessed", 0, false, 0, -8)
+	ARPR CD 1 bright
+	ARPR EFGHIJ 1
+	ARPR KL 1 a_refire
+	ARPR A 8 a_refire
+	ARPR A 0 acs_namedexecutealways("setspeed", 0, 50)
+	goto ready
+  altfire:
+    ARPR A 0 a_giveinventory("altcheck", 1)
+	ARPR A 15 acs_namedexecutealways("setspeed", 0, 25)
+	ARPR B 1 bright a_firecustommissile("ROParachplasmapossessed", random(1, -1), false, 0, -8, 0, random(1, -1))
+	ARPR CD 1 bright
+	ARPR E 1 
+	ARPR B 1 bright a_firecustommissile("ROParachplasmapossessed", random(2, -2), false, 0, -8, 0, random(2, -2))
+	ARPR CD 1 bright
+	ARPR E 1 
+	ARPR B 1 bright a_firecustommissile("ROParachplasmapossessed", random(3, -3), false, 0, -8, 0, random(3, -3))
+	ARPR CD 1 bright
+	ARPR EFGHIJ 1 
+	ARPR A 12
+	ARPR A 10 a_refire
+	ARPR A 0 acs_namedexecutealways("setspeed", 0, 50)
+	goto ready
+  }
+}

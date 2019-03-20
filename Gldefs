@@ -14,6 +14,7 @@
 #include "actors/enemies/painelemental/painelemental.gl"
 #include "actors/enemies/baronofhell/baronofhell.gl"
 #include "actors/enemies/fatties/fatso.gl"
+#include "actors/enemies/arachnotron/arachnotron.gl"
 #include "actors/enemies/wolfss/wolfss.gl"
 
 #include "actors/pickups/ammo.gl"

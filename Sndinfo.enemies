@@ -109,6 +109,8 @@ Beholder/Death		DSABDEAD
 
 //Arachnotrons
 
+plasma/boosted		BSTPLSFR
+
 Sentinel/Sight		DSCSPISE
 Sentinel/Death		DSCSPIDI
 

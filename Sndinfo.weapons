@@ -1,3 +1,15 @@
+//Plasma Rifle
+
+plasma/fire1		PLSFIR1
+plasma/fire2		PLSFIR2
+plasma/fire3		PLSFIR3
+plasma/death1		PLSDIE1
+plasma/death2		PLSDIE2
+plasma/death3		PLSDIE3
+
+$random plasma/fire		{ plasma/fire1 plasma/fire2 plasma/fire3 }
+$random plasma/death	{ plasma/death1 plasma/death2 plasma/death3 }
+
 //Shield gun
 
 ForceBarrier/On		DSFRCON

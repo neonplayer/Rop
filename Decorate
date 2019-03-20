@@ -28,6 +28,7 @@ actor zoomcheck : MOPBoolean {}
 #include actors/enemies/painelemental/painelemental.txt
 #include actors/enemies/baronofhell/baronofhell.txt
 #include actors/enemies/fatties/fatso.txt
+#include actors/enemies/arachnotron/arachnotron.txt
 #include actors/enemies/wolfss/wolfss.txt
 
 #Include Actors/Weapons/Fist

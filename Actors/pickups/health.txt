@@ -33,6 +33,7 @@ actor ropstimpack : stimpack replaces stimpack
 actor ropmedikit : medikit replaces medikit
 {
   inventory.pickupmessage "\ca+25 health"
+  health.lowmessage 25, "\ca+25 health"
   inventory.pickupsound "pickup/bighealth"
   scale 0.9
   tag "Medikit"

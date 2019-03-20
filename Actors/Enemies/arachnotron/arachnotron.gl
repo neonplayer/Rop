@@ -1,0 +1,191 @@
+pointlight arachlight1
+{
+  color 0.5 0.75 0
+  size 12
+}
+
+pointlight arachlight2
+{
+  color 0.5 0.75 0
+  size 36
+}
+
+object roparachnotron
+{
+  frame BSPIG { light arachlight1 }
+  frame BSPIH { light arachlight2 }
+}
+
+object possessedroparachnotron
+{
+  frame BSPIG { light arachlight1 }
+  frame BSPIH { light arachlight2 }
+}
+  
+pointlight arachplasma1
+{
+  color 0.476 0.753 0
+  size 28
+}
+
+pointlight arachplasmad1
+{
+  color 0.476 0.753 0
+  size 4
+}
+
+pointlight arachplasmad2
+{
+  color 0.476 0.753 0
+  size 7
+}
+
+pointlight arachplasmad3
+{
+  color 0.476 0.753 0
+  size 11
+}
+
+pointlight arachplasmad4
+{
+  color 0.476 0.753 0
+  size 13
+}
+
+pointlight arachplasmad5
+{
+  color 0.476 0.753 0
+  size 15
+}
+
+pointlight arachplasmad6
+{
+  color 0.476 0.753 0
+  size 17
+}
+
+pointlight arachplasmad7
+{
+  color 0.476 0.753 0
+  size 20
+}
+
+pointlight arachplasmad8
+{
+  color 0.476 0.753 0
+  size 22
+}
+
+pointlight arachplasmad9
+{
+  color 0.476 0.753 0
+  size 23
+}
+
+pointlight arachplasmad10
+{
+  color 0.46 0.74 0
+  size 23
+}
+
+pointlight arachplasmad11
+{
+  color 0.43 0.71 0
+  size 23
+}
+
+pointlight arachplasmad12
+{
+  color 0.4 0.68 0
+  size 24
+}
+
+pointlight arachplasmad13
+{
+  color 0.35 0.6 0
+  size 26
+}
+
+pointlight arachplasmad14
+{
+  color 0.33 0.56 0
+  size 28
+}
+
+pointlight arachplasmad15
+{
+  color 0.3 0.5 0
+  size 30
+}
+
+pointlight arachplasmad16
+{
+  color 0.15 0.25 0
+  size 32
+}
+
+object ROParachplasma
+{
+  frame APLSA { light arachplasma1 }
+  frame APLSB { light arachplasma1 }
+  frame APLSC { light arachplasma1 }
+  frame APLSD { light arachplasma1 }
+  frame APLSE { light arachplasma1 }
+  frame APLSF { light arachplasma1 }
+  frame APLSG { light arachplasma1 }
+  frame APLSH { light arachplasma1 }
+  frame APLSI { light arachplasma1 }
+  frame APLSJ { light arachplasma1 }
+  frame APLSK { light arachplasma1 }
+  frame APLSL { light arachplasma1 }
+  
+  frame ASFXA { light arachplasmad1 }
+  frame ASFXB { light arachplasmad2 }
+  frame ASFXC { light arachplasmad3 }
+  frame ASFXD { light arachplasmad4 }
+  frame ASFXE { light arachplasmad5 }
+  frame ASFXF { light arachplasmad6 }
+  frame ASFXG { light arachplasmad7 }
+  frame ASFXH { light arachplasmad8 }
+  frame ASFXI { light arachplasmad9 }
+  frame ASFXJ { light arachplasmad10 }
+  frame ASFXK { light arachplasmad11 }
+  frame ASFXL { light arachplasmad12 }
+  frame ASFXM { light arachplasmad13 }
+  frame ASFXN { light arachplasmad14 }
+  frame ASFXO { light arachplasmad15 }
+  frame ASFXP { light arachplasmad16 }
+}
+
+object ROParachplasmapossessed
+{
+  frame APLSA { light arachplasma1 }
+  frame APLSB { light arachplasma1 }
+  frame APLSC { light arachplasma1 }
+  frame APLSD { light arachplasma1 }
+  frame APLSE { light arachplasma1 }
+  frame APLSF { light arachplasma1 }
+  frame APLSG { light arachplasma1 }
+  frame APLSH { light arachplasma1 }
+  frame APLSI { light arachplasma1 }
+  frame APLSJ { light arachplasma1 }
+  frame APLSK { light arachplasma1 }
+  frame APLSL { light arachplasma1 }
+  
+  frame ASFXA { light arachplasmad1 }
+  frame ASFXB { light arachplasmad2 }
+  frame ASFXC { light arachplasmad3 }
+  frame ASFXD { light arachplasmad4 }
+  frame ASFXE { light arachplasmad5 }
+  frame ASFXF { light arachplasmad6 }
+  frame ASFXG { light arachplasmad7 }
+  frame ASFXH { light arachplasmad8 }
+  frame ASFXI { light arachplasmad9 }
+  frame ASFXJ { light arachplasmad10 }
+  frame ASFXK { light arachplasmad11 }
+  frame ASFXL { light arachplasmad12 }
+  frame ASFXM { light arachplasmad13 }
+  frame ASFXN { light arachplasmad14 }
+  frame ASFXO { light arachplasmad15 }
+  frame ASFXP { light arachplasmad16 }
+}

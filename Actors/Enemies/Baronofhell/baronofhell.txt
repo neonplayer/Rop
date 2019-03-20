@@ -302,7 +302,6 @@ actor possessedropbaronofhell : PossessedMonster
   PainChance 50
   +FLOORCLIP
   +BOSSDEATH
-  tag "Baron of Hell"
   scale 1.1
   player.viewheight 57
   player.jumpz 5
