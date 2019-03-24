@@ -7,6 +7,7 @@ Please correct me if you know better.
 
 --- effects ---
 
+bullet ricochet sound: croteam (serious sam tfe)
 smoke sprites: bloax, xaser, zerrion the insect (cryo bow)
 explosion particle sprite: 3d Realms (modified)
 explosion ring: id software, monolith games (modified)
@@ -52,7 +53,7 @@ megasphere, invisibility, invulnerability particle: id software (doom)
 
 invulnerability, invisibility, radsuit, allmap pickup sounds: id software (quake)
 
---- enemies ---
+--- enemies (and puppetmasters) ---
 
 zombieman rifle sprites: ID software (doom alpha)
 

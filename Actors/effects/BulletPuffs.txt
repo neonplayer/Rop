@@ -1,6 +1,7 @@
 /*
 
 bullet richochet sprite: id software (doom, modified)
+bullet ricochet sound: croteam (serious sam tfe)
 
 */
 
@@ -29,16 +30,19 @@ actor bulletpuffsfx : fancybulletpuff
   spawn:
     TNT1 A 0
 	TNT1 A 0 a_checksight("fading")
-	TNT1 A 0 a_spawnitemex("BulletPuffSmoke", 0, 0, 0, random(3, -3)*0.5, random(3, -3)*0.5, random(3, 6)*0.5)
+	TNT1 A 0 a_spawnitemex("BulletPuffSmoke", 0, 0, 0, frandom(3, -3)*0.333, frandom(3, -3)*0.333, frandom(3, 6)*0.5)
 	TNT1 A 0 a_jumpif(!callacs("effectchecker"), "fading")
-	TNT1 AAAA 0 a_spawnitemex("BulletPuffSmoke", 0, 0, 0, random(3, -3)*0.5, random(3, -3)*0.5, random(3, 6)*0.5)
+	TNT1 AAAA 0 a_spawnitemex("BulletPuffSmoke", 0, 0, 0, frandom(3, -3)*0.333, frandom(3, -3)*0.333, frandom(3, 6)*0.5)
+	TNT1 A 0 a_jump(26, "ricochet")
+	goto fading
+  ricochet:
+    TNT1 A 0 a_playsound("puff/ricochet")
 	TNT1 AAA 0 a_spawnitemex("BulletPuffRicochet", 0, 0, 0, random(3, -3), random(3, -3), random(3, 6))
   fading:
     TNT1 A 0
 	stop
   }
 }
-
 
 Actor BulletPuffSmoke
 {
@@ -50,7 +54,7 @@ Actor BulletPuffSmoke
   +NoGravity
   +forcexybillboard
   RenderStyle Translucent
-  Scale 0.75
+  Scale 0.6
   Alpha 0.3
   Speed 1
   Translation "168:191=96:111"
@@ -99,6 +103,7 @@ Actor BulletPuffRicochet : BulletPuffSmoke
   RenderStyle Add
   Gravity 0.5
   Alpha 0.75
+  scale 0.75
   States
   {
   Spawn:

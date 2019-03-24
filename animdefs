@@ -1,0 +1,52 @@
+texture fwater1 
+pic 1 tics 1 
+pic 1 tics 1
+
+texture nukage1 
+pic 1 tics 1 
+pic 1 tics 1
+
+texture blood1
+pic 1 tics 1 
+pic 1 tics 1
+
+texture lava1 
+pic 1 tics 1 
+pic 1 tics 1
+
+texture slime01 
+pic 1 tics 1 
+pic 1 tics 1
+
+texture slime05 
+pic 1 tics 1 
+pic 1 tics 1
+
+warp2 flat fwater1
+warp2 flat fwater2
+warp2 flat fwater3
+warp2 flat fwater4
+
+warp flat nukage1
+warp flat nukage2
+warp flat nukage3
+warp flat nukage4
+
+warp2 flat blood1 0.6
+warp2 flat blood2 0.6
+warp2 flat blood3 0.6
+
+warp flat lava1 0.75
+warp flat lava2 0.75
+warp flat lava3 0.75
+warp flat lava4 0.75
+
+warp2 flat slime01 0.75
+warp2 flat slime02 0.75
+warp2 flat slime03 0.75
+warp2 flat slime04 0.75
+
+warp flat slime05 0.666
+warp flat slime06 0.666
+warp flat slime07 0.666
+warp flat slime08 0.666

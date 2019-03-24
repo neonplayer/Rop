@@ -21,3 +21,18 @@
 #include "actors/pickups/health.gl"
 #include "actors/pickups/armor.gl"
 #include "actors/pickups/powerups.gl"
+
+glow
+{
+  flats
+  {
+    nukage1
+	nukage2
+	nukage3
+	nukage4
+	lava1
+	lava2
+	lava3
+	lava4
+  }
+}

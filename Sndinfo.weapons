@@ -1,3 +1,7 @@
+puff/ricochet		RICOCHET
+
+$limit puff/ricochet 2
+
 //Plasma Rifle
 
 plasma/fire1		PLSFIR1
